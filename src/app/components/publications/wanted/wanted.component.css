@@ -5,59 +5,80 @@
     display: flex;
     justify-content: center;
 }
+.buscadas .g-4{
+    margin: 0, 20px;
+}
+.contenedor-articulo{
+    padding: 10px;
+    min-width: 30%;
+}
 .article{
-    display: block;
+    display: inline-block;
     position: relative;
     overflow: hidden;
-    padding: 20px;
     margin-bottom: 20px;
     height: 180px;
+    align-items: center;
+    width: 100%;
+    
 }
 .article img{
     width: 100%;
     height: 100%;
     position: absolute;
-
+    margin: 0 15px;
     z-index: -1;
 }
 .article-marca{
     bottom: 0;
+    z-index: 500;
+    height: 100%;
 }
 .references{
     position: absolute;
+    margin-top: 50px;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    transform: translateY(100%);
+    transform: translateY(10%);
+    background-color: rgba(218, 218, 207, 0.4);
+    height: 250%;
 }
 .buscadas .article div{
     transition: transform 0.5s ease-out;
 }
 .buscadas .article:hover div:first-child{
-    transform: translateY(-100);
+    transform: translateY(-20);
+    color: blanchedalmond;
 }
 .marca{
-    display: inline-block;
-    background-color: rgba(218, 218, 207, 0.4);
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 10px;
     text-align: center;
     position: relative;
-    left: 10%;
-    top: 130px;
+    /*top: 130px;*/
     z-index: 500;
-    width: 90%;
-    /*transform: translateY(100%);*/
+    width: 100%;
+    height: 100%;
+    transform: translateY(300%);
+}
+.marca a{
+    color: blanchedalmond;
+    text-decoration: none;
 }
 .buscadas .article:hover div:last-child{
     transform: none;
 }
-.buscadas[data-animation="to-top"] .article div:last-child{
-    transform: translateY(100%);
-}
-.buscadas[data-animation="to-top"] .article:hover div:first-child{
-    transform: translateY(100%);
-}
+
+/*.buscadas[data-animation="to-top"] .article:hover .article-marca div:first-child{
+    transform: translateY(-100%);
+}*/
+
 

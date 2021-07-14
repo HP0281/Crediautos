@@ -8,6 +8,7 @@ const routes: Routes = [
 { path: 'login', loadChildren: () => import('./pages/login/login/login.module').then(m => m.LoginModule) },
   { path: 'questions', loadChildren: () => import('./pages/questions/questios/questios.module').then(m => m.QuestiosModule) },
   { path: 'publish', loadChildren: () => import('./pages/publish/publish-car/publish-car.module').then(m => m.PublishCarModule) },
+  { path: 'contact', loadChildren: () => import('./pages/contact/contact/contact.module').then(m => m.ContactModule) },
 { path: '**', redirectTo: '/inicio'}];
 
 @NgModule({

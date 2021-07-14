@@ -13,6 +13,7 @@ import { WantedMotosComponent } from './components/publications/wanted-motos/wan
 import { WantedCamionesComponent } from './components/publications/wanted-camiones/wanted-camiones.component';
 
 import { BodyComponent } from './pages/questions/body/body.component';
+import { FeaturednewComponent } from './components/publications/featurednew/featurednew.component';
 
 @NgModule({
   declarations: [

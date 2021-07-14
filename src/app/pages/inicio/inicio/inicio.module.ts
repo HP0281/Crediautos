@@ -11,6 +11,7 @@ import { WantedComponent } from 'src/app/components/publications/wanted/wanted.c
 import { WantedMotosComponent } from 'src/app/components/publications/wanted-motos/wanted-motos.component';
 import { WantedCamionesComponent } from 'src/app/components/publications/wanted-camiones/wanted-camiones.component';
 import { FooterComponent } from 'src/app/components/footer/footer.component';
+import { FeaturednewComponent } from 'src/app/components/publications/featurednew/featurednew.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { FooterComponent } from 'src/app/components/footer/footer.component';
     WantedComponent,
     WantedMotosComponent,
     WantedCamionesComponent,
-    FooterComponent],
+    FooterComponent,
+    FeaturednewComponent],
   imports: [
     CommonModule,
     InicioRoutingModule

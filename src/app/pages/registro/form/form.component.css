@@ -1,0 +1,23 @@
+.formulario{
+    margin-left: auto;
+    margin-right: auto;
+    width: 60%;
+}
+.form{
+    margin-top: 30px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    border: 1px medium slategray;
+    box-shadow: 0 1px 3px rgb(0 0 0 / 20%);
+}
+
+.main{
+    background-color: #f7f7f7;
+}
+.header{
+    padding-top: 40px;
+}
+.form-floating{
+    margin-top: 10px;
+}

@@ -1,32 +1,34 @@
 
-    <div class="footer">
-        <label for="footer1">Mas Informacion</label>
-        <div class="footer1">
+        <div class="label-info">
+            <label for="footer1" (click)="showInfo()">Mas Informacion <i class="bi bi-caret-down" ></i></label>
+        </div>
+    <div class="footer" >
+        <div class="footer1" *ngIf="infr">
            <div class="footer1-content">
-            <footer class="text-center footer-style">
+            <footer class="">
                 <div class="container">
                     <div class="row">
                         <div class="col-md-4 footer-col">
-                            <h5>Ayuda / PQR</h5>
+                            <h6>Ayuda / PQR</h6>
                             <ul>
-                                <li>Modifica tu anuncio</li>
-                                <li>Notifica tu venta</li>
-                                <li>Preguntas frecuentes</li>
-                                <li>Resolucion de problemas</li>
+                                <li><a href="">Modifica tu anuncio</a></li>
+                                <li><a href="">Notifica tu venta</a></li>
+                                <li><a href="">Preguntas frecuentes</a></li>
+                                <li><a href="">Resolucion de problemas</a></li>
                             </ul>
                         </div>
                         <div class="col-md-4 footer-col">
                             <h5>Redes Sociales</h5>
                             <ul>
-                                <li>Facebook</li>
-                                <li>Twitter</li>
+                                <li><a href=""><i class="bi bi-facebook"></i>Facebook</a></li>
+                                <li><a href=""><i class="bi bi-twitter"></i>Twitter</a></li>
                             </ul>
                         </div>
                         <div class="col-md-4 footer-col">
                             <h5>Mi cuenta</h5>
                             <ul>
-                                <li>Ingresa</li>
-                                <li>Publica tu vehiculo</li>
+                                <li><a href="">Ingresa</a></li>
+                                <li><a href="">Publica tu vehiculo</a></li>
                             </ul>
                         </div>
                     </div>
@@ -35,8 +37,8 @@
            </div>
         </div>
         <div class="footer2">
-            <div class="footer2-content">
-                <footer class="text-center footer-style">
+            <div class="container footer2-content">
+                <footer class="footer-style">
                     <small>
                         Copyright © 2012-2021 Boyaca Web  nit -17514545416 -3
                     </small>
