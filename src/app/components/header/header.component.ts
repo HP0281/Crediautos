@@ -14,7 +14,7 @@ export class HeaderComponent implements OnInit {
   }
   goTo(route:string){
     this.router.navigate([route]);
-    this.router.navigateByUrl(route);
+    this.router.navigateByUrl(route); 
   }
 
 }

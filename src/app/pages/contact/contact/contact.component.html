@@ -15,7 +15,7 @@
             <div class="container-fluid justify-content-end">
               <ul class="navbar-nav m-auto mb-2 mb-lg-0 justify-content-end">
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Ayuda / PQR</a>
+                  <a class="nav-link" [routerLink]="['/questios']">Ayuda / PQR</a>
                 </li>
               </ul>
             </div>
@@ -23,7 +23,7 @@
         </div>
       </nav>
     </div>
-    <div class="row">
+    <div class="row header">
       <div class="col-12">
         <h3>Contáctanos</h3>
       </div>
@@ -33,23 +33,23 @@
             <p>Comunícate con nosotros a través de nuestro sitio web, usando las diferentes 
                 planillas que hemos preparado para:</p>
                 <ul>
-                    <li>Publicar tu carro en CrediAutos.com</li>
-                    <li>Modificar los datos de tu aviso.</li>
-                    <li>Renovar tu anuncio en TuCarro.com por otro 60 días adicionales gratis.</li>
-                    <li>Notificar que tu carro ya fue vendido.</li>
-                    <li>Observaciones o sugerencias sobre nuestro servicio.</li>
+                    <li><a href="">Publicar tu carro</a> en CrediAutos.com</li>
+                    <li><a href="">Modificar los datos</a> de tu aviso.</li>
+                    <li><a href="">Renovar tu anuncio</a> en TuCarro.com por otro 60 días adicionales gratis.</li>
+                    <li><a href="">Notificar que tu carro ya fue vendido.</a></li>
+                    <li><a href="">Observaciones</a> o sugerencias sobre nuestro servicio.</li>
                 </ul>
             <p>O revisa la información que hemos dispuesto sobre:</p>
             <ul>
-                <li>Nuestras tarifas y beneficios.</li>
-                <li>Las preguntas frecuentes de nuestros usuarios.</li>
+                <li>Nuestras <a href="">tarifas y beneficios.</a></li>
+                <li>Las <a href="">preguntas frecuentes</a> de nuestros usuarios.</li>
             </ul>
             <h4>Oficina principal en ?</h4>
             <div class="table">
-                <table class="table table-striped table-bordered">
+                <table class="table table-bordered table-hover">
                     <thead>
                         <tr>
-                            <th>
+                            <th colspan="2">
                                 Datos
                             </th>
                         </tr>
@@ -77,8 +77,8 @@
         </div>
     </div>
     <div class="footer">
-      <div class="footer2-content">
-        <footer class="text-center footer-style">
+      <div class="footer-content">
+        <footer class="footer-style">
             <nav>
                 <a href="">Trabaja con nosotros</a>
                 <a href="">Terminos y condiciones</a>

@@ -11,10 +11,10 @@
                         <div class="col-md-4 footer-col">
                             <h6>Ayuda / PQR</h6>
                             <ul>
-                                <li><a href="">Modifica tu anuncio</a></li>
-                                <li><a href="">Notifica tu venta</a></li>
-                                <li><a href="">Preguntas frecuentes</a></li>
-                                <li><a href="">Resolucion de problemas</a></li>
+                                <li><a [routerLink]="['/modificar']">Modifica tu anuncio</a></li>
+                                <li><a [routerLink]="['/notificar']">Notifica tu venta</a></li>
+                                <li><a [routerLink]="['/questions']">Preguntas frecuentes</a></li>
+                                <li><a [routerLink]="['/contact']">Resolucion de problemas</a></li>
                             </ul>
                         </div>
                         <div class="col-md-4 footer-col">
@@ -27,8 +27,8 @@
                         <div class="col-md-4 footer-col">
                             <h5>Mi cuenta</h5>
                             <ul>
-                                <li><a href="">Ingresa</a></li>
-                                <li><a href="">Publica tu vehiculo</a></li>
+                                <li><a [routerLink]="['/login']">Ingresa</a></li>
+                                <li><a [routerLink]="['/publish']">Publica tu vehiculo</a></li>
                             </ul>
                         </div>
                     </div>
@@ -44,9 +44,9 @@
                     </small>
                     <nav>
                         <a href="">Trabaja con nosotros</a>
-                        <a href="">Terminos y condiciones</a>
-                        <a href="">Como cuidamos tu privacidad</a>
-                        <a href="">Ayuda /PQR</a>
+                        <a [routerLink]="['/terminos']">Terminos y condiciones</a>
+                        <a [routerLink]="['/privacidad']">Como cuidamos tu privacidad</a>
+                        <a [routerLink]="['/questions']">Ayuda /PQR</a>
                     </nav>
                     <small>Contáctanos al 018000-00000 o al (1) 738454 desde tu celular.</small>
                 </footer>

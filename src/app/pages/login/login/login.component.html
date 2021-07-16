@@ -3,7 +3,7 @@
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid justify-content-end">
                 <a class="navbar-brand" href="#">
-                    <img src="../../../assets/CrediAutosFaviconPEQUEÑO32x32.svg" alt="" width="30" height="24" class="d-inline-block align-text-top">
+                    <img src="./assets/CrediAutosFaviconPEQUEÑO32x32.svg" alt="" width="30" height="24" class="d-inline-block align-text-top">
                     CrediAutos
                   </a>
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -13,7 +13,7 @@
                   <div class="container-fluid justify-content-end">
                       <ul class="navbar-nav m-auto mb-2 mb-lg-0 justify-content-end">
                         <li class="nav-item">
-                          <a class="nav-link" href="#" ><i class="bi bi-question-circle-fill"></i></a>
+                          <a class="nav-link" [routerLink]="['/questions']" ><i class="bi bi-question-circle-fill"></i></a>
                         </li>
                       </ul>
                   </div>
@@ -45,7 +45,7 @@
         </div>
     </div>
     <div class="footer">
-        <a href="">Como cuidamos tu privacidad</a>
+        <a [routerLink]="['/privacidad']">Como cuidamos tu privacidad</a>
         <small>Copyright © 1999-2021 crediautos Colombia LTDA.</small>
     </div>
 </div>
