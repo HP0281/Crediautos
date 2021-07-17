@@ -15,7 +15,7 @@
           <div class="container-fluid justify-content-end">
             <ul class="navbar-nav m-auto mb-2 mb-lg-0 justify-content-end">
               <li class="nav-item">
-                <a class="nav-link" [routerLink]="['/questios']">Ayuda / PQR</a>
+                <a class="nav-link" [routerLink]="['/questions']">Ayuda / PQR</a>
               </li>
             </ul>
           </div>
@@ -46,7 +46,7 @@
           </div>
           <img class="info-img" src="https://avantek.es/wp-content/uploads/2020/06/127354153_s-853x512.jpg" alt=""
           >
-          <button type="button" class="btn btn-primary">Publico y pago en linea</button>
+          <button type="submit" class="btn btn-primary" (click) = "solicitarLog()">Publico y pago en linea</button>
         </div>
       </div>
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4">
@@ -59,7 +59,7 @@
     </div>
     <div class="row">
       <div class="prom">
-        <p>¿Eres concecionario? <a href="">Inscribite</a> para tener paquetes especiales.</p>
+        <p>¿Eres concecionario? <a [routerLink]="['/registro']">Inscribite</a> para tener paquetes especiales.</p>
       </div>
     </div>
   </div>

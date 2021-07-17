@@ -10,7 +10,7 @@ export class FeaturedComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    
+    this.scrollSlide();
   }
   scrollSlide(){
     const fila = document.querySelector('.contenedor-carrousel');

@@ -15,3 +15,23 @@
 .promotion-text{
     margin: 10px;
 }
+.promotion-img-store{
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+.promotion-img-store img{
+    position: relative;
+    width: 75%;
+    object-fit: contain;
+}
+.promotion-img-store a{
+    display: flex;
+   align-items: center;
+   justify-content: center;
+}

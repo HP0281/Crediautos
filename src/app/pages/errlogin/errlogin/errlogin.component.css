@@ -1,0 +1,63 @@
+html, body{
+    height: 100%;
+    margin: 0;
+}
+.container-fluid{
+    padding: 0;
+    height: 100%;
+}
+.navbar-collapse {
+    flex-grow: unset;
+}
+.header h4{
+    padding: 10px 0;
+}
+.migas{
+    
+}
+.footer{
+    padding: 10px;
+    width: 100%;
+    border-top: 1px solid #999;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background-color: white;
+}
+.footer a{
+    text-decoration: none;
+    color: black;
+    padding: 0 20px;
+    font-size: 13px;
+}
+.footer small{
+    color: #999;
+    font-size: 12px;
+}
+.search{
+    padding: 50px 30px;
+}
+.link{
+    border: 0.5px solid #999;
+    border-radius: 5px;
+    background-color: white;
+    padding: 10px;
+}
+.link a{
+    display: flex;
+    justify-content: space-between;
+    text-decoration: none;
+    color: black;
+}
+.link:hover a{
+    color: #3483fa;
+}
+.link:hover{
+    border-left: 3px ridge #3483fa;
+    
+}
+.first-col{
+    background-color: #ededed;
+    padding: 30px 40px 30px 60px;
+    min-height: 80vh;
+}
