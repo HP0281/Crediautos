@@ -1,0 +1,19 @@
+.item strong{
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.item{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.motos{
+    align-items: center;
+    padding: 20px;
+}
+.item:hover img{
+    transform: scale(110%);
+    transition: 1s ease all;
+}

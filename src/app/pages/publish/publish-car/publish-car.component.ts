@@ -15,4 +15,7 @@ export class PublishCarComponent implements OnInit {
   solicitarLog(){
     this.router.navigate(['/sollog']);
   }
+  contact(){
+    this.router.navigate(['/contact']);
+  }
 }

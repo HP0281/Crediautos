@@ -10,6 +10,6 @@ export class AppComponent {
   title = 'tucarro';
 
   constructor(private router:Router){
-    this.router.navigate(['/inicio']);
+    //this.router.navigate(['/inicio']);
   }
 }

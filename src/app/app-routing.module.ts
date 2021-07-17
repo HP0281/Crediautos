@@ -15,7 +15,9 @@ const routes: Routes = [
   { path: 'privacidad', loadChildren: () => import('./pages/Privacidad/privacidad/privacidad.module').then(m => m.PrivacidadModule) },
   { path: 'errlog', loadChildren: () => import('./pages/errlogin/errlogin/errlogin.module').then(m => m.ErrloginModule) },
   { path: 'sollog', loadChildren: () => import('./pages/sollogin/sollogin/sollogin.module').then(m => m.SolloginModule) },
-{ path: '**', redirectTo: '/inicio'}];
+  { path: 'buscar', loadChildren: () => import('./pages/searchResult/search-result/search-result.module').then(m => m.SearchResultModule) },
+  { path: 'trabajando', loadChildren: () => import('./pages/trabajando/trabajando/trabajando.module').then(m => m.TrabajandoModule) },
+{ path: '**', redirectTo: '/trabajando'}];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
