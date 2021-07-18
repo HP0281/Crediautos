@@ -1,0 +1,14 @@
+.footer{
+    padding: 20px;
+    border-top: 1px solid #999;
+}
+.footer a{
+    text-decoration: none;
+    color: black;
+    padding: 0 20px;
+    font-size: 13px;
+}
+.footer small{
+    color: #999;
+    font-size: 12px;
+}

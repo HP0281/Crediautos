@@ -17,6 +17,8 @@ const routes: Routes = [
   { path: 'sollog', loadChildren: () => import('./pages/sollogin/sollogin/sollogin.module').then(m => m.SolloginModule) },
   { path: 'buscar', loadChildren: () => import('./pages/searchResult/search-result/search-result.module').then(m => m.SearchResultModule) },
   { path: 'trabajando', loadChildren: () => import('./pages/trabajando/trabajando/trabajando.module').then(m => m.TrabajandoModule) },
+  { path: 'loginkey', loadChildren: () => import('./pages/loginkey/loginkey/loginkey.module').then(m => m.LoginkeyModule) },
+  { path: 'valemail', loadChildren: () => import('./pages/valEmail/val-email/val-email.module').then(m => m.ValEmailModule) },
 { path: '**', redirectTo: '/trabajando'}];
 
 @NgModule({

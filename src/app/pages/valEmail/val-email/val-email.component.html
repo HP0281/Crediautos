@@ -22,38 +22,34 @@
           </nav>
     </div>
     <div class="body-form container-fluid">
-        <div class="form row justify-content-md-center">
+        <div class="form row justify-content-center">
            <div class="row">
-            <div class="head col ">
-                <h3>¡Hola! Ingresa tu e‑mail o usuario</h3>
+            <div class="head-img col ">
+                <h3><i class="bi bi-lock"></i></h3>
             </div>
            </div>
            <div class="row">
-            <div class="formulario col">
-                <form>
-                    <div class="mb-3">
-                      <label for="usuario" class="form-label">Email o Usuario</label>
-                      <input type="text" class="form-control" id="usuario" aria-describedby="emailHelp">
-                      <div id="emailHelp" class="form-text">Nunca compartiremos su correo electrónico con nadie más.</div>
-                    </div>
-                </form>
+            <div class="head col ">
+                <h3>Ingresa a tu cuenta con tu Email</h3>
+            </div>
+           </div>
+           <div class="row">
+            <div class="content col ">
+                <p>Recupera tu acceso a tu cuenta a travez de este medio</p>
+            </div>
+           </div>
+           <div class="row">
+            <div class="content-email col ">
+                <p>usuario@algo.com</p>
             </div>
            </div>
             <div class="row">
                 <div class="buttons col">
-                    <button type="submit" class="btn btn-primary" (click)="continuar()">Continuar</button>
-                    <button type="button" class="btn btn-light" (click)="crearCuenta()">Crear Cuenta</button>
+                    <button type="submit" class="btn btn-primary" (click)="valEmail()">Verificar desde Email</button>
+                    <button type="button" class="btn btn-light" (click)="login()">Ingresar con email</button>
                 </div>
             </div>
         </div>
-        <div class="ayuda row justify-content-md-center">
-           <div class="col">
-            <button ><a [routerLink]="['/errlog']"> Necesito ayuda para ingresar</a></button>
-           </div>
-        </div>
-    </div>
-    <div class="footer">
-        <a [routerLink]="['/privacidad']">Como cuidamos tu privacidad</a>
-        <small>Copyright © 1999-2021 crediautos Colombia LTDA.</small>
+        
     </div>
 </div>

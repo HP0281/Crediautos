@@ -25,31 +25,33 @@
         <div class="form row justify-content-md-center">
            <div class="row">
             <div class="head col ">
-                <h3>¡Hola! Ingresa tu e‑mail o usuario</h3>
+                <h3>¡Hola, ! para seguir Ingresa tu clave</h3>
             </div>
+           </div>
+           <div class="row user-row">
+               <div class="user col-9">
+                <i class="bi bi-person"></i>
+                <p>usuario@algo.com</p>
+                <a href=""><i class="bi bi-x"></i></a>
+               </div>
            </div>
            <div class="row">
             <div class="formulario col">
                 <form>
                     <div class="mb-3">
-                      <label for="usuario" class="form-label">Email o Usuario</label>
-                      <input type="text" class="form-control" id="usuario" aria-describedby="emailHelp">
-                      <div id="emailHelp" class="form-text">Nunca compartiremos su correo electrónico con nadie más.</div>
+                      <label for="usuario" class="form-label">Clave</label>
+                      <input type="text" class="form-control" id="clave" aria-describedby="clave">
+                      <div id="claveHelp" class="form-text"></div>
                     </div>
                 </form>
             </div>
            </div>
             <div class="row">
                 <div class="buttons col">
-                    <button type="submit" class="btn btn-primary" (click)="continuar()">Continuar</button>
-                    <button type="button" class="btn btn-light" (click)="crearCuenta()">Crear Cuenta</button>
+                    <button type="submit" class="btn btn-primary">Ingresar</button>
+                    <button type="button" class="btn btn-light" (click)="valEmail()">No se mi clave</button>
                 </div>
             </div>
-        </div>
-        <div class="ayuda row justify-content-md-center">
-           <div class="col">
-            <button ><a [routerLink]="['/errlog']"> Necesito ayuda para ingresar</a></button>
-           </div>
         </div>
     </div>
     <div class="footer">

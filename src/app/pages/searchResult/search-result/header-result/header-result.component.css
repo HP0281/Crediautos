@@ -1,0 +1,6 @@
+.navbar-collapse {
+    flex-grow: unset;
+}
+.input-group{
+    width: 40%;
+}
