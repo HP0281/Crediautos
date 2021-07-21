@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ResumenComponent } from './pages/perfil/perfil/resumen/resumen.component';
 
 const routes: Routes = [
   {path:'', pathMatch: 'full', redirectTo: '/inicio'},
@@ -19,7 +20,8 @@ const routes: Routes = [
   { path: 'trabajando', loadChildren: () => import('./pages/trabajando/trabajando/trabajando.module').then(m => m.TrabajandoModule) },
   { path: 'loginkey', loadChildren: () => import('./pages/loginkey/loginkey/loginkey.module').then(m => m.LoginkeyModule) },
   { path: 'valemail', loadChildren: () => import('./pages/valEmail/val-email/val-email.module').then(m => m.ValEmailModule) },
-{ path: '**', redirectTo: '/trabajando'}];
+  { path: 'perfil', loadChildren: () => import('./pages/perfil/perfil/perfil.module').then(m => m.PerfilModule)},
+ { path: '**', redirectTo: '/trabajando'}];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

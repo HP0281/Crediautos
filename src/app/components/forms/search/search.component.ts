@@ -13,6 +13,6 @@ export class SearchComponent implements OnInit {
   ngOnInit(): void {
   }
   buscar(){
-    this.router.navigate(['/trabajando']);
+    this.router.navigate(['/buscar']);
   }
 }

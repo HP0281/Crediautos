@@ -1,0 +1,43 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-3">
+            <div class="row">
+                <div class="col12">
+                    <i class="bi bi-list"></i>
+                    <h4>Mi cuenta</h4>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <i class="bi bi-shop"></i>
+                    <p> Ventas </p>
+                    <i class="bi bi-caret-down" ></i>
+                </div>
+                <div class="row options-ventas">
+                    <div class="col-12 options">
+                        <a [routerLink]="['perfil/resumen']">Resumen</a>
+                        <a href="">Publicaciones</a>
+                        <a href="">Datos de mis interesados</a>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <i class="bi bi-gear"></i>
+                    <p> Configuracion </p>
+                    <i class="bi bi-caret-down" ></i>
+                </div>
+                <div class="row options-config">
+                    <div class="col-12 options">
+                        <a href="">Mis datos</a>
+                        <a href="">Privacidad</a>
+                        <a href="">Comunicaciones</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col9">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>
