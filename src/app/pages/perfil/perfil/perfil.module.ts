@@ -13,7 +13,6 @@ import { MisdatosComponent } from './misdatos/misdatos.component';
 import { PrivacidadComponent } from './privacidad/privacidad.component';
 import { ComunicacionesComponent } from './comunicaciones/comunicaciones.component';
 
-
 @NgModule({
   declarations: [PerfilComponent, HeaderComponent, BodyComponent, FooterComponent, ResumenComponent, PublicacionesComponent, DatosInteresComponent, MisdatosComponent, PrivacidadComponent, ComunicacionesComponent],
   imports: [

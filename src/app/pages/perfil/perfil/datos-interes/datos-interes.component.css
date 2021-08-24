@@ -1,0 +1,14 @@
+.busqueda{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.opt{
+    min-width: 200px;
+    display: flex;
+    justify-content: flex-end;
+}
+.opt button{
+    font-size: 12px;
+    text-align: initial;
+}

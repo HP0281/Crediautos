@@ -1,0 +1,57 @@
+.title-header{
+    margin-top: 40px;
+}
+.titles{
+    margin-top: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.usuario{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: start;
+}
+.usuario span{
+    width: 350px;
+    min-width: 250px;
+}
+.block-info{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.personales{
+}
+.datos-tarjeta{
+    display: flex;
+    flex-direction: column;
+}
+.tarjeta{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: start;
+    text-align: start;
+}
+.tarjeta span{
+    width: 350px;
+    min-width: 250px;
+}
+.img-tarjeta{
+    height: 70px;
+    width: 100px;
+}
+.info-direccion{
+    display: flex;
+    flex-direction: column;
+    padding: 25px;
+}
+.block-info-direccion{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}

@@ -1,0 +1,35 @@
+.body-resumen{
+    padding: 20px;
+}
+.title-resumen{
+    padding-top: 20px;
+}
+.title{
+    display: flex;
+    flex-direction: row;
+}
+.title p{
+    padding-left: 15px;
+}
+.resumen-info{
+    color: #999;
+}
+.resumen-info li{
+    border-top: 1px dashed #999;
+    display: flex;
+    flex-direction: row;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    
+}
+.resumen-info li p{
+    padding-left: 15px;
+    margin-bottom: 0;
+}
+.resumen-info li .number{
+    background-color: #333;
+    border-radius: 5px;
+}
+.number p{
+    padding-right: 15px;
+}

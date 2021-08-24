@@ -91,8 +91,8 @@
     height: 100%;
 }
 .publicaciones-recomendadas .contenedor-carrousel .carrousel .publicacion{
+    min-width: 18%;
     width: 18%;
-    min-width: 160px;
     transition: .3s ease all;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
     margin-left: 2%;  
@@ -101,8 +101,8 @@
 
     margin-left: 1%;  
 }
-.publicaciones-recomendadas .contenedor-carrousel .carrousel .publicacion.hover{
-    transform: scale(1.2);
+.publicaciones-recomendadas .contenedor-carrousel .carrousel .publicacion:hover{
+    transform: scale(1.1);
     transform-origin: center;
 }
 .publicaciones-recomendadas .contenedor-carrousel .carrousel .publicacion img{
@@ -115,12 +115,71 @@
     font-size: 12px;
 }
 /*media quary */
-@media screen and (max-width: 576px){
+@media screen and (max-width: 1150px){
     
     
-    .publicaciones-recomendadas .contenedor-carrousel .contenedor .publicacion{
+    .publicaciones-recomendadas .contenedor-carrousel .carrousel .publicacion{
+        min-width: 25%;
+        width: 25%;
+        margin-left: 1%;
+    }
+    .publicaciones-recomendadas .contenedor-carrousel .carrousel .publicacion:first-child{
+
+        margin-left: 0;  
+    }
+    .publicaciones-recomendadas .contenedor-carrousel .carrousel{
+    }
+    .publicaciones-recomendadas .indicadores{
+        display: none;
+    }
+}
+@media screen and (max-width: 920px){
+    
+    
+    .publicaciones-recomendadas .contenedor-carrousel .carrousel .publicacion{
+        min-width: 33%;
+        width: 33%;
+        margin-left: 1%;
+    }
+    .publicaciones-recomendadas .contenedor-carrousel .carrousel .publicacion:first-child{
+
+        margin-left: 0;  
+    }
+    .publicaciones-recomendadas .contenedor-carrousel .carrousel{
+    }
+    .publicaciones-recomendadas .indicadores{
+        display: none;
+    }
+}
+@media screen and (max-width: 700px){
+    
+    
+    .publicaciones-recomendadas .contenedor-carrousel .carrousel .publicacion{
+        min-width: 50%;
+        width: 50%;
+        margin-left: 1%;
+    }
+    .publicaciones-recomendadas .contenedor-carrousel .carrousel .publicacion:first-child{
+
+        margin-left: 0;  
+    }
+    .publicaciones-recomendadas .contenedor-carrousel .carrousel{
+    }
+    .publicaciones-recomendadas .indicadores{
+        display: none;
+    }
+}
+@media screen and (max-width: 600px){
+    
+    
+    .publicaciones-recomendadas .contenedor-carrousel .carrousel .publicacion{
+        min-width: 100%;
         width: 100%;
         margin-left: 0;
+    }
+    .publicaciones-recomendadas .contenedor-carrousel .carrousel .publicacion:first-child{
+
+        margin-left: 0;  
     }
     .publicaciones-recomendadas .contenedor-carrousel .carrousel{
     }

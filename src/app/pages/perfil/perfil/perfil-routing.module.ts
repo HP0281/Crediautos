@@ -1,11 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { PrivacidadComponent } from '../../Privacidad/privacidad/privacidad.component';
+import { PrivacidadModule } from '../../Privacidad/privacidad/privacidad.module';
 import { ComunicacionesComponent } from './comunicaciones/comunicaciones.component';
 import { DatosInteresComponent } from './datos-interes/datos-interes.component';
 import { MisdatosComponent } from './misdatos/misdatos.component';
 import { PerfilComponent } from './perfil.component';
 import { PerfilModule } from './perfil.module';
+import { PrivacidadComponent } from './privacidad/privacidad.component';
 import { PublicacionesComponent } from './publicaciones/publicaciones.component';
 import { ResumenComponent } from './resumen/resumen.component';
 
@@ -16,7 +17,8 @@ children:[{path: '', component: ResumenComponent},
 {path: 'datosinteres', component: DatosInteresComponent},
 {path: 'misdatos', component: MisdatosComponent},
 {path: 'privacidad', component: PrivacidadComponent},
-{path: 'comunicaciones', component: ComunicacionesComponent}]}
+{path: 'comunicaciones', component: ComunicacionesComponent},
+{path: 'privacidad/privacidad', component: PrivacidadModule}]}
  ];
 
 @NgModule({

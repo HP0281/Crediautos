@@ -92,7 +92,7 @@
 }
 .publicaciones-recomendadasN .contenedorN-carrousel .carrouselN .publicacionN{
     width: 18%;
-    min-width: 160px;
+    min-width: 18%;
     transition: .3s ease all;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
     margin-left: 2%;  
@@ -101,8 +101,8 @@
 
     margin-left: 1%;  
 }
-.publicaciones-recomendadasN .contenedorN-carrousel .carrouselN .publicacionN.hover{
-    transform: scale(1.2);
+.publicaciones-recomendadasN .contenedorN-carrousel .carrouselN .publicacionN:hover{
+    transform: scale(1.1);
     transform-origin: center;
 }
 .publicaciones-recomendadasN .contenedorN-carrousel .carrouselN .publicacionN img{
@@ -114,17 +114,76 @@
     height: 50px;
     font-size: 12px;
 }
-/*media quary */
-@media screen and (max-width: 576px){
+/*media quary *//*media quary */
+@media screen and (max-width: 1150px){
     
     
-    .publicaciones-recomendadasN .contenedorN-carrousel .contenedorN .publicacionN{
+    .publicaciones-recomendadasN .contenedorN-carrousel .carrouselN .publicacionN{
+        min-width: 25%;
+        width: 25%;
+        margin-left: 1%;
+    }
+    .publicaciones-recomendadasN .contenedorN-carrousel .carrouselN .publicacionN:first-child{
+
+        margin-left: 0;  
+    }
+    .publicaciones-recomendadas .contenedor-carrousel .carrousel{
+    }
+    .publicaciones-recomendadas .indicadores{
+        display: none;
+    }
+}
+@media screen and (max-width: 920px){
+    
+    
+    .publicaciones-recomendadasN .contenedorN-carrousel .carrouselN .publicacionN{
+        min-width: 33%;
+        width: 33%;
+        margin-left: 1%;
+    }
+    .publicaciones-recomendadasN .contenedorN-carrousel .carrouselN .publicacionN:first-child{
+
+        margin-left: 0;  
+    }
+    .publicaciones-recomendadas .contenedor-carrousel .carrousel{
+    }
+    .publicaciones-recomendadas .indicadores{
+        display: none;
+    }
+}
+@media screen and (max-width: 700px){
+    
+    
+    .publicaciones-recomendadasN .contenedorN-carrousel .carrouselN .publicacionN{
+        min-width: 50%;
+        width: 50%;
+        margin-left: 1%;
+    }
+    .publicaciones-recomendadasN .contenedorN-carrousel .carrouselN .publicacionN:first-child{
+
+        margin-left: 0;  
+    }
+    .publicaciones-recomendadas .contenedor-carrousel .carrousel{
+    }
+    .publicaciones-recomendadas .indicadores{
+        display: none;
+    }
+}
+@media screen and (max-width: 600px){
+    
+    
+    .publicaciones-recomendadasN .contenedorN-carrousel .carrouselN .publicacionN{
+        min-width: 100%;
         width: 100%;
         margin-left: 0;
     }
-    .publicaciones-recomendadasN .contenedorN-carrousel .carrouselN{
+    .publicaciones-recomendadasN .contenedorN-carrousel .carrouselN .publicacionN:first-child{
+
+        margin-left: 0;  
     }
-    .publicaciones-recomendadasN .indicadores{
+    .publicaciones-recomendadas .contenedor-carrousel .carrousel{
+    }
+    .publicaciones-recomendadas .indicadores{
         display: none;
     }
 }

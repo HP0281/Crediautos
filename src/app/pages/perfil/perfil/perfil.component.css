@@ -1,3 +1,6 @@
+.first-col{
+    min-height: 70vh;
+}
 .cuenta{
     display: flex;
     flex-direction: row;
