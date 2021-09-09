@@ -1,0 +1,41 @@
+.card-info{
+    border-radius: 3px;
+    width: 324px;
+    background-color: rgba(0,0,0,.5);
+    opacity: 0.8;
+    color: white;
+    padding: 25px;
+    max-height: 286px;
+    margin: 30px 50px;
+}
+.head{
+    display: flex;
+    flex-direction: row;
+}
+.head-imagen{
+    width: 80px;
+    height: 80px;
+    background-color: white;
+}
+.head-info{
+    margin-left: 10px;
+    font-size: 14px;
+}
+.head-info p{
+    margin: 0;
+}
+.head-info h5{
+    font-size: 18px;
+}
+.body{
+    margin-top: 15px;
+}
+.columnas{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.columnas p{
+    font-size: 13px;
+    margin-bottom: 5px;
+}

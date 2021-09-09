@@ -21,6 +21,7 @@ const routes: Routes = [
   { path: 'loginkey', loadChildren: () => import('./pages/loginkey/loginkey/loginkey.module').then(m => m.LoginkeyModule) },
   { path: 'valemail', loadChildren: () => import('./pages/valEmail/val-email/val-email.module').then(m => m.ValEmailModule) },
   { path: 'perfil', loadChildren: () => import('./pages/perfil/perfil/perfil.module').then(m => m.PerfilModule)},
+  { path: 'cardpublicidad', loadChildren: () => import('./components/card-publicidad/card-publicidad.module').then(m => m.CardPublicidadModule) },
  { path: '**', redirectTo: '/trabajando'}];
 
 @NgModule({

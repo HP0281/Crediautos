@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "crediautos-53fae": {
+      "hosting": {
+        "tucarro": [
+          "crediautos-53fae"
+        ]
+      }
+    }
+  }
+}
