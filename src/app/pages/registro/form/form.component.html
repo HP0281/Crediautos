@@ -4,32 +4,32 @@
             <h3>Completa tus datos</h3>
         </div>
         <div class="form">
-            <form class="form-floating">
+            <form class="form-floating" [formGroup]="registroForm">
                <div class="row g-4 form-floating">
                 <div class="form-floating col-xs-12 col-sm-12 col-md-6">
-                    <input type="nombre" class="form-control" id="nombre" >
+                    <input type="nombre" class="form-control" id="nombre" formControlName="nombre">
                     <label for="nombre">Nombre</label>
                 </div>
                 <div class="form-floating col-xs-12 col-sm-12 col-md-6">
-                    <input class="form-control" id="apellidos">
+                    <input class="form-control" id="apellidos" formControlName="apname">
                     <label for="apellidos" >Apellidos</label>
                 </div>
                 <div class="form-floating col-xs-12 col-sm-12 col-md-6">
-                    <input class="form-control" id="telefono">
+                    <input class="form-control" id="telefono" formControlName="phone">
                     <label for="telefono" >Telefono</label>
                 </div>
                </div>
                <div class="row g-4 form-floating">
                 <div class="form-floating col-xs-12 col-sm-12 col-md-6">
-                    <input type="email" class="form-control" id="email" >
+                    <input type="email" class="form-control" id="email" formControlName="email">
                     <label for="email">Email</label>
                 </div>
                 <div class="form-floating col-xs-12 col-sm-12 col-md-6">
-                    <input type="password" class="form-control" id="clave">
+                    <input type="password" class="form-control" id="clave" formControlName="clave">
                     <label for="clave" >Clave</label>
                 </div>
                 <div class="form-check col-12">
-                    <input class="form-check-input" type="checkbox" value="" id="terminos" checked>
+                    <input class="form-check-input" type="checkbox" value="" id="terminos" checked formControlName="terminos">
                     <label class="form-check-label" for="terminos">
                         Acepto los <a [routerLink]="['/terminos']">Términos y Condiciones</a> y autorizo el uso de mis datos de acuerdo a la Declaración de Privacidad.
                     </label>
@@ -37,6 +37,6 @@
                </div>
               </form>
         </div>
-        <button type="button" class="btn btn-outline-secondary">Continuar</button>
+        <button type="button" class="btn btn-outline-secondary" [disabled]="!registroForm.valid" (click)="onRegistrar(registroForm.get('email').value, registroForm.get('clave').value )">Continuar</button>
     </div>
 </div>

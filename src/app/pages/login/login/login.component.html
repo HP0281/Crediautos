@@ -30,10 +30,10 @@
            </div>
            <div class="row">
             <div class="formulario col">
-                <form>
+                <form [formGroup]="correoForm">
                     <div class="mb-3">
                       <label for="usuario" class="form-label">Email o Usuario</label>
-                      <input type="text" class="form-control" id="usuario" aria-describedby="emailHelp">
+                      <input type="text" class="form-control" id="usuario" aria-describedby="emailHelp" formControlName="emailuser">
                       <div id="emailHelp" class="form-text">Nunca compartiremos su correo electrónico con nadie más.</div>
                     </div>
                 </form>
@@ -41,7 +41,7 @@
            </div>
             <div class="row">
                 <div class="buttons col">
-                    <button type="submit" class="btn btn-primary" (click)="continuar()">Continuar</button>
+                    <button type="submit" class="btn btn-primary" (click)="continuar()" [disabled]="!correoForm.valid">Continuar</button>
                     <button type="button" class="btn btn-light" (click)="crearCuenta()">Crear Cuenta</button>
                 </div>
             </div>
