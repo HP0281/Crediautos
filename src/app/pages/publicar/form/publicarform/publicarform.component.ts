@@ -187,4 +187,7 @@ export class PublicarformComponent implements OnInit {
     }
 
   }
+  onLogout(){
+    this.auth.logOut();
+  }
 }

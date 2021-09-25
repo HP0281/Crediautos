@@ -16,11 +16,10 @@ export class PublishCarComponent implements OnInit {
   }
   solicitarLog(){
     const user = this.auth.userinfo;
-    if (user.uid) {
+    if (user) {
       this.router.navigate(['/publicarForm']);
     }else{
       this.router.navigate(['/sollog']);
-
     }
   }
   contact(){

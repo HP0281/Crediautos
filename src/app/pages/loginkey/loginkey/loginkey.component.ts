@@ -32,10 +32,20 @@ export class LoginkeyComponent implements OnInit {
   ingresar(){
     console.log('ingresando'+this.claveForm.get('clave').value);
     this.auth.login(this.correo, this.claveForm.get('clave').value);
+    this.router.navigate(['/inicio']);
+    //this.validaringreso();
   }
   initForm(){
     this.claveForm = this.fb.group({
       clave: new FormControl('', [Validators.required])
     })
+  }
+  validaringreso(){
+    const user = this.auth.userinfo;
+    if (user) {
+      this.router.navigate(['/inicio']);
+    }else{
+      this.router.navigate(['/sollog']);
+    }
   }
 }
