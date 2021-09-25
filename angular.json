@@ -6,7 +6,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "tucarro": {
+    "crediautos": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -16,7 +16,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/tucarro",
+            "outputPath": "dist/crediautos",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -69,18 +69,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "tucarro:build"
+            "browserTarget": "crediautos:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "tucarro:build:production"
+              "browserTarget": "crediautos:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "tucarro:build"
+            "browserTarget": "crediautos:build"
           }
         },
         "test": {
@@ -117,11 +117,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "tucarro:serve"
+            "devServerTarget": "crediautos:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "tucarro:serve:production"
+              "devServerTarget": "crediautos:serve:production"
             }
           }
         },
@@ -132,5 +132,5 @@
       }
     }
   },
-  "defaultProject": "tucarro"
+  "defaultProject": "crediautos"
 }
