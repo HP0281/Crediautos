@@ -24,7 +24,7 @@
     align-items: end;
 }
 .contenedor-titulo-controles h3{
-    color: black;
+    
     font-size: 30px;
 }
 .contenedor-titulo-controles .indicadores button{
@@ -68,7 +68,7 @@
 }
 .publicaciones-recomendadas .contenedor-principal .flecha-izquierda:hover,
 .publicaciones-recomendadas .contenedor-principal .flecha-derecha:hover{
-    background-color: black;
+    background-color: #fff;
     opacity: 0.9;
 }
 .publicaciones-recomendadas .contenedor-principal .flecha-izquierda{
@@ -93,7 +93,7 @@
 .publicaciones-recomendadas .contenedor-carrousel .carrousel .publicacion{
     min-width: 18%;
     width: 18%;
-    transition: .3s ease all;
+    transition: .4s ease all;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
     margin-left: 2%;  
 }

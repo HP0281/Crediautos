@@ -1,5 +1,6 @@
 .titulo{
     text-align: center;
+    color: #fff
 }
 .buscadas{
     display: flex;
@@ -26,7 +27,8 @@
     height: 100%;
     position: absolute;
     margin: 0 15px;
-    z-index: -1;
+    z-index: 0;
+    color: #fff
 }
 .article-marca{
     bottom: 0;
@@ -69,7 +71,7 @@
     display: flex;
     flex-direction: column;
     border-radius: 10px;
-    text-align: center;
+    text-align: center; 
     position: relative;
     /*top: 130px;*/
     z-index: 500;
