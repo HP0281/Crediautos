@@ -14,7 +14,7 @@ export class UserService {
   private usercollection: AngularFirestoreCollection<User>;
 
   constructor(private readonly afs: AngularFirestore) {
-    this.usercollection = afs.collection<User>('vehicles');
+    this.usercollection = afs.collection<User>('users');
     
    }
 

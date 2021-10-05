@@ -34,85 +34,96 @@
 
                 </div>
             </div>
-            <div class="form1">
+            <div class="form1" >
                 <h5>Indica marca y modelo</h5>
                 <form [formGroup]="vehicleForm">
                     <input type="text" class="form-control" placeholder="ejemplo: Renault Symbol" formControlName="marcamodelo">
                 </form>
-                <button type="button" class="btn btn-outline-primary" [disabled]="!vehicleForm.valid" (click)="onContinue()">Continuar</button>
+                <button type="button" class="btn btn-outline-primary" [disabled]="!vehicleForm.valid" (click)="onContinue('titulo')" *ngIf="paso=== 0">Continuar</button>
             </div>
-            <div class="form2">
+            <div class="form2" *ngIf="progreso > 0">
                 <h4>¿A qué categoría pertenece tu vehiculo?</h4>
-                <div class="list-group">
-                    <button type="button" class="list-group-item list-group-item-action">Camiones</button>
-                    <button type="button" class="list-group-item list-group-item-action">Carros de coleccion</button>
-                    <button type="button" class="list-group-item list-group-item-action">Carros y Camionetas</button>
-                    <button type="button" class="list-group-item list-group-item-action">Maquinaria Pesada</button>
-                    <button type="button" class="list-group-item list-group-item-action">Motos</button>
-                    <button type="button" class="list-group-item list-group-item-action">Otros</button>
+                <div class="bread">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                          <li class="breadcrumb-item"><a href="#">{{ category }}</a></li>
+                          <li class="breadcrumb-item" *ngIf="marca != null"><a href="#">{{ marca }}</a></li>
+                          <li class="breadcrumb-item" *ngIf="modelo != null"><a href="">{{ modelo }}</a></li>
+                          <li class="breadcrumb-item" *ngIf="year != null"><a href="">{{ year }}</a></li>
+                          <li class="breadcrumb-item" *ngIf="version != null"><a href="">{{ version }}</a></li>
+                        </ol>
+                      </nav>
+                </div>
+                <div class="list-group" *ngIf="paso === 1">
+                    <button type="button" class="list-group-item list-group-item-action" (click)="onCategory('Camiones')">Camiones</button>
+                    <button type="button" class="list-group-item list-group-item-action" (click)="onCategory('carros de coleccion')">Carros de coleccion</button>
+                    <button type="button" class="list-group-item list-group-item-action" (click)="onCategory('carros y camionetas')">Carros y Camionetas</button>
+                    <button type="button" class="list-group-item list-group-item-action" (click)="onCategory('maquinaria pesada')">Maquinaria Pesada</button>
+                    <button type="button" class="list-group-item list-group-item-action" (click)="onCategory('motos')">Motos</button>
+                    <button type="button" class="list-group-item list-group-item-action" (click)="onCategory('otros')">Otros</button>
                 </div>
             </div>
-            <div class="marca">
+            <div class="marca" *ngIf="progreso === 2">
                 <h4>¿Cual es la marca?</h4>
                 <input type="text" class="form-control" placeholder="Buscar marca">
                 <div class="contenido-scroleable">
                     <span>MAS USADOS</span>
                     <div class="list-group">
-                        <button type="button" class="list-group-item list-group-item-action">Renault</button>
-                        <button type="button" class="list-group-item list-group-item-action">Chevrolet</button>
-                        <button type="button" class="list-group-item list-group-item-action">Mazda</button>
-                        <button type="button" class="list-group-item list-group-item-action">Wolswagen</button>
-                        <button type="button" class="list-group-item list-group-item-action">Toyota</button>
-                        <button type="button" class="list-group-item list-group-item-action">Hiunday</button>
+                        <button type="button" class="list-group-item list-group-item-action" (click)="onMarca('reanult')">Renault</button>
+                        <button type="button" class="list-group-item list-group-item-action" (click)="onMarca('Chevreolet')">Chevrolet</button>
+                        <button type="button" class="list-group-item list-group-item-action" (click)="onMarca('mazda')">Mazda</button>
+                        <button type="button" class="list-group-item list-group-item-action" (click)="onMarca('Wolswagen')">Wolswagen</button>
+                        <button type="button" class="list-group-item list-group-item-action" (click)="onMarca('Toyota')">Toyota</button>
+                        <button type="button" class="list-group-item list-group-item-action" (click)="onMarca('hiunday')">Hiunday</button>
                     </div>
                 </div>
             </div>
-            <div class="modelo">
-                <h4>¿Cual es el modelo de tu Renault?</h4>
+            <div class="modelo" *ngIf="progreso === 3">
+                <h4>¿Cual es el modelo de tu {{ marca }}?</h4>
                 <input type="text" class="form-control" placeholder="Buscar modelo">
                 <div class="contenido-scroleable">
                     <span>MAS USADOS</span>
                     <div class="list-group">
-                        <button type="button" class="list-group-item list-group-item-action">21</button>
-                        <button type="button" class="list-group-item list-group-item-action">Logan</button>
-                        <button type="button" class="list-group-item list-group-item-action">R9</button>
-                        <button type="button" class="list-group-item list-group-item-action">Symbol</button>
-                        <button type="button" class="list-group-item list-group-item-action">Sandero</button>
-                        <button type="button" class="list-group-item list-group-item-action">Hiunday</button>
+                        <button type="button" class="list-group-item list-group-item-action" (click)="onModelo('21')">21</button>
+                        <button type="button" class="list-group-item list-group-item-action" (click)="onModelo('Logan')">Logan</button>
+                        <button type="button" class="list-group-item list-group-item-action" (click)="onModelo('R9')">R9</button>
+                        <button type="button" class="list-group-item list-group-item-action" (click)="onModelo('Symbol')">Symbol</button>
+                        <button type="button" class="list-group-item list-group-item-action" (click)="onModelo('Sandero')">Sandero</button>
+                        <button type="button" class="list-group-item list-group-item-action" (click)="onModelo('Hiunday')">Hiunday</button>
                     </div>
                 </div>
             </div>
-            <div class="año">
-                <h4>¿De que año es tu ?</h4>
+            <div class="año" *ngIf="progreso === 4">
+                <h4>¿De que año es tu {{ marca }}?</h4>
                 <input type="text" class="form-control" placeholder="Buscar año">
                 <div class="contenido-scroleable">
                     <div class="list-group">
-                        <button type="button" class="list-group-item list-group-item-action">21</button>
-                        <button type="button" class="list-group-item list-group-item-action">Logan</button>
-                        <button type="button" class="list-group-item list-group-item-action">R9</button>
-                        <button type="button" class="list-group-item list-group-item-action">Symbol</button>
-                        <button type="button" class="list-group-item list-group-item-action">Sandero</button>
-                        <button type="button" class="list-group-item list-group-item-action">Hiunday</button>
+                        <button type="button" class="list-group-item list-group-item-action" (click)="onYear('2001')">2001</button>
+                        <button type="button" class="list-group-item list-group-item-action" (click)="onYear('2002')">2002</button>
+                        <button type="button" class="list-group-item list-group-item-action" (click)="onYear('2003')">2003</button>
+                        <button type="button" class="list-group-item list-group-item-action" (click)="onYear('2004')">2004</button>
+                        <button type="button" class="list-group-item list-group-item-action" (click)="onYear('2005')">2005</button>
+                        <button type="button" class="list-group-item list-group-item-action" (click)="onYear('2006')">2006</button>
                     </div>
                 </div>
             </div>
-            <div class="version">
-                <h4>¿Cual es la versíon de tu ?</h4>
+            <div class="version" *ngIf="progreso === 5">
+                <h4>¿Cual es la versíon de tu {{ marca }}?</h4>
                 <div class="list-group">
-                    <button type="button" class="list-group-item list-group-item-action">1.4 Authentique</button>
-                    <button type="button" class="list-group-item list-group-item-action">1.4 Expression</button>
-                    <button type="button" class="list-group-item list-group-item-action">1.4 Rna</button>
-                    <button type="button" class="list-group-item list-group-item-action">1.4 Rte</button>
-                    <button type="button" class="list-group-item list-group-item-action">otros</button>
+                    <button type="button" class="list-group-item list-group-item-action" (click)="onVersion('1.4 Authentique')">1.4 Authentique</button>
+                    <button type="button" class="list-group-item list-group-item-action" (click)="onVersion('1.4 Expression')">1.4 Expression</button>
+                    <button type="button" class="list-group-item list-group-item-action" (click)="onVersion('1.4 Rna')">1.4 Rna</button>
+                    <button type="button" class="list-group-item list-group-item-action" (click)="onVersion('1.4 Rte')">1.4 Rte</button>
+                    <button type="button" class="list-group-item list-group-item-action" (click)="onVersion('otros')">otros</button>
                 </div>
-                <button type="button" class="btn btn-outline-primary" [disabled]="!vehicleForm.valid" (click)="onContinue()">Continuar</button>
+                <button type="button" class="btn btn-outline-primary" [disabled]="version === null" (click)="onContinue('version')" *ngIf="paso ===5">Continuar</button>
             </div>
             <div class="kilometraje">
                 <h5>¿Cuantos Kilometros tiene?</h5>
                 <form [formGroup]="kilometrajeForm">
                     <input type="text" class="form-control" placeholder="ejemplo: 50.000" formControlName="kilometraje">
                 </form>
-                <button type="button" class="btn btn-outline-primary" [disabled]="!kilometrajeForm.valid" (click)="onContinue()">Continuar</button>
+                <button type="button" class="btn btn-outline-primary" [disabled]="!kilometrajeForm.valid" (click)="onContinue('kilometraje')">Continuar</button>
             </div>
             <div class="color">
                 <h5>¿De que color es tu vehiculo?</h5>
@@ -124,7 +135,7 @@
                         <option value="Negro">Negro</option>
                     </select>
                 </form>
-                <button type="button" class="btn btn-outline-primary" [disabled]="!colorForm.valid" (click)="onContinue()">Continuar</button>
+                <button type="button" class="btn btn-outline-primary" [disabled]="!colorForm.valid" (click)="onContinue('color')">Continuar</button>
             </div>
             <div class="formprincipal">
                 <div class="head-principal">

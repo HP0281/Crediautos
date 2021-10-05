@@ -11,6 +11,14 @@ import { VehiclesService } from 'src/app/services/vehicles.service';
   styleUrls: ['./publicarform.component.css']
 })
 export class PublicarformComponent implements OnInit {
+  
+  paso:number;
+  progreso:number;
+  category:string;
+  marca: string;
+  modelo:string;
+  year:string;
+  version: string;
 
   vehicleForm: FormGroup; 
   kilometrajeForm: FormGroup; 
@@ -24,6 +32,8 @@ export class PublicarformComponent implements OnInit {
     this.vehicle = navigation.extras?.state?.value;
     this.initForm();
     console.log(auth.userinfo);
+    this.paso = 0;
+    this.progreso=0;
   }
 
   ngOnInit(): void {
@@ -33,7 +43,69 @@ export class PublicarformComponent implements OnInit {
       this.formPrincipal.patchValue(this.vehicle);
     }
   }
-  onContinue(){
+  onContinue(paso:string){
+    switch (paso) {
+      case 'titulo':
+        if (this.vehicleForm.valid) {
+          this.paso ++;
+          this.progreso++;
+        }
+        break;
+      case 'category':
+        if (this.category) {
+          this.paso++;
+          this.progreso++;
+        }
+        break;
+      case 'marca':
+        if(this.marca){
+          this.paso++;
+          this.progreso++;
+        }
+        break;
+      case 'modelo':
+        if(this.modelo){
+          this.paso++;
+          this.progreso++;
+        }
+        break;
+      case 'año':
+        if (this.year) {
+          this.paso++;
+          this.progreso++;
+        }
+        break;
+      case 'version':
+        if(this.version){
+          this.paso++;
+          this.progreso++;
+        }
+      default:
+        break;
+    }
+  }
+  onCategory(category:string){
+    this.category = category;
+    this.onContinue('category');
+  }
+
+  onMarca(marca: string){
+    this.marca = marca;
+    this.onContinue('marca');
+  }
+
+  onModelo(modelo: string){
+    this.modelo = modelo;
+    this.onContinue('modelo');
+  }
+
+  onYear(year:string){
+    this.year = year;
+    this.onContinue('año');
+  }
+
+  onVersion(version: string){
+    this.version = version;
 
   }
   initForm(){

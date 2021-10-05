@@ -14,7 +14,11 @@ export class AuthService {
       console.log(user);
     })
   }
+  getUser(){
 
+      return this.auth.authState;
+   
+  }
   login(user: string, pass: string){
     return this.auth.auth.signInWithEmailAndPassword(user, pass);
   }
@@ -43,5 +47,8 @@ export class AuthService {
     return this.auth.auth.signInWithPhoneNumber(numero, appVerified).then(confimation =>{
 
     });
+  }
+  authFacebook(){
+    this.auth.auth.signInWithPopup(new firebase.auth.FacebookAuthProvider());
   }
 }

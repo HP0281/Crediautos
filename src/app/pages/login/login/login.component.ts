@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { NavigationExtras, Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -15,7 +16,7 @@ export class LoginComponent implements OnInit {
     }
   };
 
-  constructor(private router: Router, private fb: FormBuilder) {
+  constructor(private router: Router, private fb: FormBuilder, private auth: AuthService, ) {
     this.initForm();
    }
 
@@ -33,5 +34,11 @@ export class LoginComponent implements OnInit {
     this.correoForm = this.fb.group({
       emailuser: new FormControl('', [Validators.required, Validators.pattern(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/)])
     })
+  }
+  googleAuth(){
+    this.auth.googleAuth();
+  }
+  authFacebook(){
+    this.auth.authFacebook();
   }
 }
