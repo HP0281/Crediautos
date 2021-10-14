@@ -40,6 +40,7 @@ export class MarcasService {
   })
  }
  private getMarcas():void{
+   console.log('get marcas')
    this.marcas = this.marcaCollection.snapshotChanges().pipe(
       map(actions => actions.map(a => a.payload.doc.data() as Marca))
    );
