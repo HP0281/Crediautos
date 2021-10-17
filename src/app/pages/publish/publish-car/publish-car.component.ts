@@ -8,9 +8,11 @@ import { AuthService } from 'src/app/services/auth/auth.service';
   styleUrls: ['./publish-car.component.css']
 })
 export class PublishCarComponent implements OnInit {
-
+  headers:string[];
   constructor(private router: Router,
-    private auth: AuthService) { }
+    private auth: AuthService) {
+      this.headers=['pqr'];
+     }
 
   ngOnInit(): void {
   }

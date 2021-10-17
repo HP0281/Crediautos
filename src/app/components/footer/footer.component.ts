@@ -14,6 +14,7 @@ infr:boolean;
   ngOnInit(): void {
   }
   showInfo(){
+    console.log(this.infr);
     this.infr = !this.infr;
   }
 }

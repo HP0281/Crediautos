@@ -27,13 +27,16 @@ export class PublicarformComponent implements OnInit {
 
   vehicle: Vehicle;
 
+  headers: string[];
+
   constructor(private fb: FormBuilder, public vehicleService: VehiclesService, private router: Router, private auth: AuthService ) { 
     const navigation = router.getCurrentNavigation();
     this.vehicle = navigation.extras?.state?.value;
     this.initForm();
     console.log(auth.userinfo);
-    this.paso = 0;
+    this.paso = 1;
     this.progreso=0;
+    this.headers=['pqr'];
   }
 
   ngOnInit(): void {
@@ -47,38 +50,43 @@ export class PublicarformComponent implements OnInit {
     switch (paso) {
       case 'titulo':
         if (this.vehicleForm.valid) {
-          this.paso ++;
           this.progreso++;
         }
         break;
       case 'category':
         if (this.category) {
-          this.paso++;
           this.progreso++;
         }
         break;
       case 'marca':
         if(this.marca){
-          this.paso++;
           this.progreso++;
         }
         break;
       case 'modelo':
         if(this.modelo){
-          this.paso++;
           this.progreso++;
         }
         break;
       case 'año':
         if (this.year) {
-          this.paso++;
           this.progreso++;
         }
         break;
       case 'version':
         if(this.version){
-          this.paso++;
           this.progreso++;
+        }
+        break;
+      case 'kilometraje':
+        if (this.kilometrajeForm.get('kilometraje').value) {
+          this.progreso++;
+        }
+        break;
+      case 'color':
+        if (this.colorForm.get('color').value) {
+          this.progreso++;
+          this.paso++;
         }
       default:
         break;

@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { PublicarformRoutingModule } from './publicarform-routing.module';
 import { PublicarformComponent } from './publicarform.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HeaderModule } from 'src/app/components/header/header.module';
 
 
 @NgModule({
@@ -11,7 +12,8 @@ import { ReactiveFormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     PublicarformRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HeaderModule
   ]
 })
 export class PublicarformModule { }

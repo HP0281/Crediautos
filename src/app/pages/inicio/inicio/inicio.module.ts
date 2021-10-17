@@ -12,11 +12,12 @@ import { WantedMotosComponent } from 'src/app/components/publications/wanted-mot
 import { WantedCamionesComponent } from 'src/app/components/publications/wanted-camiones/wanted-camiones.component';
 import { FooterComponent } from 'src/app/components/footer/footer.component';
 import { FeaturednewComponent } from 'src/app/components/publications/featurednew/featurednew.component';
+import { HeaderModule } from 'src/app/components/header/header.module';
 
 
 @NgModule({
   declarations: [InicioComponent,
-    HeaderComponent,
+    
     SearchComponent,
     FeaturedComponent,
     StorsComponent,
@@ -27,7 +28,8 @@ import { FeaturednewComponent } from 'src/app/components/publications/featuredne
     FeaturednewComponent],
   imports: [
     CommonModule,
-    InicioRoutingModule
+    InicioRoutingModule,
+    HeaderModule,
   ]
 })
 export class InicioModule { }
