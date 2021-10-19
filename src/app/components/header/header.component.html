@@ -11,26 +11,41 @@
     </button>
     <div class="collapse navbar-collapse navheader" id="navbarSupportedContent">
       <ul class="navbar-nav m-auto mb-2 mb-lg-0 ">
-        <li class="nav-item" *ngIf="!isloggin">
+        <li class="nav-item" *ngIf="!isloggin && crear">
           <a class="nav-link active" aria-current="page" [routerLink]="['/registro']">Crea tu cuenta</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/login']" *ngIf="!isloggin">Ingresa</a>
+          <a class="nav-link" [routerLink]="['/login']" *ngIf="!isloggin && ingresar">Ingresa</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/perfil']" *ngIf="isloggin">{{ user?.displayName }}</a>
+        <li class="nav-item" *ngIf="isloggin && perfil">
+          <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
+            <ul class="navbar-nav">
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">{{ user?.displayName }}</a>
+                <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+                  <li><a class="dropdown-item" [routerLink]="['/perfil']">Perfil</a></li>
+                  <li><a class="dropdown-item" (click)="onLogout()">Cerrar sesion</a></li>
+                  <li><a class="dropdown-item" href="#">Something else here</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
         </li>
-        <!--<li class="nav-item">
+        <!-- <li class="nav-item">
+
           <button (click)="abrirmodal(ejemploModal)">ejemplo</button>
-        </li>-->
-        <li class="nav-item">
+        </li> -->
+        <li class="nav-item" *ngIf="ayuda">
           <a class="nav-link" [routerLink]="['/questions']"><i class="bi bi-question-circle-fill"></i></a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" *ngIf="publica">
           <a class="nav-link" [routerLink]="['/publish']">Publica tu vehiculo</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" *ngIf="contacto">
           <a class="nav-link" [routerLink]="['/contact']"><i class="bi bi-telephone-fill"></i></a>
+        </li>
+        <li class="nav-item" *ngIf="pqr">
+          <a class="nav-link" [routerLink]="['/questions']">Ayuda / PQR</a>
         </li>
       </ul>
     </div>

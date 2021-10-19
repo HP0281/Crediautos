@@ -13,7 +13,7 @@ export class RegistroComponent implements OnInit {
 
   ngOnInit(): void {
     this.auth.getUser().subscribe(user =>{
-      if (!user) {
+      if (user) {
         this.router.navigate(['/inicio']);
       }
     })

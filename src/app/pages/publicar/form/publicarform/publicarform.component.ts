@@ -27,13 +27,16 @@ export class PublicarformComponent implements OnInit {
 
   vehicle: Vehicle;
 
+  headers: string[];
+
   constructor(private fb: FormBuilder, public vehicleService: VehiclesService, private router: Router, private auth: AuthService ) { 
     const navigation = router.getCurrentNavigation();
     this.vehicle = navigation.extras?.state?.value;
     this.initForm();
     console.log(auth.userinfo);
-    this.paso = 0;
+    this.paso = 1;
     this.progreso=0;
+    this.headers=['pqr'];
   }
 
   ngOnInit(): void {
@@ -47,38 +50,44 @@ export class PublicarformComponent implements OnInit {
     switch (paso) {
       case 'titulo':
         if (this.vehicleForm.valid) {
-          this.paso ++;
           this.progreso++;
         }
         break;
       case 'category':
         if (this.category) {
-          this.paso++;
           this.progreso++;
         }
         break;
       case 'marca':
         if(this.marca){
-          this.paso++;
           this.progreso++;
         }
         break;
       case 'modelo':
         if(this.modelo){
-          this.paso++;
           this.progreso++;
         }
         break;
       case 'año':
         if (this.year) {
-          this.paso++;
           this.progreso++;
         }
         break;
       case 'version':
         if(this.version){
-          this.paso++;
           this.progreso++;
+        }
+        break;
+      case 'kilometraje':
+        if (this.kilometrajeForm.get('kilometraje').value) {
+          this.progreso++;
+        }
+        break;
+      case 'color':
+        if (this.colorForm.get('color').value) {
+          this.progreso++;
+          this.paso++;
+          this.patchvalues();
         }
       default:
         break;
@@ -121,7 +130,7 @@ export class PublicarformComponent implements OnInit {
     this.formPrincipal = this.fb.group({
       marca: new FormControl('', [Validators.required]),
       modelo: new FormControl('', [Validators.required]),
-      año: new FormControl('', [Validators.required]),
+      year: new FormControl('', [Validators.required]),
       version: new FormControl('', [Validators.required]),
       tcombustible: new FormControl('', [Validators.required]),
       puertas: new FormControl('', [Validators.required]),
@@ -189,7 +198,7 @@ export class PublicarformComponent implements OnInit {
 
     })
   }
-  asignarvalue(nomvar: string, valor: boolean){
+  asignarvalue(nomvar: string, valor: any){
     switch (nomvar) {
       case 'unicodue':  this.formPrincipal.get('unicodueño').setValue(valor);  break;
       case 'tecno':  this.formPrincipal.get('tecno').setValue(valor);  break;
@@ -245,6 +254,12 @@ export class PublicarformComponent implements OnInit {
       case 'domicilio':  this.formPrincipal.get('domicilio').setValue(valor);  break;
       case 'testdrivD':  this.formPrincipal.get('testdrivD').setValue(valor);  break;
       case 'dochome':  this.formPrincipal.get('dochome').setValue(valor);  break;
+      case 'marca' : this.formPrincipal.get('marca').setValue(valor); break;
+      case 'modelo' : this.formPrincipal.get('modelo').setValue(valor); break;
+      case 'year' : this.formPrincipal.get('year').setValue(valor); break;
+      case 'puertas' : this.formPrincipal.get('puertas').setValue(valor); break;
+      case 'version' : this.formPrincipal.get('version').setValue(valor); break;
+      case 'modelo' : this.formPrincipal.get('modelo').setValue(valor); break;
       default:
         break;
     }
@@ -261,5 +276,11 @@ export class PublicarformComponent implements OnInit {
   }
   onLogout(){
     this.auth.logOut();
+  }
+  patchvalues(){
+    this.asignarvalue('marca', this.marca);
+    this.asignarvalue('modelo', this.modelo);
+    this.asignarvalue('version', this.version );
+    this.asignarvalue('year', this.year);
   }
 }

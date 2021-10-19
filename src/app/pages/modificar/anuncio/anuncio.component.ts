@@ -6,8 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./anuncio.component.css']
 })
 export class AnuncioComponent implements OnInit {
-
-  constructor() { }
+  headers:string[];
+  constructor() {
+    this.headers=['crear', 'ingresar','ayuda', 'contacto', 'perfil'];
+   }
 
   ngOnInit(): void {
   }

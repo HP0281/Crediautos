@@ -20,10 +20,10 @@ export class SearchComponent implements OnInit {
   ngOnInit(): void {
     this.getCategories();
     this.getMarcas();
-    /*const category = {
-      nombre: "Daewoo"
+    const category = {
+      nombre: "texla"
     }
-    this.marcasService.onSaveMarca(category, undefined);*/
+    this.marcasService.onSaveMarca(category, undefined);
   }
   buscar(){
     this.router.navigate(['/buscar']);

@@ -6,8 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./questios.component.css']
 })
 export class QuestiosComponent implements OnInit {
+  headers:string[];
 
-  constructor() { }
+  constructor() {
+    this.headers=['pqr'];
+   }
 
   ngOnInit(): void {
   }

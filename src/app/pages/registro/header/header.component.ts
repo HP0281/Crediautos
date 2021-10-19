@@ -9,7 +9,7 @@ import { validateLocaleAndSetLanguage } from 'typescript';
 })
 export class HeaderComponent implements OnInit {
   user: any;
-  isloggin= true;
+  isloggin= false;
   constructor(private auth: AuthService) {
     this.validatelog();
    }

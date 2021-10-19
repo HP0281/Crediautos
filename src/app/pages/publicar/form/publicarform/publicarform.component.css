@@ -1,3 +1,7 @@
+.page{
+    min-height: 600px;
+    background-color: #ededed;
+}
 #publica{
     border: 2px solid black;
     border-radius: 3px;
@@ -9,6 +13,11 @@
 .footer{
     padding: 20px;
     border-top: 1px solid #999;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    margin-top: 150px;
+    background-color: white;
 }
 .footer a{
     text-decoration: none;
@@ -19,4 +28,70 @@
 .footer small{
     color: #999;
     font-size: 12px;
+}
+.title{
+    margin-top: 20px;
+    padding: 30px;
+    min-width: 250px;
+    width: 100%;
+    justify-content: center;
+    background-color: #ededed;
+}
+.title-text p{
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+.title-text h4{
+    text-decoration: double;
+}
+.form{
+    justify-content: center;
+    width: 40%;
+}
+.target{
+    margin-top: 10px;
+    margin-bottom: 60px;
+    padding: 30px;
+    border-radius: 4px;
+    box-shadow: 0 0 1px 0 rgb(0, 0, 0 / 5%),
+    0 1px 2px 0 rgb(0, 0, 0 / 15%);
+    background-color: white;
+    
+}
+.vehicleForm{
+    margin: 30px 0;
+}
+.vehicleForm input{
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-radius: 0px;
+    outline: none;
+}
+.vehicleForm input:focus{
+    outline: none;
+    border: 0;
+}
+.category{
+    padding: 20px;
+}
+.formp input{
+    margin-bottom: 40px;
+    height: 50px;
+    border: 0;
+}
+.btn-group{
+    width: 66px;
+    height: 24px;
+}
+.btn-group label{
+    padding: 0px 2px;
+}
+.prueba{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.prueba input{
+    border: slategrey;
 }

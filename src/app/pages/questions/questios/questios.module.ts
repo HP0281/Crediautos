@@ -4,19 +4,19 @@ import { CommonModule } from '@angular/common';
 import { QuestiosRoutingModule } from './questios-routing.module';
 import { QuestiosComponent } from './questios.component';
 import { FooterComponent } from '../footer/footer.component';
-import { HeaderComponent } from '../header/header.component';
 import { BodyComponent } from '../body/body.component';
+import { HeaderModule } from 'src/app/components/header/header.module';
 
 
 @NgModule({
   declarations: [QuestiosComponent,
     FooterComponent,
-    HeaderComponent,
     BodyComponent
   ],
   imports: [
     CommonModule,
     QuestiosRoutingModule,
+    HeaderModule
   ]
 })
 export class QuestiosModule { }
