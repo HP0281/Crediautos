@@ -7,34 +7,48 @@ import * as firebase from 'firebase';
   providedIn: 'root'
 })
 export class AuthService {
-
+  userinfo:any;
   constructor(private auth: AngularFireAuth) { 
     auth.authState.subscribe( user => {
+      this.userinfo = user;
       console.log(user);
     })
   }
+  getUser(){
 
+      return this.auth.authState;
+   
+  }
   login(user: string, pass: string){
-    return this.auth.signInWithEmailAndPassword(user, pass);
+    return this.auth.auth.signInWithEmailAndPassword(user, pass);
   }
   
   registrar(user: string, pass: string){
-    return this.auth.createUserWithEmailandPassword(user, pass);
+    return this.auth.auth.createUserWithEmailAndPassword(user, pass);
   }
 
   logOut(){
-    return this.auth.signOut();
+    return this.auth.auth.signOut();
   }
 
   verificarEmail(){
-    this.auth.currentUser.then(user => {
-      if(user){
-        user.sendEmailVerification();
+    
+      if(this.auth.auth.currentUser){
+        this.auth.auth.currentUser.sendEmailVerification();
       }
-    })
+    
   }
 
   googleAuth(){
-    this.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
+    this.auth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
+  }
+
+  enviarcodigoTel(numero:string, appVerified:any){
+    return this.auth.auth.signInWithPhoneNumber(numero, appVerified).then(confimation =>{
+
+    });
+  }
+  authFacebook(){
+    this.auth.auth.signInWithPopup(new firebase.auth.FacebookAuthProvider());
   }
 }

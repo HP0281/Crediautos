@@ -7,13 +7,16 @@
     <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
       <ul class="nav justify-content-end">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Crea tu cuenta</a>
+          <a class="nav-link active" aria-current="page" href="#" *ngIf="!isloggin">Crea tu cuenta</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/login']">Ingresa</a>
+          <a class="nav-link" [routerLink]="['/login']" *ngIf="!isloggin">Ingresa</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link"[routerLink]="['/questios']">Ayuda / PQR</a>
+          <a class="nav-link" [routerLink]="['/login']" *ngIf="isloggin">{{ user?.displayName }}</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link"[routerLink]="['/questions']">Ayuda / PQR</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" [routerLink]="['/contact']">Contacto</a>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth/auth.service';
 
 @Component({
   selector: 'app-sollogin',
@@ -8,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class SolloginComponent implements OnInit {
 
-  constructor(private rotuer: Router) { }
+  constructor(private rotuer: Router, private authservice: AuthService) { }
 
   ngOnInit(): void {
   }

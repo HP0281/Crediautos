@@ -1,34 +1,36 @@
-<nav class="fondoBlack navbar navbar-expand-lg navbar-light bg-light justify-content-end fuenteBlanca">
+<nav class="navbar navbar-expand-lg navbar-light bg-light justify-content-end">
   <div class="container-fluid">
-    <a class="navbar-brand fuenteBlanca" href="#">
+    <a class="navbar-brand" href="#">
       <img src="../../../assets/CrediAutosFaviconPEQUEÑO32x32.svg" alt="" width="60" height="60"
-        class="d-inline-block ">
-      CrediAutos Colombia
+        class="d-inline-block">
+      CrediAutos
     </a>
-    <button class="navbar-toggler navbar-light  fuenteBlanca" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon fuenteBlanca"></span>
+      <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse navheader fuenteBlanca" id="navbarSupportedContent">
+    <div class="collapse navbar-collapse navheader" id="navbarSupportedContent">
       <ul class="navbar-nav m-auto mb-2 mb-lg-0 ">
-        <li class="nav-item">
-          <a class="nav-link active fuenteBlanca" aria-current="page" [routerLink]="['/registro']">Crea tu cuenta</a>
+        <li class="nav-item" *ngIf="!isloggin">
+          <a class="nav-link active" aria-current="page" [routerLink]="['/registro']">Crea tu cuenta</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link fuenteBlanca" [routerLink]="['/login']">Ingresa</a>
+          <a class="nav-link" [routerLink]="['/login']" *ngIf="!isloggin">Ingresa</a>
         </li>
         <li class="nav-item">
-
+          <a class="nav-link" [routerLink]="['/perfil']" *ngIf="isloggin">{{ user?.displayName }}</a>
+        </li>
+        <!--<li class="nav-item">
           <button (click)="abrirmodal(ejemploModal)">ejemplo</button>
+        </li>-->
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/questions']"><i class="bi bi-question-circle-fill"></i></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link fuenteBlanca" [routerLink]="['/questions']"><i class="bi bi-question-circle-fill"></i></a>
+          <a class="nav-link" [routerLink]="['/publish']">Publica tu vehiculo</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link fuenteBlanca" [routerLink]="['/publish']">Publica tu vehiculo</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link fuenteBlanca" [routerLink]="['/contact']"><i class="bi bi-telephone-fill"></i></a>
+          <a class="nav-link" [routerLink]="['/contact']"><i class="bi bi-telephone-fill"></i></a>
         </li>
       </ul>
     </div>
