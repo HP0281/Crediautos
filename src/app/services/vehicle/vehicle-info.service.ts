@@ -1,21 +1,19 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Vehicle } from '../models/vehicle.interface';
+import { VehicleInfo } from 'src/app/models/vehicleInfo.interface ';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { map } from 'rxjs/operators';
-
 
 @Injectable({
   providedIn: 'root'
 })
-export class VehiclesService {
+export class VehicleInfoService {
+  vehicles: Observable<VehicleInfo[]>;
 
-  vehicles: Observable<Vehicle[]>;
-
-  private vehicleCollection: AngularFirestoreCollection<Vehicle>;
+  private vehicleCollection: AngularFirestoreCollection<VehicleInfo>;
 
   constructor(private readonly afs: AngularFirestore) {
-    this.vehicleCollection = afs.collection<Vehicle>('vehicles');
+    this.vehicleCollection = afs.collection<VehicleInfo>('vehicleInfo');
     this.getVehicles();
    }
 
@@ -29,7 +27,7 @@ export class VehiclesService {
     }
   });
   }
-  onSaveVehicle(vehicle: Vehicle, vechicleId: string): Promise<void>{
+  onSaveVehicle(vehicle: VehicleInfo, vechicleId: string): Promise<void>{
     return new Promise(async (resolve, reject ) => {
       try {
         const id = vechicleId || this.afs.createId();
@@ -43,10 +41,13 @@ export class VehiclesService {
   }
   private getVehicles(): void{
     this.vehicles = this.vehicleCollection.snapshotChanges().pipe(
-       map(actions => actions.map(a => a.payload.doc.data() as Vehicle))
+       map(actions => actions.map(a => a.payload.doc.data() as VehicleInfo))
     );
   }
-  getVehiclesById(id:string){
-    return this.afs.collection(('vehicles'), ref => ref.where('vendedor','==', id)).valueChanges();
+  getVehiclesforMarca(marca:string){
+    return this.afs.collection(('vehicleInfo'), ref => ref.where('marca', '==', marca)).valueChanges();
+  }
+  getVehiclesforMarcaModelo(marca:string, modelo:string){
+    return this.afs.collection(('vehicleInfo'), ref => ref.where('marca', '==', marca).where('modelo','==', modelo)).valueChanges();
   }
 }

@@ -8,6 +8,7 @@ import { environment } from 'src/environments/environment';
 import { initializeApp } from 'firebase/app';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { AngularFireStorageModule } from '@angular/fire/storage';
 
 import { AngularFireAuthModule } from '@angular/fire/auth';
 
@@ -21,7 +22,8 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
     AppRoutingModule,
     NgbModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    AngularFireStorageModule
   ],
   providers: [AngularFirestore],
   bootstrap: [AppComponent]

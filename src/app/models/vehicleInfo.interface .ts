@@ -1,28 +1,15 @@
-export interface Vehicle{
+export interface VehicleInfo{
  _id?:string;
  numPuertas: number;
- precio: number;
- color: String;
- vendedor: String;
- urlimg:String;
- tiendaoficial: Boolean;
- Ubicacion: String;
  tipoCarroceria: String;
  modelo: String;
  direccion: String;
- condicion: number;
- otrasCaracteristicas?: String[];
- kilometros: number;
  trasmision: number;
  traccion: number;
  marca: String;
  año: number;
  combustible: number;
- financiable: Boolean;
- tipoventa?: String;
  categoria: String;
- placa: String;
- unicodueño: boolean;
  gps?: boolean;
  asientotabatible?: boolean;
  techocorredizo?: boolean;

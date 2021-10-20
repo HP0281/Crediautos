@@ -41,7 +41,7 @@ export class LoginkeyComponent implements OnInit {
     })
   }
   validaringreso(){
-    const user = this.auth.userinfo;
+    const user = this.auth._userinfo;
     if (user) {
       this.router.navigate(['/inicio']);
     }else{

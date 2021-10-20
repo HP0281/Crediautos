@@ -7,10 +7,11 @@ import * as firebase from 'firebase';
   providedIn: 'root'
 })
 export class AuthService {
-  userinfo:any;
+  public _userinfo: any;
+  
   constructor(private auth: AngularFireAuth) { 
     auth.authState.subscribe( user => {
-      this.userinfo = user;
+      this._userinfo = user;
       console.log(user);
     })
   }
@@ -51,4 +52,5 @@ export class AuthService {
   authFacebook(){
     this.auth.auth.signInWithPopup(new firebase.auth.FacebookAuthProvider());
   }
+  
 }

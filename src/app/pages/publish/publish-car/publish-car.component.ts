@@ -17,7 +17,7 @@ export class PublishCarComponent implements OnInit {
   ngOnInit(): void {
   }
   solicitarLog(){
-    const user = this.auth.userinfo;
+    const user = this.auth._userinfo;
     if (user) {
       this.router.navigate(['/publicarForm']);
     }else{
