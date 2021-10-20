@@ -57,7 +57,7 @@
     padding-right: 12px;
 }
 .fondo{
-    background-image: url("../../../../assets/img/car.jpg") !important;
+    background-image: url("../../../../assets/materialize/img/car.jpg") !important;
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
