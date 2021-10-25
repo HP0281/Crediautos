@@ -68,7 +68,7 @@
 }
 .publicaciones-recomendadasN .contenedorN-principal .flecha-izquierdaN:hover,
 .publicaciones-recomendadasN .contenedorN-principal .flecha-derechaN:hover{
-    background-color: black;
+    background-color: #fff;
     opacity: 0.9;
 }
 .publicaciones-recomendadasN .contenedorN-principal .flecha-izquierdaN{

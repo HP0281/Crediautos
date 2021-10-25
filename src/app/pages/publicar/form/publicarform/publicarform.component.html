@@ -6,14 +6,14 @@
             <div class="title">
                 <div class="title-text">
                     <p>Paso {{ paso }} de 2</p>
-                    <h4>Empieza escogiendo un titulo para tu publicacion</h4>
+                    <h4>Empieza describiendo tu vehiculo</h4>
                 </div>
                 <div class="title-img">
 
                 </div>
             </div>
             <div class="form1 target">
-                <h5>Indica marca y modelo</h5>
+                <h5>Escoge un titulo para tu publicacion</h5>
                 <form [formGroup]="vehicleForm" class="vehicleForm">
                     <input type="text" class="form-control" placeholder="ejemplo: Renault Symbol"
                         formControlName="marcamodelo">
@@ -928,7 +928,7 @@
                                     </a>
                                 </div>
                             </div>
-                            <div class="row collpase" id="collapseExterior">
+                            <div class="row collapse" id="collapseExterior">
                                 <div class="col-12">
                                     <div class="row">
                                         <div class="col-6 prueba">
@@ -1033,7 +1033,7 @@
                                                 <input type="radio" class="btn-check" name="rinluj" id="rinlujno"
                                                     autocomplete="off" (click)="asignarvalue('rineslujo',false)">
                                                 <label class="btn btn-outline-primary" for="rinlujno">No</label>
-                                            </div>false
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -1178,12 +1178,13 @@
                         (click)="onContinue('valor')">Continuar</button>
                 </div>
             </div>
-            <div class="uploadimg target" *ngIf="progreso === 10">
+            <div class="uploadimg target" *ngIf="progreso > 9 ">
                 <h5>Selecciona la foto de tu vehiculo</h5>
                 <input type="file" (change)="uploadImg($event)" accept="image/*">
+                <progress max="100" [value]="uploadProgress | async"></progress>
             </div>
             <div class="row">
-                <button class="btn btn-outline-primary " *ngIf="formPrincipal.valid && progreso > 10"
+                <button class="btn btn-outline-primary " *ngIf="formPrincipal.valid && progreso > 9" [disabled]="!cargo"
                     (click)="onguardar()">Guardar</button>
             </div>
         </div>
@@ -1198,10 +1199,4 @@
                     <a href="">Ayuda /PQR</a>
                     <a href="">www.sic.gov.co</a>
                 </nav>
-                <small> Copyright © 2012-2021 Boyaca Web nit -17514545416 -3 Contáctanos al 018000-00000 o al (1) 738454
-                    desde tu celular.</small>
-            </footer>
-        </div>
-
-    </div>
-</div>
+                <small> Copyright © 2012-2021 Boyaca Web</small>

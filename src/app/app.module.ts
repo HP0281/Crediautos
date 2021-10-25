@@ -11,6 +11,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 
 import { AngularFireAuthModule } from '@angular/fire/auth';
+import { VehicleInfoComponent } from './pages/admin/vehicle-info/vehicle-info.component';
 
 
 @NgModule({

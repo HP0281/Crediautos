@@ -42,6 +42,7 @@ export class PublicarformComponent implements OnInit {
   years : any[];
   versions : string[];
   
+  cargo:boolean = false;
 
   uploadProgress: Observable<number>;
   uploadURL: Observable<string>;
@@ -131,9 +132,9 @@ export class PublicarformComponent implements OnInit {
           this.progreso++;
           break;
           case 'img':
-            this.uploadURL.subscribe((resp:any)=>{
-              this.asignarvalue('urlimg', resp);
-            })
+            // this.uploadURL.subscribe((resp:any)=>{
+            //   this.asignarvalue('urlimg', resp);
+            // })
             this.progreso++;
             break;
             default:
@@ -327,7 +328,7 @@ export class PublicarformComponent implements OnInit {
       const vehicle = this.formPrincipal.value;
       const vehicleid = this.vehicle?._id || null;
       this.vehicleService.onSaveVehicle(vehicle, vehicleid);
-      this.vehicleInfoService.onSaveVehicle(vehicle, vehicleid );
+      //this.vehicleInfoService.onSaveVehicle(vehicle, vehicleid );
       alert('registro creado correctamente');
       this.router.navigate['/inicio'];
     }
@@ -390,8 +391,16 @@ export class PublicarformComponent implements OnInit {
     const fileref = this._storage.ref(filepath);
     const task = this._storage.upload(filepath, file);
     this.uploadProgress = task.percentageChanges();
+    
     task.snapshotChanges().pipe(
-      finalize(() => this.uploadURL = fileref.getDownloadURL())
+      finalize(() => {this.uploadURL = fileref.getDownloadURL();
+      this.cargo = true;
+      this.uploadURL.subscribe((resp:any)=>{
+
+        this.asignarvalue('urlimg', resp);
+      })
+    }
+      )
     ).subscribe();
     this.onContinue('img');
   }

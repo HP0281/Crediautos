@@ -23,6 +23,7 @@ const routes: Routes = [
   { path: 'perfil', loadChildren: () => import('./pages/perfil/perfil/perfil.module').then(m => m.PerfilModule)},
   { path: 'cardpublicidad', loadChildren: () => import('./components/card-publicidad/card-publicidad.module').then(m => m.CardPublicidadModule) },
   { path: 'publicarForm', loadChildren: () => import('./pages/publicar/form/publicarform/publicarform.module').then(m => m.PublicarformModule) },
+  { path: 'admVehicle', loadChildren: () => import('./pages/admin/vehicle-info/vehicle-info.module').then(m => m.VehicleInfoModule) },
  { path: '**', redirectTo: '/trabajando'}];
 
 @NgModule({

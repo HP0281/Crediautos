@@ -43,6 +43,8 @@ export class CategoriesService {
    private getCategories():void{
      this.categories = this.categoriasCollection.snapshotChanges().pipe(
         map(actions => actions.map(a => a.payload.doc.data() as Category))
+        
      );
+     console.log("categorias", this.categories);
    }
 }
