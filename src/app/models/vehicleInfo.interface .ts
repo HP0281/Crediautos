@@ -7,7 +7,7 @@ export interface VehicleInfo{
  trasmision: number;
  traccion: number;
  marca: String;
- año: number;
+ year: number;
  combustible: number;
  categoria: String;
  gps?: boolean;
