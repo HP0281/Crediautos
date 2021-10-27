@@ -40,3 +40,6 @@
     width: 150px;
     height: 3rem;
 }
+.lblfloat{
+    transform: scale(.85) translateY(-0.8rem) translateX(0.15rem) !important;
+}
