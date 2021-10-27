@@ -3,8 +3,8 @@
 }
 .form{
     display: flex;
-    margin-left: auto;
-    margin-right: auto;
+    margin-left: 20%;
+    margin-right: 20%;
     background-color: white;
     padding: 60px;
     border-top-left-radius: 4px;
@@ -15,7 +15,7 @@
     font-size: 1.5rem;
 }
 .body-form{
-    background-color: #999;
+    background-color: rgba(172, 170, 170, 0.144);
     display: block;
     align-items: center;
     padding: 5px;
@@ -26,6 +26,7 @@
 }
 .buttons button{
     width: 100%;
+    font-size: 13px;
 }
 .ayuda{
     display: flex;
@@ -33,6 +34,7 @@
     align-items: center;
     margin-left: auto;
     margin-right: auto;
+    color: black;
 }
 .ayuda button{
     width: 100%;
@@ -79,3 +81,14 @@
         padding: 50px;
     }
 }
+.example-card {
+    max-width: 400px;
+  }
+.example-full-width {
+  width: 100%;
+}
+.img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    }

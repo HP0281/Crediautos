@@ -12,12 +12,14 @@ import { VehiclesService } from 'src/app/services/vehicles.service';
 })
 export class FormComponent implements OnInit {
   user : User;
+  hide = false; 
+  labelPosition: 'before' | 'after' = 'after';
+
   registroForm: FormGroup;
   constructor(private fb: FormBuilder, private userservice: UserService,
     private authservice: AuthService) {
     this.initform();
    }
-
   ngOnInit(): void {
   }
   
@@ -46,8 +48,16 @@ export class FormComponent implements OnInit {
   onGuardar(){
     if (this.registroForm.valid) {
       const user = this.registroForm.value;
+      console.log(user)
       const userid = null;
       this.userservice.onSaveUser(this.registroForm.value);
     }
+  }
+  getErrorMessage() {
+    if (this.registroForm.get('nombre').hasError('required')) {
+      return 'You must enter a value';
+    }
+ 
+    return this.registroForm.get('nombre').hasError('nombre') ? 'Not a valid nombre' : '';
   }
 }

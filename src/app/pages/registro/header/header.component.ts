@@ -3,7 +3,7 @@ import { AuthService } from 'src/app/services/auth/auth.service';
 import { validateLocaleAndSetLanguage } from 'typescript';
 
 @Component({
-  selector: 'app-header',
+  selector: 'app-header1',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })

@@ -10,18 +10,23 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFirestore } from '@angular/fire/firestore';
 
 import { AngularFireAuthModule } from '@angular/fire/auth';
+import { HeaderModule } from './components/header/header.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
   declarations: [
     AppComponent
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    BrowserAnimationsModule
+
   ],
   providers: [AngularFirestore],
   bootstrap: [AppComponent]
