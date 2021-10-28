@@ -15,15 +15,17 @@ export class SearchComponent implements OnInit {
   marcas: Marca[];
 
   constructor(private router: Router, private categoriesService: CategoriesService,
-    private marcasService: MarcasService) { }
+    private marcasService: MarcasService) { 
+      this.getCategories();
+      this.getMarcas();
+
+    }
 
   ngOnInit(): void {
-    this.getCategories();
-    this.getMarcas();
-    const category = {
-      nombre: "texla"
-    }
-    this.marcasService.onSaveMarca(category, undefined);
+    // const category = {
+    //   nombre: "texla"
+    // }
+    // this.marcasService.onSaveMarca(category, undefined);
   }
   buscar(){
     this.router.navigate(['/buscar']);
@@ -33,7 +35,9 @@ export class SearchComponent implements OnInit {
     (err:any) => console.error('ha ocurrido un error'));
   }
   getMarcas(){
-    this.marcasService.marcas.subscribe((res:any) => this.marcas = res,
+    this.marcasService.marcas.subscribe((res:any) => {
+      this.marcas = res, console.log(res);},
     (err:any) => console.error('ha ocurrido un error'));
+
   }
 }
