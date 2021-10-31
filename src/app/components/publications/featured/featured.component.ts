@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { VehiclesService } from 'src/app/services/vehicles.service';
 
 @Component({
   selector: 'app-featured',
@@ -7,10 +6,8 @@ import { VehiclesService } from 'src/app/services/vehicles.service';
   styleUrls: ['./featured.component.css']
 })
 export class FeaturedComponent implements OnInit {
-  vehicles:any[];
-  constructor(private vehicleService: VehiclesService) {
-    this.getVehicles();
-   }
+
+  constructor() { }
 
   ngOnInit(): void {
     this.scrollSlide();
@@ -31,11 +28,5 @@ export class FeaturedComponent implements OnInit {
     fila.scrollLeft += ancho;
     });
     
-  }
-
-  getVehicles(){
-    this.vehicleService.vehicles.subscribe((resp:any)=>{
-      this.vehicles = resp;
-    })
   }
 }

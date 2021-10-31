@@ -7,6 +7,15 @@ import { HeaderComponent } from './header/header.component';
 import { FormComponent } from './form/form.component';
 import { FooterComponent } from './footer/footer.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HeaderModule } from 'src/app/components/header/header.module';
+
+
+import { MatFormFieldModule } from "@angular/material/form-field";
+import { MatInputModule } from "@angular/material/input";
+import {MatCardModule} from '@angular/material/card';
+import {MatIconModule } from "@angular/material/icon";
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatButtonModule} from '@angular/material/button';
 
 
 @NgModule({
@@ -14,7 +23,14 @@ import { ReactiveFormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     RegistroRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HeaderModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatCardModule,
+    MatIconModule,
+    MatCheckboxModule,
+    MatButtonModule
   ]
 })
 export class RegistroModule { }

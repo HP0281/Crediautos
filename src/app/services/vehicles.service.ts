@@ -46,7 +46,4 @@ export class VehiclesService {
        map(actions => actions.map(a => a.payload.doc.data() as Vehicle))
     );
   }
-  getVehiclesById(id:string){
-    return this.afs.collection(('vehicles'), ref => ref.where('vendedor','==', id)).valueChanges();
-  }
 }

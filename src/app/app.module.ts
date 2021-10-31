@@ -8,15 +8,16 @@ import { environment } from 'src/environments/environment';
 import { initializeApp } from 'firebase/app';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestore } from '@angular/fire/firestore';
-import { AngularFireStorageModule } from '@angular/fire/storage';
 
 import { AngularFireAuthModule } from '@angular/fire/auth';
-import { VehicleInfoComponent } from './pages/admin/vehicle-info/vehicle-info.component';
+import { HeaderModule } from './components/header/header.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
   declarations: [
     AppComponent
+    
   ],
   imports: [
     BrowserModule,
@@ -24,7 +25,8 @@ import { VehicleInfoComponent } from './pages/admin/vehicle-info/vehicle-info.co
     NgbModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
-    AngularFireStorageModule
+    BrowserAnimationsModule
+
   ],
   providers: [AngularFirestore],
   bootstrap: [AppComponent]

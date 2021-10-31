@@ -3,12 +3,13 @@
 </div>
 <div class="container-fluid buscadas">
     <div class="row row-cols-md-3">
-        <div class="col contenedor-articulo">
+        <div class="col-4 contenedor-articulo">
             <div class="article">
                 <div class="article-marca">
                     <img src="https://www.actualidadmotor.com/wp-content/uploads/2013/12/chevrolet.png" alt="">
                     <div class="marca">
-                        <h3>Chevrolet</h3>
+                        <h3 class="mb-0">Chevrolet</h3>
+                        <br>
                         <a [routerLink]="['/as']">marca1</a>
                             <a [routerLink]="['/as']">marca 2</a>
                             <a [routerLink]="['/as']">marca 3</a>
@@ -18,12 +19,13 @@
                 </div>
             </div>
         </div>
-        <div class="col contenedor-articulo">
+        <div class="col-4 contenedor-articulo">
             <div class="article ">
                 <div class="article-marca">
                     <img src="data:image/jpeg;base64,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" alt="">
                     <div class="marca">
-                        <h3>Renault</h3>
+                        <h3 class="mb-0">Renault</h3>
+                        <br>
                         <a [routerLink]="['/as']">marca1</a>
                              <a [routerLink]="['/as']">marca 2</a>
                              <a [routerLink]="['/as']">marca 3</a>
@@ -32,12 +34,13 @@
                 </div>
             </div>
         </div>
-        <div class="col contenedor-articulo">
+        <div class="col-4 contenedor-articulo">
             <div class="article">
                 <div class="article-marca">
                     <img src="https://pbs.twimg.com/profile_images/1035382271874805760/pSK_SUl1_400x400.jpg" alt="">
                     <div class="marca">
-                        <h3>Suzuki</h3>
+                        <h3 class="mb-0">Suzuki</h3>
+                        <br>
                         <a [routerLink]="['/as']">marca1</a>
                         <a [routerLink]="['/as']">marca 2</a>
                         <a [routerLink]="['/as']">marca 3</a>
@@ -52,7 +55,8 @@
                 <div class="article-marca">
                     <img src="https://i.pinimg.com/originals/52/43/40/52434034d861ba1b8723c89b6d1232ee.jpg" alt="">
                     <div class="marca">
-                        <h3>Honda</h3>
+                        <h3 class="mb-0">Honda</h3>
+                        <br>
                         <a [routerLink]="['/as']">marca1</a>
                             <a [routerLink]="['/as']">marca 2</a>
                             <a [routerLink]="['/as']">marca 3</a>
@@ -67,7 +71,8 @@
                 <div class="article-marca">
                     <img src="https://statics.cdn1.buscalibre.com/fit-in/500x500/part/112/567/e3478926930_0.jpg" alt="">
                     <div class="marca">
-                        <h3>Volkswagen</h3>
+                        <h3 class="mb-0">Volkswagen</h3>
+                        <br>
                         <a [routerLink]="['/as']">marca1</a>
                             <a [routerLink]="['/as']">marca 2</a>
                             <a [routerLink]="['/as']">marca 3</a>
@@ -82,7 +87,8 @@
                 <div class="article-marca">
                     <img src="https://img.autocosmos.com/noticias/fotosprinc/NAZ_9faf7404e80749aabeaa7cbc3f48be61.jpg" alt="">
                     <div class="marca">
-                        <h3>Ver todos</h3>
+                        <h3 class="mb-0">Ver todos</h3>
+                        <br>
                         <a [routerLink]="['/as']">marca1</a>
                             <a [routerLink]="['/as']">marca 2</a>
                             <a [routerLink]="['/as']">marca 3</a>
