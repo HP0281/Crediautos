@@ -38,7 +38,7 @@
                     </div>
                     <div class="list-group" *ngIf="progreso === 1">
                         <button type="button" class="list-group-item list-group-item-action"
-                            (click)="onCategory(category.nombre)" *ngFor="let category of categories">{{ category.nombre
+                            (click)="onCategory(category.name)" *ngFor="let category of categories">{{ category.name
                             }}</button>
                     </div>
                 </div>
@@ -51,7 +51,7 @@
                         <span>MAS USADOS</span>
                         <div class="list-group marcas">
                             <button type="button" class="list-group-item list-group-item-action"
-                                (click)="onMarca(marca.nombre)" *ngFor="let marca of marcas">{{ marca.nombre }}</button>
+                                (click)="onMarca(marca.name)" *ngFor="let marca of marcas">{{ marca.name }}</button>
                         </div>
                     </div>
                 </div>
@@ -64,7 +64,7 @@
                         <span>MAS USADOS</span>
                         <div class="list-group marcas">
                             <button type="button" class="list-group-item list-group-item-action"
-                                (click)="onModelo(modelo.modelo)" *ngFor="let modelo of modelos">{{ modelo.modelo
+                                (click)="onModelo(modelo.name)" *ngFor="let modelo of name">{{ modelo.modelo
                                 }}</button>
                         </div>
                     </div>
@@ -87,8 +87,8 @@
                     <h4>¿Cual es la versíon de tu {{ marca }}?</h4>
                     <div class="list-group">
                         <button type="button" class="list-group-item list-group-item-action"
-                            (click)="onVersion(version.version)"
-                            *ngFor="let version of versions">{{version.version}}</button>
+                            (click)="onVersion(version.name)"
+                            *ngFor="let version of versions">{{version.name}}</button>
                         <button type="button" class="list-group-item list-group-item-action"
                             (click)="onVersion('otros')">otros</button>
                     </div>
