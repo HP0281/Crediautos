@@ -11,6 +11,8 @@ import { VehicleInfoService } from 'src/app/services/vehicle/vehicle-info.servic
 import { VehiclesService } from 'src/app/services/vehicles.service';
 import { AngularFireStorage } from '@angular/fire/storage';
 import { finalize } from 'rxjs/operators';
+import { ModelosService } from 'src/app/services/modelos/modelos.service';
+import { VersionesService } from 'src/app/services/versiones/versiones.service';
 
 @Component({
   selector: 'app-publicarform',
@@ -51,6 +53,8 @@ export class PublicarformComponent implements OnInit {
   constructor(private fb: FormBuilder, public vehicleService: VehiclesService, private router: Router, private auth: AuthService,
     private categoryService: CategoriesService,
     private marcasService: MarcasService,
+    private modelosService: ModelosService,
+    private versionService: VersionesService,
     private vehicleInfoService: VehicleInfoService,
     private _storage: AngularFireStorage ) { 
     const navigation = router.getCurrentNavigation();
@@ -359,13 +363,13 @@ export class PublicarformComponent implements OnInit {
   }
   getModelos(marca:string){
     console.log('resultado marcas');
-    this.vehicleInfoService.getVehiclesforMarca(marca).subscribe((resp:any)=>{
+    this.modelosService.getModelosforMarca(marca).subscribe((resp:any)=>{
       console.log(resp);
       this.modelos = resp;
     })
   }
-  getVersions(marca:string,modelo:string){
-    this.vehicleInfoService.getVehiclesforMarcaModelo(marca, modelo).subscribe(
+  getVersions(marca:string, modelo:string){
+    this.versionService.getVersionesforMarcaModelo(marca, modelo).subscribe(
       (resp:any) => {
         this.versions = resp;
       }

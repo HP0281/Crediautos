@@ -46,4 +46,7 @@ export class ModelosService {
       map(actions => actions.map(a => a.payload.doc.data() as Modelo))
    );
  }
+ getModelosforMarca(marca:string){
+  return this.afs.collection(('modelos'), ref => ref.where('marca', '==', marca)).valueChanges();
+}
 }
