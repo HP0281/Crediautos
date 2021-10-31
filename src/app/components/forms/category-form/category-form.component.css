@@ -1,0 +1,42 @@
+.title{
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    margin: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+.body{
+    background-color: #F4F5FF;
+}
+.body-page{
+    justify-content: center;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.form{
+    background-color: white;
+    width: 60%;
+    padding: 40px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+.button{
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 12rem;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}   
+.button button{
+    width: 150px;
+    height: 3rem;
+}

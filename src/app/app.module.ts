@@ -10,8 +10,11 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFirestore } from '@angular/fire/firestore';
 
 import { AngularFireAuthModule } from '@angular/fire/auth';
+<<<<<<< HEAD
 import { HeaderModule } from './components/header/header.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+=======
+>>>>>>> 1794dd9bd54e5b81982ef5e65f964ed58acf2aec
 
 
 @NgModule({

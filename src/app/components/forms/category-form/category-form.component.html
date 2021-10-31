@@ -1,0 +1,23 @@
+<app-header></app-header>
+<div class="body">
+    <div class="body-page">
+        <div class="title">
+            <h5>Agregar nueva categoria</h5>
+        </div>
+        <div class="form">
+            <form [formGroup]="categoryForm">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="floatingInput" placeholder="Nombre de la categoria" formControlName="name">
+                            <label for="floatingInput">Nombre de la categoria</label>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="button">
+            <button [disabled]="!categoryForm.valid" (click)="onGuardar()">Guardar</button>
+        </div>
+    </div>
+</div>
