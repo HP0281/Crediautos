@@ -10,68 +10,12 @@
 
         <div class="contenedor-carrousel">
             <div class="carrousel ">
-                <div class=" publicacion">
-                    <a [routerLink]="['/as']"><img src="https://www.comparaonline.com.co/blog-statics/co/uploads/2020/03/BMW-estuvo-entre-las-cinco-marcas-que-m%C3%A1s-carros-de-lujo-vendi%C3%B3-en-2019.jpg" alt=""
+                <div class=" publicacion" *ngFor="let publicacion of vehicles">
+                    <a [routerLink]="['/producto']"><img [src]="publicacion.urlimg" alt=""
                         ></a>
                     <div class="description">
-                        <h3>$ 201245220</h3>
-                        <p>descripcion del vehiculo</p>
-                    </div>
-                </div>
-                <div class="publicacion">
-                    <a [routerLink]="['/as']"><img src="https://img.autocosmos.com/noticias/fotosprinc/NAZ_b65480612b9249c0885a3ec88c5641e1.jpg" alt=""
-                        ></a>
-                    <div class="description">
-                        <h3>$ 201245220</h3>
-                        <p>descripcion del vehiculo</p>
-                    </div>
-                </div>
-                <div class="publicacion">
-                    <a [routerLink]="['/as']"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTEYTw6BTAOOE3M-ywvqsVSckVHG-wKAho8ow&usqp=CAU" alt=""
-                        ></a>
-                    <div class="description">
-                        <h3>$ 201245220</h3>
-                        <p>descripcion del vehiculo</p>
-                    </div>
-                </div>
-                <div class="publicacion">
-                    <a [routerLink]="['/as']"><img src="https://www.comparaonline.com.co/blog-statics/co/uploads/2020/03/BMW-estuvo-entre-las-cinco-marcas-que-m%C3%A1s-carros-de-lujo-vendi%C3%B3-en-2019.jpg" alt=""
-                        ></a>
-                    <div class="description">
-                        <h3>$ 201245220</h3>
-                        <p>descripcion del vehiculo</p>
-                    </div>
-                </div>
-                <div class="publicacion">
-                    <a [routerLink]="['/as']"><img src="https://www.comparaonline.com.co/blog-statics/co/uploads/2020/03/BMW-estuvo-entre-las-cinco-marcas-que-m%C3%A1s-carros-de-lujo-vendi%C3%B3-en-2019.jpg" alt=""
-                       ></a>
-                    <div class="description">
-                        <h3>$ 201245220</h3>
-                        <p>descripcion del vehiculo</p>
-                    </div>
-                </div>
-                <div class="publicacion">
-                    <a [routerLink]="['/as']"><img src="https://www.comparaonline.com.co/blog-statics/co/uploads/2020/03/BMW-estuvo-entre-las-cinco-marcas-que-m%C3%A1s-carros-de-lujo-vendi%C3%B3-en-2019.jpg" alt=""
-                        ></a>
-                    <div class="description">
-                        <h3>$ 201245220</h3>
-                        <p>descripcion del vehiculo</p>
-                    </div>
-                </div>
-                <div class="publicacion">
-                    <a [routerLink]="['/as']"><img src="https://www.comparaonline.com.co/blog-statics/co/uploads/2020/03/BMW-estuvo-entre-las-cinco-marcas-que-m%C3%A1s-carros-de-lujo-vendi%C3%B3-en-2019.jpg" alt=""
-                        ></a>
-                    <div class="description">
-                        <h3>$ 201245220</h3>
-                        <p>descripcion del vehiculo</p>
-                    </div>
-                </div>
-                <div class="publicacion">
-                    <a [routerLink]="['/as']"><img src="https://www.comparaonline.com.co/blog-statics/co/uploads/2020/03/BMW-estuvo-entre-las-cinco-marcas-que-m%C3%A1s-carros-de-lujo-vendi%C3%B3-en-2019.jpg" alt=""
-                        ></a>
-                    <div class="description">
-                        <h3>$ 201245220</h3>
-                        <p>descripcion del vehiculo</p>
+                        <h3>$ {{ publicacion.valor }}</h3>
+                        <p>{{ publicacion.desc }}</p>
                     </div>
                 </div>
                 

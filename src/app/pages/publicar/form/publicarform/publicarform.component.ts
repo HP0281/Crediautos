@@ -1,9 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 import { Vehicle } from 'src/app/models/vehicle.interface';
+import { VehicleInfo } from 'src/app/models/vehicleInfo.interface ';
 import { AuthService } from 'src/app/services/auth/auth.service';
+import { CategoriesService } from 'src/app/services/categories/categories.service';
+import { MarcasService } from 'src/app/services/marcas/marcas.service';
+import { VehicleInfoService } from 'src/app/services/vehicle/vehicle-info.service';
 import { VehiclesService } from 'src/app/services/vehicles.service';
+import { AngularFireStorage } from '@angular/fire/storage';
+import { finalize } from 'rxjs/operators';
 
 @Component({
   selector: 'app-publicarform',
@@ -24,19 +31,39 @@ export class PublicarformComponent implements OnInit {
   kilometrajeForm: FormGroup; 
   colorForm: FormGroup;
   formPrincipal: FormGroup;
+  valorform: FormGroup;
 
   vehicle: Vehicle;
 
   headers: string[];
+  categories: String[];
+  marcas:string[];
+  modelos:string[];
+  years : any[];
+  versions : string[];
+  
+  cargo:boolean = false;
 
-  constructor(private fb: FormBuilder, public vehicleService: VehiclesService, private router: Router, private auth: AuthService ) { 
+  uploadProgress: Observable<number>;
+  uploadURL: Observable<string>;
+  
+
+  constructor(private fb: FormBuilder, public vehicleService: VehiclesService, private router: Router, private auth: AuthService,
+    private categoryService: CategoriesService,
+    private marcasService: MarcasService,
+    private vehicleInfoService: VehicleInfoService,
+    private _storage: AngularFireStorage ) { 
     const navigation = router.getCurrentNavigation();
     this.vehicle = navigation.extras?.state?.value;
     this.initForm();
-    console.log(auth.userinfo);
+    console.log(auth._userinfo);
     this.paso = 1;
     this.progreso=0;
     this.headers=['pqr'];
+    this.getCategories();
+    this.getMarcas();
+    this.years =[];
+   
   }
 
   ngOnInit(): void {
@@ -53,24 +80,28 @@ export class PublicarformComponent implements OnInit {
           this.progreso++;
         }
         break;
-      case 'category':
+        case 'category':
         if (this.category) {
           this.progreso++;
         }
         break;
-      case 'marca':
-        if(this.marca){
-          this.progreso++;
+        case 'marca':
+          if(this.marca){
+            this.progreso++;
+            this.getModelos(this.marca);
+            this.getVehicles(this.auth._userinfo.uid);
         }
         break;
       case 'modelo':
         if(this.modelo){
           this.progreso++;
+          this.initYears();
         }
         break;
       case 'año':
         if (this.year) {
           this.progreso++;
+          this.getVersions(this.marca, this.modelo);
         }
         break;
       case 'version':
@@ -89,15 +120,32 @@ export class PublicarformComponent implements OnInit {
           this.paso++;
           this.patchvalues();
         }
-      default:
+      case 'valor':
+        console.log(this.valorform.get('valor').value)
+        if(this.valorform.get('valor').value){
+          this.progreso++;
+          this.asignarvalue('valor', this.valorform.get('valor').value);
+        }
         break;
-    }
+      case 'principal':
+        
+          this.progreso++;
+          break;
+          case 'img':
+            // this.uploadURL.subscribe((resp:any)=>{
+            //   this.asignarvalue('urlimg', resp);
+            // })
+            this.progreso++;
+            break;
+            default:
+        break;
+      }
   }
   onCategory(category:string){
     this.category = category;
     this.onContinue('category');
   }
-
+  
   onMarca(marca: string){
     this.marca = marca;
     this.onContinue('marca');
@@ -107,7 +155,7 @@ export class PublicarformComponent implements OnInit {
     this.modelo = modelo;
     this.onContinue('modelo');
   }
-
+  
   onYear(year:string){
     this.year = year;
     this.onContinue('año');
@@ -118,6 +166,9 @@ export class PublicarformComponent implements OnInit {
 
   }
   initForm(){
+    this.valorform = this.fb.group({
+      valor : new FormControl('', [Validators.required])
+    })
     this.vehicleForm = this.fb.group({
       marcamodelo : new FormControl('', [Validators.required])
     })
@@ -141,7 +192,9 @@ export class PublicarformComponent implements OnInit {
       carroceria: new FormControl('', [Validators.required]),
       cilindrada: new FormControl('', [Validators.required]),
       placa: new FormControl('', [Validators.required]),
-      unicodueño: new FormControl('', [Validators.required]),
+      vendedor: new FormControl(''),
+      urlimg:new FormControl(''),
+      unicodueño: new FormControl(''),
       tecno: new FormControl(''),
       seguro: new FormControl('', ),
       gps: new FormControl(''),
@@ -195,7 +248,9 @@ export class PublicarformComponent implements OnInit {
       domicilio: new FormControl(''),
       testdrivD: new FormControl(''),
       dochome: new FormControl(''),
-
+      desc: new FormControl(''),
+      valor : new FormControl('')
+      
     })
   }
   asignarvalue(nomvar: string, valor: any){
@@ -260,19 +315,24 @@ export class PublicarformComponent implements OnInit {
       case 'puertas' : this.formPrincipal.get('puertas').setValue(valor); break;
       case 'version' : this.formPrincipal.get('version').setValue(valor); break;
       case 'modelo' : this.formPrincipal.get('modelo').setValue(valor); break;
+      case 'urlimg' : this.formPrincipal.get('urlimg').setValue(valor); break;
+      case 'desc' : this.formPrincipal.get('desc').setValue(valor); break;
+      case 'valor' : this.formPrincipal.get('valor').setValue(valor); break;
       default:
         break;
-    }
-    console.log(this.formPrincipal.get('unicodueño').value);
+      }
+      console.log(this.formPrincipal.get('unicodueño').value);
   }
   onguardar(){
-    console.log('guardar'+this.formPrincipal.valid);
     if (this.formPrincipal.valid) {
       const vehicle = this.formPrincipal.value;
       const vehicleid = this.vehicle?._id || null;
       this.vehicleService.onSaveVehicle(vehicle, vehicleid);
+      //this.vehicleInfoService.onSaveVehicle(vehicle, vehicleid );
+      alert('registro creado correctamente');
+      this.router.navigate['/inicio'];
     }
-
+    
   }
   onLogout(){
     this.auth.logOut();
@@ -282,5 +342,66 @@ export class PublicarformComponent implements OnInit {
     this.asignarvalue('modelo', this.modelo);
     this.asignarvalue('version', this.version );
     this.asignarvalue('year', this.year);
+    this.asignarvalue('vendedor', this.auth._userinfo.uid);
+    
+    this.asignarvalue('desc', this.vehicleForm.get('marcamodelo').value);
+  }
+  getCategories(){
+    this.categoryService.categories.subscribe((resp:any)=>{
+      this.categories = resp;
+      console.log(this.categories)
+    })
+  }
+  getMarcas(){
+    this.marcasService.marcas.subscribe((resp:any)=>{
+      this.marcas = resp;
+    })
+  }
+  getModelos(marca:string){
+    console.log('resultado marcas');
+    this.vehicleInfoService.getVehiclesforMarca(marca).subscribe((resp:any)=>{
+      console.log(resp);
+      this.modelos = resp;
+    })
+  }
+  getVersions(marca:string,modelo:string){
+    this.vehicleInfoService.getVehiclesforMarcaModelo(marca, modelo).subscribe(
+      (resp:any) => {
+        this.versions = resp;
+      }
+    )
+  }
+  getVehicles(id:string){
+    this.vehicleService.getVehiclesById(id).subscribe((resp:any)=>{
+      console.log(resp);
+    })
+  }
+  initYears(){
+    let yearact = 2022;
+    for (let index = 0; index < 30; index++) {
+      this.years.push({"year": yearact});
+      yearact--;
+      
+    }
+  }
+  uploadImg(event){
+    const file = event.target.files[0];
+    const randomId = Math.random().toString(36).substring(2);
+    const filepath = `images/${randomId}`;
+    const fileref = this._storage.ref(filepath);
+    const task = this._storage.upload(filepath, file);
+    this.uploadProgress = task.percentageChanges();
+    
+    task.snapshotChanges().pipe(
+      finalize(() => {this.uploadURL = fileref.getDownloadURL();
+      this.cargo = true;
+      this.uploadURL.subscribe((resp:any)=>{
+
+        this.asignarvalue('urlimg', resp);
+      })
+    }
+      )
+    ).subscribe();
+    this.onContinue('img');
   }
 }

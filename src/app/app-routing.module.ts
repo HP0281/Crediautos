@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ResumenComponent } from './pages/perfil/perfil/resumen/resumen.component';
-import { ProductComponent } from './pages/product/product.component';
 
 const routes: Routes = [
   {path:'', pathMatch: 'full', redirectTo: '/inicio'},
@@ -25,7 +24,13 @@ const routes: Routes = [
   { path: 'cardpublicidad', loadChildren: () => import('./components/card-publicidad/card-publicidad.module').then(m => m.CardPublicidadModule) },
   { path: 'publicarForm', loadChildren: () => import('./pages/publicar/form/publicarform/publicarform.module').then(m => m.PublicarformModule) },
   { path: 'producto', loadChildren: () => import('./pages/product/product.module').then(m => m.ProductModule) },
-  { path: '**', redirectTo: '/trabajando'}];
+  
+  { path: 'admVehicle', loadChildren: () => import('./pages/admin/vehicle-info/vehicle-info.module').then(m => m.VehicleInfoModule) },
+  { path: 'categoryform', loadChildren: () => import('./components/forms/category-form/category-form.module').then(m => m.CategoryFormModule)},
+  { path: 'marcaform', loadChildren: () => import('./components/forms/marca-form/marca-form.module').then(m => m.MarcaFormModule)},
+  { path: 'modeloform', loadChildren: () => import('./components/forms/modelos-form/modelos-form.module').then(m => m.ModelosFormModule)},
+  { path: 'versionform', loadChildren: () => import('./components/forms/version-form/version-form.module').then(m => m.VersionFormModule)},
+ { path: '**', redirectTo: '/trabajando'}];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

@@ -14,7 +14,6 @@
 .footer{
     padding: 20px;
     border-top: 1px solid #999;
-    position: fixed;
     bottom: 0;
     width: 100%;
     margin-top: 150px;
@@ -92,9 +91,11 @@
     padding: 0px 2px;
 }
 .prueba{
+    margin: 20px 0px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    width: 48%;
 }
 .prueba input{
     border: slategrey;
@@ -105,3 +106,28 @@
 .example-full-width {
     width: 100%;
   }
+.marcas{
+    height: 250px;
+    overflow: scroll;
+    overflow-x: hidden;
+}
+.botones{
+    margin-top: 25px;
+}
+.btn-desplegables{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.uploadimg{
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 0;
+}
+.uploadimg progress{
+    margin: 10px 0 0 0;
+    position: relative;
+    bottom: 10;
+    width: 100%;
+}

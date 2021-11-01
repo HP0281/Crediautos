@@ -8,6 +8,7 @@ import { environment } from 'src/environments/environment';
 import { initializeApp } from 'firebase/app';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { AngularFireStorageModule } from '@angular/fire/storage';
 
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { HeaderModule } from './components/header/header.module';
@@ -25,8 +26,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     NgbModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
-    BrowserAnimationsModule
-
+    BrowserAnimationsModule,
+    AngularFireStorageModule
   ],
   providers: [AngularFirestore],
   bootstrap: [AppComponent]

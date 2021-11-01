@@ -4,6 +4,7 @@ export interface Vehicle{
  precio: number;
  color: String;
  vendedor: String;
+ urlimg:String;
  tiendaoficial: Boolean;
  Ubicacion: String;
  tipoCarroceria: String;
