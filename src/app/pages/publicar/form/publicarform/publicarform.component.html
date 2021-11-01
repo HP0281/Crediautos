@@ -28,11 +28,11 @@
                     <div class="bread">
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="#">{{ category }}</a></li>
-                                <li class="breadcrumb-item" *ngIf="marca != null"><a href="#">{{ marca }}</a></li>
-                                <li class="breadcrumb-item" *ngIf="modelo != null"><a href="">{{ modelo }}</a></li>
-                                <li class="breadcrumb-item" *ngIf="year != null"><a href="">{{ year }}</a></li>
-                                <li class="breadcrumb-item" *ngIf="version != null"><a href="">{{ version }}</a></li>
+                                <li class="breadcrumb-item"><a class="link" (click)="back('categoria')">{{ category }}</a></li>
+                                <li class="breadcrumb-item" *ngIf="marca != null"><a class="link" (click)="back('marca')">{{ marca }}</a></li>
+                                <li class="breadcrumb-item" *ngIf="modelo != null"><a class="link" (click)="back('modelo')">{{ modelo }}</a></li>
+                                <li class="breadcrumb-item" *ngIf="year != null"><a class="link" (click)="back('year')">{{ year }}</a></li>
+                                <li class="breadcrumb-item" *ngIf="version != null"><a class="link" (click)="back('version')">{{ version }}</a></li>
                             </ol>
                         </nav>
                     </div>
@@ -1159,7 +1159,7 @@
                                 </div>
                             </div>
                         </form>
-                        <button type="button" class="btn btn-outline-primary botones" [disabled]="!colorForm.valid"
+                        <button type="button" class="btn btn-outline-primary botones" [disabled]="!formPrincipal.valid"
                             (click)="onContinue('principal')">Continuar</button>
                     </div>
                 </div>

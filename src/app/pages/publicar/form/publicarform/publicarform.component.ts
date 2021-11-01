@@ -408,4 +408,25 @@ export class PublicarformComponent implements OnInit {
     ).subscribe();
     this.onContinue('img');
   }
+  back(opt: string){
+    switch (opt) {
+      case 'marca':
+        this.progreso = 2;
+        break;
+      case 'modelo':
+        this.progreso = 3;
+        break;
+      case 'version':
+        this.progreso =5;
+        break;
+      case 'year':
+        this.progreso = 4;
+        break;
+      case 'categoria':
+        this.progreso = 1;
+        break;
+      default:
+        break;
+    }
+  }
 }
