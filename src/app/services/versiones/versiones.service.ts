@@ -46,4 +46,7 @@ export class VersionesService {
       map(actions => actions.map(a => a.payload.doc.data() as Version))
    );
  }
+ getVersionesforMarcaModelo(marca:string, modelo:string){
+  return this.afs.collection(('versiones'), ref => ref.where('marca', '==', marca).where('modelo','==', modelo)).valueChanges();
+}
 }
