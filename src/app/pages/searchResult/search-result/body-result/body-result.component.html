@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<!--div *ngIf="preload; else loader" class="container-fluid">
     <div class="row">
         <div class="col">
             <nav style="--bs-breadcrumb-divider: '-';" aria-label="breadcrumb">
@@ -69,12 +69,7 @@
                             <small>Mas de $55.000.000(215)</small>
                         </li>
                     </ul>
-                    <div class="input-group mb-3">
-                        <input type="text" class="form-control" placeholder="Minimo" aria-label="Minimo">
-                        <span class="input-group-text">a</span>
-                        <input type="text" class="form-control" placeholder="Maximo" aria-label="Maximo">
-                        <button type="button" class="btn btn-light"><i class="bi bi-arrow-right-circle-fill"></i></button>
-                      </div>
+                    
                 </div>
             </div>
             <div class="row">
@@ -301,24 +296,6 @@
             <div class="row">
                 <div class="col-12 kilometros">
                     <h5>Kilometros</h5>
-                    <ul>
-                        <li>
-                            <small>0 kilometros(215)</small>
-                        </li>
-                        <li>
-                            <small>0 Km a 30.000 Km (215)</small>
-                        </li>
-                        <li>
-                            <small>30.000 Km a 60.000 Km (215)</small>
-                        </li>
-                        <li>
-                            <small>60.000 Km a 100.000 Km (215)</small>
-                        </li>
-                        <li>
-                            <small>100.000 Km o mas (215)</small>
-                        </li>
-                    </ul>
-                    
                     <div class="input-group mb-3">
                         <input type="text" class="form-control" placeholder="Minimo" aria-label="Minimo">
                         <span class="input-group-text">a</span>
@@ -532,4 +509,1468 @@
             </div>
         </div>
     </div>
+</div-->
+<div *ngIf="preload; else loader" class="wrappage">
+
+    <!--content-->
+    <div class="container container-240 shop-collection">
+        <!--ul class="breadcrumb">
+            <li><a href="#">Home</a></li>
+            <li class="active">Shop</li>
+        </ul-->
+        <div class="filter-collection-left hidden-lg hidden-md">
+            <a class="btn">Filter</a>
+        </div>
+        <div class="row shop-colect">
+            <div class="col-md-3 col-sm-3 col-xs-12 col-left collection-sidebar" id="filter-sidebar">
+                <div class="close-sidebar-collection hidden-lg hidden-md">
+                    <span>Filtrar Vehículo</span><i class="icon_close ion-close"></i>
+                </div>
+                <!--div class="filter filter-cate">
+                    <ul class="wiget-content v2">
+                        <li class="active"><a href="#">TV & Video <span class="number"></span></a></li>
+                        <li class="active"><a href="#">Home Audio & Theater <span class="number"></span></a></li>
+                        <li class="active"><a href="#">Camera, Photo & Video <span class="number"></span></a></li>
+                        <li class="active"><a href="#">Cell Phones & Accessories <span class="number"></span></a></li>
+                        <li><a href="#">Headphones <span class="number"></span></a></li>
+                        <li class="active"><a href="#">Car Electronics <span class="number"></span></a></li>
+                        <li class="active"><a href="#">Electronics Showcase <span class="number"></span></a></li>
+                        <li><a href="#">Monitors <span class="number"></span></a></li>
+                        <li><a href="#">Accessories <span class="number"></span></a></li>
+                        <li class="active"><a href="#">Drives & Storage <span class="number"></span></a></li>
+                        <li class="active"><a href="#">Computer Parts & Components <span class="number"></span></a></li>
+                        <li class="active"><a href="#">Printers & Ink <span class="number"></span></a></li>
+                        <li class="active"><a href="#">Tablets & PC Products <span class="number"></span></a></li>
+                    </ul>
+                </div-->
+                <div class="filter filter-group">
+                    <h1 class="widget-blog-title">Filtrar vehículo</h1>
+                    <div class="filter-brand filter-inside">
+                        <h3>Marcas</h3>
+                        <ul class="e-filter brand-filter">
+                            <li><a href="#">Chevrolet<span class="number"></span></a></li>
+                            <li><a href="#">Renault<span class="number"></span></a></li>
+                            <li><a href="#">Toyota<span class="number"></span></a></li>
+                            <li><a href="#">Mazda<span class="number"></span></a></li>
+                            <li><a href="#">Ford<span class="number"></span></a></li>
+                            <li><a href="#">Nissan <span class="number"></span></a></li>
+                            <li><a href="#">kia<span class="number"></span></a></li>
+                            <li><a href="#">Volkswagen <span class="number"></span></a></li>
+                        </ul>
+                        <a href="#" class="btn-showmore">Show more +</a>
+                    </div>
+                    <div class="filter-price filter-inside">
+                        <h3>Precio:</h3>
+                        <div class="filter-content">
+                            <div class="input-group mb-3">
+                                <input type="text" class="form-control" placeholder="Minimo" aria-label="Minimo">
+                                <span class="input-group-text">a</span>
+                                <input type="text" class="form-control" placeholder="Maximo" aria-label="Maximo">
+
+                            </div>
+                            <span class="min-max">
+                                $0 Millones — $200 Millones
+                            </span>
+                            <a href="#" class="btn-filter e-gradient">Filtrar</a>
+                        </div>
+                    </div>
+
+                    <div class="filter-color filter-brand filter-inside">
+                        <h3>Color</h3>
+                        <ul class="e-filter brand-filter">
+                            <li><a href="#">Amarillo<span class="number"></span></a></li>
+                            <li><a href="#">Azul<span class="number"></span></a></li>
+                            <li><a href="#">Beige<span class="number"></span></a></li>
+                            <li><a href="#">Blanco <span class="number"></span></a></li>
+                            <li><a href="#">Celeste <span class="number"></span></a></li>
+                            <li><a href="#">Dorado <span class="number"></span></a></li>
+                            <li><a href="#">Gris <span class="number"></span></a></li>
+                            <li><a href="#">Marrón <span class="number"></span></a></li>
+                            <li><a href="#">Morado <span class="number"></span></a></li>
+                            <li><a href="#">Naranja <span class="number"></span></a></li>
+                            <li><a href="#">Negro <span class="number"></span></a></li>
+                            <li><a href="#">Plateado <span class="number"></span></a></li>
+                            <li><a href="#">Rojo <span class="number"></span></a></li>
+                            <li><a href="#">Verde <span class="number"></span></a></li>
+                            <li><a href="#">Violeta <span class="number"></span></a></li>
+                            <li><a href="#">Multicolor <span class="number"></span></a></li>
+                        </ul>
+                    </div>
+                    <!--div class="filter-color filter-brand filter-inside">
+                        <h3>Puertas</h3>
+                        <ul class="e-filter brand-filter">
+                            <li><a href="#">2<span class="number"></span></a></li>
+                            <li><a href="#">3<span class="number"></span></a></li>
+                            <li><a href="#">4<span class="number"></span></a></li>
+                            <li><a href="#">5<span class="number"></span></a></li>
+                            <li><a href="#">6<span class="number"></span></a></li>
+                            
+                        </ul>
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" placeholder="Minimo" aria-label="Minimo">
+                            <span class="input-group-text">a</span>
+                            <input type="text" class="form-control" placeholder="Maximo" aria-label="Maximo">
+                            <button type="button" class="btn btn-light"><i class="bi bi-arrow-right-circle-fill"></i></button>
+                          </div>
+                    </div-->
+                    <div class="filter-price filter-brand filter-inside">
+                        <h3>Kilometros:</h3>
+                        <div class="filter-content">
+                            <div class="input-group mb-3">
+                                <input type="text" class="form-control" placeholder="Minimo" aria-label="Minimo">
+                                <span class="input-group-text">a</span>
+                                <input type="text" class="form-control" placeholder="Maximo" aria-label="Maximo">
+                            </div>
+                            <span class="min-max">
+                                0 kilometros — ∞ Kilometros
+                            </span>
+                            <a href="#" class="btn-filter e-gradient">Filtrar</a>
+                        </div>
+                    </div>
+                </div>
+                <!--div class="filter filter-product e-category">
+                    <h1 class="widget-blog-title">Top Products</h1>
+                    <div class="owl-carousel owl-theme js-owl-post">
+                        <div class="item">
+                            <div class="cate-item">
+                                <div class="product-img">
+                                    <a href="#"><img src="assets/img/product/phone1.jpg" alt=""
+                                            class="img-reponsive"></a>
+                                </div>
+                                <div class="product-info">
+                                    <h3 class="product-title"><a href="#">Epson Home Cinema </a></h3>
+                                    <div class="product-price v2"><span>$780.00</span></div>
+                                </div>
+                            </div>
+                            <div class="cate-item">
+                                <div class="product-img">
+                                    <a href="#"><img src="assets/img/product/phone2.jpg" alt=""
+                                            class="img-reponsive"></a>
+                                </div>
+                                <div class="product-info">
+                                    <h3 class="product-title"><a href="#">Epson Home Cinema </a></h3>
+                                    <div class="product-price v2"><span>$780.00</span></div>
+                                </div>
+                            </div>
+                            <div class="cate-item">
+                                <div class="product-img">
+                                    <a href="#"><img src="assets/img/product/phone3.jpg" alt=""
+                                            class="img-reponsive"></a>
+                                </div>
+                                <div class="product-info">
+                                    <h3 class="product-title"><a href="#">Epson Home Cinema </a></h3>
+                                    <div class="product-price v2"><span>$780.00</span></div>
+                                </div>
+                            </div>
+                            <div class="cate-item">
+                                <div class="product-img">
+                                    <a href="#"><img src="assets/img/product/phone4.jpg" alt=""
+                                            class="img-reponsive"></a>
+                                </div>
+                                <div class="product-info">
+                                    <h3 class="product-title"><a href="#">Epson Home Cinema </a></h3>
+                                    <div class="product-price v2"><span>$780.00</span></div>
+                                </div>
+                            </div>
+                            <div class="cate-item">
+                                <div class="product-img">
+                                    <a href="#"><img src="assets/img/product/phone5.jpg" alt=""
+                                            class="img-reponsive"></a>
+                                </div>
+                                <div class="product-info">
+                                    <h3 class="product-title"><a href="#">Epson Home Cinema </a></h3>
+                                    <div class="product-price v2"><span>$780.00</span></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="item">
+                            <div class="cate-item">
+                                <div class="product-img">
+                                    <a href="#"><img src="assets/img/product/phone1.jpg" alt=""
+                                            class="img-reponsive"></a>
+                                </div>
+                                <div class="product-info">
+                                    <h3 class="product-title"><a href="#">Epson Home Cinema </a></h3>
+                                    <div class="product-price v2"><span>$780.00</span></div>
+                                </div>
+                            </div>
+                            <div class="cate-item">
+                                <div class="product-img">
+                                    <a href="#"><img src="assets/img/product/phone2.jpg" alt=""
+                                            class="img-reponsive"></a>
+                                </div>
+                                <div class="product-info">
+                                    <h3 class="product-title"><a href="#">Epson Home Cinema </a></h3>
+                                    <div class="product-price v2"><span>$780.00</span></div>
+                                </div>
+                            </div>
+                            <div class="cate-item">
+                                <div class="product-img">
+                                    <a href="#"><img src="assets/img/product/phone3.jpg" alt=""
+                                            class="img-reponsive"></a>
+                                </div>
+                                <div class="product-info">
+                                    <h3 class="product-title"><a href="#">Epson Home Cinema </a></h3>
+                                    <div class="product-price v2"><span>$780.00</span></div>
+                                </div>
+                            </div>
+                            <div class="cate-item">
+                                <div class="product-img">
+                                    <a href="#"><img src="assets/img/product/phone4.jpg" alt=""
+                                            class="img-reponsive"></a>
+                                </div>
+                                <div class="product-info">
+                                    <h3 class="product-title"><a href="#">Epson Home Cinema </a></h3>
+                                    <div class="product-price v2"><span>$780.00</span></div>
+                                </div>
+                            </div>
+                            <div class="cate-item">
+                                <div class="product-img">
+                                    <a href="#"><img src="assets/img/product/phone5.jpg" alt=""
+                                            class="img-reponsive"></a>
+                                </div>
+                                <div class="product-info">
+                                    <h3 class="product-title"><a href="#">Epson Home Cinema </a></h3>
+                                    <div class="product-price v2"><span>$780.00</span></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="item">
+                            <div class="cate-item">
+                                <div class="product-img">
+                                    <a href="#"><img src="assets/img/product/phone1.jpg" alt=""
+                                            class="img-reponsive"></a>
+                                </div>
+                                <div class="product-info">
+                                    <h3 class="product-title"><a href="#">Epson Home Cinema </a></h3>
+                                    <div class="product-price v2"><span>$780.00</span></div>
+                                </div>
+                            </div>
+                            <div class="cate-item">
+                                <div class="product-img">
+                                    <a href="#"><img src="assets/img/product/phone2.jpg" alt=""
+                                            class="img-reponsive"></a>
+                                </div>
+                                <div class="product-info">
+                                    <h3 class="product-title"><a href="#">Epson Home Cinema </a></h3>
+                                    <div class="product-price v2"><span>$780.00</span></div>
+                                </div>
+                            </div>
+                            <div class="cate-item">
+                                <div class="product-img">
+                                    <a href="#"><img src="assets/img/product/phone3.jpg" alt=""
+                                            class="img-reponsive"></a>
+                                </div>
+                                <div class="product-info">
+                                    <h3 class="product-title"><a href="#">Epson Home Cinema </a></h3>
+                                    <div class="product-price v2"><span>$780.00</span></div>
+                                </div>
+                            </div>
+                            <div class="cate-item">
+                                <div class="product-img">
+                                    <a href="#"><img src="assets/img/product/phone4.jpg" alt=""
+                                            class="img-reponsive"></a>
+                                </div>
+                                <div class="product-info">
+                                    <h3 class="product-title"><a href="#">Epson Home Cinema </a></h3>
+                                    <div class="product-price v2"><span>$780.00</span></div>
+                                </div>
+                            </div>
+                            <div class="cate-item">
+                                <div class="product-img">
+                                    <a href="#"><img src="assets/img/product/phone5.jpg" alt=""
+                                            class="img-reponsive"></a>
+                                </div>
+                                <div class="product-info">
+                                    <h3 class="product-title"><a href="#">Epson Home Cinema </a></h3>
+                                    <div class="product-price v2"><span>$780.00</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="banner">
+                    <a class="image-bd hover-images" href=""><img src="assets/img/o-banner3.jpg" alt=""
+                            class="img-reponsive"></a>
+                </div-->
+            </div>
+            <div class="col-md-9 col-sm-12 col-xs-12 collection-list">
+                <div class="e-product">
+                    <div class="pd-banner">
+                        <a href="#" class="image-bd effect_img2"><img src="assets/img/banner/h3_b1.png" alt=""
+                                class="img-reponsive"></a>
+                    </div>
+                    <div class="pd-top">
+                        <div class="show-element"><span>Visualizando 1–15 de 20 resultados</span></div>
+                        <div class="pd-sort">
+                            <div class="filter-show">
+                                <div class="dropdown">
+                                    <button class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                        Ver
+                                        <span class="dropdown-label">12</span>
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="#">12</a></li>
+                                        <li><a href="#">24</a></li>
+                                        <li><a href="#">36</a></li>
+                                        <li><a href="#">48</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-collection-grid product-grid">
+                        <div class="row">
+                            <div *ngFor="let vehicle of vehicles" class="col-xs-6 col-sm-6 col-md-4 col-lg-4 product-item">
+                                <div class="pd-bd product-inner">
+                                    <div class="product-img">
+                                        <a class="container-img" (click)="count()" [routerLink]="['/producto', vehicle.id]"><img src={{vehicle.urlimg}} alt=""
+                                                class="img-reponsive center"></a>
+                                                <div *ngIf="vehicle.promocion" class="ribbon-price red"><span>Promoción</span></div>
+                                    </div>
+                                    <div class="product-info">
+                                        <div class="element-list element-list-middle">
+                                            <div class="product-rating bd-rating">
+                                                <span class="star star-5"></span>
+                                                <span class="star star-4"></span>
+                                                <span class="star star-3"></span>
+                                                <span class="star star-2"></span>
+                                                <span class="star star-1"></span>
+                                            </div>
+                                            <p class="product-cate">{{vehicle.year}} | {{vehicle.kilometraje}} Km</p>
+                                            <h3 class="product-title"><a href="#">{{vehicle.desc}}</a></h3>
+                                            <div class="product-bottom">
+                                                <div class="product-price"><span>${{vehicle.valor}}</span></div>
+                                                </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 product-item">
+                                <div class="pd-bd product-inner">
+                                    <div class="product-img">
+                                        <a href="#"><img src="assets/img/product/pd3.jpg" alt=""
+                                                class="img-reponsive"></a>
+                                        <div class="ribbon-price red"><span>- 30% </span></div>
+                                    </div>
+                                    <div class="product-info">
+                                        <div class="color-group"></div>
+                                        <div class="element-list element-list-left">
+                                            <ul class="desc-list">
+                                                <li>Connects directly to Bluetooth</li>
+                                                <li>Battery Indicator light</li>
+                                                <li>DPI Selection:2600/2000/1600/1200/800</li>
+                                                <li>Computers running Windows</li>
+                                            </ul>
+                                        </div>
+                                        <div class="element-list element-list-middle">
+                                            <div class="product-rating bd-rating">
+                                                <span class="star star-5"></span>
+                                                <span class="star star-4"></span>
+                                                <span class="star star-3"></span>
+                                                <span class="star star-2"></span>
+                                                <span class="star star-1"></span>
+                                                <div class="number-rating">( 896 reviews )</div>
+                                            </div>
+                                            <p class="product-cate">Audio Speakers</p>
+                                            <h3 class="product-title"><a href="#">HP 22er 21.5-inch LED</a></h3>
+                                            <div class="product-bottom">
+                                                <div class="product-price">
+                                                    <span class="red">$1.450.00</span>
+                                                    <span class="old">$1,215.00</span>
+                                                </div>
+                                                <a href="#" class="btn-icon btn-view">
+                                                    <span class="icon-bg icon-view"></span>
+                                                </a>
+                                            </div>
+                                            <div class="product-bottom-group">
+                                                <a href="#" class="btn-icon">
+                                                    <span class="icon-bg icon-cart"></span>
+                                                </a>
+                                                <a href="#" class="btn-icon">
+                                                    <span class="icon-bg icon-wishlist"></span>
+                                                </a>
+                                                <a href="#" class="btn-icon">
+                                                    <span class="icon-bg icon-compare"></span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="product-button-group">
+                                            <a href="#" class="btn-icon">
+                                                <span class="icon-bg icon-cart"></span>
+                                            </a>
+                                            <a href="#" class="btn-icon">
+                                                <span class="icon-bg icon-wishlist"></span>
+                                            </a>
+                                            <a href="#" class="btn-icon">
+                                                <span class="icon-bg icon-compare"></span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 product-item">
+                                <div class="pd-bd product-inner">
+                                    <div class="product-img">
+                                        <a href="#"><img src="assets/img/product/pd4.jpg" alt=""
+                                                class="img-reponsive"></a>
+                                    </div>
+                                    <div class="product-info">
+                                        <div class="color-group"></div>
+                                        <div class="element-list element-list-left">
+                                            <ul class="desc-list">
+                                                <li>Connects directly to Bluetooth</li>
+                                                <li>Battery Indicator light</li>
+                                                <li>DPI Selection:2600/2000/1600/1200/800</li>
+                                                <li>Computers running Windows</li>
+                                            </ul>
+                                        </div>
+                                        <div class="element-list element-list-middle">
+                                            <div class="product-rating bd-rating">
+                                                <span class="star star-5"></span>
+                                                <span class="star star-4"></span>
+                                                <span class="star star-3"></span>
+                                                <span class="star star-2"></span>
+                                                <span class="star star-1"></span>
+                                                <div class="number-rating">( 896 reviews )</div>
+                                            </div>
+                                            <p class="product-cate">Camera & Photo</p>
+                                            <h3 class="product-title"><a href="#">Harman Kardon Onyx Studio </a></h3>
+                                            <div class="product-bottom">
+                                                <div class="product-price"><span>$1,215.00</span></div>
+                                                <a href="#" class="btn-icon btn-view">
+                                                    <span class="icon-bg icon-view"></span>
+                                                </a>
+                                            </div>
+                                            <div class="product-bottom-group">
+                                                <a href="#" class="btn-icon">
+                                                    <span class="icon-bg icon-cart"></span>
+                                                </a>
+                                                <a href="#" class="btn-icon">
+                                                    <span class="icon-bg icon-wishlist"></span>
+                                                </a>
+                                                <a href="#" class="btn-icon">
+                                                    <span class="icon-bg icon-compare"></span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="product-button-group">
+                                            <a href="#" class="btn-icon">
+                                                <span class="icon-bg icon-cart"></span>
+                                            </a>
+                                            <a href="#" class="btn-icon">
+                                                <span class="icon-bg icon-wishlist"></span>
+                                            </a>
+                                            <a href="#" class="btn-icon">
+                                                <span class="icon-bg icon-compare"></span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 product-item">
+                                <div class="pd-bd product-inner">
+                                    <div class="product-img">
+                                        <a href="#"><img src="assets/img/product/sound2.jpg" alt=""
+                                                class="img-reponsive"></a>
+                                    </div>
+                                    <div class="product-info">
+                                        <div class="color-group">
+                                        </div>
+                                        <div class="element-list element-list-left">
+                                            <ul class="desc-list">
+                                                <li>Connects directly to Bluetooth</li>
+                                                <li>Battery Indicator light</li>
+                                                <li>DPI Selection:2600/2000/1600/1200/800</li>
+                                                <li>Computers running Windows</li>
+                                            </ul>
+                                        </div>
+                                        <div class="element-list element-list-middle">
+                                            <div class="product-rating bd-rating">
+                                                <span class="star star-5"></span>
+                                                <span class="star star-4"></span>
+                                                <span class="star star-3"></span>
+                                                <span class="star star-2"></span>
+                                                <span class="star star-1"></span>
+                                                <div class="number-rating">( 896 reviews )</div>
+                                            </div>
+                                            <p class="product-cate">Audio Speakers</p>
+                                            <h3 class="product-title"><a href="#">Harman Kardon Onyx Studio </a></h3>
+                                            <div class="product-bottom">
+                                                <div class="product-price"><span>$1,215.00</span></div>
+                                                <a href="#" class="btn-icon btn-view">
+                                                    <span class="icon-bg icon-view"></span>
+                                                </a>
+                                            </div>
+                                            <div class="product-bottom-group">
+                                                <a href="#" class="btn-icon">
+                                                    <span class="icon-bg icon-cart"></span>
+                                                </a>
+                                                <a href="#" class="btn-icon">
+                                                    <span class="icon-bg icon-wishlist"></span>
+                                                </a>
+                                                <a href="#" class="btn-icon">
+                                                    <span class="icon-bg icon-compare"></span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="product-button-group">
+                                            <a href="#" class="btn-icon">
+                                                <span class="icon-bg icon-cart"></span>
+                                            </a>
+                                            <a href="#" class="btn-icon">
+                                                <span class="icon-bg icon-wishlist"></span>
+                                            </a>
+                                            <a href="#" class="btn-icon">
+                                                <span class="icon-bg icon-compare"></span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 product-item">
+                                <div class="pd-bd product-inner">
+                                    <div class="product-img">
+                                        <a href="#"><img src="assets/img/product/samsung3.jpg" alt=""
+                                                class="img-reponsive"></a>
+                                    </div>
+                                    <div class="product-info">
+                                        <div class="color-group">
+                                            <a href="#" class="circle black"></a>
+                                            <a href="#" class="circle skyblue"></a>
+                                        </div>
+                                        <div class="element-list element-list-left">
+                                            <ul class="desc-list">
+                                                <li>Connects directly to Bluetooth</li>
+                                                <li>Battery Indicator light</li>
+                                                <li>DPI Selection:2600/2000/1600/1200/800</li>
+                                                <li>Computers running Windows</li>
+                                            </ul>
+                                        </div>
+                                        <div class="element-list element-list-middle">
+                                            <div class="product-rating bd-rating">
+                                                <span class="star star-5"></span>
+                                                <span class="star star-4"></span>
+                                                <span class="star star-3"></span>
+                                                <span class="star star-2"></span>
+                                                <span class="star star-1"></span>
+                                                <div class="number-rating">( 896 reviews )</div>
+                                            </div>
+                                            <p class="product-cate">Cell Phones & Accessories</p>
+                                            <h3 class="product-title"><a href="#">Harman Kardon Onyx Studio </a></h3>
+                                            <div class="product-bottom">
+                                                <div class="product-price"><span>$1,215.00</span></div>
+                                                <a href="#" class="btn-icon btn-view">
+                                                    <span class="icon-bg icon-view"></span>
+                                                </a>
+                                            </div>
+                                            <div class="product-bottom-group">
+                                                <a href="#" class="btn-icon">
+                                                    <span class="icon-bg icon-cart"></span>
+                                                </a>
+                                                <a href="#" class="btn-icon">
+                                                    <span class="icon-bg icon-wishlist"></span>
+                                                </a>
+                                                <a href="#" class="btn-icon">
+                                                    <span class="icon-bg icon-compare"></span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="product-button-group">
+                                            <a href="#" class="btn-icon">
+                                                <span class="icon-bg icon-cart"></span>
+                                            </a>
+                                            <a href="#" class="btn-icon">
+                                                <span class="icon-bg icon-wishlist"></span>
+                                            </a>
+                                            <a href="#" class="btn-icon">
+                                                <span class="icon-bg icon-compare"></span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 product-item">
+                                <div class="pd-bd product-inner">
+                                    <div class="product-img">
+                                        <a href="#"><img src="assets/img/product/macbook2.jpg" alt=""
+                                                class="img-reponsive"></a>
+                                    </div>
+                                    <div class="product-info">
+                                        <div class="color-group">
+                                        </div>
+                                        <div class="element-list element-list-left">
+                                            <ul class="desc-list">
+                                                <li>Connects directly to Bluetooth</li>
+                                                <li>Battery Indicator light</li>
+                                                <li>DPI Selection:2600/2000/1600/1200/800</li>
+                                                <li>Computers running Windows</li>
+                                            </ul>
+                                        </div>
+                                        <div class="element-list element-list-middle">
+                                            <div class="product-rating bd-rating">
+                                                <span class="star star-5"></span>
+                                                <span class="star star-4"></span>
+                                                <span class="star star-3"></span>
+                                                <span class="star star-2"></span>
+                                                <span class="star star-1"></span>
+                                                <div class="number-rating">( 896 reviews )</div>
+                                            </div>
+                                            <p class="product-cate">Audio Speakers</p>
+                                            <h3 class="product-title"><a href="#">Harman Kardon Onyx Studio </a></h3>
+                                            <div class="product-bottom">
+                                                <div class="product-price"><span>$1,215.00</span></div>
+                                                <a href="#" class="btn-icon btn-view">
+                                                    <span class="icon-bg icon-view"></span>
+                                                </a>
+                                            </div>
+                                            <div class="product-bottom-group">
+                                                <a href="#" class="btn-icon">
+                                                    <span class="icon-bg icon-cart"></span>
+                                                </a>
+                                                <a href="#" class="btn-icon">
+                                                    <span class="icon-bg icon-wishlist"></span>
+                                                </a>
+                                                <a href="#" class="btn-icon">
+                                                    <span class="icon-bg icon-compare"></span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="product-button-group">
+                                            <a href="#" class="btn-icon">
+                                                <span class="icon-bg icon-cart"></span>
+                                            </a>
+                                            <a href="#" class="btn-icon">
+                                                <span class="icon-bg icon-wishlist"></span>
+                                            </a>
+                                            <a href="#" class="btn-icon">
+                                                <span class="icon-bg icon-compare"></span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 product-item">
+                                <div class="pd-bd product-inner">
+                                    <div class="product-img">
+                                        <a href="#"><img src="assets/img/product/headphone3.jpg" alt=""
+                                                class="img-reponsive"></a>
+                                    </div>
+                                    <div class="product-info">
+                                        <div class="color-group">
+                                        </div>
+                                        <div class="element-list element-list-left">
+                                            <ul class="desc-list">
+                                                <li>Connects directly to Bluetooth</li>
+                                                <li>Battery Indicator light</li>
+                                                <li>DPI Selection:2600/2000/1600/1200/800</li>
+                                                <li>Computers running Windows</li>
+                                            </ul>
+                                        </div>
+                                        <div class="element-list element-list-middle">
+                                            <div class="product-rating bd-rating">
+                                                <span class="star star-5"></span>
+                                                <span class="star star-4"></span>
+                                                <span class="star star-3"></span>
+                                                <span class="star star-2"></span>
+                                                <span class="star star-1"></span>
+                                                <div class="number-rating">( 896 reviews )</div>
+                                            </div>
+                                            <p class="product-cate">Audio Speakers</p>
+                                            <h3 class="product-title"><a href="#">Harman Kardon Onyx Studio </a></h3>
+                                            <div class="product-bottom">
+                                                <div class="product-price"><span>$1,215.00</span></div>
+                                                <a href="#" class="btn-icon btn-view">
+                                                    <span class="icon-bg icon-view"></span>
+                                                </a>
+                                            </div>
+                                            <div class="product-bottom-group">
+                                                <a href="#" class="btn-icon">
+                                                    <span class="icon-bg icon-cart"></span>
+                                                </a>
+                                                <a href="#" class="btn-icon">
+                                                    <span class="icon-bg icon-wishlist"></span>
+                                                </a>
+                                                <a href="#" class="btn-icon">
+                                                    <span class="icon-bg icon-compare"></span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="product-button-group">
+                                            <a href="#" class="btn-icon">
+                                                <span class="icon-bg icon-cart"></span>
+                                            </a>
+                                            <a href="#" class="btn-icon">
+                                                <span class="icon-bg icon-wishlist"></span>
+                                            </a>
+                                            <a href="#" class="btn-icon">
+                                                <span class="icon-bg icon-compare"></span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 product-item">
+                                <div class="pd-bd product-inner">
+                                    <div class="product-img">
+                                        <a href="#"><img src="assets/img/product/samsungbox.jpg" alt=""
+                                                class="img-reponsive"></a>
+                                    </div>
+                                    <div class="product-info">
+                                        <div class="color-group">
+                                        </div>
+                                        <div class="element-list element-list-left">
+                                            <ul class="desc-list">
+                                                <li>Connects directly to Bluetooth</li>
+                                                <li>Battery Indicator light</li>
+                                                <li>DPI Selection:2600/2000/1600/1200/800</li>
+                                                <li>Computers running Windows</li>
+                                            </ul>
+                                        </div>
+                                        <div class="element-list element-list-middle">
+                                            <div class="product-rating bd-rating">
+                                                <span class="star star-5"></span>
+                                                <span class="star star-4"></span>
+                                                <span class="star star-3"></span>
+                                                <span class="star star-2"></span>
+                                                <span class="star star-1"></span>
+                                                <div class="number-rating">( 896 reviews )</div>
+                                            </div>
+                                            <p class="product-cate">Audio Speakers</p>
+                                            <h3 class="product-title"><a href="#">Harman Kardon Onyx Studio </a></h3>
+                                            <div class="product-bottom">
+                                                <div class="product-price"><span>$1,215.00</span></div>
+                                                <a href="#" class="btn-icon btn-view">
+                                                    <span class="icon-bg icon-view"></span>
+                                                </a>
+                                            </div>
+                                            <div class="product-bottom-group">
+                                                <a href="#" class="btn-icon">
+                                                    <span class="icon-bg icon-cart"></span>
+                                                </a>
+                                                <a href="#" class="btn-icon">
+                                                    <span class="icon-bg icon-wishlist"></span>
+                                                </a>
+                                                <a href="#" class="btn-icon">
+                                                    <span class="icon-bg icon-compare"></span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="product-button-group">
+                                            <a href="#" class="btn-icon">
+                                                <span class="icon-bg icon-cart"></span>
+                                            </a>
+                                            <a href="#" class="btn-icon">
+                                                <span class="icon-bg icon-wishlist"></span>
+                                            </a>
+                                            <a href="#" class="btn-icon">
+                                                <span class="icon-bg icon-compare"></span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 product-item">
+                                <div class="pd-bd product-inner">
+                                    <div class="product-img">
+                                        <a href="#"><img src="assets/img/product/smartwatch.jpg" alt=""
+                                                class="img-reponsive"></a>
+                                    </div>
+                                    <div class="product-info">
+                                        <div class="color-group">
+                                        </div>
+                                        <div class="element-list element-list-left">
+                                            <ul class="desc-list">
+                                                <li>Connects directly to Bluetooth</li>
+                                                <li>Battery Indicator light</li>
+                                                <li>DPI Selection:2600/2000/1600/1200/800</li>
+                                                <li>Computers running Windows</li>
+                                            </ul>
+                                        </div>
+                                        <div class="element-list element-list-middle">
+                                            <div class="product-rating bd-rating">
+                                                <span class="star star-5"></span>
+                                                <span class="star star-4"></span>
+                                                <span class="star star-3"></span>
+                                                <span class="star star-2"></span>
+                                                <span class="star star-1"></span>
+                                                <div class="number-rating">( 896 reviews )</div>
+                                            </div>
+                                            <p class="product-cate">Audio Speakers</p>
+                                            <h3 class="product-title"><a href="#">Harman Kardon Onyx Studio </a></h3>
+                                            <div class="product-bottom">
+                                                <div class="product-price"><span>$1,215.00</span></div>
+                                                <a href="#" class="btn-icon btn-view">
+                                                    <span class="icon-bg icon-view"></span>
+                                                </a>
+                                            </div>
+                                            <div class="product-bottom-group">
+                                                <a href="#" class="btn-icon">
+                                                    <span class="icon-bg icon-cart"></span>
+                                                </a>
+                                                <a href="#" class="btn-icon">
+                                                    <span class="icon-bg icon-wishlist"></span>
+                                                </a>
+                                                <a href="#" class="btn-icon">
+                                                    <span class="icon-bg icon-compare"></span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="product-button-group">
+                                            <a href="#" class="btn-icon">
+                                                <span class="icon-bg icon-cart"></span>
+                                            </a>
+                                            <a href="#" class="btn-icon">
+                                                <span class="icon-bg icon-wishlist"></span>
+                                            </a>
+                                            <a href="#" class="btn-icon">
+                                                <span class="icon-bg icon-compare"></span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 product-item">
+                                <div class="pd-bd product-inner">
+                                    <div class="product-img">
+                                        <a href="#"><img src="assets/img/product/usb.jpg" alt=""
+                                                class="img-reponsive"></a>
+                                    </div>
+                                    <div class="product-info">
+                                        <div class="color-group">
+
+                                        </div>
+                                        <div class="element-list element-list-left">
+                                            <ul class="desc-list">
+                                                <li>Connects directly to Bluetooth</li>
+                                                <li>Battery Indicator light</li>
+                                                <li>DPI Selection:2600/2000/1600/1200/800</li>
+                                                <li>Computers running Windows</li>
+                                            </ul>
+                                        </div>
+                                        <div class="element-list element-list-middle">
+                                            <div class="product-rating bd-rating">
+                                                <span class="star star-5"></span>
+                                                <span class="star star-4"></span>
+                                                <span class="star star-3"></span>
+                                                <span class="star star-2"></span>
+                                                <span class="star star-1"></span>
+                                                <div class="number-rating">( 896 reviews )</div>
+                                            </div>
+                                            <p class="product-cate">Computers & Accessories</p>
+                                            <h3 class="product-title"><a href="#">Cordless TrackMan Wheel</a></h3>
+                                            <div class="product-bottom">
+                                                <div class="product-price"><span>$1,215.00</span></div>
+                                                <a href="#" class="btn-icon btn-view">
+                                                    <span class="icon-bg icon-view"></span>
+                                                </a>
+                                            </div>
+                                            <div class="product-bottom-group">
+                                                <a href="#" class="btn-icon">
+                                                    <span class="icon-bg icon-cart"></span>
+                                                </a>
+                                                <a href="#" class="btn-icon">
+                                                    <span class="icon-bg icon-wishlist"></span>
+                                                </a>
+                                                <a href="#" class="btn-icon">
+                                                    <span class="icon-bg icon-compare"></span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="product-button-group">
+                                            <a href="#" class="btn-icon">
+                                                <span class="icon-bg icon-cart"></span>
+                                            </a>
+                                            <a href="#" class="btn-icon">
+                                                <span class="icon-bg icon-wishlist"></span>
+                                            </a>
+                                            <a href="#" class="btn-icon">
+                                                <span class="icon-bg icon-compare"></span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 product-item">
+                                <div class="pd-bd product-inner">
+                                    <div class="product-img">
+                                        <a href="#"><img src="assets/img/product/samsung4.jpg" alt=""
+                                                class="img-reponsive"></a>
+                                        <div class="ribbon-price red"><span>- 30% </span></div>
+                                    </div>
+                                    <div class="product-info">
+                                        <div class="color-group">
+                                        </div>
+                                        <div class="element-list element-list-left">
+                                            <ul class="desc-list">
+                                                <li>Connects directly to Bluetooth</li>
+                                                <li>Battery Indicator light</li>
+                                                <li>DPI Selection:2600/2000/1600/1200/800</li>
+                                                <li>Computers running Windows</li>
+                                            </ul>
+                                        </div>
+                                        <div class="element-list element-list-middle">
+                                            <div class="product-rating bd-rating">
+                                                <span class="star star-5"></span>
+                                                <span class="star star-4"></span>
+                                                <span class="star star-3"></span>
+                                                <span class="star star-2"></span>
+                                                <span class="star star-1"></span>
+                                                <div class="number-rating">( 896 reviews )</div>
+                                            </div>
+                                            <p class="product-cate">Audio Speakers</p>
+                                            <h3 class="product-title"><a href="#">HP 22er 21.5-inch LED</a></h3>
+                                            <div class="product-bottom">
+                                                <div class="product-price">
+                                                    <span class="red">$1,215.00</span>
+                                                    <span class="old">$1,450.00</span>
+                                                </div>
+                                                <a href="#" class="btn-icon btn-view">
+                                                    <span class="icon-bg icon-view"></span>
+                                                </a>
+                                            </div>
+                                            <div class="product-bottom-group">
+                                                <a href="#" class="btn-icon">
+                                                    <span class="icon-bg icon-cart"></span>
+                                                </a>
+                                                <a href="#" class="btn-icon">
+                                                    <span class="icon-bg icon-wishlist"></span>
+                                                </a>
+                                                <a href="#" class="btn-icon">
+                                                    <span class="icon-bg icon-compare"></span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="product-button-group">
+                                            <a href="#" class="btn-icon">
+                                                <span class="icon-bg icon-cart"></span>
+                                            </a>
+                                            <a href="#" class="btn-icon">
+                                                <span class="icon-bg icon-wishlist"></span>
+                                            </a>
+                                            <a href="#" class="btn-icon">
+                                                <span class="icon-bg icon-compare"></span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 product-item">
+                                <div class="pd-bd product-inner">
+                                    <div class="product-img">
+                                        <a href="#"><img src="assets/img/product/logitech.jpg" alt=""
+                                                class="img-reponsive"></a>
+                                    </div>
+                                    <div class="product-info">
+                                        <div class="color-group">
+                                            <a href="#" class="circle aqua"></a>
+                                            <a href="#" class="circle red"></a>
+                                            <a href="#" class="circle gray"></a>
+                                        </div>
+                                        <div class="element-list element-list-left">
+                                            <ul class="desc-list">
+                                                <li>Connects directly to Bluetooth</li>
+                                                <li>Battery Indicator light</li>
+                                                <li>DPI Selection:2600/2000/1600/1200/800</li>
+                                                <li>Computers running Windows</li>
+                                            </ul>
+                                        </div>
+                                        <div class="element-list element-list-middle">
+                                            <div class="product-rating bd-rating">
+                                                <span class="star star-5"></span>
+                                                <span class="star star-4"></span>
+                                                <span class="star star-3"></span>
+                                                <span class="star star-2"></span>
+                                                <span class="star star-1"></span>
+                                                <div class="number-rating">( 896 reviews )</div>
+                                            </div>
+                                            <p class="product-cate">Camera & Photo</p>
+                                            <h3 class="product-title"><a href="#">Harman Kardon Onyx Studio </a></h3>
+                                            <div class="product-bottom">
+                                                <div class="product-price"><span>$1,215.00</span></div>
+                                                <a href="#" class="btn-icon btn-view">
+                                                    <span class="icon-bg icon-view"></span>
+                                                </a>
+                                            </div>
+                                            <div class="product-bottom-group">
+                                                <a href="#" class="btn-icon">
+                                                    <span class="icon-bg icon-cart"></span>
+                                                </a>
+                                                <a href="#" class="btn-icon">
+                                                    <span class="icon-bg icon-wishlist"></span>
+                                                </a>
+                                                <a href="#" class="btn-icon">
+                                                    <span class="icon-bg icon-compare"></span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="product-button-group">
+                                            <a href="#" class="btn-icon">
+                                                <span class="icon-bg icon-cart"></span>
+                                            </a>
+                                            <a href="#" class="btn-icon">
+                                                <span class="icon-bg icon-wishlist"></span>
+                                            </a>
+                                            <a href="#" class="btn-icon">
+                                                <span class="icon-bg icon-compare"></span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 product-item">
+                                <div class="pd-bd product-inner">
+                                    <div class="product-img">
+                                        <a href="#"><img src="assets/img/product/ubl.jpg" alt=""
+                                                class="img-reponsive"></a>
+                                    </div>
+                                    <div class="product-info">
+                                        <div class="color-group">
+                                        </div>
+                                        <div class="element-list element-list-left">
+                                            <ul class="desc-list">
+                                                <li>Connects directly to Bluetooth</li>
+                                                <li>Battery Indicator light</li>
+                                                <li>DPI Selection:2600/2000/1600/1200/800</li>
+                                                <li>Computers running Windows</li>
+                                            </ul>
+                                        </div>
+                                        <div class="element-list element-list-middle">
+                                            <div class="product-rating bd-rating">
+                                                <span class="star star-5"></span>
+                                                <span class="star star-4"></span>
+                                                <span class="star star-3"></span>
+                                                <span class="star star-2"></span>
+                                                <span class="star star-1"></span>
+                                                <div class="number-rating">( 896 reviews )</div>
+                                            </div>
+                                            <p class="product-cate">Audio Speakers</p>
+                                            <h3 class="product-title"><a href="#">Harman Kardon Onyx Studio </a></h3>
+                                            <div class="product-bottom">
+                                                <div class="product-price"><span>$1,215.00</span></div>
+                                                <a href="#" class="btn-icon btn-view">
+                                                    <span class="icon-bg icon-view"></span>
+                                                </a>
+                                            </div>
+                                            <div class="product-bottom-group">
+                                                <a href="#" class="btn-icon">
+                                                    <span class="icon-bg icon-cart"></span>
+                                                </a>
+                                                <a href="#" class="btn-icon">
+                                                    <span class="icon-bg icon-wishlist"></span>
+                                                </a>
+                                                <a href="#" class="btn-icon">
+                                                    <span class="icon-bg icon-compare"></span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="product-button-group">
+                                            <a href="#" class="btn-icon">
+                                                <span class="icon-bg icon-cart"></span>
+                                            </a>
+                                            <a href="#" class="btn-icon">
+                                                <span class="icon-bg icon-wishlist"></span>
+                                            </a>
+                                            <a href="#" class="btn-icon">
+                                                <span class="icon-bg icon-compare"></span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 product-item">
+                                <div class="pd-bd product-inner">
+                                    <div class="product-img">
+                                        <a href="#"><img src="assets/img/product/macbook.jpg" alt=""
+                                                class="img-reponsive"></a>
+                                    </div>
+                                    <div class="product-info">
+                                        <div class="color-group">
+                                        </div>
+                                        <div class="element-list element-list-left">
+                                            <ul class="desc-list">
+                                                <li>Connects directly to Bluetooth</li>
+                                                <li>Battery Indicator light</li>
+                                                <li>DPI Selection:2600/2000/1600/1200/800</li>
+                                                <li>Computers running Windows</li>
+                                            </ul>
+                                        </div>
+                                        <div class="element-list element-list-middle">
+                                            <div class="product-rating bd-rating">
+                                                <span class="star star-5"></span>
+                                                <span class="star star-4"></span>
+                                                <span class="star star-3"></span>
+                                                <span class="star star-2"></span>
+                                                <span class="star star-1"></span>
+                                                <div class="number-rating">( 896 reviews )</div>
+                                            </div>
+                                            <p class="product-cate">Audio Speakers</p>
+                                            <h3 class="product-title"><a href="#">Harman Kardon Onyx Studio </a></h3>
+                                            <div class="product-bottom">
+                                                <div class="product-price"><span>$1,215.00</span></div>
+                                                <a href="#" class="btn-icon btn-view">
+                                                    <span class="icon-bg icon-view"></span>
+                                                </a>
+                                            </div>
+                                            <div class="product-bottom-group">
+                                                <a href="#" class="btn-icon">
+                                                    <span class="icon-bg icon-cart"></span>
+                                                </a>
+                                                <a href="#" class="btn-icon">
+                                                    <span class="icon-bg icon-wishlist"></span>
+                                                </a>
+                                                <a href="#" class="btn-icon">
+                                                    <span class="icon-bg icon-compare"></span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="product-button-group">
+                                            <a href="#" class="btn-icon">
+                                                <span class="icon-bg icon-cart"></span>
+                                            </a>
+                                            <a href="#" class="btn-icon">
+                                                <span class="icon-bg icon-wishlist"></span>
+                                            </a>
+                                            <a href="#" class="btn-icon">
+                                                <span class="icon-bg icon-compare"></span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 product-item">
+                                <div class="pd-bd product-inner">
+                                    <div class="product-img">
+                                        <a href="#"><img src="assets/img/product/ring.jpg" alt=""
+                                                class="img-reponsive"></a>
+                                    </div>
+                                    <div class="product-info">
+                                        <div class="color-group">
+                                        </div>
+                                        <div class="element-list element-list-left">
+                                            <ul class="desc-list">
+                                                <li>Connects directly to Bluetooth</li>
+                                                <li>Battery Indicator light</li>
+                                                <li>DPI Selection:2600/2000/1600/1200/800</li>
+                                                <li>Computers running Windows</li>
+                                            </ul>
+                                        </div>
+                                        <div class="element-list element-list-middle">
+                                            <div class="product-rating bd-rating">
+                                                <span class="star star-5"></span>
+                                                <span class="star star-4"></span>
+                                                <span class="star star-3"></span>
+                                                <span class="star star-2"></span>
+                                                <span class="star star-1"></span>
+                                                <div class="number-rating">( 896 reviews )</div>
+                                            </div>
+                                            <p class="product-cate">Audio Speakers</p>
+                                            <h3 class="product-title"><a href="#">Harman Kardon Onyx Studio </a></h3>
+                                            <div class="product-bottom">
+                                                <div class="product-price"><span>$1,215.00</span></div>
+                                                <a href="#" class="btn-icon btn-view">
+                                                    <span class="icon-bg icon-view"></span>
+                                                </a>
+                                            </div>
+                                            <div class="product-bottom-group">
+                                                <a href="#" class="btn-icon">
+                                                    <span class="icon-bg icon-cart"></span>
+                                                </a>
+                                                <a href="#" class="btn-icon">
+                                                    <span class="icon-bg icon-wishlist"></span>
+                                                </a>
+                                                <a href="#" class="btn-icon">
+                                                    <span class="icon-bg icon-compare"></span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="product-button-group">
+                                            <a href="#" class="btn-icon">
+                                                <span class="icon-bg icon-cart"></span>
+                                            </a>
+                                            <a href="#" class="btn-icon">
+                                                <span class="icon-bg icon-wishlist"></span>
+                                            </a>
+                                            <a href="#" class="btn-icon">
+                                                <span class="icon-bg icon-compare"></span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 product-item">
+                                <div class="pd-bd product-inner">
+                                    <div class="product-img">
+                                        <a href="#"><img src="assets/img/product/sound.jpg" alt=""
+                                                class="img-reponsive"></a>
+                                    </div>
+                                    <div class="product-info">
+                                        <div class="color-group">
+                                            <a href="#" class="circle black"></a>
+                                            <a href="#" class="circle red"></a>
+                                            <a href="#" class="circle gray"></a>
+                                        </div>
+                                        <div class="element-list element-list-left">
+                                            <ul class="desc-list">
+                                                <li>Connects directly to Bluetooth</li>
+                                                <li>Battery Indicator light</li>
+                                                <li>DPI Selection:2600/2000/1600/1200/800</li>
+                                                <li>Computers running Windows</li>
+                                            </ul>
+                                        </div>
+                                        <div class="element-list element-list-middle">
+                                            <div class="product-rating bd-rating">
+                                                <span class="star star-5"></span>
+                                                <span class="star star-4"></span>
+                                                <span class="star star-3"></span>
+                                                <span class="star star-2"></span>
+                                                <span class="star star-1"></span>
+                                                <div class="number-rating">( 896 reviews )</div>
+                                            </div>
+                                            <p class="product-cate">Computers & Accessories</p>
+                                            <h3 class="product-title"><a href="#">Cordless TrackMan Wheel</a></h3>
+                                            <div class="product-bottom">
+                                                <div class="product-price"><span>$1,215.00</span></div>
+                                                <a href="#" class="btn-icon btn-view">
+                                                    <span class="icon-bg icon-view"></span>
+                                                </a>
+                                            </div>
+                                            <div class="product-bottom-group">
+                                                <a href="#" class="btn-icon">
+                                                    <span class="icon-bg icon-cart"></span>
+                                                </a>
+                                                <a href="#" class="btn-icon">
+                                                    <span class="icon-bg icon-wishlist"></span>
+                                                </a>
+                                                <a href="#" class="btn-icon">
+                                                    <span class="icon-bg icon-compare"></span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="product-button-group">
+                                            <a href="#" class="btn-icon">
+                                                <span class="icon-bg icon-cart"></span>
+                                            </a>
+                                            <a href="#" class="btn-icon">
+                                                <span class="icon-bg icon-wishlist"></span>
+                                            </a>
+                                            <a href="#" class="btn-icon">
+                                                <span class="icon-bg icon-compare"></span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 product-item">
+                                <div class="pd-bd product-inner">
+                                    <div class="product-img">
+                                        <a href="#"><img src="assets/img/product/headphone.jpg" alt=""
+                                                class="img-reponsive"></a>
+                                        <div class="ribbon-price red"><span>- 30% </span></div>
+                                    </div>
+                                    <div class="product-info">
+                                        <div class="color-group">
+
+                                        </div>
+                                        <div class="element-list element-list-left">
+                                            <ul class="desc-list">
+                                                <li>Connects directly to Bluetooth</li>
+                                                <li>Battery Indicator light</li>
+                                                <li>DPI Selection:2600/2000/1600/1200/800</li>
+                                                <li>Computers running Windows</li>
+                                            </ul>
+                                        </div>
+                                        <div class="element-list element-list-middle">
+                                            <div class="product-rating bd-rating">
+                                                <span class="star star-5"></span>
+                                                <span class="star star-4"></span>
+                                                <span class="star star-3"></span>
+                                                <span class="star star-2"></span>
+                                                <span class="star star-1"></span>
+                                                <div class="number-rating">( 896 reviews )</div>
+                                            </div>
+                                            <p class="product-cate">Audio Speakers</p>
+                                            <h3 class="product-title"><a href="#">HP 22er 21.5-inch LED</a></h3>
+                                            <div class="product-bottom">
+                                                <div class="product-price">
+                                                    <span class="red">$1,215.00</span>
+                                                    <span class="old">$1,450.00</span>
+                                                </div>
+                                                <a href="#" class="btn-icon btn-view">
+                                                    <span class="icon-bg icon-view"></span>
+                                                </a>
+                                            </div>
+                                            <div class="product-bottom-group">
+                                                <a href="#" class="btn-icon">
+                                                    <span class="icon-bg icon-cart"></span>
+                                                </a>
+                                                <a href="#" class="btn-icon">
+                                                    <span class="icon-bg icon-wishlist"></span>
+                                                </a>
+                                                <a href="#" class="btn-icon">
+                                                    <span class="icon-bg icon-compare"></span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="product-button-group">
+                                            <a href="#" class="btn-icon">
+                                                <span class="icon-bg icon-cart"></span>
+                                            </a>
+                                            <a href="#" class="btn-icon">
+                                                <span class="icon-bg icon-wishlist"></span>
+                                            </a>
+                                            <a href="#" class="btn-icon">
+                                                <span class="icon-bg icon-compare"></span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 product-item">
+                                <div class="pd-bd product-inner">
+                                    <div class="product-img">
+                                        <a href="#"><img src="assets/img/product/headphone4.jpg" alt=""
+                                                class="img-reponsive"></a>
+                                    </div>
+                                    <div class="product-info">
+                                        <div class="color-group">
+                                        </div>
+                                        <div class="element-list element-list-left">
+                                            <ul class="desc-list">
+                                                <li>Connects directly to Bluetooth</li>
+                                                <li>Battery Indicator light</li>
+                                                <li>DPI Selection:2600/2000/1600/1200/800</li>
+                                                <li>Computers running Windows</li>
+                                            </ul>
+                                        </div>
+                                        <div class="element-list element-list-middle">
+                                            <div class="product-rating bd-rating">
+                                                <span class="star star-5"></span>
+                                                <span class="star star-4"></span>
+                                                <span class="star star-3"></span>
+                                                <span class="star star-2"></span>
+                                                <span class="star star-1"></span>
+                                                <div class="number-rating">( 896 reviews )</div>
+                                            </div>
+                                            <p class="product-cate">Camera & Photo</p>
+                                            <h3 class="product-title"><a href="#">Harman Kardon Onyx Studio </a></h3>
+                                            <div class="product-bottom">
+                                                <div class="product-price"><span>$1,215.00</span></div>
+                                                <a href="#" class="btn-icon btn-view">
+                                                    <span class="icon-bg icon-view"></span>
+                                                </a>
+                                            </div>
+                                            <div class="product-bottom-group">
+                                                <a href="#" class="btn-icon">
+                                                    <span class="icon-bg icon-cart"></span>
+                                                </a>
+                                                <a href="#" class="btn-icon">
+                                                    <span class="icon-bg icon-wishlist"></span>
+                                                </a>
+                                                <a href="#" class="btn-icon">
+                                                    <span class="icon-bg icon-compare"></span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="product-button-group">
+                                            <a href="#" class="btn-icon">
+                                                <span class="icon-bg icon-cart"></span>
+                                            </a>
+                                            <a href="#" class="btn-icon">
+                                                <span class="icon-bg icon-wishlist"></span>
+                                            </a>
+                                            <a href="#" class="btn-icon">
+                                                <span class="icon-bg icon-compare"></span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pd-middle space-v1">
+                        <ul class="pagination">
+                            <li class="active"><a href="#">1</a></li>
+                            <li><a href="#">2</a></li>
+                            <li><a href="#"><i class="ion-ios-arrow-forward"></i></a></li>
+                        </ul>
+                        <div class="pd-sort">
+                            <div class="filter-show">
+                                <div class="dropdown">
+                                    <button class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                        Ver
+                                        <span class="dropdown-label">12</span>
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="#">12</a></li>
+                                        <li><a href="#">24</a></li>
+                                        <li><a href="#">36</a></li>
+                                        <li><a href="#">48</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="feature">
+        <div class="container container-240">
+            <div class="feature-inside">
+                <div class="feature-block text-center">
+                    <div class="feature-block-img"><img src="assets/img/feature/truck.png" alt="" class="img-reponsive">
+                    </div>
+                    <div class="feature-info">
+                        <h3 class="blanco">Envíos a todo el país</h3>
+                        <p class="p-color">Envíos a nivel nacional.</p>
+                    </div>
+                </div>
+
+                <div class="feature-block text-center">
+                    <div class="feature-block-img"><img src="assets/img/feature/credit-card.png" alt=""
+                            class="img-reponsive"></div>
+                    <div class="feature-info">
+                        <h3 class="blanco">Pago seguro</h3>
+                        <p class="p-color">Pague con los métodos de pago más populares y seguros del mundo.</p>
+                    </div>
+                </div>
+
+                <div class="feature-block text-center">
+                    <div class="feature-block-img"><img src="assets/img/feature/safety.png" alt=""
+                            class="img-reponsive"></div>
+                    <div class="feature-info">
+                        <h3 class="blanco">Compra con confianza</h3>
+                        <p class="p-color">Nuestra Protección al Comprador cubre su compra desde el clic hasta la
+                            entrega.</p>
+                    </div>
+                </div>
+
+                <div class="feature-block text-center">
+                    <div class="feature-block-img"><img src="assets/img/feature/telephone.png" alt=""
+                            class="img-reponsive"></div>
+                    <div class="feature-info">
+                        <h3 class="blanco">24/7 Centro de ayuda</h3>
+                        <p class="p-color">Asistencia las 24 horas para una experiencia de compra fluida.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- / end content -->
+
+
 </div>
+<ng-template #loader>
+    <div id="loader">
+        <div class="loader">
+            <div class="position-center-center">
+                <div id="preloader6"> <span></span> <span></span> <span></span> <span></span> </div>
+            </div>
+        </div>
+    </div>
+</ng-template>

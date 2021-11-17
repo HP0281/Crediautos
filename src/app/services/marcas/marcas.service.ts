@@ -12,8 +12,10 @@ export class MarcasService {
 
   private marcaCollection : AngularFirestoreCollection<Marca>;
 
-  constructor(private readonly afs: AngularFirestore) { 
-    this.marcaCollection = afs.collection<Marca>('marcas');
+  constructor(private readonly afs: AngularFirestore)  { 
+    this.marcaCollection = afs.collection<Marca>('marcas', ref =>
+      ref.orderBy("name")
+    );
     this.getMarcas();
   }
 
@@ -39,10 +41,19 @@ export class MarcasService {
     }
   })
  }
- private getMarcas():void{
+ private getMarcas(){
    console.log('get marcas')
-   this.marcas = this.marcaCollection.snapshotChanges().pipe(
+    this.marcas = this.marcaCollection.snapshotChanges().pipe(
       map(actions => actions.map(a => a.payload.doc.data() as Marca))
    );
+ }
+ public async getMarcasOrden  (limite: number){
+  this.marcaCollection =  await this.afs.collection<Marca>('marcas', ref =>
+  ref.orderBy("name").limit(limite)
+  );
+  let m;
+  return m = this.marcaCollection.snapshotChanges().pipe(
+    map(actions => actions.map(a => a.payload.doc.data() as Marca))
+ );;
  }
 }

@@ -6,6 +6,9 @@
 .form-select{
     font-size: 15px;
 }
+.form-control{
+    font-size: medium;
+}
 #publica{
     border: 2px solid black;
     border-radius: 3px;
@@ -19,7 +22,6 @@
     border-top: 1px solid #999;
     bottom: 0;
     width: 100%;
-    margin-top: 150px;
     background-color: #d1d1d1;
 }
 .footer a{

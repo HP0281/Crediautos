@@ -13,7 +13,7 @@ body
  + HEADER
  + NAVIGATION
  + BANNER
- + SERVICES
+ + SERVICES 
  + OUR FEATURED FOUNDERS
  + BLOG UPDATES 
  + APPOINMENT
@@ -311,7 +311,7 @@ section {
 }
 .top-bar:after{
 	position:absolute;
-	background:url(../images/top-right-bar.pngb) no-repeat;
+	background:url(../images/top-right-bar.png) no-repeat;
 	width:35px;
 	height:48px;
 	float:right;

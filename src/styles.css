@@ -1,4 +1,5 @@
 @import "~bootstrap-icons/font/bootstrap-icons.css";
+
 .btn-primary-black{
     background-color: #0d0d0dce;
     border-color: #e51e1d;
@@ -19,5 +20,6 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~bootstrap-icons/font/bootstrap-icons.css";
 
-html, body { height: 100%; }
-body { margin: 0; font-family: 'Roboto', "Helvetica Neue", sans-serif; }
+html, body { height: 100%;}
+body { margin: 0; font-family: 'Roboto', "Helvetica Neue", sans-serif; font-size: medium !important;}
+

@@ -2,3 +2,21 @@
     display: flex;
     flex-direction: row;
 }
+.p-color{
+    color: rgba(255, 255, 255, 0.897);
+}
+.blanco{
+    color:white;
+}
+.center{
+    height: 320px;
+    width: 320px !important; 
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+.container-img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }

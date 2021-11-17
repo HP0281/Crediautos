@@ -1,3 +1,5 @@
+
+   
 <!-- Top bar -->
 <div class="container">
   <div class="row">
@@ -6,7 +8,7 @@
       <div class="container-fluid">
         <div class=""> <a href="#"><img src="../../../assets/materialize/img/logocrediuatos.svg" alt=""
               class="d-inline-block text-center m-auto">
-            </a> </div>
+          </a> </div>
       </div>
     </div>
     <div class="col-md-10">
@@ -23,23 +25,29 @@
           <ul class="some-info">
             <li><i class="fa fa-phone"></i> +1 548-554-451</li>
             <li><i class="fa fa-envelope"></i> Example@domain.com</li>
-            <li *ngIf="pqr"><a class="nav-link p-0" [routerLink]="['/questions']"><i class="fa fa-question-circle"></i>Ayuda/PQR</a></li>
-            <li><a class="nav-link" [routerLink]="['/login']" *ngIf="!isloggin && ingresar"><i class="fas fa-sign-in"></i>Ingresa</a></li>
-            <li *ngIf="!isloggin && crear"><a class="nav-link" [routerLink]="['/registro']"><i class="fa fa-user"></i>Crear cuenta</a></li>
+            <li *ngIf="pqr"><a class="nav-link p-0" [routerLink]="['/questions']"><i
+                  class="fa fa-question-circle"></i>Ayuda/PQR</a></li>
+            <li><a class="nav-link" [routerLink]="['/login']" *ngIf="!isloggin && ingresar"><i
+                  class="fas fa-sign-in"></i>Ingresa</a></li>
+            <li *ngIf="!isloggin && crear"><a class="nav-link" [routerLink]="['/registro']"><i
+                  class="fa fa-user"></i>Crear cuenta</a></li>
             <li *ngIf="isloggin && perfil" class="dropdown">
               <a class="nav-link dropdown-toggle p-0" id="navbarDarkDropdownMenuLink" role="button"
-                data-bs-toggle="dropdown" aria-expanded="false"><i class="fa fa-user"></i>hola, {{ user?.displayName }}</a>
+                data-bs-toggle="dropdown" aria-expanded="false"><i class="fa fa-user"></i>hola, {{ user?.displayName
+                }}</a>
               <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
                 <li><a class="dropdown-item" [routerLink]="['/perfil']">Cuenta</a></li>
                 <li><a class="dropdown-item" (click)="onLogout()">Cerrar sesion</a></li>
               </ul>
             </li>
           </ul>
-          <div class="container-fluid">
-            <h1 class="tamaño font-alba-titulo mb-0">Crediautos Colombia</h1>
-          </div>
+
           
+
         </div>
+      </div>
+      <div class="container-fluid ">
+        <h1 class="tamaño text-center font-alba-titulo m-auto">Crediautos Colombia</h1>
       </div>
     </div>
   </div>
@@ -50,18 +58,19 @@
   <header class="header coporate-header p-0">
 
     <div class="sticky">
-      <div class="container font-alba">
+      <div class="container">
         <!-- Nav -->
         <nav>
           <ul id="ownmenu" class="ownmenu">
+            
             <li class="active"><a class="nav-link" [routerLink]="['/inicio']">Inicio</a></li>
             <li *ngIf="publica">
               <a class="nav-link" [routerLink]="['/publish']">Publicar Articulo</a>
             </li>
             <li *ngIf="publica">
-              <a class="nav-link" [routerLink]="['/publish']">Publicar vehiculo</a>
+              <a class="nav-link" [routerLink]="['/publicarForm']">Publicar vehiculo</a>
             </li>
-            <li  *ngIf="contacto">
+            <li *ngIf="contacto">
               <a class="nav-link" [routerLink]="['/contact']"><i class="bi bi-telephone-fill"></i>Contacto</a>
             </li>
 
@@ -119,11 +128,11 @@
             </ul>
           </div>
         </li-->
-        <!-- <li class="nav-item">
+<!-- <li class="nav-item">
 
           <button (click)="abrirmodal(ejemploModal)">ejemplo</button>
         </li> -->
-        <!--li class="nav-item" *ngIf="ayuda">
+<!--li class="nav-item" *ngIf="ayuda">
           <a class="nav-link" [routerLink]="['/questions']"><i class="bi bi-question-circle-fill"></i></a>
         </li>
         <li class="nav-item" *ngIf="publica">

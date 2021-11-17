@@ -33,6 +33,7 @@ export class VehiclesService {
     return new Promise(async (resolve, reject ) => {
       try {
         const id = vechicleId || this.afs.createId();
+        localStorage.setItem('idVehicle', JSON.stringify(id));
         const data = {id, ...vehicle };
         const result = await this.vehicleCollection.doc(id).set(data);
         resolve(result);
@@ -48,5 +49,10 @@ export class VehiclesService {
   }
   getVehiclesById(id:string){
     return this.afs.collection(('vehicles'), ref => ref.where('vendedor','==', id)).valueChanges();
+  }
+  getVehicleById(id:string){
+    return this.afs.collection(('vehicles'), ref => ref.where('id','==', id)).valueChanges().pipe(
+      map(actions => actions.map(a => a as Vehicle))
+    );
   }
 }

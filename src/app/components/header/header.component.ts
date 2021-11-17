@@ -47,6 +47,7 @@ export class HeaderComponent implements OnInit {
       this.user = respo;
       if (this.user) {
         this.isloggin = true;
+        localStorage.setItem('nombre', JSON.stringify(this.user.displayName));
       }
     });
   }

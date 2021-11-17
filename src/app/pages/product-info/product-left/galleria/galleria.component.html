@@ -1,0 +1,21 @@
+<div class="flex product-img-slide">
+    <div class="product-images">
+        <div  class="main-img js-product-slider ">
+            <a  href="#" class="hover-images effect container-img"><img src={{product.urlimg}} alt="photo" class="img-reponsive center"></a>
+            <a *ngFor="let image of imgs" href="#" class="hover-images effect container-img"><img src={{image.urlimg}} alt="photo" class="img-reponsive center"></a>
+            
+        </div>
+    </div>
+    <div class="multiple-img-list-ver2 js-click-product">
+        <div  class="product-col">
+            <div class="img active">
+                <img src={{product.urlimg}} alt="photo" class="img-reponsive center-min">
+            </div>
+        </div>
+        <div *ngFor="let image of imgs" class="product-col">
+            <div class="img active">
+                <img src={{image.urlimg}} alt="photo" class="img-reponsive center-min">
+            </div>
+        </div> 
+    </div>
+</div>

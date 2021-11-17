@@ -13,6 +13,11 @@ import { AngularFireStorage } from '@angular/fire/storage';
 import { finalize } from 'rxjs/operators';
 import { ModelosService } from 'src/app/services/modelos/modelos.service';
 import { VersionesService } from 'src/app/services/versiones/versiones.service';
+import { FileItem } from 'src/app/models/file-item';
+import { ImageService } from 'src/app/services/image/image.service';
+import { Image } from 'src/app/models/image.interface';
+import * as _ from 'lodash';
+import { async } from '@angular/core/testing';
 
 @Component({
   selector: 'app-publicarform',
@@ -45,9 +50,20 @@ export class PublicarformComponent implements OnInit {
   versions : string[];
   
   cargo:boolean = false;
+  cargoI:boolean = false;
 
   uploadProgress: Observable<number>;
   uploadURL: Observable<string>;
+
+  files: FileItem[] = [];
+  isOverDrop = false;
+
+  imageError: string;
+  isImageSaved: boolean;
+  cardImageBase64: string = "";
+
+  
+
   
 
   constructor(private fb: FormBuilder, public vehicleService: VehiclesService, private router: Router, private auth: AuthService,
@@ -56,6 +72,7 @@ export class PublicarformComponent implements OnInit {
     private modelosService: ModelosService,
     private versionService: VersionesService,
     private vehicleInfoService: VehicleInfoService,
+    private readonly storageSvc: ImageService,
     private _storage: AngularFireStorage ) { 
     const navigation = router.getCurrentNavigation();
     this.vehicle = navigation.extras?.state?.value;
@@ -67,6 +84,8 @@ export class PublicarformComponent implements OnInit {
     this.getCategories();
     this.getMarcas();
     this.years =[];
+
+
    
   }
 
@@ -174,7 +193,8 @@ export class PublicarformComponent implements OnInit {
       valor : new FormControl('', [Validators.required])
     })
     this.vehicleForm = this.fb.group({
-      marcamodelo : new FormControl('', [Validators.required])
+      marcamodelo : new FormControl('', [Validators.required]),
+      descripcion : new FormControl('', [Validators.required])
     })
     this.kilometrajeForm = this.fb.group({
       kilometraje: new FormControl('', [Validators.required])
@@ -196,7 +216,8 @@ export class PublicarformComponent implements OnInit {
       carroceria: new FormControl('', [Validators.required]),
       cilindrada: new FormControl('', [Validators.required]),
       placa: new FormControl('', [Validators.required]),
-      vendedor: new FormControl(''),
+      color: new FormControl('', [Validators.required]),
+      vendedor: new FormControl(JSON.parse(localStorage.getItem('nombre'))),
       urlimg:new FormControl(''),
       unicodueño: new FormControl(''),
       tecno: new FormControl(''),
@@ -253,8 +274,11 @@ export class PublicarformComponent implements OnInit {
       testdrivD: new FormControl(''),
       dochome: new FormControl(''),
       desc: new FormControl(''),
-      valor : new FormControl('')
-      
+      valor : new FormControl(''),
+      status: new FormControl(false),
+      promocion: new FormControl(false),
+      descripcion: new FormControl(''),
+      kilometraje: new FormControl('kilometraje')
     })
   }
   asignarvalue(nomvar: string, valor: any){
@@ -322,21 +346,100 @@ export class PublicarformComponent implements OnInit {
       case 'urlimg' : this.formPrincipal.get('urlimg').setValue(valor); break;
       case 'desc' : this.formPrincipal.get('desc').setValue(valor); break;
       case 'valor' : this.formPrincipal.get('valor').setValue(valor); break;
+      case 'descripcion' : this.formPrincipal.get('descripcion').setValue(valor); break;
+      case 'color' : this.formPrincipal.get('color').setValue(valor); break;
+      case 'kilometraje' : this.formPrincipal.get('kilometraje').setValue(valor); break;
       default:
         break;
       }
       console.log(this.formPrincipal.get('unicodueño').value);
   }
-  onguardar(){
-    if (this.formPrincipal.valid) {
-      const vehicle = this.formPrincipal.value;
-      const vehicleid = this.vehicle?._id || null;
-      this.vehicleService.onSaveVehicle(vehicle, vehicleid);
-      //this.vehicleInfoService.onSaveVehicle(vehicle, vehicleid );
-      alert('registro creado correctamente');
-      this.router.navigate['/inicio'];
+  async onguardar() {
+    if (this.files.length>0 && this.cargoI) {
+      if (this.formPrincipal.valid) {
+        const vehicle = this.formPrincipal.value;
+        const vehicleid = this.vehicle?._id || null;
+        await this.vehicleService.onSaveVehicle(vehicle, vehicleid);
+        let id = JSON.parse(localStorage.getItem('idVehicle'));
+          for (let index = 0; index < this.files.length; index++) {
+            let url;
+            console.log("id vehicle", id);
+            await this.fileChangeEvent(this.files[index].fileActual);
+            this.files[index].downloadURL.subscribe( async Url => {
+              let img : Image = {idvehicle: id, urlimg: Url}
+            const imageid = img?.id || null;
+            console.log("antes del s", img , imageid, url);
+            await this.storageSvc.onSaveImage(img, imageid);
+            })
+            
+          }
+          this.router.navigate['/inicio'];
+        //this.vehicleInfoService.onSaveVehicle(vehicle, vehicleid );
+        alert('registro creado correctamente');
+        
+      }
+    } else {
+      alert('No sean cargado las fotos de tu vehículo');
     }
     
+    
+  }
+  fileChangeEvent(fileInput: any) {
+    console.log("entra al 64", fileInput)
+    this.imageError = null;
+    if (fileInput) {
+      console.log("entra al if")
+        // Size Filter Bytes
+        const max_size = 20971520;
+        const allowed_types = ['image/png', 'image/jpeg'];
+        const max_height = 15200;
+        const max_width = 25600;
+
+        if (fileInput.size > max_size) {
+            this.imageError =
+                'Maximum size allowed is ' + max_size / 1000 + 'Mb';
+
+            return false;
+        }
+
+        if (!_.includes(allowed_types, fileInput.type)) {
+            this.imageError = 'Only Images are allowed ( JPG | PNG )';
+            return false;
+        }
+        const reader = new FileReader();
+        reader.onload = (e: any) => {
+            const image = new Image();
+            image.src = e.target.result;
+            image.onload = rs => {
+                const img_height = rs.currentTarget['height'];
+                const img_width = rs.currentTarget['width'];
+
+                console.log(img_height, img_width);
+
+
+                if (img_height > max_height && img_width > max_width) {
+                    this.imageError =
+                        'Maximum dimentions allowed ' +
+                        max_height +
+                        '*' +
+                        max_width +
+                        'px';
+                    return false;
+                } else {
+                    const imgBase64Path = e.target.result;
+                    this.isImageSaved = true;
+                    return this.cardImageBase64 = imgBase64Path;
+                    // this.previewImagePath = imgBase64Path;
+                }
+            };
+        };
+
+        reader.readAsDataURL(fileInput);
+    }
+}
+  onUpload(): void {
+    this.storageSvc.uploadImage(this.files);
+    this.cargoI = true;
   }
   onLogout(){
     this.auth.logOut();
@@ -346,9 +449,11 @@ export class PublicarformComponent implements OnInit {
     this.asignarvalue('modelo', this.modelo);
     this.asignarvalue('version', this.version );
     this.asignarvalue('year', this.year);
+    this.asignarvalue('color', this.colorForm.get('color').value)
     this.asignarvalue('vendedor', this.auth._userinfo.uid);
-    
+    this.asignarvalue('descripcion',this.vehicleForm.get('descripcion').value);
     this.asignarvalue('desc', this.vehicleForm.get('marcamodelo').value);
+    this.asignarvalue('kilometraje', this.kilometrajeForm.get('kilometraje').value);
   }
   getCategories(){
     this.categoryService.categories.subscribe((resp:any)=>{
@@ -389,6 +494,7 @@ export class PublicarformComponent implements OnInit {
     }
   }
   uploadImg(event){
+    
     const file = event.target.files[0];
     const randomId = Math.random().toString(36).substring(2);
     const filepath = `images/${randomId}`;

@@ -36,6 +36,10 @@ export class FeaturedComponent implements OnInit {
   getVehicles(){
     this.vehicleService.vehicles.subscribe((resp:any)=>{
       this.vehicles = resp;
+      console.log("hola aqui",this.vehicles);
     })
+  }
+  count(){
+    localStorage.setItem('count', JSON.stringify(0));
   }
 }
