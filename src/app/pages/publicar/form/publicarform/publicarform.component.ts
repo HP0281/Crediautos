@@ -196,6 +196,7 @@ export class PublicarformComponent implements OnInit {
       carroceria: new FormControl('', [Validators.required]),
       cilindrada: new FormControl('', [Validators.required]),
       placa: new FormControl('', [Validators.required]),
+      categoria: new FormControl(''),
       vendedor: new FormControl(''),
       urlimg:new FormControl(''),
       unicodueño: new FormControl(''),
@@ -322,6 +323,7 @@ export class PublicarformComponent implements OnInit {
       case 'urlimg' : this.formPrincipal.get('urlimg').setValue(valor); break;
       case 'desc' : this.formPrincipal.get('desc').setValue(valor); break;
       case 'valor' : this.formPrincipal.get('valor').setValue(valor); break;
+      case 'categoria' : this.formPrincipal.get('categoria').setValue(valor); break;
       default:
         break;
       }
@@ -347,6 +349,7 @@ export class PublicarformComponent implements OnInit {
     this.asignarvalue('version', this.version );
     this.asignarvalue('year', this.year);
     this.asignarvalue('vendedor', this.auth._userinfo.uid);
+    this.asignarvalue('categoria', this.category);
     
     this.asignarvalue('desc', this.vehicleForm.get('marcamodelo').value);
   }
