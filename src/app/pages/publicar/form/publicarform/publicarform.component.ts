@@ -218,6 +218,7 @@ export class PublicarformComponent implements OnInit {
       placa: new FormControl('', [Validators.required]),
       color: new FormControl('', [Validators.required]),
       vendedor: new FormControl(JSON.parse(localStorage.getItem('nombre'))),
+      categoria: new FormControl(''),
       urlimg:new FormControl(''),
       unicodueño: new FormControl(''),
       tecno: new FormControl(''),
@@ -349,6 +350,7 @@ export class PublicarformComponent implements OnInit {
       case 'descripcion' : this.formPrincipal.get('descripcion').setValue(valor); break;
       case 'color' : this.formPrincipal.get('color').setValue(valor); break;
       case 'kilometraje' : this.formPrincipal.get('kilometraje').setValue(valor); break;
+      case 'categoria' : this.formPrincipal.get('categoria').setValue(valor); break;
       default:
         break;
       }
@@ -452,6 +454,8 @@ export class PublicarformComponent implements OnInit {
     this.asignarvalue('color', this.colorForm.get('color').value)
     this.asignarvalue('vendedor', this.auth._userinfo.uid);
     this.asignarvalue('descripcion',this.vehicleForm.get('descripcion').value);
+    this.asignarvalue('categoria', this.category);
+    
     this.asignarvalue('desc', this.vehicleForm.get('marcamodelo').value);
     this.asignarvalue('kilometraje', this.kilometrajeForm.get('kilometraje').value);
   }
