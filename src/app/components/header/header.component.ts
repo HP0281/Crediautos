@@ -47,6 +47,7 @@ export class HeaderComponent implements OnInit {
       this.user = respo;
       if (this.user) {
         this.isloggin = true;
+        localStorage.setItem('nombre', JSON.stringify(this.user.displayName));
       }
     });
   }
@@ -82,5 +83,12 @@ export class HeaderComponent implements OnInit {
           break;
       }
     });
+  }
+  publicar(){
+    if (this.isloggin) {
+      this.router.navigate(['/publicarForm']);
+    } else {
+      this.router.navigate(['/sollog']);
+    }
   }
 }

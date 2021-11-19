@@ -13,6 +13,7 @@ import { WantedCamionesComponent } from 'src/app/components/publications/wanted-
 import { FooterComponent } from 'src/app/components/footer/footer.component';
 import { FeaturednewComponent } from 'src/app/components/publications/featurednew/featurednew.component';
 import { HeaderModule } from 'src/app/components/header/header.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -30,6 +31,7 @@ import { HeaderModule } from 'src/app/components/header/header.module';
     CommonModule,
     InicioRoutingModule,
     HeaderModule,
+    ReactiveFormsModule
   ]
 })
 export class InicioModule { }

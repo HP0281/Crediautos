@@ -3,11 +3,14 @@
     flex-direction: column;
     background-color: #f7f7f7;
     font-family: Arial,Helvetica,"Nimbus Sans L";
+    padding: 0px;
+    background-color: rgba(209, 209, 209, 0.801) !important;
 }
 .label-info{
     width: 100%;
     align-items: center;
     display: flex;
+    background-color: rgba(209, 209, 209, 0.801);
 }
 label{
     margin-left: auto;
@@ -46,10 +49,12 @@ label{
     margin-right: 10px;
 }
 .footer1{
-    padding: 20px;
+    padding: 0px;
+    background-color: rgba(209, 209, 209, 0.801);
 }
 .footer2{
     border-top: 1px solid lightgray;
+    background-color: rgba(209, 209, 209, 0.801);
 }
 .footer-style{
     display: flex;

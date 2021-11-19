@@ -3,7 +3,7 @@
     margin-right: auto;
     width: 60%;
 }
-.formulario button{
+.formulario {
     margin-top: 40px;
     margin-bottom: 40px;
 }
@@ -32,3 +32,32 @@
 .form .form-check{
     color: #999;
 }
+.example-container .mat-form-field + .mat-form-field {
+  margin-left: 8px;
+}
+
+.example-right-align {
+  text-align: right;
+}
+
+input.example-right-align::-webkit-outer-spin-button,
+input.example-right-align::-webkit-inner-spin-button {
+  display: none;
+}
+
+input.example-right-align {
+  -moz-appearance: textfield;
+}
+.example-full-width {
+    width: 100%;
+  }
+  .example-section {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    height: 60px;
+  }
+
+  .mat-raised-button{
+    background-color: #e51e1d;
+  }

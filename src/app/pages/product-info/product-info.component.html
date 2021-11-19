@@ -1,0 +1,13 @@
+<div *ngIf="preload; else loader ">
+    <app-header></app-header>
+    <app-product-left></app-product-left>
+</div>
+<ng-template #loader >
+    <div id="loader">
+        <div class="loader">
+          <div class="position-center-center">
+            <div id="preloader6"> <span></span> <span></span> <span></span> <span></span> </div>
+          </div>
+        </div>
+      </div>
+</ng-template>

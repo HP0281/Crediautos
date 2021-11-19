@@ -35,3 +35,12 @@
    align-items: center;
    justify-content: center;
 }
+.buscar{
+    align-items: center;
+    margin: auto;
+    min-width: 120px;
+    max-width: 150px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 13px;
+}

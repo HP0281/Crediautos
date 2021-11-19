@@ -12,6 +12,7 @@
 .motos{
     align-items: center;
     padding: 20px;
+    font-size: 13px;
 }
 .item:hover img{
     transform: scale(110%);
