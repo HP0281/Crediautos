@@ -63,12 +63,12 @@
         <nav>
           <ul id="ownmenu" class="ownmenu">
             
-            <li class="active"><a class="nav-link" [routerLink]="['/inicio']">Inicio</a></li>
+            <li class="active"><a class="nav-link"  [routerLink]="['/inicio']">Inicio</a></li>
             <li *ngIf="publica">
-              <a class="nav-link" [routerLink]="['/publish']">Publicar Articulo</a>
+              <a class="nav-link" (click)="publicar()">Publicar Articulo</a>
             </li>
             <li *ngIf="publica">
-              <a class="nav-link" [routerLink]="['/publicarForm']">Publicar vehiculo</a>
+              <a class="nav-link" (click)="publicar()">Publicar vehiculo</a>
             </li>
             <li *ngIf="contacto">
               <a class="nav-link" [routerLink]="['/contact']"><i class="bi bi-telephone-fill"></i>Contacto</a>

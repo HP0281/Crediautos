@@ -1,11 +1,11 @@
 .head{
     text-align: center;
 }
-.navcategories{
-   
-}
 .form-select{
-    font-size: 1.5rem !important;
+    font-size: 1.7rem !important;
+}
+.form-control{
+    font-size: 1.7rem !important;
 }
 .btn{
     color: #fff;
@@ -86,6 +86,9 @@
 .borde{
     -webkit-text-fill-color: #fff;
     float: none;
+}
+.border-filtro{
+    border: none;
 }
 
 

@@ -84,4 +84,11 @@ export class HeaderComponent implements OnInit {
       }
     });
   }
+  publicar(){
+    if (this.isloggin) {
+      this.router.navigate(['/publicarForm']);
+    } else {
+      this.router.navigate(['/sollog']);
+    }
+  }
 }

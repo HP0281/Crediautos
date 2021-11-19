@@ -9,6 +9,7 @@ import { initializeApp } from 'firebase/app';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { AngularFireStorageModule, BUCKET } from '@angular/fire/storage';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { HeaderModule } from './components/header/header.module';
@@ -25,6 +26,7 @@ import { SearchResultComponent } from './pages/searchResult/search-result/search
 @NgModule({
   declarations: [
     AppComponent,
+    
     ProductLeftComponent,
     ProductInfoComponent,
     GalleriaComponent,
@@ -43,7 +45,8 @@ import { SearchResultComponent } from './pages/searchResult/search-result/search
     AngularFireAuthModule,
     BrowserAnimationsModule,
     AngularFireStorageModule,
-    HeaderModule
+    HeaderModule,
+    ReactiveFormsModule,
   ],
   providers: [AngularFirestore,
   { provide: LocationStrategy, useClass: HashLocationStrategy },

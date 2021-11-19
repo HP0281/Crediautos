@@ -6816,7 +6816,7 @@ body {
       -ms-flex-align: center;
           align-items: center; }
   .blog-post-author .blog-post-comment {
-    background: url(../img/blog/blog-cm-icon.png) no-repeat left top;
+    background: url("../img/blog/blog-cm-icon.png") no-repeat left top;
     background-position: left 4px;
     padding: 2px 10px 0 28px; }
 
@@ -7817,7 +7817,7 @@ span.star:before {
   font-size: 10px; }
 .slider-homecate .slick-next {
   right: 40px;
-  background: url(../img/Long-Arrow-right-50.png) no-repeat center;
+  background: url("../img/Long-Arrow-right-50.png") no-repeat center;
   width: 50px;
   height: 50px;
   line-height: 50px; }
@@ -7828,7 +7828,7 @@ span.star:before {
       right: 5px; } }
 .slider-homecate .slick-prev {
   left: 40px;
-  background: url(../img/Long-Arrow-Left-50.png) no-repeat center;
+  background: url("../img/Long-Arrow-Left-50.png") no-repeat center;
   width: 50px;
   height: 50px;
   line-height: 50px;
@@ -7929,18 +7929,18 @@ span.star:before {
   min-height: 100vh; }
 
 .parallax_1 {
-  background-image: url(../img/parallax_1.jpg); }
+  background-image: url("../img/parallax_1.jpg"); }
 
 .parallax_2 {
-  background-image: url(../img/parallax_2.jpg);
+  background-image: url("../img/parallax_2.jpg");
   height: 100vh; }
 
 .parallax_3 {
-  background-image: url(../img/parallax_3.jpg);
+  background-image: url("../img/parallax_3.jpg");
   height: 100vh; }
 
 .parallax_4 {
-  background-image: url(../img/parallax_4.jpg);
+  background-image: url("../img/parallax_4.jpg");
   height: 100vh; }
 
 .cosre-bg-parallax .cosre-title-wrap {
@@ -8078,7 +8078,7 @@ span.star:before {
   right: auto;
   z-index: 13; }
   .scroll-down:after {
-    content: url(../img/scrolldown.png);
+    content: url("../img/scrolldown.png");
     -webkit-animation-name: dropdown;
             animation-name: dropdown;
     position: absolute;
@@ -11238,7 +11238,7 @@ span.star:before {
   content: "";
   height: 16px;
   display: inline-block;
-  background: url(../img/grid.png) no-repeat center;
+  background: url("../img/grid.png") no-repeat center;
   width: 16px;
   background-size: cover;
   opacity: 0.4; }
@@ -11247,7 +11247,7 @@ span.star:before {
   content: "";
   height: 16px;
   display: inline-block;
-  background: url(../img/list.png) no-repeat center;
+  background: url("../img/list.png") no-repeat center;
   width: 22px;
   background-size: cover;
   opacity: 0.4; }
@@ -16688,9 +16688,9 @@ span.star:before {
       position: relative;
       font-weight: 500;
       color: #fff;
-      @incluce transiton2; }
+     }
       .header-cate ul li a:hover {
-        @incluce transiton2;
+        
         color: #333333; }
       .header-cate ul li a img {
         width: auto;
