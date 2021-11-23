@@ -31,6 +31,7 @@ const routes: Routes = [
   { path: 'marcaform', loadChildren: () => import('./components/forms/marca-form/marca-form.module').then(m => m.MarcaFormModule)},
   { path: 'modeloform', loadChildren: () => import('./components/forms/modelos-form/modelos-form.module').then(m => m.ModelosFormModule)},
   { path: 'versionform', loadChildren: () => import('./components/forms/version-form/version-form.module').then(m => m.VersionFormModule)},
+  { path: 'userInfo', loadChildren: () => import('./components/user-info/user-info.module').then(m => m.UserInfoModule)},
   { path: '', pathMatch: 'full', redirectTo: '/inicio'},
   { path: '**', redirectTo: '/trabajando'}];
 
