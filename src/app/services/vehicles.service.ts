@@ -60,8 +60,13 @@ export class VehiclesService {
       map(actions => actions.map(a => a as Vehicle))
     );
   }
-  getVehicleByMarcaByModelo(marca:string, modelo: string){
-    return this.afs.collection(('vehicles'), ref => ref.where('marca','==', marca).where('modelo', '==', modelo)).valueChanges().pipe(
+  getVehicleByCategoriaBYMarcaByModelo(categoria: string, marca:string, modelo: string){
+    return this.afs.collection(('vehicles'), ref => ref.where('categoria', '==', categoria).where('marca','==', marca).where('modelo', '==', modelo)).valueChanges().pipe(
+      map(actions => actions.map(a => a as Vehicle))
+    );
+  }
+  getVehicleByCategoria(marca:string){
+    return this.afs.collection(('vehicles'), ref => ref.where('marca','==', marca)).valueChanges().pipe(
       map(actions => actions.map(a => a as Vehicle))
     );
   }

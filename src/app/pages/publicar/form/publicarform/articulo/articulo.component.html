@@ -1,0 +1,1343 @@
+<div class="container-fluid page">
+    <app-header [option]="headers"></app-header>
+    <div class="body">
+        <div class="container form row m-auto">
+            <div class="title col-md-8 col-xs-11 m-auto">
+                <div class="title-text">
+                    <p>Paso {{ paso }} de 2</p>
+                    <h4>Empieza describiendo tu vehículo</h4>
+                </div>
+                <div class="title-img">
+
+                </div>
+            </div>
+            <div class="form1 target col-xs-11 col-md-8">
+                <h4>Escoge un titulo para tu publicacion</h4>
+                <form [formGroup]="vehicleForm" class="vehicleForm">
+                    <input type="text" class="form-control" placeholder="ejemplo: Renault Symbol"
+                        formControlName="name">
+                    <h5 class="mt-4 mb-4">Escoge una descripción para tu vehículo</h5>
+                    <textarea class="form-control" formControlName="descripcion" rows="3"></textarea>
+                </form>
+                <button type="button" class="btn btn-danger" [disabled]="!vehicleForm.valid"
+                    (click)="onContinue('titulo')" *ngIf="progreso=== 0">Continuar</button>
+            </div>
+            <div class="form2 target col-xs-11 col-md-8" *ngIf="progreso > 0">
+                <p>Elige el vehículo que quieres vender</p>
+                <div class="category">
+                    <h3>¿A qué categoría pertenece tu vehículo?</h3>
+                    <div class="bread">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"> <a class="link" (click)="back('categoria')">{{ category
+                                        }}</a></li>
+                                <li class="breadcrumb-item" *ngIf="marca != null"><a class="link"
+                                        (click)="back('marca')">{{ marca }}</a></li>
+                                <li class="breadcrumb-item" *ngIf="modelo != null"><a class="link"
+                                        (click)="back('modelo')">{{ modelo }}</a></li>
+                                <li class="breadcrumb-item" *ngIf="year != null"><a class="link"
+                                        (click)="back('year')">{{ year }}</a></li>
+                                <li class="breadcrumb-item" *ngIf="version != null"><a class="link"
+                                        (click)="back('version')">{{ version }}</a></li>
+                            </ol>
+                        </nav>
+                    </div>
+                    <div class="list-group" *ngIf="progreso === 1">
+                        <button type="button" class="list-group-item list-group-item-action"
+                            (click)="onCategory(category.name)" *ngFor="let category of categories">{{ category.name
+                            }}</button>
+                    </div>
+                </div>
+            </div>
+            <div class="marca col-xs-11 col-md-8 m-auto" *ngIf="progreso === 2">
+                <div class="target ">
+                    <h3>¿Cual es la marca?</h3>
+                    <input type="text" class="form-control" placeholder="Buscar marca">
+                    <div class="contenido-scroleable">
+                        <span>MAS USADOS</span>
+                        <div class="list-group marcas">
+                            <button type="button" class="list-group-item list-group-item-action"
+                                (click)="onMarca(marca.name)" *ngFor="let marca of marcas">{{ marca.name }}</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modelo col-xs-11 col-md-8 m-auto" *ngIf="progreso === 3">
+                <div class="target">
+                    <h3>¿Cual es el modelo de tu {{ marca }}?</h3>
+                    <input type="text" class="form-control" placeholder="Buscar modelo">
+                    <div class="contenido-scroleable">
+                        <span>MAS USADOS</span>
+                        <div class="list-group marcas">
+                            <button type="button" class="list-group-item list-group-item-action"
+                                (click)="onModelo(modelo.name)" *ngFor="let modelo of modelos">{{ modelo.name
+                                }}</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="año col-xs-11 col-md-8 m-auto" *ngIf="progreso === 4">
+                <div class="target">
+                    <h3>¿De que año es tu {{ marca }}?</h3>
+                    <input type="text" class="form-control" placeholder="Buscar año">
+                    <div class="contenido-scroleable">
+                        <div class="list-group marcas">
+                            <button type="button" class="list-group-item list-group-item-action"
+                                (click)="onYear(year.year)" *ngFor="let year of years">{{ year.year }}</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="version col-xs-11 col-md-8 m-auto" *ngIf="progreso === 5">
+                <div class="target">
+                    <h3>¿Cual es la versíon de tu {{ marca }}?</h3>
+                    <div class="list-group">
+                        <button type="button" class="list-group-item list-group-item-action"
+                            (click)="onVersion(version.name)" *ngFor="let version of versions">{{version.name}}</button>
+                        <button type="button" class="list-group-item list-group-item-action"
+                            (click)="onVersion('otros')">otros</button>
+                    </div>
+                    <button type="button" class="btn btn-danger botones" [disabled]="version === null"
+                        (click)="onContinue('version')" *ngIf="progreso ===5">Continuar</button>
+                </div>
+            </div>
+            <div class="kilometraje col-xs-11 col-md-8 m-auto" *ngIf="progreso === 6">
+                <div class="target">
+                    <h3>¿Cuantos Kilometros tiene?</h3>
+                    <form [formGroup]="kilometrajeForm">
+                        <input type="number" class="form-control" placeholder="ejemplo: 50.000"
+                            formControlName="kilometraje">
+                    </form>
+                    <button type="button" class="btn btn-danger botones" [disabled]="!kilometrajeForm.valid"
+                        (click)="onContinue('kilometraje')">Continuar</button>
+                </div>
+            </div>
+            <div class="color col-xs-11 col-md-8 m-auto" *ngIf="progreso === 7">
+                <div class="target">
+                    <h3>¿De que color es tu vehículo?</h3>
+                    <form [formGroup]="colorForm">
+                        <select class="form-select" aria-label="Default select example" formControlName="color">
+                            <option selected>Elegir</option>
+                            <option value="Amarrillo">Amarrillo</option>
+                            <option value="Azul">Azul</option>
+                            <option value="Beige">Beige</option>
+                            <option value="Blanco">Blanco</option>
+                            <option value="Celeste">Celeste</option>
+                            <option value="Dorado">Dorado</option>
+                            <option value="Gris">Gris</option>
+                            <option value="Marron">Marron</option>
+                            <option value="Morado">Morado</option>
+                            <option value="Naranja">Naranja</option>
+                            <option value="Negro">Negro</option>
+                            <option value="Plateado">Plateado</option>
+                            <option value="Rojo">Rojo</option>
+                            <option value="Verde">Verde</option>
+                            <option value="Violeta">Violeta</option>
+                            <option value="Otro Color">Otro color</option>
+                        </select>
+                    </form>
+                    <button type="button" class="btn btn-danger botones" [disabled]="!colorForm.valid"
+                        (click)="onContinue('color')">Continuar</button>
+                </div>
+            </div>
+            <div class="formprincipal col-xs-11 col-md-8 m-auto" *ngIf="progreso === 8">
+                <div class="target">
+                    <div class="head-principal">
+                        <div class="text-head-principal">
+                            <h3>¡Ya tenemos las caracteristicas de tu vehículo!</h3>
+                            <p>Los datos de tu aparecerán en tu publicación para que tus compradores no tengan dudas.
+                            </p>
+                        </div>
+                        <div class="img-head-principal">
+                            <img src="" alt="">
+                        </div>
+                    </div>
+                    <div class="formp">
+                        <form [formGroup]="formPrincipal">
+                            <div class="row">
+                                <div class="col-6">
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control" id="marca" placeholder="Marca"
+                                            formControlName="marca">
+                                        <label for="marca">Marca</label>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control" id="modelo" placeholder="Modelo"
+                                            formControlName="modelo">
+                                        <label for="modelo">Modelo</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6">
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control" id="año" placeholder="Año"
+                                            formControlName="year">
+                                        <label for="año">Año</label>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control" id="version" placeholder="Versíon"
+                                            formControlName="version">
+                                        <label for="version">Versíon</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6">
+                                    <label for="tcombustible" class="form-label">Tipo de combustible (requerido)</label>
+                                    <input class="form-control" list="listcombustible" id="tcombustible"
+                                        placeholder="Elegir.." formControlName="tcombustible">
+                                    <datalist id="listcombustible">
+                                        <option value="Gasolina">
+                                        <option value="Gasolina y gas">
+                                        <option value="Diesel">
+                                        <option value="Electrico">
+                                        <option value="Hibrido">
+                                    </datalist>
+                                </div>
+                                <div class="col-6">
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control" id="puertas" placeholder="Puertas"
+                                            formControlName="puertas">
+                                        <label for="puertas">Puertas (requerido)</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6">
+                                    <label for="direccion" class="form-label">Direccion</label>
+                                    <input class="form-control" list="tdireccion" id="direccion" placeholder="Elegir.."
+                                        formControlName="direccion">
+                                    <datalist id="tdireccion">
+                                        <option value="Hidraulica">
+                                        <option value="Mecanica">
+                                    </datalist>
+                                </div>
+                                <div class="col-6">
+                                    <label for="trasmision" class="form-label">Trasmision (requerido)</label>
+                                    <input class="form-control" list="ttrasmision" id="trasmision"
+                                        placeholder="Elegir.." formControlName="trasmision">
+                                    <datalist id="ttrasmision">
+                                        <option value="Mecanica">
+                                        <option value="Automatica">
+                                    </datalist>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6">
+                                    <label for="traccion" class="form-label">Control de traccion</label>
+                                    <input class="form-control" list="ttraccion" id="traccion" placeholder="Elegir.."
+                                        formControlName="traccion">
+                                    <datalist id="ttraccion">
+                                        <option value="Delantera">
+                                        <option value="Trasera">
+                                        <option value="4*4"></option>
+                                    </datalist>
+                                </div>
+                                <div class="col-6">
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control" id="Motor" placeholder="Motor"
+                                            formControlName="motor">
+                                        <label for="Motor">Motor</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6">
+                                    <label for="carroceria" class="form-label">Tipo de carroceria</label>
+                                    <input class="form-control" list="tcarroceria" id="carroceria"
+                                        placeholder="Elegir.." formControlName="carroceria">
+                                    <datalist id="tcarroceria">
+                                        <option value="Sedan">
+                                        <option value="Coupe">
+                                        <option value="Hasback"></option>
+                                    </datalist>
+                                </div>
+                                <div class="col-6">
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control" id="cilindrada" placeholder="Cilindrada"
+                                            formControlName="cilindrada">
+                                        <label for="cilindrada">Cilindrada</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6">
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control" id="placa" placeholder="Placa"
+                                            formControlName="placa">
+                                        <label for="placa">Placa (requerido)</label>
+                                    </div>
+                                </div>
+                                <div class="col-6 prueba">
+                                    <div>
+                                        <label for="dueñosi">Unico Dueño</label>
+                                    </div>
+                                    <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                                        <input type="radio" class="btn-check" name="unicodueño" id="dueñosi"
+                                            autocomplete="off" (click)="asignarvalue('unicodue',true)">
+                                        <label class="btn btn-outline-danger" for="dueñosi">Si</label>
+
+                                        <input type="radio" class="btn-check" name="unicodueño" id="duañono"
+                                            autocomplete="off" (click)="asignarvalue('unicodue',false)">
+                                        <label class="btn btn-outline-danger" for="duañono">No</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <a class="btn btn-desplegables" data-bs-toggle="collapse" href="#collapseMoreInfo"
+                                        role="button" aria-expanded="false" aria-controls="collapseMoreInfo">
+                                        <h4>Mas informacion</h4>
+                                        <i class="bi bi-caret-down"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="row collapse" id="collapseMoreInfo">
+                                <div class="col-6 prueba">
+                                    <div>
+                                        <label for="seguro">Asegurado</label>
+                                    </div>
+                                    <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                                        <input type="radio" class="btn-check" name="seguro" id="segurosi"
+                                            autocomplete="off" (click)="asignarvalue('seguro',true)">
+                                        <label class="btn btn-outline-danger" for="segurosi">Si</label>
+
+                                        <input type="radio" class="btn-check" name="seguro" id="segurono"
+                                            autocomplete="off" (click)="asignarvalue('seguro',false)">
+                                        <label class="btn btn-outline-danger" for="segurono">No</label>
+                                    </div>
+                                </div>
+                                <div class="col-6 prueba">
+                                    <div>
+                                        <label for="tecno">Tecnomecanica</label>
+                                    </div>
+                                    <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                                        <input type="radio" class="btn-check" name="tecno" id="tecnosi"
+                                            autocomplete="off" (click)="asignarvalue('tecno',true)">
+                                        <label class="btn btn-outline-danger" for="tecnosi">Si</label>
+
+                                        <input type="radio" class="btn-check" name="tecno" id="tecnono"
+                                            autocomplete="off" (click)="asignarvalue('tecno',false)">
+                                        <label class="btn btn-outline-danger" for="tecnono">No</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <a class="btn btn-desplegables" data-bs-toggle="collapse"
+                                        href="#collapseEquipamiento" role="button" aria-expanded="false"
+                                        aria-controls="collapseEquipamiento">
+                                        <h4>Equipamiento</h4>
+                                        <i class="bi bi-caret-down"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="row collapse" id="collapseEquipamiento">
+                                <div class="col-6 prueba">
+                                    <div>
+                                        <label for="dueñosi">GPS</label>
+                                    </div>
+                                    <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                                        <input type="radio" class="btn-check" name="gps" id="gpssi" autocomplete="off"
+                                            (click)="asignarvalue('gps',true)">
+                                        <label class="btn btn-outline-danger" for="gpssi">Si</label>
+
+                                        <input type="radio" class="btn-check" name="gps" id="gpsno" autocomplete="off"
+                                            (click)="asignarvalue('gps',false)">
+                                        <label class="btn btn-outline-danger" for="gpsno">No</label>
+                                    </div>
+                                </div>
+                                <div class="col-6 prueba">
+                                    <div>
+                                        <label for="dueñosi">Asiento trasero abatible</label>
+                                    </div>
+                                    <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                                        <input type="radio" class="btn-check" name="ata" id="atasi" autocomplete="off"
+                                            (click)="asignarvalue('asientotabatible',true)">
+                                        <label class="btn btn-outline-danger" for="atasi">Si</label>
+
+                                        <input type="radio" class="btn-check" name="ata" id="atano" autocomplete="off"
+                                            (click)="asignarvalue('asientotabatible',false)">
+                                        <label class="btn btn-outline-danger" for="atano">No</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-6 prueba">
+                                        <div>
+                                            <label for="dueñosi">Techo corredizo</label>
+                                        </div>
+                                        <div class="btn-group" role="group"
+                                            aria-label="Basic radio toggle button group">
+                                            <input type="radio" class="btn-check" name="techocor" id="techosi"
+                                                autocomplete="off" (click)="asignarvalue('techocorredizo',true)">
+                                            <label class="btn btn-outline-danger" for="techosi">Si</label>
+
+                                            <input type="radio" class="btn-check" name="techocor" id="techono"
+                                                autocomplete="off" (click)="asignarvalue('techocorredizo',false)">
+                                            <label class="btn btn-outline-danger" for="techono">No</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-6 prueba">
+                                        <div>
+                                            <label for="dueñosi">Climatizador</label>
+                                        </div>
+                                        <div class="btn-group" role="group"
+                                            aria-label="Basic radio toggle button group">
+                                            <input type="radio" class="btn-check" name="climatizador" id="climasi"
+                                                autocomplete="off" (click)="asignarvalue('climatizador',true)">
+                                            <label class="btn btn-outline-danger" for="climasi">Si</label>
+
+                                            <input type="radio" class="btn-check" name="climatizador" id="climano"
+                                                autocomplete="off" (click)="asignarvalue('climatizador',false)">
+                                            <label class="btn btn-outline-danger" for="climano">No</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-6 prueba">
+                                        <div>
+                                            <label for="dueñosi">Porta equipaje en techo</label>
+                                        </div>
+                                        <div class="btn-group" role="group"
+                                            aria-label="Basic radio toggle button group">
+                                            <input type="radio" class="btn-check" name="equipajet" id="portatsi"
+                                                autocomplete="off" (click)="asignarvalue('portaequipajet',true)">
+                                            <label class="btn btn-outline-danger" for="portatsi">Si</label>
+
+                                            <input type="radio" class="btn-check" name="equipajet" id="portateno"
+                                                autocomplete="off" (click)="asignarvalue('portaequipajet',false)">
+                                            <label class="btn btn-outline-danger" for="portateno">No</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-6 prueba">
+                                        <div>
+                                            <label for="dueñosi">Camara de reverso</label>
+                                        </div>
+                                        <div class="btn-group" role="group"
+                                            aria-label="Basic radio toggle button group">
+                                            <input type="radio" class="btn-check" name="camreverso" id="camararsi"
+                                                autocomplete="off" (click)="asignarvalue('camarareversa',true)">
+                                            <label class="btn btn-outline-danger" for="camararsi">Si</label>
+
+                                            <input type="radio" class="btn-check" name="camreverso" id="camararno"
+                                                autocomplete="off" (click)="asignarvalue('camarareversa',false)">
+                                            <label class="btn btn-outline-danger" for="camararno">No</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-6 prueba">
+                                        <div>
+                                            <label for="dueñosi">Banca</label>
+                                        </div>
+                                        <div class="btn-group" role="group"
+                                            aria-label="Basic radio toggle button group">
+                                            <input type="radio" class="btn-check" name="banca" id="bancasi"
+                                                autocomplete="off" (click)="asignarvalue('banca',true)">
+                                            <label class="btn btn-outline-danger" for="bancasi">Si</label>
+
+                                            <input type="radio" class="btn-check" name="banca" id="bancano"
+                                                autocomplete="off" (click)="asignarvalue('banca',false)">
+                                            <label class="btn btn-outline-danger" for="bancano">No</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <a class="btn btn-desplegables" data-bs-toggle="collapse" href="#collapseSeguridad"
+                                        role="button" aria-expanded="false" aria-controls="collapseSeguridad">
+                                        <h4>Seguridad</h4>
+                                        <i class="bi bi-caret-down"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="row collapse" id="collapseSeguridad">
+                                <div class="col-12">
+                                    <div class="row ">
+                                        <div class="col-6 prueba">
+                                            <div>
+                                                <label for="dueñosi">Frenos ABS</label>
+                                            </div>
+                                            <div class="btn-group" role="group"
+                                                aria-label="Basic radio toggle button group">
+                                                <input type="radio" class="btn-check" name="abs" id="abssi"
+                                                    autocomplete="off" (click)="asignarvalue('abs',true)">
+                                                <label class="btn btn-outline-danger" for="abssi">Si</label>
+
+                                                <input type="radio" class="btn-check" name="abs" id="absno"
+                                                    autocomplete="off" (click)="asignarvalue('abs',false)">
+                                                <label class="btn btn-outline-danger" for="absno">No</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-6 prueba">
+                                            <div>
+                                                <label for="dueñosi">Alarma</label>
+                                            </div>
+                                            <div class="btn-group" role="group"
+                                                aria-label="Basic radio toggle button group">
+                                                <input type="radio" class="btn-check" name="alarma" id="alarmasi"
+                                                    autocomplete="off" (click)="asignarvalue('alarma',true)">
+                                                <label class="btn btn-outline-danger" for="alarmasi">Si</label>
+
+                                                <input type="radio" class="btn-check" name="alarma" id="alarmano"
+                                                    autocomplete="off" (click)="asignarvalue('alarma',false)">
+                                                <label class="btn btn-outline-danger" for="alarmano">No</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-6 prueba">
+                                            <div>
+                                                <label for="dueñosi">Faros antitinieblas delanteros</label>
+                                            </div>
+                                            <div class="btn-group" role="group"
+                                                aria-label="Basic radio toggle button group">
+                                                <input type="radio" class="btn-check" name="fad" id="fadsi"
+                                                    autocomplete="off" (click)="asignarvalue('exploradorasd',true)">
+                                                <label class="btn btn-outline-danger" for="fadsi">Si</label>
+
+                                                <input type="radio" class="btn-check" name="fad" id="fadno"
+                                                    autocomplete="off" (click)="asignarvalue('exploradorasd',false)">
+                                                <label class="btn btn-outline-danger" for="fadno">No</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-6 prueba">
+                                            <div>
+                                                <label for="dueñosi">Airbag para conductor y pasajero</label>
+                                            </div>
+                                            <div class="btn-group" role="group"
+                                                aria-label="Basic radio toggle button group">
+                                                <input type="radio" class="btn-check" name="apcyp" id="apcypsi"
+                                                    autocomplete="off" (click)="asignarvalue('airbag',true)">
+                                                <label class="btn btn-outline-danger" for="apcypsi">Si</label>
+
+                                                <input type="radio" class="btn-check" name="apcyp" id="apcypno"
+                                                    autocomplete="off" (click)="asignarvalue('airbag',false)">
+                                                <label class="btn btn-outline-danger" for="apcypno">No</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-6 prueba">
+                                            <div>
+                                                <label for="dueñosi">Sensor de lluvia</label>
+                                            </div>
+                                            <div class="btn-group" role="group"
+                                                aria-label="Basic radio toggle button group">
+                                                <input type="radio" class="btn-check" name="sensorl" id="sensorlsi"
+                                                    autocomplete="off" (click)="asignarvalue('sensorlluvia',true)">
+                                                <label class="btn btn-outline-danger" for="sensorlsi">Si</label>
+
+                                                <input type="radio" class="btn-check" name="sensorl" id="sensorlno"
+                                                    autocomplete="off" (click)="asignarvalue('sensorlluvia',false)">
+                                                <label class="btn btn-outline-danger" for="sensorlno">No</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-6 prueba">
+                                            <div>
+                                                <label for="dueñosi">Faros antitinieblas traseros</label>
+                                            </div>
+                                            <div class="btn-group" role="group"
+                                                aria-label="Basic radio toggle button group">
+                                                <input type="radio" class="btn-check" name="fatt" id="fattsi"
+                                                    autocomplete="off" (click)="asignarvalue('exploradorast',true)">
+                                                <label class="btn btn-outline-danger" for="fattsi">Si</label>
+
+                                                <input type="radio" class="btn-check" name="fatt" id="fattno"
+                                                    autocomplete="off" (click)="asignarvalue('exploradorast',false)">
+                                                <label class="btn btn-outline-danger" for="fattno">No</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-6 prueba">
+                                            <div>
+                                                <label for="dueñosi">Desempañador trasero</label>
+                                            </div>
+                                            <div class="btn-group" role="group"
+                                                aria-label="Basic radio toggle button group">
+                                                <input type="radio" class="btn-check" name="desempañadort"
+                                                    id="desempañasi" autocomplete="off"
+                                                    (click)="asignarvalue('desempañadort',true)">
+                                                <label class="btn btn-outline-danger" for="desempañasi">Si</label>
+
+                                                <input type="radio" class="btn-check" name="desempañadort"
+                                                    id="desempañano" autocomplete="off"
+                                                    (click)="asignarvalue('desempañadort',false)">
+                                                <label class="btn btn-outline-danger" for="desempañano">No</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-6 prueba">
+                                            <div>
+                                                <label for="dueñosi">Barra anti vuelco</label>
+                                            </div>
+                                            <div class="btn-group" role="group"
+                                                aria-label="Basic radio toggle button group">
+                                                <input type="radio" class="btn-check" name="bav" id="bavsi"
+                                                    autocomplete="off" (click)="asignarvalue('barraantivuelco',true)">
+                                                <label class="btn btn-outline-danger" for="bavsi">Si</label>
+
+                                                <input type="radio" class="btn-check" name="bav" id="bavno"
+                                                    autocomplete="off" (click)="asignarvalue('barraantivuelco',false)">
+                                                <label class="btn btn-outline-danger" for="bavno">No</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-6 prueba">
+                                            <div>
+                                                <label for="dueñosi">Control de estabilidad</label>
+                                            </div>
+                                            <div class="btn-group" role="group"
+                                                aria-label="Basic radio toggle button group">
+                                                <input type="radio" class="btn-check" name="cde" id="cdesi"
+                                                    autocomplete="off" (click)="asignarvalue('ctrestabilidad',true)">
+                                                <label class="btn btn-outline-danger" for="cdesi">Si</label>
+
+                                                <input type="radio" class="btn-check" name="cde" id="cdino"
+                                                    autocomplete="off" (click)="asignarvalue('ctrestabilidad',false)">
+                                                <label class="btn btn-outline-danger" for="cdino">No</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-6 prueba">
+                                            <div>
+                                                <label for="dueñosi">Blindado</label>
+                                            </div>
+                                            <div class="btn-group" role="group"
+                                                aria-label="Basic radio toggle button group">
+                                                <input type="radio" class="btn-check" name="blindado" id="blindadosi"
+                                                    autocomplete="off" (click)="asignarvalue('blindado',true)">
+                                                <label class="btn btn-outline-danger" for="blindadosi">Si</label>
+
+                                                <input type="radio" class="btn-check" name="blindado" id="blindadono"
+                                                    autocomplete="off" (click)="asignarvalue('blindado',false)">
+                                                <label class="btn btn-outline-danger" for="blindadono">No</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-6 prueba">
+                                            <div>
+                                                <label for="dueñosi">Vidrio de seguridad</label>
+                                            </div>
+                                            <div class="btn-group" role="group"
+                                                aria-label="Basic radio toggle button group">
+                                                <input type="radio" class="btn-check" name="vds" id="vdssi"
+                                                    autocomplete="off" (click)="asignarvalue('vidrioseg',true)">
+                                                <label class="btn btn-outline-danger" for="vdssi">Si</label>
+
+                                                <input type="radio" class="btn-check" name="vds" id="vdsno"
+                                                    autocomplete="off" (click)="asignarvalue('vidrioseg',false)">
+                                                <label class="btn btn-outline-danger" for="vdsno">No</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <a class="btn btn-desplegables" data-bs-toggle="collapse" href="#collapseConfort"
+                                        role="button" aria-expanded="false" aria-controls="collapseConfort">
+                                        <h4>Confort</h4>
+                                        <i class="bi bi-caret-down"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="row collapse" id="collapseConfort">
+                                <div class="col-12">
+                                    <div class="row">
+                                        <div class="col-6 prueba">
+                                            <div>
+                                                <label for="dueñosi">Aire acondicionado</label>
+                                            </div>
+                                            <div class="btn-group" role="group"
+                                                aria-label="Basic radio toggle button group">
+                                                <input type="radio" class="btn-check" name="airc" id="aircsi"
+                                                    autocomplete="off" (click)="asignarvalue('aireacondicionado',true)">
+                                                <label class="btn btn-outline-danger" for="aircsi">Si</label>
+
+                                                <input type="radio" class="btn-check" name="airc" id="aircno"
+                                                    autocomplete="off"
+                                                    (click)="asignarvalue('aireacondicionado',false)">
+                                                <label class="btn btn-outline-danger" for="aircno">No</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-6 prueba">
+                                            <div>
+                                                <label for="dueñosi">Regulacion de altura del volante</label>
+                                            </div>
+                                            <div class="btn-group" role="group"
+                                                aria-label="Basic radio toggle button group">
+                                                <input type="radio" class="btn-check" name="rdadv" id="rdadvsi"
+                                                    autocomplete="off" (click)="asignarvalue('regalturavolante',true)">
+                                                <label class="btn btn-outline-danger" for="rdadvsi">Si</label>
+
+                                                <input type="radio" class="btn-check" name="rdadv" id="rdadvno"
+                                                    autocomplete="off" (click)="asignarvalue('regalturavolante',false)">
+                                                <label class="btn btn-outline-danger" for="rdadvno">No</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-6 prueba">
+                                            <div>
+                                                <label for="dueñosi">Retrovisores electricos</label>
+                                            </div>
+                                            <div class="btn-group" role="group"
+                                                aria-label="Basic radio toggle button group">
+                                                <input type="radio" class="btn-check" name="rtroe" id="rtroesi"
+                                                    autocomplete="off"
+                                                    (click)="asignarvalue('retrovisorelectrico',true)">
+                                                <label class="btn btn-outline-danger" for="rtroesi">Si</label>
+
+                                                <input type="radio" class="btn-check" name="rtroe" id="rtroeno"
+                                                    autocomplete="off"
+                                                    (click)="asignarvalue('retrovisorelectrico',false)">
+                                                <label class="btn btn-outline-danger" for="rtroeno">No</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-6 prueba">
+                                            <div>
+                                                <label for="dueñosi">Luces con regulacion automatica</label>
+                                            </div>
+                                            <div class="btn-group" role="group"
+                                                aria-label="Basic radio toggle button group">
+                                                <input type="radio" class="btn-check" name="lcra" id="lcrasi"
+                                                    autocomplete="off" (click)="asignarvalue('luzregautomatica',true)">
+                                                <label class="btn btn-outline-danger" for="lcrasi">Si</label>
+
+                                                <input type="radio" class="btn-check" name="lcra" id="lcrano"
+                                                    autocomplete="off" (click)="asignarvalue('luzregautomatica',false)">
+                                                <label class="btn btn-outline-danger" for="lcrano">No</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-6 prueba">
+                                            <div>
+                                                <label for="dueñosi">Tapizado de cuero</label>
+                                            </div>
+                                            <div class="btn-group" role="group"
+                                                aria-label="Basic radio toggle button group">
+                                                <input type="radio" class="btn-check" name="tdc" id="tdcsi"
+                                                    autocomplete="off" (click)="asignarvalue('tapizadocuero',true)">
+                                                <label class="btn btn-outline-danger" for="tdcsi">Si</label>
+
+                                                <input type="radio" class="btn-check" name="tdc" id="tdcno"
+                                                    autocomplete="off" (click)="asignarvalue('tapizadocuero',false)">
+                                                <label class="btn btn-outline-danger" for="tdcno">No</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-6 prueba">
+                                            <div>
+                                                <label for="dueñosi">Tapizado de semicuero</label>
+                                            </div>
+                                            <div class="btn-group" role="group"
+                                                aria-label="Basic radio toggle button group">
+                                                <input type="radio" class="btn-check" name="tdsc" id="tdscsi"
+                                                    autocomplete="off" (click)="asignarvalue('tapizadosemicuero',true)">
+                                                <label class="btn btn-outline-danger" for="tdscsi">Si</label>
+
+                                                <input type="radio" class="btn-check" name="tdsc" id="tdscno"
+                                                    autocomplete="off"
+                                                    (click)="asignarvalue('tapizadosemicuero',false)">
+                                                <label class="btn btn-outline-danger" for="tdscno">No</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-6 prueba">
+                                            <div>
+                                                <label for="dueñosi">Tapizado de tela</label>
+                                            </div>
+                                            <div class="btn-group" role="group"
+                                                aria-label="Basic radio toggle button group">
+                                                <input type="radio" class="btn-check" name="tdt" id="tdtsi"
+                                                    autocomplete="off" (click)="asignarvalue('tapizadotela',true)">
+                                                <label class="btn btn-outline-danger" for="tdtsi">Si</label>
+
+                                                <input type="radio" class="btn-check" name="tdt" id="tdtno"
+                                                    autocomplete="off" (click)="asignarvalue('tapizadotela',false)">
+                                                <label class="btn btn-outline-danger" for="tdtno">No</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-6 prueba">
+                                            <div>
+                                                <label for="dueñosi">Sensor de parqueo</label>
+                                            </div>
+                                            <div class="btn-group" role="group"
+                                                aria-label="Basic radio toggle button group">
+                                                <input type="radio" class="btn-check" name="sensordp" id="sensordpsi"
+                                                    autocomplete="off" (click)="asignarvalue('sensorparqueo',true)">
+                                                <label class="btn btn-outline-danger" for="sensordpsi">Si</label>
+
+                                                <input type="radio" class="btn-check" name="sensordp" id="sensordpno"
+                                                    autocomplete="off" (click)="asignarvalue('sensorparqueo',false)">
+                                                <label class="btn btn-outline-danger" for="sensordpno">No</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-6 prueba">
+                                            <div>
+                                                <label for="dueñosi">Vidrios electricos</label>
+                                            </div>
+                                            <div class="btn-group" role="group"
+                                                aria-label="Basic radio toggle button group">
+                                                <input type="radio" class="btn-check" name="vidriose" id="vidriosesi"
+                                                    autocomplete="off" (click)="asignarvalue('vidrioselect',true)">
+                                                <label class="btn btn-outline-danger" for="vidriosesi">Si</label>
+
+                                                <input type="radio" class="btn-check" name="vidriose" id="vidrioseno"
+                                                    autocomplete="off" (click)="asignarvalue('vidrioselect',false)">
+                                                <label class="btn btn-outline-danger" for="vidrioseno">No</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-6 prueba">
+                                            <div>
+                                                <label for="dueñosi">Apertura remota de baul</label>
+                                            </div>
+                                            <div class="btn-group" role="group"
+                                                aria-label="Basic radio toggle button group">
+                                                <input type="radio" class="btn-check" name="ardb" id="ardbsi"
+                                                    autocomplete="off" (click)="asignarvalue('baulremoto',true)">
+                                                <label class="btn btn-outline-danger" for="ardbsi">Si</label>
+
+                                                <input type="radio" class="btn-check" name="ardb" id="ardbno"
+                                                    autocomplete="off" (click)="asignarvalue('baulremoto',false)">
+                                                <label class="btn btn-outline-danger" for="ardbno">No</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-6 prueba">
+                                            <div>
+                                                <label for="dueñosi">Asientos electricos</label>
+                                            </div>
+                                            <div class="btn-group" role="group"
+                                                aria-label="Basic radio toggle button group">
+                                                <input type="radio" class="btn-check" name="asientose" id="asientosesi"
+                                                    autocomplete="off" (click)="asignarvalue('asientoelectricos',true)">
+                                                <label class="btn btn-outline-danger" for="asientosesi">Si</label>
+
+                                                <input type="radio" class="btn-check" name="asientose" id="asientoseno"
+                                                    autocomplete="off"
+                                                    (click)="asignarvalue('asientoelectricos',false)">
+                                                <label class="btn btn-outline-danger" for="asientoseno">No</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-6 prueba">
+                                            <div>
+                                                <label for="dueñosi">Cierre centralizado de puertas</label>
+                                            </div>
+                                            <div class="btn-group" role="group"
+                                                aria-label="Basic radio toggle button group">
+                                                <input type="radio" class="btn-check" name="ccdp" id="ccdpsi"
+                                                    autocomplete="off"
+                                                    (click)="asignarvalue('puertascentralizado',true)">
+                                                <label class="btn btn-outline-danger" for="ccdpsi">Si</label>
+
+                                                <input type="radio" class="btn-check" name="ccdp" id="ccdpno"
+                                                    autocomplete="off"
+                                                    (click)="asignarvalue('puertascentralizado',false)">
+                                                <label class="btn btn-outline-danger" for="ccdpno">No</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-6 prueba">
+                                            <div>
+                                                <label for="dueñosi">Manuales</label>
+                                            </div>
+                                            <div class="btn-group" role="group"
+                                                aria-label="Basic radio toggle button group">
+                                                <input type="radio" class="btn-check" name="manuales" id="manualessi"
+                                                    autocomplete="off" (click)="asignarvalue('manuales',true)">
+                                                <label class="btn btn-outline-danger" for="manualessi">Si</label>
+
+                                                <input type="radio" class="btn-check" name="manuales" id="manualesno"
+                                                    autocomplete="off" (click)="asignarvalue('manuales',false)">
+                                                <label class="btn btn-outline-danger" for="manualesno">No</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-6 prueba">
+                                            <div>
+                                                <label for="dueñosi">Cierre automatico de vidrios</label>
+                                            </div>
+                                            <div class="btn-group" role="group"
+                                                aria-label="Basic radio toggle button group">
+                                                <input type="radio" class="btn-check" name="cadv" id="cadvsi"
+                                                    autocomplete="off" (click)="asignarvalue('cierrevidriosauto',true)">
+                                                <label class="btn btn-outline-danger" for="cadvsi">Si</label>
+
+                                                <input type="radio" class="btn-check" name="cadv" id="cadvno"
+                                                    autocomplete="off"
+                                                    (click)="asignarvalue('cierrevidriosauto',false)">
+                                                <label class="btn btn-outline-danger" for="cadvno">No</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <a class="btn btn-desplegables" data-bs-toggle="collapse" href="#collapseSonido"
+                                        role="button" aria-expanded="false" aria-controls="collapseSonido">
+                                        <h4>Sonido</h4>
+                                        <i class="bi bi-caret-down"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="row collapse" id="collapseSonido">
+                                <div class="col-12">
+                                    <div class="row">
+                                        <div class="col-6 prueba">
+                                            <div>
+                                                <label for="dueñosi">Bluetooth</label>
+                                            </div>
+                                            <div class="btn-group" role="group"
+                                                aria-label="Basic radio toggle button group">
+                                                <input type="radio" class="btn-check" name="blue" id="bluesi"
+                                                    autocomplete="off" (click)="asignarvalue('bluetooth',true)">
+                                                <label class="btn btn-outline-danger" for="bluesi">Si</label>
+
+                                                <input type="radio" class="btn-check" name="blue" id="blueno"
+                                                    autocomplete="off" (click)="asignarvalue('bluetooth',false)">
+                                                <label class="btn btn-outline-danger" for="blueno">No</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-6 prueba">
+                                            <div>
+                                                <label for="dueñosi">DVD</label>
+                                            </div>
+                                            <div class="btn-group" role="group"
+                                                aria-label="Basic radio toggle button group">
+                                                <input type="radio" class="btn-check" name="dvd" id="dvdsi"
+                                                    autocomplete="off" (click)="asignarvalue('dvd',true)">
+                                                <label class="btn btn-outline-danger" for="dvdsi">Si</label>
+
+                                                <input type="radio" class="btn-check" name="dvd" id="dvdno"
+                                                    autocomplete="off" (click)="asignarvalue('dvd',false)">
+                                                <label class="btn btn-outline-danger" for="dvdno">No</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-6 prueba">
+                                            <div>
+                                                <label for="dueñosi">Reproductor de MP3</label>
+                                            </div>
+                                            <div class="btn-group" role="group"
+                                                aria-label="Basic radio toggle button group">
+                                                <input type="radio" class="btn-check" name="rdmp3" id="rdmp3si"
+                                                    autocomplete="off" (click)="asignarvalue('repmp3',true)">
+                                                <label class="btn btn-outline-danger" for="rdmp3si">Si</label>
+
+                                                <input type="radio" class="btn-check" name="rdmp3" id="rdmp3no"
+                                                    autocomplete="off" (click)="asignarvalue('repmp3',false)">
+                                                <label class="btn btn-outline-danger" for="rdmp3no">No</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-6 prueba">
+                                            <div>
+                                                <label for="dueñosi">Entrada USB</label>
+                                            </div>
+                                            <div class="btn-group" role="group"
+                                                aria-label="Basic radio toggle button group">
+                                                <input type="radio" class="btn-check" name="usb" id="usbsi"
+                                                    autocomplete="off" (click)="asignarvalue('entradausb',true)">
+                                                <label class="btn btn-outline-danger" for="usbsi">Si</label>
+
+                                                <input type="radio" class="btn-check" name="usb" id="usbno"
+                                                    autocomplete="off" (click)="asignarvalue('entradausb',false)">
+                                                <label class="btn btn-outline-danger" for="usbno">No</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-6 prueba">
+                                            <div>
+                                                <label for="dueñosi">Equipo de sonido</label>
+                                            </div>
+                                            <div class="btn-group" role="group"
+                                                aria-label="Basic radio toggle button group">
+                                                <input type="radio" class="btn-check" name="eds" id="edssi"
+                                                    autocomplete="off" (click)="asignarvalue('eds',true)">
+                                                <label class="btn btn-outline-danger" for="edssi">Si</label>
+
+                                                <input type="radio" class="btn-check" name="eds" id="edsno"
+                                                    autocomplete="off" (click)="asignarvalue('eds',false)">
+                                                <label class="btn btn-outline-danger" for="edsno">No</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <a class="btn btn-desplegables" data-bs-toggle="collapse" href="#collapseExterior"
+                                        role="button" aria-expanded="false" aria-controls="collapseExterior">
+                                        <h4>Equipamiento</h4>
+                                        <i class="bi bi-caret-down"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="row collapse" id="collapseExterior">
+                                <div class="col-12">
+                                    <div class="row">
+                                        <div class="col-6 prueba">
+                                            <div>
+                                                <label for="dueñosi">Cubierta de platon</label>
+                                            </div>
+                                            <div class="btn-group" role="group"
+                                                aria-label="Basic radio toggle button group">
+                                                <input type="radio" class="btn-check" name="cdp" id="cdpsi"
+                                                    autocomplete="off" (click)="asignarvalue('cubiertaplaton',true)">
+                                                <label class="btn btn-outline-danger" for="cdpsi">Si</label>
+
+                                                <input type="radio" class="btn-check" name="cdp" id="cdpno"
+                                                    autocomplete="off" (click)="asignarvalue('cubiertaplaton',false)">
+                                                <label class="btn btn-outline-danger" for="cdpno">No</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-6 prueba">
+                                            <div>
+                                                <label for="dueñosi">Plana</label>
+                                            </div>
+                                            <div class="btn-group" role="group"
+                                                aria-label="Basic radio toggle button group">
+                                                <input type="radio" class="btn-check" name="plana" id="planasi"
+                                                    autocomplete="off" (click)="asignarvalue('plana',true)">
+                                                <label class="btn btn-outline-danger" for="planasi">Si</label>
+
+                                                <input type="radio" class="btn-check" name="plana" id="planano"
+                                                    autocomplete="off" (click)="asignarvalue('plana',false)">
+                                                <label class="btn btn-outline-danger" for="planano">No</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-6 prueba">
+                                            <div>
+                                                <label for="dueñosi">Estribos</label>
+                                            </div>
+                                            <div class="btn-group" role="group"
+                                                aria-label="Basic radio toggle button group">
+                                                <input type="radio" class="btn-check" name="estribos" id="estribossi"
+                                                    autocomplete="off" (click)="asignarvalue('estribos',true)">
+                                                <label class="btn btn-outline-danger" for="estribossi">Si</label>
+
+                                                <input type="radio" class="btn-check" name="estribos" id="estribosno"
+                                                    autocomplete="off" (click)="asignarvalue('estribos',false)">
+                                                <label class="btn btn-outline-danger" for="estribosno">No</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-6 prueba">
+                                            <div>
+                                                <label for="dueñosi">Spoiler</label>
+                                            </div>
+                                            <div class="btn-group" role="group"
+                                                aria-label="Basic radio toggle button group">
+                                                <input type="radio" class="btn-check" name="spoiler" id="spoilersi"
+                                                    autocomplete="off" (click)="asignarvalue('spoiler',true)">
+                                                <label class="btn btn-outline-danger" for="spoilersi">Si</label>
+
+                                                <input type="radio" class="btn-check" name="spoiler" id="spoilerno"
+                                                    autocomplete="off" (click)="asignarvalue('spoiler',false)">
+                                                <label class="btn btn-outline-danger" for="spoilerno">No</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-6 prueba">
+                                            <div>
+                                                <label for="dueñosi">Exploradoras</label>
+                                            </div>
+                                            <div class="btn-group" role="group"
+                                                aria-label="Basic radio toggle button group">
+                                                <input type="radio" class="btn-check" name="explo" id="explosi"
+                                                    autocomplete="off" (click)="asignarvalue('exploradoras',true)">
+                                                <label class="btn btn-outline-danger" for="explosi">Si</label>
+
+                                                <input type="radio" class="btn-check" name="explo" id="explono"
+                                                    autocomplete="off" (click)="asignarvalue('exploradoras',false)">
+                                                <label class="btn btn-outline-danger" for="explono">No</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-6 prueba">
+                                            <div>
+                                                <label for="dueñosi">Llantas nuevas</label>
+                                            </div>
+                                            <div class="btn-group" role="group"
+                                                aria-label="Basic radio toggle button group">
+                                                <input type="radio" class="btn-check" name="llantasn" id="llantasnsi"
+                                                    autocomplete="off" (click)="asignarvalue('llantasn',true)">
+                                                <label class="btn btn-outline-danger" for="llantasnsi">Si</label>
+
+                                                <input type="radio" class="btn-check" name="llantasn" id="llantasnno"
+                                                    autocomplete="off" (click)="asignarvalue('llantasn',false)">
+                                                <label class="btn btn-outline-danger" for="llantasnno">No</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-6 prueba">
+                                            <div>
+                                                <label for="dueñosi">Rines de lujo</label>
+                                            </div>
+                                            <div class="btn-group" role="group"
+                                                aria-label="Basic radio toggle button group">
+                                                <input type="radio" class="btn-check" name="rinluj" id="rinlujsi"
+                                                    autocomplete="off" (click)="asignarvalue('rineslujo',true)">
+                                                <label class="btn btn-outline-danger" for="rinlujsi">Si</label>
+
+                                                <input type="radio" class="btn-check" name="rinluj" id="rinlujno"
+                                                    autocomplete="off" (click)="asignarvalue('rineslujo',false)">
+                                                <label class="btn btn-outline-danger" for="rinlujno">No</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <a class="btn btn-desplegables" data-bs-toggle="collapse" href="#collapseGarantia"
+                                        role="button" aria-expanded="false" aria-controls="collapseGarantia">
+                                        <h4>Garantia y condiciones</h4>
+                                        <i class="bi bi-caret-down"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="row collapse" id="collapseGarantia">
+                                <div class="col-12">
+                                    <div class="row">
+                                        <div class="col-6 prueba">
+                                            <div>
+                                                <label for="dueñosi">Garantia de fabrica</label>
+                                            </div>
+                                            <div class="btn-group" role="group"
+                                                aria-label="Basic radio toggle button group">
+                                                <input type="radio" class="btn-check" name="gdf" id="gdfsi"
+                                                    autocomplete="off" (click)="asignarvalue('garfabrica',true)">
+                                                <label class="btn btn-outline-danger" for="gdfsi">Si</label>
+
+                                                <input type="radio" class="btn-check" name="gdf" id="gdfno"
+                                                    autocomplete="off" (click)="asignarvalue('garfabrica',false)">
+                                                <label class="btn btn-outline-danger" for="gdfno">No</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-6 prueba">
+                                            <div>
+                                                <label for="dueñosi">Garantia mecanica</label>
+                                            </div>
+                                            <div class="btn-group" role="group"
+                                                aria-label="Basic radio toggle button group">
+                                                <input type="radio" class="btn-check" name="gm" id="gmsi"
+                                                    autocomplete="off" (click)="asignarvalue('garmecanica',true)">
+                                                <label class="btn btn-outline-danger" for="gmsi">Si</label>
+
+                                                <input type="radio" class="btn-check" name="gm" id="gmno"
+                                                    autocomplete="off" (click)="asignarvalue('garmecanica',false)">
+                                                <label class="btn btn-outline-danger" for="gmno">No</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-6 prueba">
+                                            <div>
+                                                <label for="dueñosi">Negociable</label>
+                                            </div>
+                                            <div class="btn-group" role="group"
+                                                aria-label="Basic radio toggle button group">
+                                                <input type="radio" class="btn-check" name="neg" id="negsi"
+                                                    autocomplete="off" (click)="asignarvalue('negociable',true)">
+                                                <label class="btn btn-outline-danger" for="negsi">Si</label>
+
+                                                <input type="radio" class="btn-check" name="neg" id="negno"
+                                                    autocomplete="off" (click)="asignarvalue('negociable',false)">
+                                                <label class="btn btn-outline-danger" for="negno">No</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-6 prueba">
+                                            <div>
+                                                <label for="dueñosi">Vempermuta</label>
+                                            </div>
+                                            <div class="btn-group" role="group"
+                                                aria-label="Basic radio toggle button group">
+                                                <input type="radio" class="btn-check" name="venp" id="venpsi"
+                                                    autocomplete="off" (click)="asignarvalue('venpermuta',true)">
+                                                <label class="btn btn-outline-danger" for="venpsi">Si</label>
+
+                                                <input type="radio" class="btn-check" name="venp" id="venpno"
+                                                    autocomplete="off" (click)="asignarvalue('venpermuta',false)">
+                                                <label class="btn btn-outline-danger" for="venpno">No</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-6 prueba">
+                                            <div>
+                                                <label for="dueñosi">Entrega a domicilio</label>
+                                            </div>
+                                            <div class="btn-group" role="group"
+                                                aria-label="Basic radio toggle button group">
+                                                <input type="radio" class="btn-check" name="ead" id="eadsi"
+                                                    autocomplete="off" (click)="asignarvalue('domicilio',true)">
+                                                <label class="btn btn-outline-danger" for="eadsi">Si</label>
+
+                                                <input type="radio" class="btn-check" name="ead" id="eadno"
+                                                    autocomplete="off" (click)="asignarvalue('domicilio',false)">
+                                                <label class="btn btn-outline-danger" for="eadno">No</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-6 prueba">
+                                            <div>
+                                                <label for="dueñosi">Test drive a domicilio</label>
+                                            </div>
+                                            <div class="btn-group" role="group"
+                                                aria-label="Basic radio toggle button group">
+                                                <input type="radio" class="btn-check" name="tdad" id="tdadsi"
+                                                    autocomplete="off" (click)="asignarvalue('testdrivD',true)">
+                                                <label class="btn btn-outline-danger" for="tdadsi">Si</label>
+
+                                                <input type="radio" class="btn-check" name="tdad" id="tdadno"
+                                                    autocomplete="off" (click)="asignarvalue('testdrivD',false)">
+                                                <label class="btn btn-outline-danger" for="tdadno">No</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-6 prueba">
+                                            <div>
+                                                <label for="dueñosi">Documentacion en casa</label>
+                                            </div>
+                                            <div class="btn-group" role="group"
+                                                aria-label="Basic radio toggle button group">
+                                                <input type="radio" class="btn-check" name="docenc" id="docencsi"
+                                                    autocomplete="off" (click)="asignarvalue('dochome',true)">
+                                                <label class="btn btn-outline-danger" for="docencsi">Si</label>
+
+                                                <input type="radio" class="btn-check" name="docenc" id="docencno"
+                                                    autocomplete="off" (click)="asignarvalue('dochome',false)">
+                                                <label class="btn btn-outline-danger" for="docencno">No</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                        <button type="button" class="btn btn-danger botones" [disabled]="!formPrincipal.valid"
+                            (click)="onContinue('principal')">Continuar</button>
+                    </div>
+                </div>
+            </div>
+            <div class="target col-xs-11 col-md-8 m-auto" *ngIf="progreso === 9">
+                <h3>Cual es el valor de tu {{marca}} {{modelo}}</h3>
+                <div>
+                    <div class="form-floating">
+                        <form [formGroup]="valorform">
+                            <input type="number" class="form-control" id="valor" placeholder="Precio de tu vehículo"
+                                formControlName="valor">
+                            <label for="marca">Valor</label>
+                        </form>
+                    </div>
+                    <button type="button" class="btn btn-outline-danger botones" [disabled]="!colorForm.valid"
+                        (click)="onContinue('valor')">Continuar</button>
+                </div>
+            </div>
+            <div class="uploadimg target col-xs-11 col-md-8 " *ngIf="progreso > 9 ">
+                <h4>Selecciona la foto principal de tu vehículo</h4>
+                <input type="file" (change)="uploadImg($event)" accept="image/*">
+                <progress max="100" [value]="uploadProgress | async"></progress>
+
+                <div class="row mt-3 mb-3">
+                    <h4>Sube mas fotos de tu vehículo</h4>
+                    <div class="col-md-4 mt-2 mb-2">
+                        <div class="card">
+                            <div class="card-header">
+                                <span>Fotos</span>
+                            </div>
+                            <div class="card-body">
+                                <div appNgDominicodeFiles [files]="files" (mouseOver)="isOverDrop = $event"
+                                    [ngClass]="{ 'file-over': isOverDrop }" class="drop-zone">
+                                    <h4>Suelta aquí tus fotos</h4>
+                                    <img src="assets/marketplace/img/cloud.png" alt="drop-images" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-8 mt-2 mb-2">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4>Fotos para cargar</h4>
+                            </div>
+
+                            <div class="card-body">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Nombre</th>
+                                            <th>Tamaño</th>
+                                            <th>Progreso</th>
+                                            <th>URL</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let file of files">
+                                            <td>{{ file.name }}</td>
+                                            <td>{{ file.file.size / 1024 / 1024 | number: ".2.2" }}MB</td>
+                                            <td *ngIf="file.uploadPercent | async as uploadPercent">
+                                                <div class="progress">
+                                                    <div class="progress-bar" role="progessbar"
+                                                        [ngStyle]="{ width: uploadPercent + '%' }">
+                                                        {{ uploadPercent | number: "1.0-0" }} %
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td *ngIf="file.downloadURL | async as downloadURL">
+                                                <a [href]="downloadURL" target="_blank">Download URL</a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div class="container-buttons">
+                                    <button (click)="files = []" class="btn btn-danger m-3">Limpiar</button>
+                                    <button (click)="onUpload()" [disabled]="files.length === 0"
+                                        class="btn btn-primary m-3">
+                                        Cargar
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br><br>
+            <div class="row">
+                <button class="btn btn-danger m-auto" *ngIf="formPrincipal.valid && progreso > 9" [disabled]="!cargo"
+                    (click)="onguardar()">Guardar</button>
+            </div>
+            <br><br>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="footer-content">
+            <footer class="text-center footer-style">
+                <nav>
+                    <a href="">Trabaja con nosotros</a>
+                    <a href="">Terminos y condiciones</a>
+                    <a href="">Como cuidamos tu privacidad</a>
+                    <a href="">Ayuda /PQR</a>
+                    <a href="">www.sic.gov.co</a>
+                </nav>
+                <small> Copyright © 2012-2021 Boyaca Web</small>
+            </footer>
+        </div>
+    </div>
+</div>

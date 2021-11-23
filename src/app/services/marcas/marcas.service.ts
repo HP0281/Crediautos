@@ -56,9 +56,14 @@ export class MarcasService {
     map(actions => actions.map(a => a.payload.doc.data() as Marca))
  );;
  }
- getMarcaByName(name:string){
-  return this.afs.collection(('vehicles'), ref => ref.where('name','==', name)).valueChanges().pipe(
-    map(actions => actions.map(a => a as Marca))
-  );
-}
+  getMarcaByName(name:string){
+    return this.afs.collection(('marcas'), ref => ref.where('name','==', name)).valueChanges().pipe(
+      map(actions => actions.map(a => a as Marca))
+    );
+  }
+  getMarcaByCategoria(name:string){
+    return this.afs.collection(('marcas'), ref => ref.where('category','==', name)).valueChanges().pipe(
+      map(actions => actions.map(a => a as Marca))
+    );
+  }
 }

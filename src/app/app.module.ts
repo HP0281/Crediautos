@@ -21,6 +21,7 @@ import { FooterResultComponent } from './pages/searchResult/search-result/footer
 import { BodyResultComponent } from './pages/searchResult/search-result/body-result/body-result.component';
 import { HeaderResultComponent } from './pages/searchResult/search-result/header-result/header-result.component';
 import { SearchResultComponent } from './pages/searchResult/search-result/search-result.component';
+import { PoliticasComponent } from './pages/politicas/politicas.component';
 
 
 @NgModule({
@@ -33,7 +34,7 @@ import { SearchResultComponent } from './pages/searchResult/search-result/search
     SearchResultComponent, 
     HeaderResultComponent, 
     BodyResultComponent, 
-    FooterResultComponent
+    FooterResultComponent, PoliticasComponent
     
     
   ],

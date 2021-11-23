@@ -24,7 +24,8 @@ export class SearchComponent implements OnInit {
   public buscarf: FormGroup;
 
   constructor(private router: Router, private categoriesService: CategoriesService,
-    private marcasService: MarcasService, private _vehicleService: VehiclesService, private fb : FormBuilder,
+    private marcasService: MarcasService, private _vehicleService: VehiclesService,
+   private fb : FormBuilder,
      private _modeloSevice : ModelosService) { 
       this.getCategories();
       this.getMarcas();
@@ -34,15 +35,17 @@ export class SearchComponent implements OnInit {
   ngOnInit(): void {
     this.buscarf = this.fb.group({
       marca : new FormControl('all', [Validators.required]),
-      modelo : new FormControl('all',)
+      modelo : new FormControl('all'),
+      categoria : new FormControl('Carros y Camionetas')
     })
   }
 
   buscar(){
     let marca: string = this.buscarf.get('marca').value;
     let modelo: string = this.buscarf.get('modelo').value;
+    let categoria: string = this.buscarf.get('categoria').value;
     if (marca != 'all' && modelo !='all') {
-      this._vehicleService.getVehicleByMarcaByModelo(marca, modelo).subscribe(resp =>{
+      this._vehicleService.getVehicleByCategoriaBYMarcaByModelo(categoria, marca, modelo).subscribe(resp =>{
         let vehicle = resp;
         localStorage.setItem('vehicles', JSON.stringify(vehicle));
         console.log("filtro marca", vehicle)
@@ -54,8 +57,21 @@ export class SearchComponent implements OnInit {
         console.log("filtro marca", vehicles)
         this.router.navigate(['/buscar']);
       });
+    } else if(marca == 'all'){
+      this._vehicleService.getVehicleByCategoria(categoria).subscribe(vehicles => {
+        localStorage.setItem('vehicles', JSON.stringify(vehicles));
+        console.log("filtro marca", vehicles)
+        this.router.navigate(['/buscar']);
+      });
     }
   
+    
+  }
+  filtarMarca(){
+    let categoria: string = this.buscarf.get('categoria').value;
+   this.marcasService.getMarcaByCategoria(categoria).subscribe(resp =>{
+    this.marcas = resp;
+   })
     
   }
   filtroModelo (){

@@ -13,10 +13,11 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatButtonModule } from '@angular/material/button';
 import { NgDominicodeFilesDirective } from './directives/ng-dominicode-files.directive';
+import { ArticuloComponent } from './articulo/articulo.component';
 
 
 @NgModule({
-  declarations: [PublicarformComponent, NgDominicodeFilesDirective],
+  declarations: [PublicarformComponent, NgDominicodeFilesDirective, ArticuloComponent],
   imports: [ 
     CommonModule,
     PublicarformRoutingModule,
