@@ -14,6 +14,7 @@ export class UserInfoComponent implements OnInit {
 
   direccions: any[]=[];
   userForm: FormGroup;
+  hasDireccion = false;
   
   constructor(private fb: FormBuilder, 
     private userSv: UserService,
@@ -41,21 +42,53 @@ export class UserInfoComponent implements OnInit {
   }
 
   agregarDireccion(){
+    if (!this.hasDireccion){
+    const dialogref = this.dialog.open(DireccionesComponent, {
+      width: '250px',
+      
+    });
+    dialogref.afterClosed().subscribe(result =>{
+      if (result) {
+        this.addDireccion(result.name, result.descripcion, result.ciudad);
+      }
+      console.log('cerro el dialog'+JSON.stringify(result));
+    })
+    }
+  }
+  addDireccion(name, desc, city){
+    const direccionForm = this.fb.group({
+      name: name,
+      descripcion: desc,
+      ciudad: city
+    })
+    this.direcciones.push(direccionForm);
+    this.direccions.push(direccionForm.value);
+    this.hasDireccion = true;
+  }
+  editDireccion(name, desc, city){
     const dialogref = this.dialog.open(DireccionesComponent, {
       width: '250px',
       data: {
-        name: "holis"
+        name: name,
+        descripcion: desc,
+        ciudad: city
       }
     });
-    dialogref.afterClosed().subscribe(result =>{
-      console.log('cerro el dialog');
+    dialogref.afterClosed().subscribe(result => {
+      if (result) {
+        this.direcciones.clear();
+        this.direccions.shift();
+        const direccionForm = this.fb.group({
+          name: result.name,
+          descripcion: result.descripcion,
+          ciudad: result.ciudad
+        })
+        this.direcciones.push(direccionForm);
+        this.direccions.push(direccionForm.value);
+      }
     })
   }
-  addDireccion(){
-    const direccionForm = this.fb.group({
-      name: '',
-      descripcion: '',
-      ciudad:''
-    })
+  guardar(){
+    this.userSv.onSaveUser(this.userForm.value, localStorage.getItem('userid'));
   }
 }  

@@ -1,0 +1,16 @@
+.form{
+    display: flex;
+    flex-direction: column;
+}
+.datos{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.direccion{
+    display: flex;
+    flex-direction: row;
+}
