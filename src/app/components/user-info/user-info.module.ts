@@ -5,6 +5,7 @@ import { UserInfoRoutingModule } from './user-info-routing.module';
 import { UserInfoComponent } from './user-info.component';
 import { MaterialModule } from 'src/app/shared/material/material.module';
 import { DireccionesModule } from '../direcciones/direcciones.module';
+import { HeaderModule } from '../header/header.module';
 
 
 @NgModule({
@@ -12,7 +13,8 @@ import { DireccionesModule } from '../direcciones/direcciones.module';
   imports: [
     CommonModule,
     UserInfoRoutingModule,
-    MaterialModule
+    MaterialModule,
+    HeaderModule,
   ],
   exports: [UserInfoComponent]
 })

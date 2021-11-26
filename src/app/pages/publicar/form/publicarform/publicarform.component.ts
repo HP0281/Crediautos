@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { NavigationExtras, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Vehicle } from 'src/app/models/vehicle.interface';
 import { VehicleInfo } from 'src/app/models/vehicleInfo.interface ';
@@ -62,7 +62,11 @@ export class PublicarformComponent implements OnInit {
   isImageSaved: boolean;
   cardImageBase64: string = "";
 
-  
+  navigatiionExtras : NavigationExtras = {
+    state:{
+      value:null
+    }
+  }
 
   
 
@@ -218,6 +222,7 @@ export class PublicarformComponent implements OnInit {
       placa: new FormControl('', [Validators.required]),
       color: new FormControl('', [Validators.required]),
       vendedor: new FormControl(JSON.parse(localStorage.getItem('nombre'))),
+      state: new FormControl('creado'),
       categoria: new FormControl(''),
       urlimg:new FormControl(''),
       unicodueño: new FormControl(''),
@@ -375,7 +380,8 @@ export class PublicarformComponent implements OnInit {
             })
             
           }
-          this.router.navigate['/inicio'];
+          this.navigatiionExtras.state.value = vehicle;
+          this.router.navigate(['/userInfo'], this.navigatiionExtras);
         //this.vehicleInfoService.onSaveVehicle(vehicle, vehicleid );
         alert('registro creado correctamente');
         
