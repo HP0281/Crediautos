@@ -14,6 +14,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatButtonModule } from '@angular/material/button';
 import { NgDominicodeFilesDirective } from './directives/ng-dominicode-files.directive';
 import { ArticuloComponent } from './articulo/articulo.component';
+import { FooterModule } from 'src/app/components/footer/footer.module';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { ArticuloComponent } from './articulo/articulo.component';
     MatCardModule,
     MatIconModule,
     MatCheckboxModule,
-    MatButtonModule
+    MatButtonModule,
+    FooterModule
 
   ]
 })

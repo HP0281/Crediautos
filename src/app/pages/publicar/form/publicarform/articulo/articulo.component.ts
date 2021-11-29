@@ -33,14 +33,13 @@ export class ArticuloComponent implements OnInit {
 
   articuloForm: FormGroup; 
   kilometrajeForm: FormGroup; 
-  colorForm: FormGroup;
   formPrincipal: FormGroup;
   valorform: FormGroup;
 
   articulo: Articulo;
 
   headers: string[];
-  categories: String[];
+  categories: string[];
   marcas:string[];
   modelos:string[];
   years : any[];
@@ -80,7 +79,6 @@ export class ArticuloComponent implements OnInit {
     this.progreso=0;
     this.headers=['pqr'];
     this.getCategories();
-    this.getMarcas();
     this.years =[];
 
 
@@ -104,47 +102,15 @@ export class ArticuloComponent implements OnInit {
         case 'category':
         if (this.category) {
           this.progreso++;
+          
         }
         break;
-        case 'marca':
-          if(this.marca){
-            this.progreso++;
-            this.getModelos(this.marca);
-            this.getArticulos(this.auth._userinfo.uid);
-        }
-        break;
-      case 'modelo':
-        if(this.modelo){
-          this.progreso++;
-          this.initYears();
-        }
-        break;
-      case 'año':
-        if (this.year) {
-          this.progreso++;
-          this.getVersions(this.marca, this.modelo);
-        }
-        break;
-      case 'version':
-        if(this.version){
-          this.progreso++;
-        }
-        break;
-      case 'kilometraje':
-        if (this.kilometrajeForm.get('kilometraje').value) {
-          this.progreso++;
-        }
-        break;
-      case 'color':
-        if (this.colorForm.get('color').value) {
-          this.progreso++;
-          this.paso++;
-          this.patchvalues();
-        }
+        
       case 'valor':
         console.log(this.valorform.get('valor').value)
         if(this.valorform.get('valor').value){
           this.progreso++;
+          this.patchvalues();
           this.asignarvalue('valor', this.valorform.get('valor').value);
         }
         break;
@@ -167,25 +133,7 @@ export class ArticuloComponent implements OnInit {
     this.onContinue('category');
   }
   
-  onMarca(marca: string){
-    this.marca = marca;
-    this.onContinue('marca');
-  }
-
-  onModelo(modelo: string){
-    this.modelo = modelo;
-    this.onContinue('modelo');
-  }
   
-  onYear(year:string){
-    this.year = year;
-    this.onContinue('año');
-  }
-
-  onVersion(version: string){
-    this.version = version;
-
-  }
   initForm(){
     this.valorform = this.fb.group({
       valor : new FormControl('', [Validators.required])
@@ -215,11 +163,13 @@ export class ArticuloComponent implements OnInit {
       default:
         break;
       }
-      console.log(this.formPrincipal.get('unicodueño').value);
   }
   async onguardar() {
+    console.log("entra a onguardar")
     if (this.files.length>0 && this.cargoI) {
+      console.log("entra a onguardar 1")
       if (this.formPrincipal.valid) {
+        console.log("entra a onguardar 2")
         const articulo = this.formPrincipal.value;
         const articuloid = this.articulo?._id || null;
         await this.articuloService.onSaveArticulo(articulo, articuloid);
@@ -236,7 +186,7 @@ export class ArticuloComponent implements OnInit {
             })
             
           }
-          this.router.navigate['inicio'];
+          this.redirecto();  
         //this.articuloInfoService.onSaveArticulo(articulo, articuloid );
         alert('registro creado correctamente');
         
@@ -246,6 +196,9 @@ export class ArticuloComponent implements OnInit {
     }
     
     
+  }
+  redirecto(){
+    this.router.navigate(['/inicio']);
   }
   fileChangeEvent(fileInput: any) {
     console.log("entra al 64", fileInput)
@@ -308,55 +261,22 @@ export class ArticuloComponent implements OnInit {
     this.auth.logOut();
   }
   patchvalues(){
-    this.asignarvalue('marca', this.marca);
-    this.asignarvalue('modelo', this.modelo);
-    this.asignarvalue('version', this.version );
-    this.asignarvalue('year', this.year);
-    this.asignarvalue('color', this.colorForm.get('color').value)
-    this.asignarvalue('vendedor', this.auth._userinfo.uid);
-    this.asignarvalue('descripcion',this.articuloForm.get('descripcion').value);
     this.asignarvalue('categoria', this.category);
-    
-    this.asignarvalue('desc', this.articuloForm.get('name').value);
-    this.asignarvalue('kilometraje', this.kilometrajeForm.get('kilometraje').value);
+    this.asignarvalue('name', this.articuloForm.get('name').value);
+    this.asignarvalue('desc', this.articuloForm.get('descripcion').value);
   }
   getCategories(){
-    this.categoryService.categories.subscribe((resp:any)=>{
-      this.categories = resp;
-      console.log(this.categories)
-    })
+      this.categories = [
+        "Carros y Camionetas",
+        "Motos",
+        "amiones"
+      ]
   }
-  getMarcas(){
-    this.marcasService.marcas.subscribe((resp:any)=>{
-      this.marcas = resp;
-    })
-  }
-  getModelos(marca:string){
-    console.log('resultado marcas');
-    this.modelosService.getModelosforMarca(marca).subscribe((resp:any)=>{
-      console.log(resp);
-      this.modelos = resp;
-    })
-  }
-  getVersions(marca:string, modelo:string){
-    this.versionService.getVersionesforMarcaModelo(marca, modelo).subscribe(
-      (resp:any) => {
-        this.versions = resp;
-      }
-    )
-  }
+  
   getArticulos(id:string){
     this.articuloService.getArticulosById(id).subscribe((resp:any)=>{
       console.log(resp);
     })
-  }
-  initYears(){
-    let yearact = 2022;
-    for (let index = 0; index < 30; index++) {
-      this.years.push({"year": yearact});
-      yearact--;
-      
-    }
   }
   uploadImg(event){
     
@@ -383,15 +303,6 @@ export class ArticuloComponent implements OnInit {
     switch (opt) {
       case 'marca':
         this.progreso = 2;
-        break;
-      case 'modelo':
-        this.progreso = 3;
-        break;
-      case 'version':
-        this.progreso =5;
-        break;
-      case 'year':
-        this.progreso = 4;
         break;
       case 'categoria':
         this.progreso = 1;

@@ -5,5 +5,7 @@ export interface Articulo{
     desc: string;
     urlimg: string;
     vendedor: string;
-    rank?:string;
+    status: boolean;
+    promocion: boolean;
+    categoria: string;
 }

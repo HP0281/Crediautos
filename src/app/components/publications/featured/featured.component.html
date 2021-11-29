@@ -1,6 +1,6 @@
 <div class="publicaciones-recomendadas contenedor">
     <div class="contenedor-titulo-controles fuenteBlanca">
-        <h3 class="fuenteBlanca" >Publicaciones destacadas</h3>
+        <h3 class="fuenteBlanca font-alba-titulo m-auto text-center mt-4" >Vehículos Usados Destacados</h3>
         <div class="indicadores">
          
         </div>
@@ -12,11 +12,13 @@
             <div class="carrousel ">
                 <div class=" publicacion" *ngFor="let publicacion of vehicles">
                     <a [routerLink]="['/producto', publicacion.id]" (click)="count()" routerLinkActive="activo"><img [src]="publicacion.urlimg" alt=""
-                        ></a>
-                    <div class="description">
-                        <h3>$ {{ publicacion.valor }}</h3>
-                        <p>{{ publicacion.desc }}</p>
-                    </div>
+                        >
+                        <div class="description">
+                            <h3>$ {{ publicacion.valor }}</h3>
+                            <p>{{ publicacion.desc }}</p>
+                        </div>
+                    </a>
+                    
                 </div>
                 
             </div>

@@ -34,7 +34,7 @@ export class FeaturedComponent implements OnInit {
   }
 
   getVehicles(){
-    this.vehicleService.vehicles.subscribe((resp:any)=>{
+    this.vehicleService.getVehicleByKilometraje(1,0,true) .subscribe((resp:any)=>{
       this.vehicles = resp;
       console.log("hola aqui",this.vehicles);
     })

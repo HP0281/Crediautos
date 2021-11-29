@@ -12,6 +12,7 @@ import {MatIconModule } from "@angular/material/icon";
 import {MatButtonModule} from '@angular/material/button';
 
 import { HeaderModule } from 'src/app/components/header/header.module';
+import { FooterModule } from 'src/app/components/footer/footer.module'; 
 
 
 
@@ -22,6 +23,7 @@ import { HeaderModule } from 'src/app/components/header/header.module';
     LoginRoutingModule,
     ReactiveFormsModule,
     HeaderModule,
+    FooterModule,
     MatCardModule,
     MatButtonModule,
     MatFormFieldModule,

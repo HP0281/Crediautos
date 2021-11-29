@@ -14,23 +14,25 @@ import { FooterComponent } from 'src/app/components/footer/footer.component';
 import { FeaturednewComponent } from 'src/app/components/publications/featurednew/featurednew.component';
 import { HeaderModule } from 'src/app/components/header/header.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { FeaturedarticleComponent } from 'src/app/components/publications/featuredarticle/featuredarticle.component';
+import { FooterModule } from 'src/app/components/footer/footer.module';
 
 
 @NgModule({
   declarations: [InicioComponent,
-    
     SearchComponent,
     FeaturedComponent,
+    FeaturedarticleComponent,
     StorsComponent,
     WantedComponent,
     WantedMotosComponent,
     WantedCamionesComponent,
-    FooterComponent,
     FeaturednewComponent],
   imports: [
     CommonModule,
     InicioRoutingModule,
     HeaderModule,
+    FooterModule,
     ReactiveFormsModule
   ]
 })

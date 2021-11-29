@@ -375,7 +375,7 @@ export class PublicarformComponent implements OnInit {
             })
             
           }
-          this.router.navigate['/inicio'];
+          this.router.navigate(['/inicio']);
         //this.vehicleInfoService.onSaveVehicle(vehicle, vehicleid );
         alert('registro creado correctamente');
         

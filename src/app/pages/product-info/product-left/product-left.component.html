@@ -21,7 +21,7 @@
                                <span class="star star-3"></span>
                                <span class="star star-2"></span>
                                <span class="star star-1"></span>
-                               <div class="number-rating">( 896 reviews )</div>
+                               <div class="number-rating">( 896 reviews"</div>
                            </div-->
                                 <h3 class="product-title"><a href="#">{{productActual.desc}} </a></h3>
                                 <div class="product-price">
@@ -44,7 +44,7 @@
                                <span class="star star-3"></span>
                                <span class="star star-2"></span>
                                <span class="star star-1"></span>
-                               <div class="number-rating">( 896 reviews )</div>
+                               <div class="number-rating">( 896 reviews"</div>
                            </div-->
                                     <h3 class="product-title"><a href="#">{{productActual.desc}} </a></h3>
                                     <div class="product-price">
@@ -137,247 +137,580 @@
                         </div>
                     </div>
                 </div>
-                <div class="single-product-tab bd-7">
-                    <div class="cmt-title text-center abs">
-                        <ul class="nav nav-tabs text-center">
+                <div class="ps-product__content ps-tab-root single-product-tab bd-7">
+                    <div class="cmt-title text-center abs ">
+                        <ul class="nav nav-tabs text-center ps-tab-list">
                             <li class="active"><a data-toggle="pill" href="#desc">Características</a></li>
                             <li><a data-toggle="pill" href="#info">Condiciones</a></li>
                             <li><a data-toggle="pill" href="#review">Mas Infomación</a></li>
                         </ul>
                     </div>
-                    <div class="tab-content">
-                        <div id="desc" class="tab-pane  in active">
+
+                    <div class="ps-tabs">
+                        <div id="desc" class="ps-tab active">
                             <div class="entry-content">
                                 <div class="entry-inside">
                                     <div class="entry-element align-center m-auto pt-3">
                                         <div class="table-responsive">
 
                                             <table class="table table-bordered ps-table ps-table--specification">
-            
+
                                                 <tbody class="table-body">
-                                                    <tr class="table-rows" >
-                                                        <td
-                                                            class="table-th">
+                                                    <tr class="table-rows">
+                                                        <td class="table-th">
                                                             Marca</td>
-                                                        <td
-                                                            class="table-td">
-                                                            <span class="table-td-span">{{productActual.marca}}</span></td>
+                                                        <td class="table-td">
+                                                            <span class="table-td-span">{{productActual.marca}}</span>
+                                                        </td>
                                                     </tr>
-                                                    <tr class="table-rows" >
-                                                        <td
-                                                            class="table-th">
+                                                    <tr class="table-rows">
+                                                        <td class="table-th">
                                                             Modelo</td>
-                                                        <td
-                                                            class="table-td">
-                                                            <span class="table-td-span">{{productActual.modelo}}</span></td>
+                                                        <td class="table-td">
+                                                            <span class="table-td-span">{{productActual.modelo}}</span>
+                                                        </td>
                                                     </tr>
-                                                    <tr class="table-rows" >
-                                                        <td
-                                                            class="table-th">
+                                                    <tr class="table-rows">
+                                                        <td class="table-th">
                                                             Año</td>
-                                                        <td
-                                                            class="table-td">
-                                                            <span class="table-td-span">{{productActual.year}}</span></td>
+                                                        <td class="table-td">
+                                                            <span class="table-td-span">{{productActual.year}}</span>
+                                                        </td>
                                                     </tr>
-                                                    <tr class="table-rows" >
-                                                        <td
-                                                            class="table-th">
+                                                    <tr class="table-rows">
+                                                        <td class="table-th">
                                                             Color</td>
-                                                        <td
-                                                            class="table-td">
-                                                            <span class="table-td-span">{{productActual.color}}</span></td>
+                                                        <td class="table-td">
+                                                            <span class="table-td-span">{{productActual.color}}</span>
+                                                        </td>
                                                     </tr>
-                                                    <tr class="table-rows" >
-                                                        <td
-                                                            class="table-th">
+                                                    <tr class="table-rows">
+                                                        <td class="table-th">
                                                             Tipo de combustible</td>
-                                                        <td
-                                                            class="table-td">
-                                                            <span class="table-td-span">{{productActual.tcombustible}}</span></td>
+                                                        <td class="table-td">
+                                                            <span
+                                                                class="table-td-span">{{productActual.tcombustible}}</span>
+                                                        </td>
                                                     </tr>
-                                                    <tr class="table-rows" >
-                                                        <td
-                                                            class="table-th">
+                                                    <tr class="table-rows">
+                                                        <td class="table-th">
                                                             Puertas</td>
-                                                        <td
-                                                            class="table-td">
-                                                            <span class="table-td-span">{{productActual.puertas}}</span></td>
+                                                        <td class="table-td">
+                                                            <span class="table-td-span">{{productActual.puertas}}</span>
+                                                        </td>
                                                     </tr>
-                                                    <tr class="table-rows" >
-                                                        <td
-                                                            class="table-th">
+                                                    <tr class="table-rows">
+                                                        <td class="table-th">
                                                             Transmisión</td>
-                                                        <td
-                                                            class="table-td">
-                                                            <span class="table-td-span">{{productActual.trasmision}}</span></td>
+                                                        <td class="table-td">
+                                                            <span
+                                                                class="table-td-span">{{productActual.trasmision}}</span>
+                                                        </td>
                                                     </tr>
-                                                    <tr class="table-rows" >
-                                                        <td
-                                                            class="table-th">
+                                                    <tr class="table-rows">
+                                                        <td class="table-th">
                                                             Motor</td>
-                                                        <td
-                                                            class="table-td">
-                                                            <span class="table-td-span">{{productActual.motor}}</span></td>
+                                                        <td class="table-td">
+                                                            <span class="table-td-span">{{productActual.motor}}</span>
+                                                        </td>
                                                     </tr>
-                                                    <tr class="table-rows" >
-                                                        <td
-                                                            class="table-th">
+                                                    <tr class="table-rows">
+                                                        <td class="table-th">
                                                             Tipo de carrocería</td>
-                                                        <td
-                                                            class="table-td">
-                                                            <span class="table-td-span">{{productActual.carroceria}}</span></td>
+                                                        <td class="table-td">
+                                                            <span
+                                                                class="table-td-span">{{productActual.carroceria}}</span>
+                                                        </td>
                                                     </tr>
-                                                    <tr class="table-rows" >
-                                                        <td
-                                                            class="table-th">
+                                                    <tr class="table-rows">
+                                                        <td class="table-th">
                                                             Kilómetros</td>
-                                                        <td
-                                                            class="table-td">
-                                                            <span class="table-td-span">{{productActual.kilometraje}} km</span></td>
+                                                        <td class="table-td">
+                                                            <span class="table-td-span">{{productActual.kilometraje}}
+                                                                km</span>
+                                                        </td>
                                                     </tr>
                                                 </tbody>
-            
+
                                             </table>
-            
+
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div id="info" class="tab-pane  in active">
-                            
-                        </div>
-                        <div id="review" class="tab-pane in ">
+                        <div id="info" class=" ps-tab ">
                             <div class="entry-content">
                                 <div class="entry-inside">
                                     <div class="entry-element align-center m-auto pt-3">
                                         <div class="">
-                                            <div class="cmt-title v2 text-center abs">
-                                                <h1 class="oval-bd btn-gradient">Customer questions & answers</h1>
-                                            </div>
                                             <div class="row">
-                                                <div class="col-xs-12 col-sm-6 col-md-6">
-                                                    <div class="qa-element">
-                                                        <div class="qa-quest">
-                                                            <span class="qa-icon">Q</span>
-                                                            <h3>Does the sonos one pair up with a sonos play1 as a stereo pair ?</h3>
-                                                        </div>
-                                                        <div class="qa-answer">
-                                                            <span class="qa-icon">A</span>
-                                                            <p>As long as the players are grouped in a configuration to your liking, you can ask
-                                                                Alexa on the Sonos One or on an echo device to start music and playback will begin
-                                                                across the Sonos grouping. </p>
-                                                        </div>
-                                                    </div>
-                            
-                                                    <div class="qa-element">
-                                                        <div class="qa-quest">
-                                                            <span class="qa-icon">Q</span>
-                                                            <h3>It uses a dictionary of over 200 Latin words ?</h3>
-                                                        </div>
-                                                        <div class="qa-answer">
-                                                            <span class="qa-icon">A</span>
-                                                            <p>Latin words, combined with a handful of model sentence structures,to generate Lorem
-                                                                Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free
-                                                                from repetition, injected humou</p>
-                                                        </div>
-                                                    </div>
-                            
-                                                    <div class="qa-element">
-                                                        <div class="qa-quest">
-                                                            <span class="qa-icon">Q</span>
-                                                            <h3>Does the sonos one pair up with a sonos play1 as a stereo pair ?</h3>
-                                                        </div>
-                                                        <div class="qa-answer">
-                                                            <span class="qa-icon">A</span>
-                                                            <p>As long as the players are grouped in a configuration to your liking, you can ask
-                                                                Alexa on the Sonos One or on an echo device to start music and playback will begin
-                                                                across the Sonos grouping. </p>
-                                                        </div>
-                                                    </div>
-                            
-                                                    <div class="qa-element">
-                                                        <div class="qa-quest">
-                                                            <span class="qa-icon">Q</span>
-                                                            <h3>It uses a dictionary of over 200 Latin words ?</h3>
-                                                        </div>
-                                                        <div class="qa-answer">
-                                                            <span class="qa-icon">A</span>
-                                                            <p>Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover
-                                                                many web sites still in their infancy. Various versions have evolved over the years,
-                                                                sometimes by accident, sometimes on purpose </p>
-                                                        </div>
-                                                    </div>
+                                                <div class="col-12">
+                                                    <a class="btn btn-desplegables" data-bs-toggle="collapse"
+                                                        href="#collapseGarantia" role="button" aria-expanded="false"
+                                                        aria-controls="collapseGarantia">
+                                                        <h4>Garantia y condiciones</h4>
+                                                        <i class="bi bi-caret-down"></i>
+                                                    </a>
                                                 </div>
-                                                <div class="col-xs-12 col-sm-6 col-md-6">
-                                                    <div class="qa-element">
-                                                        <div class="qa-quest">
-                                                            <span class="qa-icon">Q</span>
-                                                            <h3>Is the quality of the "sonos one" sound the same as ?</h3>
+                                            </div>
+                                            <div class="row collapse" id="collapseGarantia">
+                                                <div class="col-12">
+                                                    <div class="row">
+                                                        <div *ngIf="productActual.garfabrica" class="col-6 prueba">
+                                                            <div>
+                                                                <label for="garfabrica">Garantia de fabrica</label>
+                                                            </div>
                                                         </div>
-                                                        <div class="qa-answer">
-                                                            <span class="qa-icon">A</span>
-                                                            <p>There are many variations of passages of Lorem Ipsum available, but the majority have
-                                                                suffered alteration in some form, by injected humour, or randomised words which
-                                                                don't look</p>
-                                                        </div>
-                                                    </div>
-                            
-                                                    <div class="qa-element">
-                                                        <div class="qa-quest">
-                                                            <span class="qa-icon">Q</span>
-                                                            <h3>Lorem Ipsum is simply dummy text of the printing and typesetting?</h3>
-                                                        </div>
-                                                        <div class="qa-answer">
-                                                            <span class="qa-icon">A</span>
-                                                            <p>If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't
-                                                                anything embarrassing hidden in the middle of text.</p>
+                                                        <div *ngIf="productActual.garmecanica" class="col-6 prueba">
+                                                            <div>
+                                                                <label for="garmecanica">Garantia mecanica</label>
+                                                            </div>
                                                         </div>
                                                     </div>
-                            
-                                                    <div class="qa-element">
-                                                        <div class="qa-quest">
-                                                            <span class="qa-icon">Q</span>
-                                                            <h3>Is the quality of the "sonos one" sound the same as ?</h3>
+                                                    <div class="row">
+                                                        <div *ngIf="productActual.negociable" class="col-6 prueba">
+                                                            <div>
+                                                                <label for="negociable">Negociable</label>
+                                                            </div>
                                                         </div>
-                                                        <div class="qa-answer">
-                                                            <span class="qa-icon">A</span>
-                                                            <p>There are many variations of passages of Lorem Ipsum available, but the majority have
-                                                                suffered alteration in some form, by injected humour, or randomised words which
-                                                                don't look</p>
+                                                        <div *ngIf="productActual.venpermuta" class="col-6 prueba">
+                                                            <div>
+                                                                <label for="venpermuta">Vempermuta</label>
+                                                            </div>
                                                         </div>
                                                     </div>
-                            
-                                                    <div class="qa-element">
-                                                        <div class="qa-quest">
-                                                            <span class="qa-icon">Q</span>
-                                                            <h3>Lorem Ipsum is simply dummy text of the printing and typesetting?</h3>
+                                                    <div class="row">
+                                                        <div *ngIf="productActual.domicilio" class="col-6 prueba">
+                                                            <div>
+                                                                <label for="domicilio">Entrega a domicilio</label>
+                                                            </div>
                                                         </div>
-                                                        <div class="qa-answer">
-                                                            <span class="qa-icon">A</span>
-                                                            <p>Search for 'lorem ipsum' will uncover many web sites still in their infancy. Various
-                                                                versions have evolved over the years, sometimes by accident, sometimes on purpose
-                                                                (injected humour and the like).</p>
+                                                        <div *ngIf="productActual.testdrivD" class="col-6 prueba">
+                                                            <div>
+                                                                <label for="testdrivD">Test drive a domicilio</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div *ngIf="productActual.dochome" class="col-6 prueba">
+                                                            <div>
+                                                                <label for="dochome">Documentación en casa</label>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <a href="#" class="btn-qa">See more answered questions<i class="ion-ios-arrow-down"></i></a>
-                                            <form class="form_newsletter" action="#" method="post">
-                                                <input type="text" value="" placeholder="Have a question about product ? "
-                                                    class="newsletter-input form-control">
-                                                <button id="subscribe2" class="button_mini btn btn-gradient" type="submit">
-                                                    Submit<i class="ion-ios-arrow-forward"></i>
-                                                </button>
-                                            </form>
+
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            
                         </div>
+                        <div id="review" class="ps-tab ">
+                            <div class="entry-content">
+                                <div class="entry-inside">
+                                    <div class="entry-element align-center m-auto pt-3">
+                                        <div class="">
+                                            <div class="row">
+                                                <div class="col-12">
+                                                    <a class="btn btn-desplegables" data-bs-toggle="collapse"
+                                                        href="#collapseMoreInfo" role="button" aria-expanded="false"
+                                                        aria-controls="collapseMoreInfo">
+                                                        <h4>Mas informacion</h4>
+                                                        <i class="bi bi-caret-down"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="row collapse" id="collapseMoreInfo">
+                                                <div class="col-12">
+                                                    <div class="row">
+                                                        <div *ngIf="productActual.seguro" class="col-6 prueba">
+                                                            <div>
+                                                                <label for="seguro">Asegurado</label>
+                                                            </div>
+                                                        </div>
+                                                        <div *ngIf="productActual.tecno" class="col-6 prueba">
+                                                            <div>
+                                                                <label for="tecno">Tecnomecánica</label>
+                                                            </div>
+    
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                
+
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-12">
+                                                    <a class="btn btn-desplegables" data-bs-toggle="collapse"
+                                                        href="#collapseEquipamiento" role="button" aria-expanded="false"
+                                                        aria-controls="collapseEquipamiento">
+                                                        <h4>Equipamiento</h4>
+                                                        <i class="bi bi-caret-down"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="row collapse" id="collapseEquipamiento">
+                                                <div class="col-12">
+                                                    <div class="row">
+                                                        <div *ngIf="productActual.gps" class="col-6 prueba">
+                                                            <div>
+                                                                <label for="gps">GPS</label>
+                                                            </div>
+                                                        </div>
+                                                        <div *ngIf="productActual.asientotabatible" class="col-6 prueba">
+                                                            <div>
+                                                                <label for="asientotabatible">Asiento trasero
+                                                                    abatible</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div *ngIf="productActual.techocorredizo" class="col-6 prueba">
+                                                            <div>
+                                                                <label for="techocorredizo">Techo corredizo</label>
+                                                            </div>
+                                                        </div>
+                                                        <div *ngIf="productActual.climatizador" class="col-6 prueba">
+                                                            <div>
+                                                                <label for="climatizador">Climatizador</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div *ngIf="productActual.portaequipajet" class="col-6 prueba">
+                                                            <div>
+                                                                <label for="portaequipajet">Porta equipaje en techo</label>
+                                                            </div>
+                                                        </div>
+                                                        <div *ngIf="productActual.camarareversa" class="col-6 prueba">
+                                                            <div>
+                                                                <label for="camarareversa">Camara de reverso</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div *ngIf="productActual.banca" class="col-6 prueba">
+                                                            <div>
+                                                                <label for="banca">Banca</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-12">
+                                                    <a class="btn btn-desplegables" data-bs-toggle="collapse"
+                                                        href="#collapseSeguridad" role="button" aria-expanded="false"
+                                                        aria-controls="collapseSeguridad">
+                                                        <h4>Seguridad</h4>
+                                                        <i class="bi bi-caret-down"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="row collapse" id="collapseSeguridad">
+                                                <div class="col-12">
+                                                    <div class="row ">
+                                                        <div *ngIf="productActual.abs" class="col-6 prueba">
+                                                            <div>
+                                                                <label for="abs">Frenos ABS</label>
+                                                            </div>
+                                                        </div>
+                                                        <div *ngIf="productActual.alarma" class="col-6 prueba">
+                                                            <div>
+                                                                <label for="alarma">Alarma</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div *ngIf="productActual.exploradorasd" class="col-6 prueba">
+                                                            <div>
+                                                                <label for="exploradorasd">Faros antitinieblas
+                                                                    delanteros</label>
+                                                            </div>
+                                                        </div>
+                                                        <div *ngIf="productActual.airbag" class="col-6 prueba">
+                                                            <div>
+                                                                <label for="airbag">Airbag para conductor y
+                                                                    pasajero</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div *ngIf="productActual.sensorlluvia" class="col-6 prueba">
+                                                            <div>
+                                                                <label for="sensorlluvia">Sensor de lluvia</label>
+                                                            </div>
+                                                        </div>
+                                                        <div *ngIf="productActual.exploradorast" class="col-6 prueba">
+                                                            <div>
+                                                                <label for="exploradorast">Faros antitinieblas
+                                                                    traseros</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <!--div *ngIf="productActual.desempañadort" class="col-6 prueba">
+                                                            <div>
+                                                                <label for="desempanadort">Desempañador trasero</label>
+                                                            </div>
+                                                        </div-->
+                                                        <div *ngIf="productActual.barraantivuelco" class="col-6 prueba">
+                                                            <div>
+                                                                <label for="barraantivuelco">Barra anti vuelco</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div *ngIf="productActual.ctrestabilidad" class="col-6 prueba">
+                                                            <div>
+                                                                <label for="ctrestabilidad">Control de
+                                                                    estabilidad</label>
+                                                            </div>
+                                                        </div>
+                                                        <div *ngIf="productActual.blindado" class="col-6 prueba">
+                                                            <div>
+                                                                <label for="blindado">Blindado</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div *ngIf="productActual.vidrioseg" class="col-6 prueba">
+                                                            <div>
+                                                                <label for="vidrioseg">Vidrio de seguridad</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-12">
+                                                    <a class="btn btn-desplegables" data-bs-toggle="collapse"
+                                                        href="#collapseConfort" role="button" aria-expanded="false"
+                                                        aria-controls="collapseConfort">
+                                                        <h4>Confort</h4>
+                                                        <i class="bi bi-caret-down"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="row collapse" id="collapseConfort">
+                                                <div class="col-12">
+                                                    <div class="row">
+                                                        <div *ngIf="productActual.aireacondicionado"
+                                                            class="col-6 prueba">
+                                                            <div>
+                                                                <label for="aireacondicionado">Aire
+                                                                    acondicionado</label>
+                                                            </div>
+                                                        </div>
+                                                        <div *ngIf="productActual.regalturavolante"
+                                                            class="col-6 prueba">
+                                                            <div>
+                                                                <label for="regalturavolante">Regulacion de altura del
+                                                                    volante</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div *ngIf="productActual.retrovisorelectrico"
+                                                            class="col-6 prueba">
+                                                            <div>
+                                                                <label for="retrovisorelectrico">Retrovisores
+                                                                    electricos</label>
+                                                            </div>
+                                                        </div>
+                                                        <div *ngIf="productActual.luzregautomatica"
+                                                            class="col-6 prueba">
+                                                            <div>
+                                                                <label for="luzregautomatica">Luces con regulacion
+                                                                    automatica</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div *ngIf="productActual.tapizadocuero" class="col-6 prueba">
+                                                            <div>
+                                                                <label for="tapizadocuero">Tapizado de cuero</label>
+                                                            </div>
+                                                        </div>
+                                                        <div *ngIf="productActual.tapizadosemicuero"
+                                                            class="col-6 prueba">
+                                                            <div>
+                                                                <label for="tapizadosemicuero">Tapizado de
+                                                                    semicuero</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div *ngIf="productActual.tapizadotela" class="col-6 prueba">
+                                                            <div>
+                                                                <label for="tapizadotela">Tapizado de tela</label>
+                                                            </div>
+                                                        </div>
+                                                        <div *ngIf="productActual.sensorparqueo" class="col-6 prueba">
+                                                            <div>
+                                                                <label for="sensorparqueo">Sensor de parqueo</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div *ngIf="productActual.vidrioselect" class="col-6 prueba">
+                                                            <div>
+                                                                <label for="vidrioselect">Vidrios electricos</label>
+                                                            </div>
+                                                        </div>
+                                                        <div *ngIf="productActual.baulremoto" class="col-6 prueba">
+                                                            <div>
+                                                                <label for="baulremoto">Apertura remota de baul</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div *ngIf="productActual.asientoelectricos"
+                                                            class="col-6 prueba">
+                                                            <div>
+                                                                <label for="asientoelectricos">Asientos
+                                                                    electricos</label>
+                                                            </div>
+                                                        </div>
+                                                        <div *ngIf="productActual.puertascentralizado"
+                                                            class="col-6 prueba">
+                                                            <div>
+                                                                <label for="puertascentralizado">Cierre centralizado de
+                                                                    puertas</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div *ngIf="productActual.manuales" class="col-6 prueba">
+                                                            <div>
+                                                                <label for="manuales">Manuales</label>
+                                                            </div>
+                                                        </div>
+                                                        <div *ngIf="productActual.cierrevidriosauto"
+                                                            class="col-6 prueba">
+                                                            <div>
+                                                                <label for="cierrevidriosauto">Cierre automatico de
+                                                                    vidrios</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-12">
+                                                    <a class="btn btn-desplegables" data-bs-toggle="collapse"
+                                                        href="#collapseSonido" role="button" aria-expanded="false"
+                                                        aria-controls="collapseSonido">
+                                                        <h4>Sonido</h4>
+                                                        <i class="bi bi-caret-down"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="row collapse" id="collapseSonido">
+                                                <div class="col-12">
+                                                    <div class="row">
+                                                        <div *ngIf="productActual.bluetooth" class="col-6 prueba">
+                                                            <div>
+                                                                <label for="bluetooth">Bluetooth</label>
+                                                            </div>
+                                                        </div>
+                                                        <div *ngIf="productActual.dvd" class="col-6 prueba">
+                                                            <div>
+                                                                <label for="dvd">DVD</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div *ngIf="productActual.repmp3" class="col-6 prueba">
+                                                            <div>
+                                                                <label for="repmp3">Reproductor de MP3</label>
+                                                            </div>
+                                                        </div>
+                                                        <div *ngIf="productActual.entradausb" class="col-6 prueba">
+                                                            <div>
+                                                                <label for="duenosi">Entrada USB</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div *ngIf="productActual.eds" class="col-6 prueba">
+                                                            <div>
+                                                                <label for="duenosi">Equipo de sonido</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-12">
+                                                    <a class="btn btn-desplegables" data-bs-toggle="collapse"
+                                                        href="#collapseExterior" role="button" aria-expanded="false"
+                                                        aria-controls="collapseExterior">
+                                                        <h4>Equipamiento</h4>
+                                                        <i class="bi bi-caret-down"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="row collapse" id="collapseExterior">
+                                                <div class="col-12">
+                                                    <div class="row">
+                                                        <div *ngIf="productActual.cubiertaplaton" class="col-6 prueba">
+                                                            <div>
+                                                                <label for="cubiertaplaton">Cubierta de platon</label>
+                                                            </div>
+                                                        </div>
+                                                        <div *ngIf="productActual.plana" class="col-6 prueba">
+                                                            <div>
+                                                                <label for="plana">Plana</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div *ngIf="productActual.estribos" class="col-6 prueba">
+                                                            <div>
+                                                                <label for="estribos">Estribos</label>
+                                                            </div>
+                                                        </div>
+                                                        <div *ngIf="productActual.spoiler" class="col-6 prueba">
+                                                            <div>
+                                                                <label for="spoiler">Spoiler</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div *ngIf="productActual.exploradoras" class="col-6 prueba">
+                                                            <div>
+                                                                <label for="exploradoras">Exploradoras</label>
+                                                            </div>
+                                                        </div>
+                                                        <div *ngIf="productActual.llantasn" class="col-6 prueba">
+                                                            <div>
+                                                                <label for="llantasn">Llantas nuevas</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div *ngIf="productActual.rineslujo" class="col-6 prueba">
+                                                            <div>
+                                                                <label for="rineslujo">Rines de lujo</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
                     </div>
+
                 </div>
+
             </div>
             <!--div class="bestseller">
                 <div class="ecome-heading style5v3 spc5v3">
@@ -1243,9 +1576,9 @@
                 </div>
             </div>
         </div--->
-        <!-- / end content -->
-    </div>
+            <!-- / end content -->
+        </div>
 
-    <!-- /footer -->
-    <!-- /footer -->
-</div>
+        <!-- /footer -->
+        <!-- /footer -->
+    </div>

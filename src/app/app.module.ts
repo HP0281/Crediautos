@@ -17,26 +17,25 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ProductLeftComponent } from './pages/product-info/product-left/product-left.component';
 import { ProductInfoComponent } from './pages/product-info/product-info.component';
 import { GalleriaComponent } from './pages/product-info/product-left/galleria/galleria.component';
-import { FooterResultComponent } from './pages/searchResult/search-result/footer-result/footer-result.component';
 import { BodyResultComponent } from './pages/searchResult/search-result/body-result/body-result.component';
 import { HeaderResultComponent } from './pages/searchResult/search-result/header-result/header-result.component';
 import { SearchResultComponent } from './pages/searchResult/search-result/search-result.component';
 import { PoliticasComponent } from './pages/politicas/politicas.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { FooterModule } from './components/footer/footer.module';
+import { ArticuloInfoComponent } from './pages/product-info/articulo-info/articulo-info.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    
     ProductLeftComponent,
     ProductInfoComponent,
     GalleriaComponent,
     SearchResultComponent, 
     HeaderResultComponent, 
     BodyResultComponent, 
-    FooterResultComponent, PoliticasComponent
-    
-    
+    PoliticasComponent, ArticuloInfoComponent
   ],
   imports: [
     BrowserModule,
@@ -47,6 +46,7 @@ import { PoliticasComponent } from './pages/politicas/politicas.component';
     BrowserAnimationsModule,
     AngularFireStorageModule,
     HeaderModule,
+    FooterModule,
     ReactiveFormsModule,
   ],
   providers: [AngularFirestore,

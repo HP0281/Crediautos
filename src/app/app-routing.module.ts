@@ -15,6 +15,7 @@ const routes: Routes = [
   { path: 'modificar', loadChildren: () => import('./pages/modificar/anuncio/anuncio.module').then(m => m.AnuncioModule) },
   { path: 'notificar', loadChildren: () => import('./pages/notificar/anuncio/anuncio.module').then(m => m.AnuncioModule) },
   { path: 'terminos', loadChildren: () => import('./pages/Terminos/condiciones/condiciones.module').then(m => m.CondicionesModule) },
+  { path: 'politicas', loadChildren: () => import('./pages/politicas/politicas.module').then(m => m.PoliticasModule) },
   { path: 'privacidad', loadChildren: () => import('./pages/Privacidad/privacidad/privacidad.module').then(m => m.PrivacidadModule) },
   { path: 'errlog', loadChildren: () => import('./pages/errlogin/errlogin/errlogin.module').then(m => m.ErrloginModule) },
   { path: 'sollog', loadChildren: () => import('./pages/sollogin/sollogin/sollogin.module').then(m => m.SolloginModule) },

@@ -14,10 +14,10 @@
     <div class="col-md-10">
       <div class="top-bar">
         <div class="col-md-2">
-          <ul class="social_icons">
-            <li><a href="#."><i class="fa fa-facebook"></i></a></li>
-            <li><a href="#."><i class="fa fa-instagram"></i></a></li>
-            <li><a href="#."><i class="fa fa-whatsapp"></i></a></li>
+          <ul class="social_icon">
+            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+            <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+            <li><a href="#"><i class="fa fa-whatsapp"></i></a></li>
           </ul>
         </div>
         <!-- Social Icon -->
@@ -65,10 +65,10 @@
             
             <li class="active"><a class="nav-link"  [routerLink]="['/inicio']">Inicio</a></li>
             <li *ngIf="publica">
-              <a class="nav-link" (click)="publicar()">Publicar Articulo</a>
+              <a class="nav-link" (click)="publicarA()">Publicar Articulo</a>
             </li>
             <li *ngIf="publica">
-              <a class="nav-link" (click)="publicar()">Publicar vehiculo</a>
+              <a class="nav-link" (click)="publicarV()">Publicar vehículo</a>
             </li>
             <li *ngIf="contacto">
               <a class="nav-link" [routerLink]="['/contact']"><i class="bi bi-telephone-fill"></i>Contacto</a>

@@ -14,7 +14,7 @@ export class ArticuloService {
   private vehicleCollection: AngularFirestoreCollection<Articulo>;
 
   constructor(private readonly afs: AngularFirestore) {
-    this.vehicleCollection = afs.collection<Articulo>('articules');
+    this.vehicleCollection = afs.collection<Articulo>('articulos');
     this.getArticulos();
    }
 
@@ -50,7 +50,12 @@ export class ArticuloService {
     return this.afs.collection(('articules'), ref => ref.where('vendedor','==', id)).valueChanges();
   }
   getArticuloById(id:string){
-    return this.afs.collection(('articules'), ref => ref.where('id','==', id)).valueChanges().pipe(
+    return this.afs.collection(('articulos'), ref => ref.where('id','==', id)).valueChanges().pipe(
+      map(actions => actions.map(a => a as Articulo))
+    );
+  }
+  getArticuloByPromo(){
+    return this.afs.collection(('articulos'), ref => ref.where('promocion','==', true).where('status', '==', true )).valueChanges().pipe(
       map(actions => actions.map(a => a as Articulo))
     );
   }
