@@ -59,4 +59,9 @@ export class ArticuloService {
       map(actions => actions.map(a => a as Articulo))
     );
   }
+  getArticuloByCategory(categoria: string){
+    return this.afs.collection(('articulos'), ref => ref.where('status', '==', true ).where('categoria','==',categoria)).valueChanges().pipe(
+      map(actions => actions.map(a => a as Articulo))
+    );
+  }
 }

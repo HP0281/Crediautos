@@ -809,31 +809,61 @@
                     </div>
                     <div class="product-collection-grid product-grid">
                         <div class="row">
-                            <div *ngFor="let vehicle of vehicles" class="col-xs-6 col-sm-6 col-md-4 col-lg-4 product-item">
-                                <div class="pd-bd product-inner">
-                                    <div class="product-img">
-                                        <a class="container-img" (click)="count()" [routerLink]="['/producto', vehicle.id]"><img src={{vehicle.urlimg}} alt=""
-                                                class="img-reponsive center"></a>
-                                                <div *ngIf="vehicle.promocion" class="ribbon-price red"><span>Promoción</span></div>
-                                    </div>
-                                    <div class="product-info">
-                                        <div class="element-list element-list-middle">
-                                            <div class="product-rating bd-rating">
-                                                <span class="star star-5"></span>
-                                                <span class="star star-4"></span>
-                                                <span class="star star-3"></span>
-                                                <span class="star star-2"></span>
-                                                <span class="star star-1"></span>
-                                            </div>
-                                            <p class="product-cate">{{vehicle.year}} | {{vehicle.kilometraje}} Km</p>
-                                            <h3 class="product-title"><a href="#">{{vehicle.desc}}</a></h3>
-                                            <div class="product-bottom">
-                                                <div class="product-price"><span>${{vehicle.valor | number:''}}</span></div>
+                            <div *ngIf="filter">
+                                <div *ngFor="let vehicle of vehicles"  class="col-xs-6 col-sm-6 col-md-4 col-lg-4 product-item">
+                                    <div class="pd-bd product-inner">
+                                        <div class="product-img">
+                                            <a class="container-img" (click)="count()" [routerLink]="['/producto', vehicle.id]"><img class="img-product" src={{vehicle.urlimg}} alt=""
+                                                    class="img-reponsive center"></a>
+                                                    <div *ngIf="vehicle.promocion" class="ribbon-price red"><span>Promoción</span></div>
+                                        </div>
+                                        <div class="product-info">
+                                            <div class="element-list element-list-middle">
+                                                <div class="product-rating bd-rating">
+                                                    <span class="star star-5"></span>
+                                                    <span class="star star-4"></span>
+                                                    <span class="star star-3"></span>
+                                                    <span class="star star-2"></span>
+                                                    <span class="star star-1"></span>
                                                 </div>
+                                                <p class="product-cate">{{vehicle.year}} | {{vehicle.kilometraje}} Km</p>
+                                                <h3 class="product-title"><a href="#">{{vehicle.desc}}</a></h3>
+                                                <div class="product-bottom">
+                                                    <div class="product-price"><span>${{vehicle.valor | number:''}}</span></div>
+                                                    </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                            <div *ngIf="!filter">
+                                <div *ngFor="let vehicle of articulos"  class="col-xs-6 col-sm-6 col-md-4 col-lg-4 product-item">
+                                    <div class="pd-bd product-inner">
+                                        <div class="product-img">
+                                            <a class="container-img" (click)="count()" [routerLink]="['/producto', vehicle.id]"><img src={{vehicle.urlimg}} alt=""
+                                                    class="img-reponsive center"></a>
+                                                    <div *ngIf="vehicle.promocion" class="ribbon-price red"><span>Promoción</span></div>
+                                        </div>
+                                        <div class="product-info">
+                                            <div class="element-list element-list-middle">
+                                                <div class="product-rating bd-rating">
+                                                    <span class="star star-5"></span>
+                                                    <span class="star star-4"></span>
+                                                    <span class="star star-3"></span>
+                                                    <span class="star star-2"></span>
+                                                    <span class="star star-1"></span>
+                                                </div>
+                                                <p class="product-cate">Producto para: {{vehicle.categoria}}</p>
+                                                <h3 class="product-title"><a href="#">{{vehicle.desc}}</a></h3>
+                                                <div class="product-bottom">
+                                                    <div class="product-price"><span>${{vehicle.valor | number:''}}</span></div>
+                                                    </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
                         </div>
                     </div>
                     <div class="pd-middle space-v1">
@@ -906,7 +936,7 @@
         </div>
     </div>
     <!-- / end content -->
-
+    
 
 </div>
 <ng-template #loader>

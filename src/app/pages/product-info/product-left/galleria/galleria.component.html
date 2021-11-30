@@ -3,7 +3,7 @@
 <div class="flex product-img-slide">
     <div class="product-images">
         <div  class="main-img js-product-slider ">
-            <a  (click)="open(modalview)" class="hover-images effect container-img"><img src={{product.urlimg}} alt="photo" class="img-reponsive center"></a>
+            <a  data-toggle="modal" data-target="#exampleModal" class="hover-images effect container-img"><img src={{product.urlimg}} alt="photo" class="img-reponsive center"></a>
             <a *ngFor="let image of imgs" href="#" class="hover-images effect container-img"><img src={{image.urlimg}} alt="photo" class="img-reponsive center"></a>
             
         </div>
@@ -20,9 +20,9 @@
             </div>
         </div> 
     </div>
-</div>
-<ng-template #modalview let-modal>
-    <div class="quickview-wrapper open">
+</div>  
+  <!-- Modal -->
+    <div class="quickview-wrapper open modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="quick-modal show">
             <div id="quickview-content">
                 <a  class="close-btn quickview-close"></a>
@@ -96,4 +96,6 @@
             </div>
         </div>
     </div>
+<ng-template #modalview let-modal>
+    
 </ng-template>

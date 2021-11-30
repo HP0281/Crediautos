@@ -50,4 +50,8 @@ export class ModelosService {
   return this.afs.collection(('modelos'), ref => ref.where('marca', '==', marca)).valueChanges().pipe(
     map(actions => actions.map(a => a as Modelo)));
   }
+  getModelosByCategoria(categoria:string){
+    return this.afs.collection(('modelos'), ref => ref.where('category', '==', categoria)).valueChanges().pipe(
+      map(actions => actions.map(a => a as Modelo)));
+    }
 }

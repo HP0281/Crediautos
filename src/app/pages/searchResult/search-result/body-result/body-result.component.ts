@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Articulo } from 'src/app/models/articulo.interface';
 import { Marca } from 'src/app/models/marca.interface';
 import { Vehicle } from 'src/app/models/vehicle.interface';
 import { MarcasService } from 'src/app/services/marcas/marcas.service';
@@ -12,8 +13,10 @@ import { VehiclesService } from 'src/app/services/vehicles.service';
 export class BodyResultComponent implements OnInit {
 
   public marcas: Marca[]=[];
-  public vehicles: Vehicle[]= JSON.parse(localStorage.getItem("vehicles")) ;
+  public vehicles: Vehicle[]= JSON.parse(localStorage.getItem("vehicles"));
+  public articulos: Articulo [] = JSON.parse(localStorage.getItem("articulos"));
   public vehicleAux: Vehicle [] = [];
+  public filter : boolean = true;
   public colores :any[] = [
     {colorf:"Amarillo", select:""},
     {colorf:"Azul", select:""},
@@ -41,6 +44,12 @@ export class BodyResultComponent implements OnInit {
 
   ngOnInit(): void {
     this.vehicleAux = this.vehicles;
+    if (this.vehicles.length > 0) {
+      this.filter = true;
+    } else {
+      this.filter = false;
+    }
+    this.count();
   }
 
   async initForm(){
