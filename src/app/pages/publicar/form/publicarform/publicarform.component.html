@@ -52,12 +52,12 @@
             <div class="marca col-xs-11 col-md-8 m-auto" *ngIf="progreso === 2">
                 <div class="target ">
                     <h3>¿Cual es la marca?</h3>
-                    <input type="text" class="form-control" placeholder="Buscar marca">
+                    <input type="text" #filter class="form-control" placeholder="Buscar marca" (keyup)="filtarMarcas(filter.value)">
                     <div class="contenido-scroleable">
                         <span>MAS USADOS</span>
                         <div class="list-group marcas">
                             <button type="button" class="list-group-item list-group-item-action"
-                                (click)="onMarca(marca.name)" *ngFor="let marca of marcas">{{ marca.name }}</button>
+                                (click)="onMarca(marca.name)" *ngFor="let marca of marcas | myfilterpipe: filterMarcas">{{ marca.name }}</button>
                         </div>
                     </div>
                 </div>
@@ -65,12 +65,12 @@
             <div class="modelo col-xs-11 col-md-8 m-auto" *ngIf="progreso === 3">
                 <div class="target">
                     <h3>¿Cual es el modelo de tu {{ marca }}?</h3>
-                    <input type="text" class="form-control" placeholder="Buscar modelo">
+                    <input type="text" #filterm class="form-control" placeholder="Buscar modelo" (keyup)="filtrarModelos(filterm.value)">
                     <div class="contenido-scroleable">
                         <span>MAS USADOS</span>
                         <div class="list-group marcas">
                             <button type="button" class="list-group-item list-group-item-action"
-                                (click)="onModelo(modelo.name)" *ngFor="let modelo of modelos">{{ modelo.name
+                                (click)="onModelo(modelo.name)" *ngFor="let modelo of modelos | myfilterpipe: filterModelo">{{ modelo.name
                                 }}</button>
                         </div>
                     </div>
@@ -79,11 +79,11 @@
             <div class="año col-xs-11 col-md-8 m-auto" *ngIf="progreso === 4">
                 <div class="target">
                     <h3>¿De que año es tu {{ marca }}?</h3>
-                    <input type="text" class="form-control" placeholder="Buscar año">
+                    <input type="text" #filteryear class="form-control" placeholder="Buscar año" (keyup)="filtrarYear(filteryear.value)">
                     <div class="contenido-scroleable">
                         <div class="list-group marcas">
                             <button type="button" class="list-group-item list-group-item-action"
-                                (click)="onYear(year.year)" *ngFor="let year of years">{{ year.year }}</button>
+                                (click)="onYear(year.year)" *ngFor="let year of years | filtroyear: filterYear">{{ year.year }}</button>
                         </div>
                     </div>
                 </div>

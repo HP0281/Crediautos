@@ -12,6 +12,7 @@ export class AuthService {
   constructor(private auth: AngularFireAuth) { 
     auth.authState.subscribe( user => {
       this._userinfo = user;
+      localStorage.setItem('userid', this._userinfo.uid);
       console.log(user);
     })
   }

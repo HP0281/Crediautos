@@ -9,7 +9,7 @@ import { initializeApp } from 'firebase/app';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { AngularFireStorageModule, BUCKET } from '@angular/fire/storage';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { HeaderModule } from './components/header/header.module';
@@ -24,6 +24,7 @@ import { PoliticasComponent } from './pages/politicas/politicas.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { FooterModule } from './components/footer/footer.module';
 import { ArticuloInfoComponent } from './pages/product-info/articulo-info/articulo-info.component';
+import { FiltroyearPipe } from './pipes/year/filtroyear.pipe';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { ArticuloInfoComponent } from './pages/product-info/articulo-info/articu
     SearchResultComponent, 
     HeaderResultComponent, 
     BodyResultComponent, 
-    PoliticasComponent, ArticuloInfoComponent
+    PoliticasComponent, 
+    ArticuloInfoComponent
   ],
   imports: [
     BrowserModule,
@@ -45,6 +47,7 @@ import { ArticuloInfoComponent } from './pages/product-info/articulo-info/articu
     AngularFireAuthModule,
     BrowserAnimationsModule,
     AngularFireStorageModule,
+    FormsModule,
     HeaderModule,
     FooterModule,
     ReactiveFormsModule,

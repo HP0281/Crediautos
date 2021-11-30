@@ -1,13 +1,18 @@
-<form action="">
+<form action="" [formGroup]="direccionForm">
     <mat-form-field>
         <mat-label>
             Direccion
         </mat-label>
-        <input matInput placeholder="Numero de identificacion" formControlName="name">
+        <input matInput placeholder="Ingresa tu direccion" formControlName="name">
     </mat-form-field>
     <mat-form-field class="example-full-width" appearance="fill">
-        <mat-label>Favorite food</mat-label>
-        <input matInput placeholder="Ex. Pizza" value="Sushi">
+        <mat-label>Descripcion adicional</mat-label>
+        <input matInput placeholder="Informacion adicional" formControlName="descripcion">
       </mat-form-field>
-    <button mat-button (click)="onNoClick()">No Thanks</button>
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Ciudad</mat-label>
+        <input matInput placeholder="Informacion adicional" formControlName="ciudad">
+      </mat-form-field>
+    <button mat-button (click)="onNoClick()">Cancelar</button>
+    <button mat-button (click)="onGuardar()" [disabled]="!direccionForm.valid">Guardar</button>
 </form>

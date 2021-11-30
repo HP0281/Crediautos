@@ -1,4 +1,5 @@
-<div class="container">
+<app-header></app-header>
+<div class="datos">
     <mat-card>
         <mat-card-title>
             ¡Ya Casi publicas!
@@ -7,52 +8,111 @@
             Por favor ingresa tus datos, los necesitamos para validar tu identidad
         </mat-card-subtitle>
         <form [formGroup]="userForm">
-            <mat-form-field>
-                <mat-label>
-                    Nombres
-                </mat-label>
-                <input matInput placeholder="Nombres" formControlName="name">
-            </mat-form-field>
-            <mat-form-field >
-                <mat-label>
-                    Apellidos
-                </mat-label>
-                <input matInput placeholder="Apellidos" formControlName="lastname">
-            </mat-form-field>
-            <mat-form-field>
-                <mat-label>Tipo de Documento</mat-label>
-                <mat-select formControlName="typeDoc">
-                  <mat-option value="cc">Cedula</mat-option>
-                  <mat-option value="ti">Tarjeta de identidad</mat-option>
-                  <mat-option value="ps">Pasaporte</mat-option>
-                  <mat-option value="ce">Cedula de extramjeria</mat-option>
-                </mat-select>
-              </mat-form-field>
-              <mat-form-field>
-                <mat-label>
-                    Numero de documento
-                </mat-label>
-                <input matInput placeholder="Numero de identificacion" formControlName="identificacion">
-            </mat-form-field>
-            <mat-card>
-                <mat-card-title>
-                    Direccion
-                </mat-card-title>
-                <div class="direccion" *ngFor="let direccion of direccions">
-                    <h6>{{ direccion.name }}</h6>
-                    <p>{{ direccion.descripcion }}</p>
-                    <p>{{ direccion.ciudad }}</p>
-                    <p>Modificar</p>
-                </div>
-                <p (click)="agregarDireccion()">Agregar nueva direccion</p>
-            </mat-card>
-            <mat-form-field >
-                <mat-label>
-                    Numero de Telefono
-                </mat-label>
-                <input matInput placeholder="Numero de identificacion" formControlName="telefono">
-            </mat-form-field>
+            <div class="form">
+                <mat-form-field>
+                    <mat-label>
+                        Nombres
+                    </mat-label>
+                    <input matInput placeholder="Nombres" formControlName="name">
+                </mat-form-field>
+                <mat-form-field >
+                    <mat-label>
+                        Apellidos
+                    </mat-label>
+                    <input matInput placeholder="Apellidos" formControlName="lastname">
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Tipo de Documento</mat-label>
+                    <mat-select formControlName="typeDoc">
+                      <mat-option value="cc">Cedula de ciudadania</mat-option>
+                      <mat-option value="ti">Tarjeta de identidad</mat-option>
+                      <mat-option value="ps">Pasaporte</mat-option>
+                      <mat-option value="ce">Cedula de extramjeria</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                  <mat-form-field>
+                    <mat-label>
+                        Numero de documento
+                    </mat-label>
+                    <input matInput placeholder="Numero de identificacion" formControlName="identificacion">
+                </mat-form-field>
+                <mat-card>
+                    <mat-card-title>
+                        Direccion
+                    </mat-card-title>
+                    <div class="direccion" *ngFor="let direccion of direccions">
+                        <div class="dir-info">
+                        <h6>{{ direccion.name }}</h6>
+                        <p>{{ direccion.descripcion }}</p>
+                        <p>{{ direccion.ciudad }}</p>
+                        <p (click)="editDireccion(direccion.name, direccion.descripcion, direccion.ciudad)">Modificar</p>
+                        </div>
+                    </div>
+                    <p (click)="agregarDireccion()" *ngIf="!hasDireccion">Agregar nueva direccion</p>
+                </mat-card>
+                <mat-form-field >
+                    <mat-label>
+                        Numero de Telefono
+                    </mat-label>
+                    <input matInput placeholder="Numero telefonico" formControlName="telefono">
+                </mat-form-field>
+            </div>
         </form>
-        <button click>Guardar y publicar</button>
+        <button mat-button (click)="guardar()">Guardar y publicar</button>
     </mat-card>
+</div>
+
+<div class="label-info">
+    <label for="footer1" (click)="showInfo()">Mas Informacion <i class="bi bi-caret-down" ></i></label>
+</div>
+<div class="footer" >
+<div class="footer1" *ngIf="infr">
+   <div class="footer1-content">
+    <footer class="">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 footer-col">
+                    <h6>Ayuda / PQR</h6>
+                    <ul>
+                        <li><a [routerLink]="['/modificar']">Modifica tu anuncio</a></li>
+                        <li><a [routerLink]="['/notificar']">Notifica tu venta</a></li>
+                        <li><a [routerLink]="['/questions']">Preguntas frecuentes</a></li>
+                        <li><a [routerLink]="['/contact']">Resolucion de problemas</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 footer-col">
+                    <h5>Redes Sociales</h5>
+                    <ul>
+                        <li><a href=""><i class="bi bi-facebook"></i>Facebook</a></li>
+                        <li><a href=""><i class="bi bi-twitter"></i>Twitter</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 footer-col">
+                    <h5>Mi cuenta</h5>
+                    <ul>
+                        <li><a [routerLink]="['/login']">Ingresa</a></li>
+                        <li><a [routerLink]="['/publish']">Publica tu vehiculo</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+   </div>
+</div>
+<div class="footer2">
+    <div class="container footer2-content">
+        <footer class="footer-style">
+            <small>
+                Copyright © 2012-2021 Boyaca Web
+            </small>
+            <nav>
+                <a href="">Trabaja con nosotros</a>
+                <a [routerLink]="['/terminos']">Terminos y condiciones</a>
+                <a [routerLink]="['/privacidad']">Como cuidamos tu privacidad</a>
+                <a [routerLink]="['/questions']">Ayuda /PQR</a>
+            </nav>
+        </footer>
+    </div>
+
+</div>
 </div>
