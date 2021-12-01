@@ -287,7 +287,7 @@ export class PublicarformComponent implements OnInit {
       status: new FormControl(false),
       promocion: new FormControl(false),
       descripcion: new FormControl(''),
-      kilometraje: new FormControl('kilometraje')
+      kilometraje: new FormControl(0)
     })
   }
   asignarvalue(nomvar: string, valor: any){

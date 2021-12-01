@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Vehicle } from 'src/app/models/vehicle.interface';
 
 @Component({
@@ -7,9 +8,11 @@ import { Vehicle } from 'src/app/models/vehicle.interface';
   styleUrls: ['./product-left.component.css']
 })
 export class ProductLeftComponent implements OnInit {
-  public productActual: Vehicle;
+  public productActual: any;
+  public tipo: string;
 
-  constructor() { 
+  constructor(private rutaActiva: ActivatedRoute ) { 
+    this.tipo = this.rutaActiva.snapshot.params.tipo;
     this.productActual = JSON.parse(localStorage.getItem('product')); 
   }
 

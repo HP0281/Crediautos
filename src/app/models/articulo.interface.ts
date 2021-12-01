@@ -1,5 +1,5 @@
 export interface Articulo{
-    _id:string;
+    id:string;
     valor:number;
     name: string;
     desc: string;

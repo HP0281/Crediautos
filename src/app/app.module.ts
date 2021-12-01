@@ -24,7 +24,7 @@ import { PoliticasComponent } from './pages/politicas/politicas.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { FooterModule } from './components/footer/footer.module';
 import { ArticuloInfoComponent } from './pages/product-info/articulo-info/articulo-info.component';
-import { FiltroyearPipe } from './pipes/year/filtroyear.pipe';
+
 
 
 @NgModule({

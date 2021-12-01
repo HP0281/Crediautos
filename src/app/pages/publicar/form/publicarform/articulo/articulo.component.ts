@@ -171,7 +171,7 @@ export class ArticuloComponent implements OnInit {
       if (this.formPrincipal.valid) {
         console.log("entra a onguardar 2")
         const articulo = this.formPrincipal.value;
-        const articuloid = this.articulo?._id || null;
+        const articuloid = this.articulo?.id || null;
         await this.articuloService.onSaveArticulo(articulo, articuloid);
         let id = JSON.parse(localStorage.getItem('idArticulo'));
           for (let index = 0; index < this.files.length; index++) {

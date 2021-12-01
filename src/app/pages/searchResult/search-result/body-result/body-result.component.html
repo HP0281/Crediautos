@@ -518,11 +518,11 @@
             <li><a href="#">Home</a></li>
             <li class="active">Shop</li>
         </ul-->
-        <div class="filter-collection-left hidden-lg hidden-md">
+        <div *ngIf="filter" class="filter-collection-left hidden-lg hidden-md">
             <a class="btn">Filter</a>
         </div>
         <div class="row shop-colect">
-            <div class="col-md-3 col-sm-3 col-xs-12 col-left collection-sidebar" id="filter-sidebar">
+            <div *ngIf="filter" class="col-md-3 col-sm-3 col-xs-12 col-left collection-sidebar" id="filter-sidebar">
                 <div class="close-sidebar-collection hidden-lg hidden-md">
                     <span>Filtrar Vehículo</span><i class="icon_close ion-close"></i>
                 </div>
@@ -813,7 +813,7 @@
                                 <div *ngFor="let vehicle of vehicles"  class="col-xs-6 col-sm-6 col-md-4 col-lg-4 product-item">
                                     <div class="pd-bd product-inner">
                                         <div class="product-img">
-                                            <a class="container-img" (click)="count()" [routerLink]="['/producto', vehicle.id]"><img class="img-product" src={{vehicle.urlimg}} alt=""
+                                            <a class="container-img" (click)="count()" [routerLink]="['/producto', vehicle.id, 'vehicle']"><img class="img-product" src={{vehicle.urlimg}} alt=""
                                                     class="img-reponsive center"></a>
                                                     <div *ngIf="vehicle.promocion" class="ribbon-price red"><span>Promoción</span></div>
                                         </div>
@@ -840,7 +840,7 @@
                                 <div *ngFor="let vehicle of articulos"  class="col-xs-6 col-sm-6 col-md-4 col-lg-4 product-item">
                                     <div class="pd-bd product-inner">
                                         <div class="product-img">
-                                            <a class="container-img" (click)="count()" [routerLink]="['/producto', vehicle.id]"><img src={{vehicle.urlimg}} alt=""
+                                            <a class="container-img" (click)="count()" [routerLink]="['/producto', vehicle.id, 'articulo']"><img src={{vehicle.urlimg}} alt=""
                                                     class="img-reponsive center"></a>
                                                     <div *ngIf="vehicle.promocion" class="ribbon-price red"><span>Promoción</span></div>
                                         </div>

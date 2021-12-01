@@ -11,7 +11,7 @@
         <div class="contenedor-carrousel">
             <div class="carrousel ">
                 <div *ngFor="let articulo of articulos" class=" publicacion">
-                    <a [routerLink]="['/as']"><img src={{articulo.urlimg}} alt=""
+                    <a [routerLink]="['/articulo', articulo.id, 'articulo']" (click)="count()"><img src={{articulo.urlimg}} alt=""
                         >
                         <div class="description">
                             <h3>$ {{articulo.valor}}</h3>

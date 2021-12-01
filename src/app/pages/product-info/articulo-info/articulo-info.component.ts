@@ -10,14 +10,12 @@ import { ImageService } from 'src/app/services/image/image.service';
   styleUrls: ['./articulo-info.component.css']
 })
 export class ArticuloInfoComponent implements OnInit {
-  public prueba: number[]= [1,1,1];
+
   public preload: boolean = true;
   public images: any[];
   public idArticulo: string ="";
   public productActual: Articulo;
-  constructor(private _imagenService: ImageService, 
-    private rutaActiva: ActivatedRoute, 
-    private _productsService: ArticuloService) { 
+  constructor(private _imagenService: ImageService, private rutaActiva: ActivatedRoute, private _productsService: ArticuloService) { 
     this.idArticulo= this.rutaActiva.snapshot.params.id;
     
    }
@@ -30,9 +28,9 @@ export class ArticuloInfoComponent implements OnInit {
         this._productsService.getArticuloById(this.idArticulo).subscribe( product =>{
           this.productActual = product[0];
           localStorage.setItem('images', JSON.stringify(this.images));
-        console.log(this.images, resp);
-        localStorage.setItem('count', JSON.stringify(1));
-        localStorage.setItem('product', JSON.stringify(this.productActual));
+          console.log(this.images, resp);
+          localStorage.setItem('count', JSON.stringify(1));
+          localStorage.setItem('product', JSON.stringify(this.productActual));
         
         window.location.reload();
         })

@@ -75,12 +75,21 @@ export class SearchComponent implements OnInit {
         });
       }
     } else if (categoria == "Articulos") {
+      if (articulo != "all") {
       this._articuloService.getArticuloByCategory(articulo).subscribe(art => {
         localStorage.setItem('articulos', JSON.stringify(art));
         localStorage.setItem('vehicles', JSON.stringify(""));
         console.log("articulo", art)
         this.router.navigate(['/buscar']);
       });
+      } else {
+        this._articuloService.getArticulo().subscribe(art => {
+          localStorage.setItem('articulos', JSON.stringify(art));
+          localStorage.setItem('vehicles', JSON.stringify(""));
+          console.log("articulo", art)
+          this.router.navigate(['/buscar']);
+        });
+      }
     } else {
 
     }

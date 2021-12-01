@@ -38,4 +38,7 @@ export class FeaturedarticleComponent implements OnInit {
       console.log("articulos promo ", this.articulos, resp)
     })
   } 
+  count(){
+    localStorage.setItem('count', JSON.stringify(0));
+  }
 }
