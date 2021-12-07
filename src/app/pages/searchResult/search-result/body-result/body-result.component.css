@@ -8,8 +8,13 @@
 .blanco{
     color:white;
 }
+.brand-filter{
+    max-height: 300px !important;
+    overflow-y: auto;
+}
 .center{
     width: 320px !important; 
+    height: 150px !important;
     margin-left: auto;
     margin-right: auto;
     display: block;
@@ -22,4 +27,7 @@
 .img-product{
     width: 210px !important;
     height: 210px !important;
+}
+.cursor{
+    cursor:pointer;
 }

@@ -8,6 +8,7 @@
 }
 .form-control{
     font-size: medium;
+    border: 1px solid #e51d1d63 !important;
 }
 #publica{
     border: 2px solid black;

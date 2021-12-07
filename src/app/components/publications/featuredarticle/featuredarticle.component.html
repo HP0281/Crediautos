@@ -14,7 +14,7 @@
                     <a [routerLink]="['/articulo', articulo.id, 'articulo']" (click)="count()"><img src={{articulo.urlimg}} alt=""
                         >
                         <div class="description">
-                            <h3>$ {{articulo.valor}}</h3>
+                            <h3>$ {{articulo.valor | number:''}}</h3>
                             <p>{{articulo.name}}</p>
                         </div>
                     </a>

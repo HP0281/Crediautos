@@ -47,9 +47,9 @@ export class MarcasService {
       map(actions => actions.map(a => a.payload.doc.data() as Marca))
    );
  }
- public async getMarcasOrden  (limite: number){
+ public async getMarcasOrden  (limite: number, categoria){
   this.marcaCollection =  await this.afs.collection<Marca>('marcas', ref =>
-  ref.orderBy("name").limit(limite)
+  ref.where('category','==',categoria).orderBy("name")
   );
   let m;
   return m = this.marcaCollection.snapshotChanges().pipe(

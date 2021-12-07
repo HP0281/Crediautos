@@ -60,13 +60,21 @@ export class VehiclesService {
       map(actions => actions.map(a => a as Vehicle))
     );
   }
-  getVehicleByCategoriaBYMarcaByModelo(categoria: string, marca: string, modelo: string) {
-    return this.afs.collection(('vehicles'), ref => ref.where('categoria', '==', categoria).where('marca', '==', marca).where('modelo', '==', modelo).where('status','==', true)).valueChanges().pipe(
+  getVehicleByMarcaByCategoria(marca: string,categoria) {
+    return this.afs.collection(('vehicles'), ref => ref.where('marca', '==', marca).where('categoria', '==', categoria).where('status','==', true)).valueChanges().pipe(
       map(actions => actions.map(a => a as Vehicle))
     );
   }
-  getVehicleByCategoria(marca: string) {
-    return this.afs.collection(('vehicles'), ref => ref.where('marca', '==', marca)).valueChanges().pipe(
+  getVehicleByCategoriaBYMarcaByModelo(categoria: string, marca: string, modelo: string) {
+    
+      return this.afs.collection(('vehicles'), ref => ref.where('categoria', '==', categoria).where('marca', '==', marca).where('modelo', '==', modelo).where('status','==', true)).valueChanges().pipe(
+        map(actions => actions.map(a => a as Vehicle))
+      );
+    
+    
+  }
+  getVehicleByCategoria(categoria: string, limite: number, desde:number) {
+    return this.afs.collection(('vehicles'), ref => ref.where('categoria', '==', categoria)).valueChanges().pipe(
       map(actions => actions.map(a => a as Vehicle))
     );
   }

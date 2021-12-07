@@ -1,4 +1,6 @@
 export interface Marca{
     id?: string,
-    nombre: string
+    name: string,
+    category?:string,
+    select?:string
 }

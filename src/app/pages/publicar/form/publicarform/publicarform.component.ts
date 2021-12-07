@@ -89,7 +89,6 @@ export class PublicarformComponent implements OnInit {
     this.progreso=0;
     this.headers=['pqr'];
     this.getCategories();
-    this.getMarcas();
     this.years =[];
 
 
@@ -113,12 +112,13 @@ export class PublicarformComponent implements OnInit {
         case 'category':
         if (this.category) {
           this.progreso++;
+          this.getMarcas();
         }
         break;
         case 'marca':
           if(this.marca){
             this.progreso++;
-            this.getModelos(this.marca);
+            this.getModelos(this.marca,this.category);
             this.getVehicles(this.auth._userinfo.uid);
         }
         break;
@@ -140,7 +140,9 @@ export class PublicarformComponent implements OnInit {
         }
         break;
       case 'kilometraje':
-        if (this.kilometrajeForm.get('kilometraje').value) {
+        console.log("una entra al progreso")
+        if (parseInt(this.kilometrajeForm.get('kilometraje').value) >=0) {
+          console.log("entra al progreso")
           this.progreso++;
         }
         break;
@@ -204,7 +206,7 @@ export class PublicarformComponent implements OnInit {
       descripcion : new FormControl('', [Validators.required])
     })
     this.kilometrajeForm = this.fb.group({
-      kilometraje: new FormControl('', [Validators.required])
+      kilometraje: new FormControl(0, [Validators.required])
     })
     this.colorForm = this.fb.group({
       color: new FormControl('',[Validators.required])
@@ -466,7 +468,7 @@ export class PublicarformComponent implements OnInit {
     this.asignarvalue('categoria', this.category);
     
     this.asignarvalue('desc', this.vehicleForm.get('marcamodelo').value);
-    this.asignarvalue('kilometraje', this.kilometrajeForm.get('kilometraje').value);
+    this.asignarvalue('kilometraje', parseInt(this.kilometrajeForm.get('kilometraje').value));
   }
   getCategories(){
     this.categoryService.categories.subscribe((resp:any)=>{
@@ -475,13 +477,13 @@ export class PublicarformComponent implements OnInit {
     })
   }
   getMarcas(){
-    this.marcasService.marcas.subscribe((resp:any)=>{
+    this.marcasService.getMarcaByCategoria(this.category).subscribe((resp:any)=>{
       this.marcas = resp;
     })
   }
-  getModelos(marca:string){
+  getModelos(marca:string,categoria:string){
     console.log('resultado marcas');
-    this.modelosService.getModelosforMarca(marca).subscribe((resp:any)=>{
+    this.modelosService.getModelosforMarcaByCategoria(marca,categoria).subscribe((resp:any)=>{
       console.log(resp);
       this.modelos = resp;
     })
