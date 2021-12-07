@@ -467,7 +467,6 @@ export class PublicarformComponent implements OnInit {
     this.asignarvalue('vendedor', this.auth._userinfo.uid);
     this.asignarvalue('descripcion',this.vehicleForm.get('descripcion').value);
     this.asignarvalue('categoria', this.category);
-    
     this.asignarvalue('desc', this.vehicleForm.get('marcamodelo').value);
     this.asignarvalue('kilometraje', parseInt(this.kilometrajeForm.get('kilometraje').value));
   }
