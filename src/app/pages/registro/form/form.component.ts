@@ -25,14 +25,15 @@ export class FormComponent implements OnInit {
   
   initform(){
     this.registroForm = this.fb.group({
-      nombre: new FormControl('', [
+      name: new FormControl('', [
         Validators.required
       ]),
-      apname:  new FormControl('', [Validators.required]),
-      phone: new FormControl('', [Validators.required]),
+      lastname:  new FormControl('', [Validators.required]),
+      telefono: new FormControl('', [Validators.required, Validators.maxLength(10)]),
       email: new FormControl('', [Validators.required, Validators.pattern(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/)]),
       clave: new FormControl('', [Validators.required]),
       terminos: new FormControl('', [Validators.required]),
+      identificacion: new FormControl('', Validators.required)
     })
   }
   async onRegistrar(email: string, pass: string){
