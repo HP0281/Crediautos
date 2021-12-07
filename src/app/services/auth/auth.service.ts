@@ -13,7 +13,8 @@ export class AuthService {
     auth.authState.subscribe( user => {
       this._userinfo = user;
       localStorage.setItem('userid', this._userinfo.uid);
-      console.log(user);
+      localStorage.setItem('userEmail', this._userinfo.email);
+      console.log(this._userinfo);
     })
   }
   getUser(){

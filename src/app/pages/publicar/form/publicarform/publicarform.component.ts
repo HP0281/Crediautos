@@ -225,6 +225,7 @@ export class PublicarformComponent implements OnInit {
       placa: new FormControl('', [Validators.required]),
       color: new FormControl('', [Validators.required]),
       vendedor: new FormControl(JSON.parse(localStorage.getItem('nombre'))),
+      vendedorId: new FormControl(localStorage.getItem('userid')),
       state: new FormControl('creado'),
       categoria: new FormControl(''),
       urlimg:new FormControl(''),
