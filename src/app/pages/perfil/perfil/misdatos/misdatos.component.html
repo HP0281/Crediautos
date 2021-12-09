@@ -20,7 +20,7 @@
                 <div class="col-12 block-info">
                     <div class="usuario">
                     <span>Usuario</span>
-                    <span>user12458</span>
+                    <span>{{ usuario }}</span>
                     </div>
                 <i class="bi bi-chevron-right"></i>
                 </div>
@@ -29,7 +29,7 @@
                 <div class="col-12 block-info">
                     <div class="usuario">
                     <span>Email</span>
-                    <span>user12458@fdsafsadf.com</span>
+                    <span>{{ email }}</span>
                 </div>
                 <i class="bi bi-chevron-right"></i>
                 </div>
@@ -52,7 +52,7 @@
                 <div class="col-12 block-info">
                     <div class="usuario">
                         <span>Nombre y Apellido</span>
-                        <span>Usuario User</span>
+                        <span>{{user.name}} {{user.lastname}}</span>
                     </div>
                     <i class="bi bi-chevron-right"></i>
                 </div>
@@ -61,7 +61,7 @@
                 <div class="col-12 block-info">
                     <div class="usuario">
                         <span>Documento</span>
-                        <span>1325443</span>
+                        <span>{{ user.identificacion }}</span>
                     </div>
                     <i class="bi bi-chevron-right"></i>
                 </div>
@@ -70,7 +70,7 @@
                 <div class="col-12 block-info">
                     <div class="usuario">
                         <span>Telefono</span>
-                        <span>31351323</span>
+                        <span>{{ user.telefono }}</span>
                     </div>
                     <i class="bi bi-chevron-right"></i>
                 </div>
@@ -138,10 +138,10 @@
     <div class="row">
         <div class="col-12 block-info-direccion">
             <div class="info-direccion">
-                <h6>carrera -15 -151 -ds</h6>
-                <span>apto 201</span>
-                <span>Boyaca(142578)-tunja</span>
-                <span>usuarion user - 3454785148</span>
+                <h6>{{ user.direcciones.name }}</h6>
+                <span>{{ user.direcciones.descripcion }}</span>
+                <span>{{ user.direcciones.ciudad }}</span>
+                <span>{{ user.name }} - {{ user.telefono }}</span>
             </div>
             <div class="opt-direccion">
                 <i class="bi bi-three-dots-vertical"></i>
