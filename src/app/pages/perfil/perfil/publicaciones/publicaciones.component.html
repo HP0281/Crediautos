@@ -5,7 +5,7 @@
                 <h3>Publicaciones</h3>
             </div>
         </div>
-        <div class="row">
+        <div class="row" *ngIf="false">
             <div class="col-12">
                 <div class="form-search">
                     <div class="search">
@@ -30,7 +30,18 @@
                 </div>
             </div>
         </div>
-        
+        <div class="publicaciones">
+            <div class=" publicacion-n" *ngFor="let publicacion of vehicles">
+                <a [routerLink]="['/producto', publicacion.id]" (click)="count()" routerLinkActive="activo"><img [src]="publicacion.urlimg" alt=""
+                    >
+                    <div class="description">
+                        <h3>$ {{ publicacion.valor }}</h3>
+                        <p>{{ publicacion.desc }}</p>
+                    </div>
+                </a>
+                
+            </div>
+        </div>
     </div>
 </div>
 
