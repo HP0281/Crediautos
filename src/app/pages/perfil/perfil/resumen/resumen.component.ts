@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Preguntas } from 'src/app/models/preguntas.inteface';
+import { User } from 'src/app/models/user.interface';
 import { PreguntasService } from 'src/app/services/preguntas/preguntas.service';
+import { UserService } from 'src/app/services/user/user.service';
 import { VehiclesService } from 'src/app/services/vehicles.service';
 
 @Component({
@@ -16,9 +18,9 @@ export class ResumenComponent implements OnInit {
   pausadas:number;
   finalizadas:number;
 
-  constructor(private vehicleSv: VehiclesService, private _preguntaService: PreguntasService) { 
+  constructor(private clienteService: UserService, private vehicleSv: VehiclesService, private _preguntaService: PreguntasService) { 
     this._preguntaService.preguntas.subscribe(resp => {
-      resp = this.preguntas;
+      this.preguntas = resp;
       console.log(resp)
       
     })
@@ -37,6 +39,11 @@ export class ResumenComponent implements OnInit {
     })
     this.vehicleSv.getVehiclesByIdState(localStorage.getItem('userid'), 'finalizada').subscribe(resp=>{
       this.finalizadas = resp.length;
+    })
+  }
+  getcliente(id){
+    this.clienteService.getEmailById(id).subscribe(resp => {
+      return resp[0].name;
     })
   }
 }

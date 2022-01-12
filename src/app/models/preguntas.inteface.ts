@@ -1,5 +1,5 @@
 export interface Preguntas{
-    idcliente: string;
+    cliente: string;
     idvendedor: string;
     idpublicacion: string;
     idsubpregunta?: string;

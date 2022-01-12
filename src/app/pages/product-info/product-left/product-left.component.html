@@ -3,6 +3,23 @@
     <div class="col-11 m-auto fondoBlanco">
         <!--content-->
         <div class="container container-240">
+            <ng-template #modalMensaje let-modal>
+                <div class="modal-header" style="z-index: 999999999;">
+                    <h4 class="modal-title">
+                        <span>has tu pregunta</span>
+                    </h4>
+                    <button type="button" class="close" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                </div>
+                <div class="modal-body">
+                    <p> <span>preguntas</span></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-dark" >Save</button>
+            
+                </div>
+            </ng-template>
             <div *ngIf="tipo == 'vehicle'" class="single-product-detail product-bundle product-aff">
 
                 <div class="row">
@@ -65,7 +82,7 @@
                                 </div>
                                 <div class="single-product-button-group ">
                                     <div class="e-btn cart-qtt btn-gradient tamano">
-                                        <a href="#" class="btn-add-cart color-btn">
+                                        <a (click)="preguntar(modalMensaje)" class="btn-add-cart color-btn">
                                             <h2>Preguntar</h2><span class="icon-bg icon-cart v2"></span>
                                         </a>
                                     </div>
@@ -769,7 +786,7 @@
                                 </div>
                                 <div class="single-product-button-group ">
                                     <div class="e-btn cart-qtt btn-gradient tamano">
-                                        <a href="#" class="btn-add-cart color-btn">
+                                        <a (click)="preguntar(modalMensaje)" class="btn-add-cart color-btn">
                                             <h2>Preguntar</h2><span class="icon-bg icon-cart v2"></span>
                                         </a>
                                     </div>
@@ -1708,3 +1725,4 @@
         <!-- /footer -->
         <!-- /footer -->
     </div>
+    

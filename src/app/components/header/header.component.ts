@@ -48,12 +48,14 @@ export class HeaderComponent implements OnInit {
       if (this.user) {
         this.isloggin = true;
         localStorage.setItem('nombre', JSON.stringify(this.user.displayName));
+        localStorage.setItem('isloggin', JSON.stringify(true));
       }
     });
   }
   onLogout(){
     this.auth.logOut();
     this.isloggin = false;
+    localStorage.setItem('isloggin', JSON.stringify(false));
   }
   validarComponentes(){
     this.option.forEach(element => {

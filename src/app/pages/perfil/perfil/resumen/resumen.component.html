@@ -14,9 +14,9 @@
                 <ul>
                     <li *ngFor="let item of preguntas;let indice=index">
                         <div class="number">
-                            <p>{{indice}}</p>
+                            <p>{{indice +1}}</p>
                         </div>
-                        <p>{{item.description}}</p>
+                        <p>{{item.cliente}}: {{item.description}}</p>
                     </li>
                 </ul>
             </div>
