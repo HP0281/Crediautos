@@ -22,3 +22,35 @@
     margin-left: 15px;
     margin-right: 15px;
 }
+.publicaciones{
+    margin-top: 20px;
+    padding: 25px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.publicacion-n{
+    min-width: 18%;
+    width: 18%;
+    transition: .4s ease all;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+    margin-left: 2%;  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: fit-content;
+}
+.publicacion-n:hover{
+    transform: scale(1.1);
+    transform-origin: center;
+}
+.publicacion-n img{
+    width: 100%;
+    height: 160px;
+    vertical-align: top;
+    border-radius: 150px;
+}
+.publicacion-n .description{
+    height: 50px;
+    font-size: 12px;
+}

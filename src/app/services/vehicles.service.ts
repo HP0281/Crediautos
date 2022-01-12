@@ -48,7 +48,10 @@ export class VehiclesService {
     );
   }
   getVehiclesById(id: string) {
-    return this.afs.collection(('vehicles'), ref => ref.where('vendedor', '==', id)).valueChanges();
+    return this.afs.collection(('vehicles'), ref => ref.where('vendedorId', '==', id)).valueChanges();
+  }
+  getVehiclesByIdState(id: string, state:string) {
+    return this.afs.collection(('vehicles'), ref => ref.where('vendedorId', '==', id).where('state','==', state)).valueChanges();
   }
   getVehicleById(id: string) {
     return this.afs.collection(('vehicles'), ref => ref.where('id', '==', id)).valueChanges().pipe(
