@@ -1,0 +1,15 @@
+<ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig">
+    <div ngxSlickItem *ngFor="let promo of promos" class="slide">
+        <div class="dj-banner">
+            <div class="dj-bg">
+                <a href="{{promo.url}}"><img src="{{promo.img}}" alt="" width="100%">
+                    <div class="dj-text">
+                        <h1><b>{{promo.name}}</b></h1>
+                        <h2 ><p>{{promo.desc}}</p></h2>
+                        <h1 ><p>$ {{promo.precio | number:""}}</p></h1>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</ngx-slick-carousel>

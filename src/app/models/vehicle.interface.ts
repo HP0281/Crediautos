@@ -83,5 +83,5 @@ export interface Vehicle{
  motor:string;
  seguro?:boolean;
  tecno?: boolean;
- 
+ version?:string;
 }

@@ -24,17 +24,42 @@
             "aot": true,
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              {
+                "glob": "**/*",
+                "input": "src/assets/",
+                "ignore": ["**/*.scss"],
+                "output": "/assets/"
+            }
             ],
             "styles": [
-              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              
+              
+              "src/assets/css/owl.carousel.min.css",
+              "src/assets/css/slick.css",
+              "src/assets/css/slick-theme.css",
+              "src/assets/css/owl.theme.default.min.css",
+              "src/assets/css/style.css",
               "src/custom-theme.scss",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "node_modules/slick-carousel/slick/slick.scss",
+    "node_modules/slick-carousel/slick/slick-theme.scss",
               "src/styles.css"
+              
+              
+              
             ],
             "scripts": [
+              "src/assets/js/jquery.js",
+              "src/assets/js/bootstrap.js",
+              "src/assets/js/owl.carousel.min.js",
+              "src/assets/js/slick.js",
+              "src/assets/js/countdown.js",
+              "src/assets/js/main.js",
               "node_modules/jquery/dist/jquery.min.js",
               "node_modules/@popperjs/core/dist/umd/popper-lite.js",
-              "node_modules/bootstrap/dist/js/bootstrap.min.js"
+              "node_modules/bootstrap/dist/js/bootstrap.min.js",
+              "node_modules/slick-carousel/slick/slick.min.js"
+
             ]
           },
           "configurations": {

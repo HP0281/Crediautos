@@ -16,7 +16,8 @@ import { HeaderModule } from 'src/app/components/header/header.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FeaturedarticleComponent } from 'src/app/components/publications/featuredarticle/featuredarticle.component';
 import { FooterModule } from 'src/app/components/footer/footer.module';
-
+import { BannerComponent } from 'src/app/components/publications/banner/banner.component';
+import { SlickCarouselModule } from 'ngx-slick-carousel';
 
 @NgModule({
   declarations: [InicioComponent,
@@ -27,12 +28,15 @@ import { FooterModule } from 'src/app/components/footer/footer.module';
     WantedComponent,
     WantedMotosComponent,
     WantedCamionesComponent,
-    FeaturednewComponent],
+    FeaturednewComponent,
+    BannerComponent
+  ],
   imports: [
     CommonModule,
     InicioRoutingModule,
     HeaderModule,
     FooterModule,
+    SlickCarouselModule,
     ReactiveFormsModule
   ]
 })

@@ -24,8 +24,9 @@ import { PoliticasComponent } from './pages/politicas/politicas.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { FooterModule } from './components/footer/footer.module';
 import { ArticuloInfoComponent } from './pages/product-info/articulo-info/articulo-info.component';
+import { BannerComponent } from './components/publications/banner/banner.component';
 
-
+import { SlickCarouselModule } from 'ngx-slick-carousel'
 
 @NgModule({
   declarations: [
@@ -47,6 +48,7 @@ import { ArticuloInfoComponent } from './pages/product-info/articulo-info/articu
     AngularFireAuthModule,
     BrowserAnimationsModule,
     AngularFireStorageModule,
+    SlickCarouselModule,
     FormsModule,
     HeaderModule,
     FooterModule,

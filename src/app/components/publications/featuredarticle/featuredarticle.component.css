@@ -15,12 +15,11 @@ img{
     margin-left: auto;
     margin-right: auto;
     display: block;
-    border-radius: 50%;
 }
 .description h3{
     font-size: 22px;
     margin: 0;
-    color: #fff;
+    color: #000 ;
 }
 /* contenedor titulo y controles */
 .contenedor-titulo-controles{
@@ -60,20 +59,21 @@ img{
 .publicaciones-recomendadas .contenedor-principal .flecha-derecha{
     position: absolute;
     border: none;
-    background: rgba(0, 0, 0, 0.3);
+    background: transparent;
     font-size: 40px;
     height: 50%;
     top: calc(50% - 25%);
     line-height: 40px;
     width: 50px;
-    color: seashell;
+    color: #000;
     cursor: pointer;
     z-index: 500;
     transition: .2s ease all;
 }
 .publicaciones-recomendadas .contenedor-principal .flecha-izquierda:hover,
 .publicaciones-recomendadas .contenedor-principal .flecha-derecha:hover{
-    background-color: #fff;
+    background-color: rgba(0, 0, 0, 0.4);
+    color: #fff;
     opacity: 0.9;
 }
 .publicaciones-recomendadas .contenedor-principal .flecha-izquierda{

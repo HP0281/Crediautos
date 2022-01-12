@@ -1,17 +1,10 @@
-<div class="fondo ">
-    <div class=" container-fluid">
-        <div class="row ">
-            <div class="col-8 head borde m-auto">
-                <h3>Carros, Motos y otros</h3>
-                <h1>Tu vehículo está aquí</h1>
-                <div>
-                    <h5>Tu credito facil y en minutos</h5>
-                </div>
-            </div>
+<div class="fondo formulario ">
+
+    <div class=" container-fluid ">
+        <div class="background opac blur" style="background-image:url('assets/img/PREUBA PROMOCIONES CREDIAUTOS .CO (1200 x 150 px).png')">
         </div>
-        <div class="row">
             <div class="col-12">
-                <div class="container align-self-center col-md-8 formulario">
+                <div class="container align-self-center col-md-8 ">
                     <form [formGroup]="buscarf">
                         <div class="mb-3 row">
                             <div [ngClass]="['form-group ', colum]">
@@ -93,15 +86,15 @@
                         </div>
                     </form>
                 </div>
-
+                <div class="justify-content-md-center">
+                    <div class="col-12 buscar">
+                        <button type="submit" class="btn btn-primary-black" (click)="buscar()">Buscar</button>
+                    </div>
+                </div>
             </div>
-        </div>
+        
 
-        <div class="row justify-content-md-center">
-            <div class="col-12 buscar">
-                <button type="submit" class="btn btn-primary-black" (click)="buscar()">Buscar</button>
-            </div>
-        </div>
+        
     </div>
 
 

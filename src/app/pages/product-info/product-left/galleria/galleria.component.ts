@@ -1,16 +1,7 @@
 import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { Rating,
-  DinamicRating, 
-  DinamicReviews, 
-  DinamicPrice,
-  CountDown,
-  ProgressBar,
-  Tabs,
-  SlickConfig,
-  ProductLightbox,
-  Quantity } from 'src/app/functions.js';
+
 import { Image } from 'src/app/models/image.interface';
 import { Vehicle } from 'src/app/models/vehicle.interface';
 import { ImageService } from 'src/app/services/image/image.service';

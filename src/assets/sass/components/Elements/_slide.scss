@@ -256,7 +256,7 @@
     }
     .slick-next {
         right: 40px;
-        background: url(../img/Long-Arrow-right-50.png) no-repeat center;
+        background: url(assets/img/Long-Arrow-right-50.png) no-repeat center;
         width: 50px;
         height: 50px;
         line-height: 50px;
@@ -269,7 +269,7 @@
     }
     .slick-prev {
         left: 40px;
-        background: url(../img/Long-Arrow-Left-50.png) no-repeat center;
+        background: url(assets/img/Long-Arrow-Left-50.png) no-repeat center;
         width: 50px;
         height: 50px;
         line-height: 50px;
@@ -363,21 +363,21 @@
 }
 
 .parallax_1 {
-    background-image: url(../img/parallax_1.jpg);
+    background-image: url(assets/img/parallax_1.jpg);
 }
 
 .parallax_2 {
-    background-image: url(../img/parallax_2.jpg);
+    background-image: url(assets/img/parallax_2.jpg);
     height: 100vh;
 }
 
 .parallax_3 {
-    background-image: url(../img/parallax_3.jpg);
+    background-image: url(assets/img/parallax_3.jpg);
     height: 100vh;
 }
 
 .parallax_4 {
-    background-image: url(../img/parallax_4.jpg);
+    background-image: url(assets/img/parallax_4.jpg);
     height: 100vh;
 }
 
@@ -504,7 +504,7 @@
     right: auto;
     z-index: 13;
     &:after {
-        content: url(../img/scrolldown.png);
+        content: url(assets/img/scrolldown.png);
         animation-name: dropdown;
         position: absolute;
         right: 39px;
