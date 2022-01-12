@@ -1,0 +1,29 @@
+<div class="publicaciones-recomendadas contenedor">
+    <div class="contenedor-titulo-controles ">
+    <h3 class=" font-alba-titulo m-auto text-center mt-4" >Articulos Destacados</h3>
+        <div class="indicadores">
+          
+        </div>
+    </div>
+    <div class="contenedor-principal">
+        <button role="button" id="flecha-izquierda" class="flecha-izquierda"><i class="bi bi-chevron-left"></i></button>
+
+        <div class="contenedor-carrousel">
+            <div class="carrousel ">
+                <div *ngFor="let articulo of articulos" class=" publicacion">
+                    <a [routerLink]="['/articulo', articulo.id, 'articulo']" (click)="count()"><img src={{articulo.urlimg}} alt=""
+                        >
+                        <div class="description">
+                            <h3>$ {{articulo.valor | number:''}}</h3>
+                            <p>{{articulo.name}}</p>
+                        </div>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+
+        <button role="button" id="flecha-derecha" class="flecha-derecha"><i class="bi bi-chevron-right"></i></button>
+    </div>
+</div>

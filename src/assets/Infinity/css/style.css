@@ -297,10 +297,10 @@ section {
 	height: 48px;
 	position:relative;
 	border-radius: 0  0 6px 6px;
+	width: 107%;
 }
 .top-bar:before{
 	position:absolute;
-	background:url(../images/top-left-bar.png) no-repeat;
 	width:35px;
 	height:48px;
 	float:left;
@@ -311,7 +311,6 @@ section {
 }
 .top-bar:after{
 	position:absolute;
-	background:url(../images/top-right-bar.png) no-repeat;
 	width:35px;
 	height:48px;
 	float:right;
@@ -320,7 +319,8 @@ section {
 	content:"";
 	right:0px;
 }
-.top-bar .social_icons {
+
+.top-bar .social_icon {
 	margin-top: 5px;
 }
 .top-bar .some-info{
@@ -1554,23 +1554,23 @@ footer .news-letter button{
 .rights p{
 	margin:0px;
 }
-.social_icons li{
+.social_icon li{
 	display:inline-block;
 }
-.social_icons li a{
-	background:#e51e1d;
+.social_icon li a{
+	background:#e51e1d !important;
 	height:31px;
 	width:31px;
 	text-align:center;
 	line-height:31px;
-	color:#fff;
+	color:#fff !important;
 	border-radius:50%;
 	display:inline-block;
 	font-size: 20px ;
 }
-.social_icons li a:hover{
-	background:#fff;
-	color: #e51e1d;
+.social_icon li a:hover{
+	background:#fff !important;
+	color: #e51e1d !important;
 }
 @font-face {
 	font-family: alba;

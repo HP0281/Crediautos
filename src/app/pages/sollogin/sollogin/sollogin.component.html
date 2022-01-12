@@ -1,26 +1,5 @@
 <div class="container-fluid">
-    <div class="header">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="container-fluid justify-content-end">
-                <a class="navbar-brand" href="#">
-                    <img src="./assets/CrediAutosFaviconPEQUENO32x32.svg" alt="" width="30" height="24" class="d-inline-block align-text-top">
-                    CrediAutos
-                  </a>
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="collapse navbar-collapse navheader" id="navbarSupportedContent">
-                  <div class="container-fluid justify-content-end">
-                      <ul class="navbar-nav m-auto mb-2 mb-lg-0 justify-content-end">
-                        <li class="nav-item">
-                          <a class="nav-link" [routerLink]="['/questions']" ><i class="bi bi-question-circle-fill"></i></a>
-                        </li>
-                      </ul>
-                  </div>
-              </div>
-            </div>
-          </nav>
-    </div>
+    <app-header></app-header>>
     <div class="body container-fluid">
         <div class="form row">
             <div class="head col-md-12">
@@ -33,8 +12,5 @@
         </div>
         
     </div>
-    <div class="footer">
-        <a [routerLink]="['/privacidad']">Como cuidamos tu privacidad</a>
-        <small>Copyright © 1999-2021 crediautos Colombia LTDA.</small>
-    </div>
+    <app-footer-p></app-footer-p>
 </div>

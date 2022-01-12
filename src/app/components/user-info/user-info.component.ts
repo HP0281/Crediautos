@@ -17,6 +17,8 @@ export class UserInfoComponent implements OnInit {
   direccions: any[]=[];
   userForm: FormGroup;
   hasDireccion = false;
+  correo: string;
+  userExist:boolean;
 
   infr:boolean;
   vehicle:any;
@@ -45,7 +47,9 @@ export class UserInfoComponent implements OnInit {
       typeDoc: new FormControl('',[Validators.required]),
       identificacion: new FormControl('', [Validators.required]),
       direcciones: this.fb.array([]),
-      telefono: new FormControl('', [Validators.required])
+      telefono: new FormControl('', [Validators.required]),
+      email: new FormControl(''),
+      clave: new FormControl('')
     })
   }
   
@@ -101,13 +105,34 @@ export class UserInfoComponent implements OnInit {
     })
   }
   guardar(){
-    this.vehicle.state = 'inactivo';
-    this.userSv.onSaveUser(this.userForm.value, localStorage.getItem('userid'));
-    this.vehicleSV.onSaveVehicle(this.vehicle, this.vehicle.id);
-    alert('Registro creado con exito');
+    this.getEmail();
   }
   showInfo(){
     console.log(this.infr);
     this.infr = !this.infr;
+  }
+  getEmail(){
+    this.userSv.getEmailById(localStorage.getItem('userid')).subscribe({
+      next: (resp:any)=>{
+        this.vehicle.state = 'inactivo';
+        this.userForm.get('email').setValue(localStorage.getItem('userEmail'));
+        this.userForm.get('clave').setValue(resp.clave)
+        this.userSv.onSaveUser(this.userForm.value, localStorage.getItem('userid'));
+        this.vehicleSV.onSaveVehicle(this.vehicle, this.vehicle.id);
+        this.router.navigate(['/inicio']);
+        alert('Registro creado con exito');
+        this.userExist = true;
+      },
+      error:err => {
+        this.userExist = false;
+        this.vehicle.state = 'inactivo';
+        this.userForm.get('email').setValue(localStorage.getItem('userEmail'));
+        this.userSv.onSaveUser(this.userForm.value, localStorage.getItem('userid'));
+        this.vehicleSV.onSaveVehicle(this.vehicle, this.vehicle.id);
+        this.router.navigate(['/inicio']);
+        alert('Registro creado con exito');
+        this.userExist = true;
+      }
+    })
   }
 }  

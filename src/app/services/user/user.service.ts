@@ -45,4 +45,14 @@ export class UserService {
        map(actions => actions.map(a => a.payload.doc.data() as User))
     );
   }
+  getEmailById(id:string){
+    return this.afs.collection(('users'), ref => ref.where('id', "==", id)).valueChanges().pipe(
+      map(actions => actions.map(a => a as User))
+    );
+  }
+  getUserbyEmail(email:string){
+    return this.afs.collection(('users'), ref => ref.where('email', '==', email)).valueChanges().pipe(
+      map(actions => actions.map(a => a as User))
+    );
+  }
 }

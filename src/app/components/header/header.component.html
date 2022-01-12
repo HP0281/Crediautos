@@ -14,18 +14,18 @@
     <div class="col-md-10">
       <div class="top-bar">
         <div class="col-md-2">
-          <ul class="social_icons">
-            <li><a href="#."><i class="fa fa-facebook"></i></a></li>
-            <li><a href="#."><i class="fa fa-instagram"></i></a></li>
-            <li><a href="#."><i class="fa fa-whatsapp"></i></a></li>
+          <ul class="social_icon">
+            <li><a href="https://www.facebook.com/crediautoscolombia" target="_blank"><i class="fa fa-facebook"></i></a></li>
+            <li><a href="https://www.instagram.com/crediautoscolombia/" target="_blank"><i class="fa fa-instagram"></i></a></li>
+            <li><a href="https://api.whatsapp.com/send?phone=573138073045" target="_blank"><i class="fa fa-whatsapp"></i></a></li>
           </ul>
         </div>
         <!-- Social Icon -->
         <div class="col-md-10">
           <ul class="some-info">
-            <li><i class="fa fa-phone"></i> +1 548-554-451</li>
-            <li><i class="fa fa-envelope"></i> Example@domain.com</li>
-            <li *ngIf="pqr"><a class="nav-link p-0" [routerLink]="['/questions']"><i
+            <li><i class="fa fa-phone"></i>313 807 3045</li>
+            <li><i class="fa fa-envelope"></i> crediautos.colombia@gmail.com</li>
+            <li *ngIf="pqr"><a class="nav-link " [routerLink]="['/questions']"><i
                   class="fa fa-question-circle"></i>Ayuda/PQR</a></li>
             <li><a class="nav-link" [routerLink]="['/login']" *ngIf="!isloggin && ingresar"><i
                   class="fas fa-sign-in"></i>Ingresa</a></li>
@@ -63,12 +63,12 @@
         <nav>
           <ul id="ownmenu" class="ownmenu">
             
-            <li class="active"><a class="nav-link"  [routerLink]="['/inicio']">Inicio</a></li>
-            <li *ngIf="publica">
-              <a class="nav-link" (click)="publicar()">Publicar Articulo</a>
+            <li ><a class="nav-link"  [routerLink]="['/inicio']">Inicio</a></li>
+            <li *ngIf="publica" >
+              <a class="nav-link" (click)="publicarA()">Publicar Articulo</a>
             </li>
             <li *ngIf="publica">
-              <a class="nav-link" (click)="publicar()">Publicar vehiculo</a>
+              <a class="nav-link" (click)="publicarV()">Publicar vehículo</a>
             </li>
             <li *ngIf="contacto">
               <a class="nav-link" [routerLink]="['/contact']"><i class="bi bi-telephone-fill"></i>Contacto</a>

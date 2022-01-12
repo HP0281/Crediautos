@@ -1,604 +1,51 @@
-<!--div *ngIf="preload; else loader" class="container-fluid">
-    <div class="row">
-        <div class="col">
-            <nav style="--bs-breadcrumb-divider: '-';" aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                  <li class="breadcrumb-item">Busquedas relacionadas</li>
-                  <li class="breadcrumb-item active" aria-current="page">Library</li>
-                </ol>
-              </nav>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-3">
-            <div class="row">
-                <div class="col-12">
-                    <small>Carros, Motos y otros</small>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-12 filtro" >
-                    <h4>Carros y Camionetas</h4>
-                    <small>14214 resultados</small>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-12 puertas">
-                    <h5>Puertas</h5>
-                    <ul>
-                        <li>
-                            <strong>2</strong>
-                            <small>(215)</small>
-                        </li>
-                        <li>
-                            <strong>3</strong>
-                            <small>(715)</small>
-                        </li>
-                        <li>
-                            <strong>4</strong>
-                            <small>(215)</small>
-                        </li>
-                        <li>
-                            <strong>5</strong>
-                            <small>(215)</small>
-                        </li>
-                        <li>
-                            <strong>6</strong>
-                            <small>(215)</small>
-                        </li>
-                    </ul>
-                    <div class="input-group mb-3">
-                        <input type="text" class="form-control" placeholder="Minimo" aria-label="Minimo">
-                        <span class="input-group-text">a</span>
-                        <input type="text" class="form-control" placeholder="Maximo" aria-label="Maximo">
-                        <button type="button" class="btn btn-light"><i class="bi bi-arrow-right-circle-fill"></i></button>
-                      </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-12 precio">
-                    <h5>Precio</h5>
-                    <ul>
-                        <li>
-                            <small>Hasta $35.000.000(215)</small>
-                        </li>
-                        <li>
-                            <small>$35.000.000 a $65.000.000(215)</small>
-                        </li>
-                        <li>
-                            <small>Mas de $55.000.000(215)</small>
-                        </li>
-                    </ul>
-                    
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-12 color">
-                    <h5>Color</h5>
-                    <ul>
-                        <li>
-                            <span>Blanco</span>
-                            <small>(215)</small>
-                        </li>
-                        <li>
-                            <span>Gris</span>
-                            <small>(215)</small>
-                        </li>
-                        <li>
-                            <span>Plateado</span>
-                            <small>(215)</small>
-                        </li>
-                        <li>
-                            <span>Rojo</span>
-                            <small>(215)</small>
-                        </li>
-                        <li>
-                            <span>Negro</span>
-                            <small>(215)</small>
-                        </li>
-                        <li>
-                            <span>Azul</span>
-                            <small>(215)</small>
-                        </li>
-                        <li>
-                            <span>Verde</span>
-                            <small>(215)</small>
-                        </li>
-                    </ul>
-                    <a href="">Ver todos </a>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-12 vendedor">
-                    <h5>Vendedor</h5>
-                    <ul>
-                        <li>
-                            <strong>Directo</strong>
-                            <small>(215)</small>
-                        </li>
-                        <li>
-                            <strong>Concecionario</strong>
-                            <small>(215)</small>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-12 tiendas">
-                    <h5>Tiendas oficiales</h5>
-                    <ul>
-                        <li>
-                            <strong>Solo tiendas oficiales</strong>
-                            <small>(215)</small>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-12 ubicacion">
-                    <h5>Ubicacion</h5>
-                    <ul>
-                        <li>
-                            <strong>Bogota D.C</strong>
-                            <small>(215)</small>
-                        </li>
-                        <li>
-                            <strong>Antioquia</strong>
-                            <small>(215)</small>
-                        </li>
-                        <li>
-                            <strong>Valle del cauca</strong>
-                            <small>(215)</small>
-                        </li>
-                        <li>
-                            <strong>Cundinamarca</strong>
-                            <small>(215)</small>
-                        </li>
-                        <li>
-                            <strong>Atlantico</strong>
-                            <small>(215)</small>
-                        </li>
-                        <li>
-                            <strong>Santander</strong>
-                            <small>(215)</small>
-                        </li>
-                        <li>
-                            <strong>Risaralda</strong>
-                            <small>(215)</small>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-12 carroceria">
-                    <h5>Tipo de carroceria</h5>
-                    <ul>
-                        <li>
-                            <strong>Camioneta</strong>
-                            <small>(215)</small>
-                        </li>
-                        <li>
-                            <strong>Sedan</strong>
-                            <small>(215)</small>
-                        </li>
-                        <li>
-                            <strong>Hatchback</strong>
-                            <small>(215)</small>
-                        </li>
-                        <li>
-                            <strong>Pick-up</strong>
-                            <small>(215)</small>
-                        </li>
-                        <li>
-                            <strong>Coupe</strong>
-                            <small>(215)</small>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-12 modelo">
-                    <h5>Modelo</h5>
-                    <ul>
-                        <li>
-                            <span>Prado</span>
-                            <small>(215)</small>
-                        </li>
-                        <li>
-                            <span>Duster</span>
-                            <small>(215)</small>
-                        </li>
-                        <li>
-                            <span>Logan</span>
-                            <small>(215)</small>
-                        </li>
-                        <li>
-                            <span>Sandero</span>
-                            <small>(215)</small>
-                        </li>
-                        <li>
-                            <span>Picanto</span>
-                            <small>(215)</small>
-                        </li>
-                        <li>
-                            <span>Jetta</span>
-                            <small>(215)</small>
-                        </li>
-                        <li>
-                            <span>Fortuner</span>
-                            <small>(215)</small>
-                        </li>
-                    </ul>
-                    <a href="">Ver todos </a>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-12 direccion">
-                    <h5>Direccion</h5>
-                    <ul>
-                        <li>
-                            <span>Hidraulica</span>
-                            <small>(215)</small>
-                        </li>
-                        <li>
-                            <span>Electroasistida</span>
-                            <small>(215)</small>
-                        </li>
-                        <li>
-                            <span>Asistida</span>
-                            <small>(215)</small>
-                        </li>
-                        <li>
-                            <span>Mecanica</span>
-                            <small>(215)</small>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-12 condicion">
-                    <h5>Condicion</h5>
-                    <ul>
-                        <li>
-                            <span>Nuevo</span>
-                            <small>(215)</small>
-                        </li>
-                        <li>
-                            <span>Usado</span>
-                            <small>(215)</small>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-12 extras">
-                    <h5>Otras caracteristicas</h5>
-                    <ul>
-                        <li>
-                            <span>con frenos ABS</span>
-                            <small>(215)</small>
-                        </li>
-                        <li>
-                            <span>Aire acondicionado</span>
-                            <small>(215)</small>
-                        </li>
-                        <li>
-                            <span>Alarma</span>
-                            <small>(215)</small>
-                        </li>
-                        <li>
-                            <span>Vidrios electricos</span>
-                            <small>(215)</small>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-12 kilometros">
-                    <h5>Kilometros</h5>
-                    <div class="input-group mb-3">
-                        <input type="text" class="form-control" placeholder="Minimo" aria-label="Minimo">
-                        <span class="input-group-text">a</span>
-                        <input type="text" class="form-control" placeholder="Maximo" aria-label="Maximo">
-                        <button type="button" class="btn btn-light"><i class="bi bi-arrow-right-circle-fill"></i></button>
-                      </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-12 trasmision">
-                    <h5>Trasmision</h5>
-                    <ul>
-                        <li>
-                            <span>Manual</span>
-                            <small>(215)</small>
-                        </li>
-                        <li>
-                            <span>Automatica</span>
-                            <small>(215)</small>
-                        </li>
-                        <li>
-                            <span>Automatica asistida</span>
-                            <small>(215)</small>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-12 traccion">
-                    <h5>Control de Traccion</h5>
-                    <ul>
-                        <li>
-                            <span>Delantera</span>
-                            <small>(215)</small>
-                        </li>
-                        <li>
-                            <span>4x4</span>
-                            <small>(215)</small>
-                        </li>
-                        <li>
-                            <span>4x2</span>
-                            <small>(215)</small>
-                        </li>
-                        <li>
-                            <span>Trasera</span>
-                            <small>(215)</small>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-12 marca">
-                    <h5>Marca</h5>
-                    <ul>
-                        <li>
-                            <span>Chevrolet</span>
-                            <small>(215)</small>
-                        </li>
-                        <li>
-                            <span>Renault</span>
-                            <small>(215)</small>
-                        </li>
-                        <li>
-                            <span>Toyota</span>
-                            <small>(215)</small>
-                        </li>
-                        <li>
-                            <span>Mazda</span>
-                            <small>(215)</small>
-                        </li>
-                        <li>
-                            <span>Ford</span>
-                            <small>(215)</small>
-                        </li>
-                        <li>
-                            <span>Nizzan</span>
-                            <small>(215)</small>
-                        </li>
-                        <li>
-                            <span>kia</span>
-                            <small>(215)</small>
-                        </li>
-                        <li>
-                            <span>Volkswagen</span>
-                            <small>(215)</small>
-                        </li>
-                        <li>
-                            <span>Mercedes-Benz</span>
-                            <small>(215)</small>
-                        </li>
-                    </ul>
-                    <a href="">Ver todos</a>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-12 año">
-                    <h5>Año</h5>
-                    <ul>
-                        <li>
-                            <span>2021</span>
-                            <small>(215)</small>
-                        </li>
-                        <li>
-                            <span>2020</span>
-                            <small>(215)</small>
-                        </li>
-                        <li>
-                            <span>2019</span>
-                            <small>(215)</small>
-                        </li>
-                        <li>
-                            <span>2018</span>
-                            <small>(215)</small>
-                        </li>
-                        <li>
-                            <span>2017</span>
-                            <small>(215)</small>
-                        </li>
-                        <li>
-                            <span>2016</span>
-                            <small>(215)</small>
-                        </li>
-                        <li>
-                            <span>2015</span>
-                            <small>(215)</small>
-                        </li>
-                        <li>
-                            <span>2014</span>
-                            <small>(215)</small>
-                        </li>
-                        <li>
-                            <span>2013</span>
-                            <small>(215)</small>
-                        </li>
-                    </ul>
-                    <a href="">Ver todos</a>
-                    <div class="input-group mb-3">
-                        <select id="" class="form-control" aria-label="Desde">
-                            <option value="">Desde</option>
-                        </select>
-                        <span class="input-group-text">a</span>
-                        <select id="" class="form-control" aria-label="Hasta">
-                            <option value="">Hasta</option>
-                        </select>
-                        <button type="button" class="btn btn-light"><i class="bi bi-arrow-right-circle-fill"></i></button>
-                      </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-12 combustible">
-                    <h5>Tipo de Combustible</h5>
-                    <ul>
-                        <li>
-                            <span>Gasolina</span>
-                            <small>(215)</small>
-                        </li>
-                        <li>
-                            <span>Diesel</span>
-                            <small>(215)</small>
-                        </li>
-                        <li>
-                            <span>Gasolina y gas</span>
-                            <small>(215)</small>
-                        </li>
-                        <li>
-                            <span>Hibrido</span>
-                            <small>(215)</small>
-                        </li>
-                        <li>
-                            <span>Electrico</span>
-                            <small>(215)</small>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-12 financiable">
-                    <h5>Financiable</h5>
-                    <ul>
-                        <li>
-                            <span>Es financiable</span>
-                            <small>(215)</small>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-12 tipoventa">
-                    <h5>Tipo de venta</h5>
-                    <ul>
-                        <li>
-                            <span>local</span>
-                            <small>(215)</small>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-9">
-            <div class="row justify-content-end">
-                <div class="col-4 filtro-pres">
-                    <h6>Ordenar por</h6>
-                    <select name="" id="">
-                        <option value="">Mas relevantes<i class="bi bi-chevron-down"></i></option>
-                        <option value="">Menor precio</option>
-                        <option value="">Mayor precio</option>
-                    </select>
-                   <a href=""><i class="bi bi-bookshelf"></i></a>
-                    <a href=""><i class="bi bi-border-all"></i></a>
-                </div>
-            </div>
-        </div>
-    </div>
-</div-->
-<div *ngIf="preload; else loader" class="wrappage">
 
+<div *ngIf="preload; else loader" [ngClass]="['wrappage', {'showfilter': showfilter}]">
     <!--content-->
     <div class="container container-240 shop-collection">
         <!--ul class="breadcrumb">
             <li><a href="#">Home</a></li>
             <li class="active">Shop</li>
         </ul-->
-        <div class="filter-collection-left hidden-lg hidden-md">
-            <a class="btn">Filter</a>
+        <br><br>
+        <div *ngIf="filter" class="filter-collection-left hidden-lg hidden-md d-none d-sm-none d-md-none">
+            <a (click)="showfilter= !showfilter" class="btn">Filter</a>
         </div>
         <div class="row shop-colect">
-            <div class="col-md-3 col-sm-3 col-xs-12 col-left collection-sidebar" id="filter-sidebar">
+            <div *ngIf="filter" class="col-md-3 col-sm-3 col-xs-12 col-left collection-sidebar d-none d-sm-none d-md-block" id="filter-sidebar">
                 <div class="close-sidebar-collection hidden-lg hidden-md">
                     <span>Filtrar Vehículo</span><i class="icon_close ion-close"></i>
                 </div>
-                <!--div class="filter filter-cate">
-                    <ul class="wiget-content v2">
-                        <li class="active"><a href="#">TV & Video <span class="number"></span></a></li>
-                        <li class="active"><a href="#">Home Audio & Theater <span class="number"></span></a></li>
-                        <li class="active"><a href="#">Camera, Photo & Video <span class="number"></span></a></li>
-                        <li class="active"><a href="#">Cell Phones & Accessories <span class="number"></span></a></li>
-                        <li><a href="#">Headphones <span class="number"></span></a></li>
-                        <li class="active"><a href="#">Car Electronics <span class="number"></span></a></li>
-                        <li class="active"><a href="#">Electronics Showcase <span class="number"></span></a></li>
-                        <li><a href="#">Monitors <span class="number"></span></a></li>
-                        <li><a href="#">Accessories <span class="number"></span></a></li>
-                        <li class="active"><a href="#">Drives & Storage <span class="number"></span></a></li>
-                        <li class="active"><a href="#">Computer Parts & Components <span class="number"></span></a></li>
-                        <li class="active"><a href="#">Printers & Ink <span class="number"></span></a></li>
-                        <li class="active"><a href="#">Tablets & PC Products <span class="number"></span></a></li>
-                    </ul>
-                </div-->
-                <div class="filter filter-group">
-                    <h1 class="widget-blog-title">Filtrar vehículo</h1>
+                <div class="filter filter-group d-none d-sm-none d-md-block">
+                    <h1 class="widget-blog-title">{{titulo}}</h1>
                     <div class="filter-brand filter-inside">
                         <h3>Marcas</h3>
                         <ul class="e-filter brand-filter">
-                            <li><a href="#">Chevrolet<span class="number"></span></a></li>
-                            <li><a href="#">Renault<span class="number"></span></a></li>
-                            <li><a href="#">Toyota<span class="number"></span></a></li>
-                            <li><a href="#">Mazda<span class="number"></span></a></li>
-                            <li><a href="#">Ford<span class="number"></span></a></li>
-                            <li><a href="#">Nissan <span class="number"></span></a></li>
-                            <li><a href="#">kia<span class="number"></span></a></li>
-                            <li><a href="#">Volkswagen <span class="number"></span></a></li>
+                            <li *ngFor="let marca of marcas" class="{{marca.select}} cursor" ><a (click)="marcaF(marca)">{{marca.name}}<span class="number"></span></a></li>
+                            
                         </ul>
-                        <a href="#" class="btn-showmore">Show more +</a>
                     </div>
                     <div class="filter-price filter-inside">
                         <h3>Precio:</h3>
                         <div class="filter-content">
                             <div class="input-group mb-3">
-                                <input type="text" class="form-control" placeholder="Minimo" aria-label="Minimo">
+                                <input type="number" [(ngModel)]="preciodesde" class="form-control" placeholder="Minimo" aria-label="Minimo">
                                 <span class="input-group-text">a</span>
-                                <input type="text" class="form-control" placeholder="Maximo" aria-label="Maximo">
-
+                                <input type="number"  [(ngModel)]="preciohasta" class="form-control" placeholder="Maximo" aria-label="Maximo">
                             </div>
                             <span class="min-max">
                                 $0 Millones — $200 Millones
                             </span>
-                            <a href="#" class="btn-filter e-gradient">Filtrar</a>
+                            <a (click)="precioFilter()" class="btn-filter e-gradient">Filtrar</a>
                         </div>
                     </div>
 
                     <div class="filter-color filter-brand filter-inside">
                         <h3>Color</h3>
                         <ul class="e-filter brand-filter">
-                            <li *ngFor="let colorf of colores" class="{{colorf.select}}"><a (click)="colorF(colorf)">{{colorf.colorf}}<span class="number"></span></a></li>
+                            <li *ngFor="let colorf of colores" class="{{colorf.select}} cursor"><a (click)="colorF(colorf)">{{colorf.colorf}}<span class="number"></span></a></li>
                             
                         </ul>
                     </div>
-                    <!--div class="filter-color filter-brand filter-inside">
-                        <h3>Puertas</h3>
-                        <ul class="e-filter brand-filter">
-                            <li><a href="#">2<span class="number"></span></a></li>
-                            <li><a href="#">3<span class="number"></span></a></li>
-                            <li><a href="#">4<span class="number"></span></a></li>
-                            <li><a href="#">5<span class="number"></span></a></li>
-                            <li><a href="#">6<span class="number"></span></a></li>
-                            
-                        </ul>
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="Minimo" aria-label="Minimo">
-                            <span class="input-group-text">a</span>
-                            <input type="text" class="form-control" placeholder="Maximo" aria-label="Maximo">
-                            <button type="button" class="btn btn-light"><i class="bi bi-arrow-right-circle-fill"></i></button>
-                          </div>
-                    </div-->
                     <div class="filter-price filter-brand filter-inside">
                         <h3>Kilometros:</h3>
                         <div class="filter-content">
@@ -614,180 +61,13 @@
                         </div>
                     </div>
                 </div>
-                <!--div class="filter filter-product e-category">
-                    <h1 class="widget-blog-title">Top Products</h1>
-                    <div class="owl-carousel owl-theme js-owl-post">
-                        <div class="item">
-                            <div class="cate-item">
-                                <div class="product-img">
-                                    <a href="#"><img src="assets/img/product/phone1.jpg" alt=""
-                                            class="img-reponsive"></a>
-                                </div>
-                                <div class="product-info">
-                                    <h3 class="product-title"><a href="#">Epson Home Cinema </a></h3>
-                                    <div class="product-price v2"><span>$780.00</span></div>
-                                </div>
-                            </div>
-                            <div class="cate-item">
-                                <div class="product-img">
-                                    <a href="#"><img src="assets/img/product/phone2.jpg" alt=""
-                                            class="img-reponsive"></a>
-                                </div>
-                                <div class="product-info">
-                                    <h3 class="product-title"><a href="#">Epson Home Cinema </a></h3>
-                                    <div class="product-price v2"><span>$780.00</span></div>
-                                </div>
-                            </div>
-                            <div class="cate-item">
-                                <div class="product-img">
-                                    <a href="#"><img src="assets/img/product/phone3.jpg" alt=""
-                                            class="img-reponsive"></a>
-                                </div>
-                                <div class="product-info">
-                                    <h3 class="product-title"><a href="#">Epson Home Cinema </a></h3>
-                                    <div class="product-price v2"><span>$780.00</span></div>
-                                </div>
-                            </div>
-                            <div class="cate-item">
-                                <div class="product-img">
-                                    <a href="#"><img src="assets/img/product/phone4.jpg" alt=""
-                                            class="img-reponsive"></a>
-                                </div>
-                                <div class="product-info">
-                                    <h3 class="product-title"><a href="#">Epson Home Cinema </a></h3>
-                                    <div class="product-price v2"><span>$780.00</span></div>
-                                </div>
-                            </div>
-                            <div class="cate-item">
-                                <div class="product-img">
-                                    <a href="#"><img src="assets/img/product/phone5.jpg" alt=""
-                                            class="img-reponsive"></a>
-                                </div>
-                                <div class="product-info">
-                                    <h3 class="product-title"><a href="#">Epson Home Cinema </a></h3>
-                                    <div class="product-price v2"><span>$780.00</span></div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="item">
-                            <div class="cate-item">
-                                <div class="product-img">
-                                    <a href="#"><img src="assets/img/product/phone1.jpg" alt=""
-                                            class="img-reponsive"></a>
-                                </div>
-                                <div class="product-info">
-                                    <h3 class="product-title"><a href="#">Epson Home Cinema </a></h3>
-                                    <div class="product-price v2"><span>$780.00</span></div>
-                                </div>
-                            </div>
-                            <div class="cate-item">
-                                <div class="product-img">
-                                    <a href="#"><img src="assets/img/product/phone2.jpg" alt=""
-                                            class="img-reponsive"></a>
-                                </div>
-                                <div class="product-info">
-                                    <h3 class="product-title"><a href="#">Epson Home Cinema </a></h3>
-                                    <div class="product-price v2"><span>$780.00</span></div>
-                                </div>
-                            </div>
-                            <div class="cate-item">
-                                <div class="product-img">
-                                    <a href="#"><img src="assets/img/product/phone3.jpg" alt=""
-                                            class="img-reponsive"></a>
-                                </div>
-                                <div class="product-info">
-                                    <h3 class="product-title"><a href="#">Epson Home Cinema </a></h3>
-                                    <div class="product-price v2"><span>$780.00</span></div>
-                                </div>
-                            </div>
-                            <div class="cate-item">
-                                <div class="product-img">
-                                    <a href="#"><img src="assets/img/product/phone4.jpg" alt=""
-                                            class="img-reponsive"></a>
-                                </div>
-                                <div class="product-info">
-                                    <h3 class="product-title"><a href="#">Epson Home Cinema </a></h3>
-                                    <div class="product-price v2"><span>$780.00</span></div>
-                                </div>
-                            </div>
-                            <div class="cate-item">
-                                <div class="product-img">
-                                    <a href="#"><img src="assets/img/product/phone5.jpg" alt=""
-                                            class="img-reponsive"></a>
-                                </div>
-                                <div class="product-info">
-                                    <h3 class="product-title"><a href="#">Epson Home Cinema </a></h3>
-                                    <div class="product-price v2"><span>$780.00</span></div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="item">
-                            <div class="cate-item">
-                                <div class="product-img">
-                                    <a href="#"><img src="assets/img/product/phone1.jpg" alt=""
-                                            class="img-reponsive"></a>
-                                </div>
-                                <div class="product-info">
-                                    <h3 class="product-title"><a href="#">Epson Home Cinema </a></h3>
-                                    <div class="product-price v2"><span>$780.00</span></div>
-                                </div>
-                            </div>
-                            <div class="cate-item">
-                                <div class="product-img">
-                                    <a href="#"><img src="assets/img/product/phone2.jpg" alt=""
-                                            class="img-reponsive"></a>
-                                </div>
-                                <div class="product-info">
-                                    <h3 class="product-title"><a href="#">Epson Home Cinema </a></h3>
-                                    <div class="product-price v2"><span>$780.00</span></div>
-                                </div>
-                            </div>
-                            <div class="cate-item">
-                                <div class="product-img">
-                                    <a href="#"><img src="assets/img/product/phone3.jpg" alt=""
-                                            class="img-reponsive"></a>
-                                </div>
-                                <div class="product-info">
-                                    <h3 class="product-title"><a href="#">Epson Home Cinema </a></h3>
-                                    <div class="product-price v2"><span>$780.00</span></div>
-                                </div>
-                            </div>
-                            <div class="cate-item">
-                                <div class="product-img">
-                                    <a href="#"><img src="assets/img/product/phone4.jpg" alt=""
-                                            class="img-reponsive"></a>
-                                </div>
-                                <div class="product-info">
-                                    <h3 class="product-title"><a href="#">Epson Home Cinema </a></h3>
-                                    <div class="product-price v2"><span>$780.00</span></div>
-                                </div>
-                            </div>
-                            <div class="cate-item">
-                                <div class="product-img">
-                                    <a href="#"><img src="assets/img/product/phone5.jpg" alt=""
-                                            class="img-reponsive"></a>
-                                </div>
-                                <div class="product-info">
-                                    <h3 class="product-title"><a href="#">Epson Home Cinema </a></h3>
-                                    <div class="product-price v2"><span>$780.00</span></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="banner">
-                    <a class="image-bd hover-images" href=""><img src="assets/img/o-banner3.jpg" alt=""
-                            class="img-reponsive"></a>
-                </div-->
             </div>
             <div class="col-md-9 col-sm-12 col-xs-12 collection-list">
                 <div class="e-product">
-                    <div class="pd-banner">
+                    <!--div class="pd-banner">
                         <a href="#" class="image-bd effect_img2"><img src="assets/img/banner/h3_b1.png" alt=""
                                 class="img-reponsive"></a>
-                    </div>
+                    </div-->
                     <div class="pd-top">
                         <div class="show-element"><span>Visualizando 1–15 de 20 resultados</span></div>
                         <div class="pd-sort">
@@ -809,37 +89,66 @@
                     </div>
                     <div class="product-collection-grid product-grid">
                         <div class="row">
-                            <div *ngFor="let vehicle of vehicles" class="col-xs-6 col-sm-6 col-md-4 col-lg-4 product-item">
-                                <div class="pd-bd product-inner">
-                                    <div class="product-img">
-                                        <a class="container-img" (click)="count()" [routerLink]="['/producto', vehicle.id]"><img src={{vehicle.urlimg}} alt=""
-                                                class="img-reponsive center"></a>
-                                                <div *ngIf="vehicle.promocion" class="ribbon-price red"><span>Promoción</span></div>
-                                    </div>
-                                    <div class="product-info">
-                                        <div class="element-list element-list-middle">
-                                            <div class="product-rating bd-rating">
-                                                <span class="star star-5"></span>
-                                                <span class="star star-4"></span>
-                                                <span class="star star-3"></span>
-                                                <span class="star star-2"></span>
-                                                <span class="star star-1"></span>
-                                            </div>
-                                            <p class="product-cate">{{vehicle.year}} | {{vehicle.kilometraje}} Km</p>
-                                            <h3 class="product-title"><a href="#">{{vehicle.desc}}</a></h3>
-                                            <div class="product-bottom">
-                                                <div class="product-price"><span>${{vehicle.valor | number:''}}</span></div>
+                            <div *ngIf="filter">
+                                <div *ngFor="let vehicle of vehicles"  class="col-xs-6 col-sm-6 col-md-4 col-lg-4 product-item">
+                                    <div class="pd-bd product-inner">
+                                        <div class="product-img">
+                                            <a class="container-img" (click)="count()" [routerLink]="['/producto', vehicle.id, 'vehicle']"><img class="img-product" src={{vehicle.urlimg}} alt=""
+                                                    class="img-reponsive center"></a>
+                                                    <div *ngIf="vehicle.promocion" class="ribbon-price red"><span>Promoción</span></div>
+                                        </div>
+                                        <div class="product-info">
+                                            <div class="element-list element-list-middle">
+                                                <div class="product-rating bd-rating">
+                                                    <span class="star star-5"></span>
+                                                    <span class="star star-4"></span>
+                                                    <span class="star star-3"></span>
+                                                    <span class="star star-2"></span>
+                                                    <span class="star star-1"></span>
                                                 </div>
+                                                <p class="product-cate">{{vehicle.year}} | {{vehicle.kilometraje}} Km</p>
+                                                <h3 class="product-title"><a href="#">{{vehicle.desc}}</a></h3>
+                                                <div class="product-bottom">
+                                                    <div class="product-price"><span>${{vehicle.valor | number:''}}</span></div>
+                                                    </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                            <div *ngIf="!filter">
+                                <div *ngFor="let vehicle of articulos"  class="col-xs-6 col-sm-6 col-md-4 col-lg-4 product-item">
+                                    <div class="pd-bd product-inner">
+                                        <div class="product-img">
+                                            <a class="container-img" (click)="count()" [routerLink]="['/producto', vehicle.id, 'articulo']"><img src={{vehicle.urlimg}} alt=""
+                                                    class="img-reponsive center"></a>
+                                                    <div *ngIf="vehicle.promocion" class="ribbon-price red"><span>Promoción</span></div>
+                                        </div>
+                                        <div class="product-info">
+                                            <div class="element-list element-list-middle">
+                                                <div class="product-rating bd-rating">
+                                                    <span class="star star-5"></span>
+                                                    <span class="star star-4"></span>
+                                                    <span class="star star-3"></span>
+                                                    <span class="star star-2"></span>
+                                                    <span class="star star-1"></span>
+                                                </div>
+                                                <p class="product-cate">Producto para: {{vehicle.categoria}}</p>
+                                                <h3 class="product-title"><a href="#">{{vehicle.desc}}</a></h3>
+                                                <div class="product-bottom">
+                                                    <div class="product-price"><span>${{vehicle.valor | number:''}}</span></div>
+                                                    </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
                         </div>
                     </div>
                     <div class="pd-middle space-v1">
                         <ul class="pagination">
-                            <li class="active"><a href="#">1</a></li>
-                            <li><a href="#">2</a></li>
+                            <li ><a href="#">2</a></li>
                             <li><a href="#"><i class="ion-ios-arrow-forward"></i></a></li>
                         </ul>
                         <div class="pd-sort">
@@ -906,7 +215,7 @@
         </div>
     </div>
     <!-- / end content -->
-
+    
 
 </div>
 <ng-template #loader>

@@ -9,7 +9,7 @@ import { initializeApp } from 'firebase/app';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { AngularFireStorageModule, BUCKET } from '@angular/fire/storage';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { HeaderModule } from './components/header/header.module';
@@ -17,25 +17,28 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ProductLeftComponent } from './pages/product-info/product-left/product-left.component';
 import { ProductInfoComponent } from './pages/product-info/product-info.component';
 import { GalleriaComponent } from './pages/product-info/product-left/galleria/galleria.component';
-import { FooterResultComponent } from './pages/searchResult/search-result/footer-result/footer-result.component';
 import { BodyResultComponent } from './pages/searchResult/search-result/body-result/body-result.component';
 import { HeaderResultComponent } from './pages/searchResult/search-result/header-result/header-result.component';
 import { SearchResultComponent } from './pages/searchResult/search-result/search-result.component';
+import { PoliticasComponent } from './pages/politicas/politicas.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { FooterModule } from './components/footer/footer.module';
+import { ArticuloInfoComponent } from './pages/product-info/articulo-info/articulo-info.component';
+import { BannerComponent } from './components/publications/banner/banner.component';
 
+import { SlickCarouselModule } from 'ngx-slick-carousel'
 
 @NgModule({
   declarations: [
     AppComponent,
-    
     ProductLeftComponent,
     ProductInfoComponent,
     GalleriaComponent,
     SearchResultComponent, 
     HeaderResultComponent, 
     BodyResultComponent, 
-    FooterResultComponent
-    
-    
+    PoliticasComponent, 
+    ArticuloInfoComponent
   ],
   imports: [
     BrowserModule,
@@ -45,7 +48,10 @@ import { SearchResultComponent } from './pages/searchResult/search-result/search
     AngularFireAuthModule,
     BrowserAnimationsModule,
     AngularFireStorageModule,
+    SlickCarouselModule,
+    FormsModule,
     HeaderModule,
+    FooterModule,
     ReactiveFormsModule,
   ],
   providers: [AngularFirestore,

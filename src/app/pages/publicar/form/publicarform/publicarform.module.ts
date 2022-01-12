@@ -13,10 +13,15 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatButtonModule } from '@angular/material/button';
 import { NgDominicodeFilesDirective } from './directives/ng-dominicode-files.directive';
+import { ArticuloComponent } from './articulo/articulo.component';
+import { FooterModule } from 'src/app/components/footer/footer.module';
+import { MyfilterpipePipe } from './myfilterpipe.pipe';
+import { PipesModule } from 'w-ng5';
+import { FiltroyearPipe } from 'src/app/pipes/year/filtroyear.pipe';
 
 
 @NgModule({
-  declarations: [PublicarformComponent, NgDominicodeFilesDirective],
+  declarations: [PublicarformComponent, NgDominicodeFilesDirective, ArticuloComponent, MyfilterpipePipe, FiltroyearPipe],
   imports: [ 
     CommonModule,
     PublicarformRoutingModule,
@@ -27,7 +32,9 @@ import { NgDominicodeFilesDirective } from './directives/ng-dominicode-files.dir
     MatCardModule,
     MatIconModule,
     MatCheckboxModule,
-    MatButtonModule
+    MatButtonModule,
+    FooterModule,
+    PipesModule
 
   ]
 })

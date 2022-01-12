@@ -52,12 +52,12 @@
             <div class="marca col-xs-11 col-md-8 m-auto" *ngIf="progreso === 2">
                 <div class="target ">
                     <h3>¿Cual es la marca?</h3>
-                    <input type="text" class="form-control" placeholder="Buscar marca">
+                    <input type="text" #filter class="form-control" placeholder="Buscar marca" (keyup)="filtarMarcas(filter.value)">
                     <div class="contenido-scroleable">
                         <span>MAS USADOS</span>
                         <div class="list-group marcas">
                             <button type="button" class="list-group-item list-group-item-action"
-                                (click)="onMarca(marca.name)" *ngFor="let marca of marcas">{{ marca.name }}</button>
+                                (click)="onMarca(marca.name)" *ngFor="let marca of marcas | myfilterpipe: filterMarcas">{{ marca.name }}</button>
                         </div>
                     </div>
                 </div>
@@ -65,12 +65,12 @@
             <div class="modelo col-xs-11 col-md-8 m-auto" *ngIf="progreso === 3">
                 <div class="target">
                     <h3>¿Cual es el modelo de tu {{ marca }}?</h3>
-                    <input type="text" class="form-control" placeholder="Buscar modelo">
+                    <input type="text" #filterm class="form-control" placeholder="Buscar modelo" (keyup)="filtrarModelos(filterm.value)">
                     <div class="contenido-scroleable">
                         <span>MAS USADOS</span>
                         <div class="list-group marcas">
                             <button type="button" class="list-group-item list-group-item-action"
-                                (click)="onModelo(modelo.name)" *ngFor="let modelo of modelos">{{ modelo.name
+                                (click)="onModelo(modelo.name)" *ngFor="let modelo of modelos | myfilterpipe: filterModelo">{{ modelo.name
                                 }}</button>
                         </div>
                     </div>
@@ -79,11 +79,11 @@
             <div class="año col-xs-11 col-md-8 m-auto" *ngIf="progreso === 4">
                 <div class="target">
                     <h3>¿De que año es tu {{ marca }}?</h3>
-                    <input type="text" class="form-control" placeholder="Buscar año">
+                    <input type="text" #filteryear class="form-control" placeholder="Buscar año" (keyup)="filtrarYear(filteryear.value)">
                     <div class="contenido-scroleable">
                         <div class="list-group marcas">
                             <button type="button" class="list-group-item list-group-item-action"
-                                (click)="onYear(year.year)" *ngFor="let year of years">{{ year.year }}</button>
+                                (click)="onYear(year.year)" *ngFor="let year of years | filtroyear: filterYear">{{ year.year }}</button>
                         </div>
                     </div>
                 </div>
@@ -105,7 +105,7 @@
                 <div class="target">
                     <h3>¿Cuantos Kilometros tiene?</h3>
                     <form [formGroup]="kilometrajeForm">
-                        <input type="number" class="form-control" placeholder="ejemplo: 50.000"
+                        <input type="number" class="form-control" placeholder="ejemplo: 50.000" min="0"
                             formControlName="kilometraje">
                     </form>
                     <button type="button" class="btn btn-danger botones" [disabled]="!kilometrajeForm.valid"
@@ -155,14 +155,14 @@
                     <div class="formp">
                         <form [formGroup]="formPrincipal">
                             <div class="row">
-                                <div class="col-6">
+                                <div class="col-md-6 col-xs-12">
                                     <div class="form-floating">
                                         <input type="text" class="form-control" id="marca" placeholder="Marca"
                                             formControlName="marca">
                                         <label for="marca">Marca</label>
                                     </div>
                                 </div>
-                                <div class="col-6">
+                                <div class="col-md-6 col-xs-12">
                                     <div class="form-floating">
                                         <input type="text" class="form-control" id="modelo" placeholder="Modelo"
                                             formControlName="modelo">
@@ -171,14 +171,14 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-6">
+                                <div class="col-md-6 col-xs-12">
                                     <div class="form-floating">
                                         <input type="text" class="form-control" id="año" placeholder="Año"
                                             formControlName="year">
                                         <label for="año">Año</label>
                                     </div>
                                 </div>
-                                <div class="col-6">
+                                <div class="col-md-6 col-xs-12">
                                     <div class="form-floating">
                                         <input type="text" class="form-control" id="version" placeholder="Versíon"
                                             formControlName="version">
@@ -187,7 +187,7 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-6">
+                                <div class="col-md-6 col-xs-12">
                                     <label for="tcombustible" class="form-label">Tipo de combustible (requerido)</label>
                                     <input class="form-control" list="listcombustible" id="tcombustible"
                                         placeholder="Elegir.." formControlName="tcombustible">
@@ -199,25 +199,33 @@
                                         <option value="Hibrido">
                                     </datalist>
                                 </div>
-                                <div class="col-6">
-                                    <div class="form-floating">
-                                        <input type="text" class="form-control" id="puertas" placeholder="Puertas"
-                                            formControlName="puertas">
-                                        <label for="puertas">Puertas (requerido)</label>
-                                    </div>
+                                <div class="col-md-6 col-xs-12">
+                                    <label for="carroceria" class="form-label">Tipo de carroceria</label>
+                                    <input class="form-control" list="tcarroceria" id="carroceria"
+                                        placeholder="Elegir.." formControlName="carroceria">
+                                    <datalist id="tcarroceria">
+                                        <option value="Sedan">
+                                        <option value="Coupe">
+                                        <option value="Hasback"></option>
+                                    </datalist>
+                                    
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-6">
+                                <div class="col-md-6 col-xs-12">
                                     <label for="direccion" class="form-label">Direccion</label>
                                     <input class="form-control" list="tdireccion" id="direccion" placeholder="Elegir.."
                                         formControlName="direccion">
                                     <datalist id="tdireccion">
                                         <option value="Hidraulica">
                                         <option value="Mecanica">
+                                        <option value="Electro-Hidraulica">
+                                        <option value="Electromecánica">
+                                        <option value="Electroasistida">
+                                        <option value="Electro-asistida"></option>
                                     </datalist>
                                 </div>
-                                <div class="col-6">
+                                <div class="col-md-6 col-xs-12">
                                     <label for="trasmision" class="form-label">Trasmision (requerido)</label>
                                     <input class="form-control" list="ttrasmision" id="trasmision"
                                         placeholder="Elegir.." formControlName="trasmision">
@@ -228,7 +236,7 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-6">
+                                <div class="col-md-6 col-xs-12">
                                     <label for="traccion" class="form-label">Control de traccion</label>
                                     <input class="form-control" list="ttraccion" id="traccion" placeholder="Elegir.."
                                         formControlName="traccion">
@@ -238,26 +246,17 @@
                                         <option value="4*4"></option>
                                     </datalist>
                                 </div>
-                                <div class="col-6">
-                                    <div class="form-floating">
-                                        <input type="text" class="form-control" id="Motor" placeholder="Motor"
-                                            formControlName="motor">
-                                        <label for="Motor">Motor</label>
-                                    </div>
-                                </div>
+                                
                             </div>
                             <div class="row">
-                                <div class="col-6">
-                                    <label for="carroceria" class="form-label">Tipo de carroceria</label>
-                                    <input class="form-control" list="tcarroceria" id="carroceria"
-                                        placeholder="Elegir.." formControlName="carroceria">
-                                    <datalist id="tcarroceria">
-                                        <option value="Sedan">
-                                        <option value="Coupe">
-                                        <option value="Hasback"></option>
-                                    </datalist>
+                                <div class="col-md-6 col-xs-12">
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control" id="puertas" placeholder="Puertas"
+                                            formControlName="puertas">
+                                        <label for="puertas">Puertas (requerido)</label>
+                                    </div>
                                 </div>
-                                <div class="col-6">
+                                <div class="col-md-6 col-xs-12">
                                     <div class="form-floating">
                                         <input type="text" class="form-control" id="cilindrada" placeholder="Cilindrada"
                                             formControlName="cilindrada">
@@ -266,14 +265,23 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-6">
+                                <div class="col-md-6 col-xs-12">
                                     <div class="form-floating">
                                         <input type="text" class="form-control" id="placa" placeholder="Placa"
                                             formControlName="placa">
                                         <label for="placa">Placa (requerido)</label>
                                     </div>
                                 </div>
-                                <div class="col-6 prueba">
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control" id="Motor" placeholder="Motor"
+                                            formControlName="motor">
+                                            <label for="Motor">Motor</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 prueba">
                                     <div>
                                         <label for="dueñosi">Unico Dueño</label>
                                     </div>
@@ -287,8 +295,6 @@
                                         <label class="btn btn-outline-danger" for="duañono">No</label>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="row">
                                 <div class="col-12">
                                     <a class="btn btn-desplegables" data-bs-toggle="collapse" href="#collapseMoreInfo"
                                         role="button" aria-expanded="false" aria-controls="collapseMoreInfo">
@@ -298,7 +304,7 @@
                                 </div>
                             </div>
                             <div class="row collapse" id="collapseMoreInfo">
-                                <div class="col-6 prueba">
+                                <div class="col-md-6 col-xs-12 prueba">
                                     <div>
                                         <label for="seguro">Asegurado</label>
                                     </div>
@@ -312,9 +318,9 @@
                                         <label class="btn btn-outline-danger" for="segurono">No</label>
                                     </div>
                                 </div>
-                                <div class="col-6 prueba">
+                                <div class="col-md-6 col-xs-12 prueba">
                                     <div>
-                                        <label for="tecno">Tecnomecanica</label>
+                                        <label for="tecno">Tecnomecánica</label>
                                     </div>
                                     <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
                                         <input type="radio" class="btn-check" name="tecno" id="tecnosi"
@@ -338,7 +344,7 @@
                                 </div>
                             </div>
                             <div class="row collapse" id="collapseEquipamiento">
-                                <div class="col-6 prueba">
+                                <div class="col-md-6 col-xs-12 prueba">
                                     <div>
                                         <label for="dueñosi">GPS</label>
                                     </div>
@@ -352,7 +358,7 @@
                                         <label class="btn btn-outline-danger" for="gpsno">No</label>
                                     </div>
                                 </div>
-                                <div class="col-6 prueba">
+                                <div class="col-md-6 col-xs-12 prueba">
                                     <div>
                                         <label for="dueñosi">Asiento trasero abatible</label>
                                     </div>
@@ -367,7 +373,7 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-6 prueba">
+                                    <div class="col-md-6 col-xs-12 prueba">
                                         <div>
                                             <label for="dueñosi">Techo corredizo</label>
                                         </div>
@@ -382,7 +388,7 @@
                                             <label class="btn btn-outline-danger" for="techono">No</label>
                                         </div>
                                     </div>
-                                    <div class="col-6 prueba">
+                                    <div class="col-md-6 col-xs-12 prueba">
                                         <div>
                                             <label for="dueñosi">Climatizador</label>
                                         </div>
@@ -399,7 +405,7 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-6 prueba">
+                                    <div class="col-md-6 col-xs-12 prueba">
                                         <div>
                                             <label for="dueñosi">Porta equipaje en techo</label>
                                         </div>
@@ -414,7 +420,7 @@
                                             <label class="btn btn-outline-danger" for="portateno">No</label>
                                         </div>
                                     </div>
-                                    <div class="col-6 prueba">
+                                    <div class="col-md-6 col-xs-12 prueba">
                                         <div>
                                             <label for="dueñosi">Camara de reverso</label>
                                         </div>
@@ -431,7 +437,7 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-6 prueba">
+                                    <div class="col-md-6 col-xs-12 prueba">
                                         <div>
                                             <label for="dueñosi">Banca</label>
                                         </div>
@@ -460,7 +466,7 @@
                             <div class="row collapse" id="collapseSeguridad">
                                 <div class="col-12">
                                     <div class="row ">
-                                        <div class="col-6 prueba">
+                                        <div class="col-md-6 col-xs-12 prueba">
                                             <div>
                                                 <label for="dueñosi">Frenos ABS</label>
                                             </div>
@@ -475,7 +481,7 @@
                                                 <label class="btn btn-outline-danger" for="absno">No</label>
                                             </div>
                                         </div>
-                                        <div class="col-6 prueba">
+                                        <div class="col-md-6 col-xs-12 prueba">
                                             <div>
                                                 <label for="dueñosi">Alarma</label>
                                             </div>
@@ -492,7 +498,7 @@
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-6 prueba">
+                                        <div class="col-md-6 col-xs-12 prueba">
                                             <div>
                                                 <label for="dueñosi">Faros antitinieblas delanteros</label>
                                             </div>
@@ -507,7 +513,7 @@
                                                 <label class="btn btn-outline-danger" for="fadno">No</label>
                                             </div>
                                         </div>
-                                        <div class="col-6 prueba">
+                                        <div class="col-md-6 col-xs-12 prueba">
                                             <div>
                                                 <label for="dueñosi">Airbag para conductor y pasajero</label>
                                             </div>
@@ -524,7 +530,7 @@
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-6 prueba">
+                                        <div class="col-md-6 col-xs-12 prueba">
                                             <div>
                                                 <label for="dueñosi">Sensor de lluvia</label>
                                             </div>
@@ -539,7 +545,7 @@
                                                 <label class="btn btn-outline-danger" for="sensorlno">No</label>
                                             </div>
                                         </div>
-                                        <div class="col-6 prueba">
+                                        <div class="col-md-6 col-xs-12 prueba">
                                             <div>
                                                 <label for="dueñosi">Faros antitinieblas traseros</label>
                                             </div>
@@ -556,7 +562,7 @@
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-6 prueba">
+                                        <div class="col-md-6 col-xs-12 prueba">
                                             <div>
                                                 <label for="dueñosi">Desempañador trasero</label>
                                             </div>
@@ -573,7 +579,7 @@
                                                 <label class="btn btn-outline-danger" for="desempañano">No</label>
                                             </div>
                                         </div>
-                                        <div class="col-6 prueba">
+                                        <div class="col-md-6 col-xs-12 prueba">
                                             <div>
                                                 <label for="dueñosi">Barra anti vuelco</label>
                                             </div>
@@ -590,7 +596,7 @@
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-6 prueba">
+                                        <div class="col-md-6 col-xs-12 prueba">
                                             <div>
                                                 <label for="dueñosi">Control de estabilidad</label>
                                             </div>
@@ -605,7 +611,7 @@
                                                 <label class="btn btn-outline-danger" for="cdino">No</label>
                                             </div>
                                         </div>
-                                        <div class="col-6 prueba">
+                                        <div class="col-md-6 col-xs-12 prueba">
                                             <div>
                                                 <label for="dueñosi">Blindado</label>
                                             </div>
@@ -622,7 +628,7 @@
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-6 prueba">
+                                        <div class="col-md-6 col-xs-12 prueba">
                                             <div>
                                                 <label for="dueñosi">Vidrio de seguridad</label>
                                             </div>
@@ -652,7 +658,7 @@
                             <div class="row collapse" id="collapseConfort">
                                 <div class="col-12">
                                     <div class="row">
-                                        <div class="col-6 prueba">
+                                        <div class="col-md-6 col-xs-12 prueba">
                                             <div>
                                                 <label for="dueñosi">Aire acondicionado</label>
                                             </div>
@@ -668,7 +674,7 @@
                                                 <label class="btn btn-outline-danger" for="aircno">No</label>
                                             </div>
                                         </div>
-                                        <div class="col-6 prueba">
+                                        <div class="col-md-6 col-xs-12 prueba">
                                             <div>
                                                 <label for="dueñosi">Regulacion de altura del volante</label>
                                             </div>
@@ -685,7 +691,7 @@
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-6 prueba">
+                                        <div class="col-md-6 col-xs-12 prueba">
                                             <div>
                                                 <label for="dueñosi">Retrovisores electricos</label>
                                             </div>
@@ -702,7 +708,7 @@
                                                 <label class="btn btn-outline-danger" for="rtroeno">No</label>
                                             </div>
                                         </div>
-                                        <div class="col-6 prueba">
+                                        <div class="col-md-6 col-xs-12 prueba">
                                             <div>
                                                 <label for="dueñosi">Luces con regulacion automatica</label>
                                             </div>
@@ -719,7 +725,7 @@
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-6 prueba">
+                                        <div class="col-md-6 col-xs-12 prueba">
                                             <div>
                                                 <label for="dueñosi">Tapizado de cuero</label>
                                             </div>
@@ -734,7 +740,7 @@
                                                 <label class="btn btn-outline-danger" for="tdcno">No</label>
                                             </div>
                                         </div>
-                                        <div class="col-6 prueba">
+                                        <div class="col-md-6 col-xs-12 prueba">
                                             <div>
                                                 <label for="dueñosi">Tapizado de semicuero</label>
                                             </div>
@@ -752,7 +758,7 @@
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-6 prueba">
+                                        <div class="col-md-6 col-xs-12 prueba">
                                             <div>
                                                 <label for="dueñosi">Tapizado de tela</label>
                                             </div>
@@ -767,7 +773,7 @@
                                                 <label class="btn btn-outline-danger" for="tdtno">No</label>
                                             </div>
                                         </div>
-                                        <div class="col-6 prueba">
+                                        <div class="col-md-6 col-xs-12 prueba">
                                             <div>
                                                 <label for="dueñosi">Sensor de parqueo</label>
                                             </div>
@@ -784,7 +790,7 @@
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-6 prueba">
+                                        <div class="col-md-6 col-xs-12 prueba">
                                             <div>
                                                 <label for="dueñosi">Vidrios electricos</label>
                                             </div>
@@ -799,7 +805,7 @@
                                                 <label class="btn btn-outline-danger" for="vidrioseno">No</label>
                                             </div>
                                         </div>
-                                        <div class="col-6 prueba">
+                                        <div class="col-md-6 col-xs-12 prueba">
                                             <div>
                                                 <label for="dueñosi">Apertura remota de baul</label>
                                             </div>
@@ -816,7 +822,7 @@
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-6 prueba">
+                                        <div class="col-md-6 col-xs-12 prueba">
                                             <div>
                                                 <label for="dueñosi">Asientos electricos</label>
                                             </div>
@@ -832,7 +838,7 @@
                                                 <label class="btn btn-outline-danger" for="asientoseno">No</label>
                                             </div>
                                         </div>
-                                        <div class="col-6 prueba">
+                                        <div class="col-md-6 col-xs-12 prueba">
                                             <div>
                                                 <label for="dueñosi">Cierre centralizado de puertas</label>
                                             </div>
@@ -851,7 +857,7 @@
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-6 prueba">
+                                        <div class="col-md-6 col-xs-12 prueba">
                                             <div>
                                                 <label for="dueñosi">Manuales</label>
                                             </div>
@@ -866,7 +872,7 @@
                                                 <label class="btn btn-outline-danger" for="manualesno">No</label>
                                             </div>
                                         </div>
-                                        <div class="col-6 prueba">
+                                        <div class="col-md-6 col-xs-12 prueba">
                                             <div>
                                                 <label for="dueñosi">Cierre automatico de vidrios</label>
                                             </div>
@@ -897,7 +903,7 @@
                             <div class="row collapse" id="collapseSonido">
                                 <div class="col-12">
                                     <div class="row">
-                                        <div class="col-6 prueba">
+                                        <div class="col-md-6 col-xs-12 prueba">
                                             <div>
                                                 <label for="dueñosi">Bluetooth</label>
                                             </div>
@@ -912,7 +918,7 @@
                                                 <label class="btn btn-outline-danger" for="blueno">No</label>
                                             </div>
                                         </div>
-                                        <div class="col-6 prueba">
+                                        <div class="col-md-6 col-xs-12 prueba">
                                             <div>
                                                 <label for="dueñosi">DVD</label>
                                             </div>
@@ -929,7 +935,7 @@
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-6 prueba">
+                                        <div class="col-md-6 col-xs-12 prueba">
                                             <div>
                                                 <label for="dueñosi">Reproductor de MP3</label>
                                             </div>
@@ -944,7 +950,7 @@
                                                 <label class="btn btn-outline-danger" for="rdmp3no">No</label>
                                             </div>
                                         </div>
-                                        <div class="col-6 prueba">
+                                        <div class="col-md-6 col-xs-12 prueba">
                                             <div>
                                                 <label for="dueñosi">Entrada USB</label>
                                             </div>
@@ -961,7 +967,7 @@
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-6 prueba">
+                                        <div class="col-md-6 col-xs-12 prueba">
                                             <div>
                                                 <label for="dueñosi">Equipo de sonido</label>
                                             </div>
@@ -991,7 +997,7 @@
                             <div class="row collapse" id="collapseExterior">
                                 <div class="col-12">
                                     <div class="row">
-                                        <div class="col-6 prueba">
+                                        <div class="col-md-6 col-xs-12 prueba">
                                             <div>
                                                 <label for="dueñosi">Cubierta de platon</label>
                                             </div>
@@ -1006,7 +1012,7 @@
                                                 <label class="btn btn-outline-danger" for="cdpno">No</label>
                                             </div>
                                         </div>
-                                        <div class="col-6 prueba">
+                                        <div class="col-md-6 col-xs-12 prueba">
                                             <div>
                                                 <label for="dueñosi">Plana</label>
                                             </div>
@@ -1023,7 +1029,7 @@
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-6 prueba">
+                                        <div class="col-md-6 col-xs-12 prueba">
                                             <div>
                                                 <label for="dueñosi">Estribos</label>
                                             </div>
@@ -1038,7 +1044,7 @@
                                                 <label class="btn btn-outline-danger" for="estribosno">No</label>
                                             </div>
                                         </div>
-                                        <div class="col-6 prueba">
+                                        <div class="col-md-6 col-xs-12 prueba">
                                             <div>
                                                 <label for="dueñosi">Spoiler</label>
                                             </div>
@@ -1055,7 +1061,7 @@
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-6 prueba">
+                                        <div class="col-md-6 col-xs-12 prueba">
                                             <div>
                                                 <label for="dueñosi">Exploradoras</label>
                                             </div>
@@ -1070,7 +1076,7 @@
                                                 <label class="btn btn-outline-danger" for="explono">No</label>
                                             </div>
                                         </div>
-                                        <div class="col-6 prueba">
+                                        <div class="col-md-6 col-xs-12 prueba">
                                             <div>
                                                 <label for="dueñosi">Llantas nuevas</label>
                                             </div>
@@ -1087,7 +1093,7 @@
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-6 prueba">
+                                        <div class="col-md-6 col-xs-12 prueba">
                                             <div>
                                                 <label for="dueñosi">Rines de lujo</label>
                                             </div>
@@ -1117,7 +1123,7 @@
                             <div class="row collapse" id="collapseGarantia">
                                 <div class="col-12">
                                     <div class="row">
-                                        <div class="col-6 prueba">
+                                        <div class="col-md-6 col-xs-12 prueba">
                                             <div>
                                                 <label for="dueñosi">Garantia de fabrica</label>
                                             </div>
@@ -1132,7 +1138,7 @@
                                                 <label class="btn btn-outline-danger" for="gdfno">No</label>
                                             </div>
                                         </div>
-                                        <div class="col-6 prueba">
+                                        <div class="col-md-6 col-xs-12 prueba">
                                             <div>
                                                 <label for="dueñosi">Garantia mecanica</label>
                                             </div>
@@ -1149,7 +1155,7 @@
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-6 prueba">
+                                        <div class="col-md-6 col-xs-12 prueba">
                                             <div>
                                                 <label for="dueñosi">Negociable</label>
                                             </div>
@@ -1164,7 +1170,7 @@
                                                 <label class="btn btn-outline-danger" for="negno">No</label>
                                             </div>
                                         </div>
-                                        <div class="col-6 prueba">
+                                        <div class="col-md-6 col-xs-12 prueba">
                                             <div>
                                                 <label for="dueñosi">Vempermuta</label>
                                             </div>
@@ -1181,7 +1187,7 @@
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-6 prueba">
+                                        <div class="col-md-6 col-xs-12 prueba">
                                             <div>
                                                 <label for="dueñosi">Entrega a domicilio</label>
                                             </div>
@@ -1196,7 +1202,7 @@
                                                 <label class="btn btn-outline-danger" for="eadno">No</label>
                                             </div>
                                         </div>
-                                        <div class="col-6 prueba">
+                                        <div class="col-md-6 col-xs-12 prueba">
                                             <div>
                                                 <label for="dueñosi">Test drive a domicilio</label>
                                             </div>
@@ -1213,7 +1219,7 @@
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-6 prueba">
+                                        <div class="col-md-6 col-xs-12 prueba">
                                             <div>
                                                 <label for="dueñosi">Documentacion en casa</label>
                                             </div>
@@ -1326,18 +1332,5 @@
             <br><br>
         </div>
     </div>
-    <div class="footer">
-        <div class="footer-content">
-            <footer class="text-center footer-style">
-                <nav>
-                    <a href="">Trabaja con nosotros</a>
-                    <a href="">Terminos y condiciones</a>
-                    <a href="">Como cuidamos tu privacidad</a>
-                    <a href="">Ayuda /PQR</a>
-                    <a href="">www.sic.gov.co</a>
-                </nav>
-                <small> Copyright © 2012-2021 Boyaca Web</small>
-            </footer>
-        </div>
-    </div>
+    <app-footer-p></app-footer-p>
 </div>

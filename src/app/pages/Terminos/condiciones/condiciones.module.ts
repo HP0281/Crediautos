@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { CondicionesRoutingModule } from './condiciones-routing.module';
 import { CondicionesComponent } from './condiciones.component';
 import { HeaderModule } from 'src/app/components/header/header.module';
+import { FooterModule } from 'src/app/components/footer/footer.module';
 
 
 
@@ -13,7 +14,8 @@ import { HeaderModule } from 'src/app/components/header/header.module';
   imports: [
     CommonModule,
     CondicionesRoutingModule,
-    HeaderModule
+    HeaderModule,
+    FooterModule
   ]
 })
 export class CondicionesModule { }

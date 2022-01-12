@@ -1,22 +1,24 @@
 <div class="publicaciones-recomendadas contenedor">
-    <div class="contenedor-titulo-controles fuenteBlanca">
-        <h3 class="fuenteBlanca" >Publicaciones destacadas</h3>
+    <div class="contenedor-titulo-controles ">
+        <h3 class=" font-alba-titulo m-auto text-center mt-4" >Vehículos Usados Destacados</h3>
         <div class="indicadores">
          
         </div>
-    </div>
+    </div> 
     <div class="contenedor-principal">
         <button role="button" id="flecha-izquierda" class="flecha-izquierda"><i class="bi bi-chevron-left"></i></button>
 
         <div class="contenedor-carrousel">
             <div class="carrousel ">
                 <div class=" publicacion" *ngFor="let publicacion of vehicles">
-                    <a [routerLink]="['/producto', publicacion.id]" (click)="count()" routerLinkActive="activo"><img [src]="publicacion.urlimg" alt=""
-                        ></a>
-                    <div class="description">
-                        <h3>$ {{ publicacion.valor }}</h3>
-                        <p>{{ publicacion.desc }}</p>
-                    </div>
+                    <a [routerLink]="['/producto', publicacion.id, 'vehicle']" (click)="count()" routerLinkActive="activo"><img [src]="publicacion.urlimg" alt=""
+                        >
+                        <div class="description">
+                            <h3>$ {{ publicacion.valor | number:''}}</h3>
+                            <p>{{ publicacion.desc }}</p>
+                        </div>
+                    </a>
+                    
                 </div>
                 
             </div>

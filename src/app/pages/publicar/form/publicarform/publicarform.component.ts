@@ -68,6 +68,9 @@ export class PublicarformComponent implements OnInit {
     }
   }
 
+  filterMarcas: string;
+  filterModelo: string;
+  filterYear: string;
   
 
   constructor(private fb: FormBuilder, public vehicleService: VehiclesService, private router: Router, private auth: AuthService,
@@ -86,7 +89,6 @@ export class PublicarformComponent implements OnInit {
     this.progreso=0;
     this.headers=['pqr'];
     this.getCategories();
-    this.getMarcas();
     this.years =[];
 
 
@@ -110,12 +112,13 @@ export class PublicarformComponent implements OnInit {
         case 'category':
         if (this.category) {
           this.progreso++;
+          this.getMarcas();
         }
         break;
         case 'marca':
           if(this.marca){
             this.progreso++;
-            this.getModelos(this.marca);
+            this.getModelos(this.marca,this.category);
             this.getVehicles(this.auth._userinfo.uid);
         }
         break;
@@ -137,7 +140,9 @@ export class PublicarformComponent implements OnInit {
         }
         break;
       case 'kilometraje':
-        if (this.kilometrajeForm.get('kilometraje').value) {
+        console.log("una entra al progreso")
+        if (parseInt(this.kilometrajeForm.get('kilometraje').value) >=0) {
+          console.log("entra al progreso")
           this.progreso++;
         }
         break;
@@ -201,7 +206,7 @@ export class PublicarformComponent implements OnInit {
       descripcion : new FormControl('', [Validators.required])
     })
     this.kilometrajeForm = this.fb.group({
-      kilometraje: new FormControl('', [Validators.required])
+      kilometraje: new FormControl(0, [Validators.required])
     })
     this.colorForm = this.fb.group({
       color: new FormControl('',[Validators.required])
@@ -222,6 +227,7 @@ export class PublicarformComponent implements OnInit {
       placa: new FormControl('', [Validators.required]),
       color: new FormControl('', [Validators.required]),
       vendedor: new FormControl(JSON.parse(localStorage.getItem('nombre'))),
+      vendedorId: new FormControl(localStorage.getItem('userid')),
       state: new FormControl('creado'),
       categoria: new FormControl(''),
       urlimg:new FormControl(''),
@@ -284,7 +290,7 @@ export class PublicarformComponent implements OnInit {
       status: new FormControl(false),
       promocion: new FormControl(false),
       descripcion: new FormControl(''),
-      kilometraje: new FormControl('kilometraje')
+      kilometraje: new FormControl(0)
     })
   }
   asignarvalue(nomvar: string, valor: any){
@@ -461,9 +467,8 @@ export class PublicarformComponent implements OnInit {
     this.asignarvalue('vendedor', this.auth._userinfo.uid);
     this.asignarvalue('descripcion',this.vehicleForm.get('descripcion').value);
     this.asignarvalue('categoria', this.category);
-    
     this.asignarvalue('desc', this.vehicleForm.get('marcamodelo').value);
-    this.asignarvalue('kilometraje', this.kilometrajeForm.get('kilometraje').value);
+    this.asignarvalue('kilometraje', parseInt(this.kilometrajeForm.get('kilometraje').value));
   }
   getCategories(){
     this.categoryService.categories.subscribe((resp:any)=>{
@@ -472,13 +477,13 @@ export class PublicarformComponent implements OnInit {
     })
   }
   getMarcas(){
-    this.marcasService.marcas.subscribe((resp:any)=>{
+    this.marcasService.getMarcaByCategoria(this.category).subscribe((resp:any)=>{
       this.marcas = resp;
     })
   }
-  getModelos(marca:string){
+  getModelos(marca:string,categoria:string){
     console.log('resultado marcas');
-    this.modelosService.getModelosforMarca(marca).subscribe((resp:any)=>{
+    this.modelosService.getModelosforMarcaByCategoria(marca,categoria).subscribe((resp:any)=>{
       console.log(resp);
       this.modelos = resp;
     })
@@ -544,5 +549,18 @@ export class PublicarformComponent implements OnInit {
       default:
         break;
     }
+  }
+
+  filtarMarcas(value: string){
+    console.log(value)
+    this.filterMarcas= value
+  }
+  filtrarModelos(value: string){
+    console.log(value)
+    this.filterModelo= value
+  }
+  filtrarYear(value: string){
+    console.log(value)
+    this.filterYear= value
   }
 }

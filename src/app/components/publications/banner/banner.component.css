@@ -1,0 +1,10 @@
+.dj-banner{align-items: center; position: relative;}
+.dj-banner .dj-bg{ background-repeat: no-repeat; background-position: center; background-size: cover; width: 100%; }
+.dj-banner .dj-bg img{display: block; width: 100%; height: 200px;}
+.dj-banner .dj-text{text-align: center; padding-bottom: 20px; color:red}
+@media screen and (min-width:768px){
+   .dj-banner .dj-bg img{margin-right: 100px;}
+   .dj-banner .dj-text{position: absolute; top: 50%; left: 15%; transform: translate(-10%, -50%); width: 100%; text-align: left;}
+   .dj-banner .dj-text h1{font-size: calc(2*1.5vw);}
+   .dj-banner .dj-text p{font-size: calc(1.2*1.5vw); color: red;}
+}

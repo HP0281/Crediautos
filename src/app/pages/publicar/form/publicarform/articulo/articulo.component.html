@@ -1,0 +1,142 @@
+<div class="container-fluid page">
+    <app-header [option]="headers"></app-header>
+    <div class="body">
+        <div class="container form row m-auto">
+            <div class="title col-md-8 col-xs-11 m-auto">
+                <div class="title-text">
+                    <p>Paso {{ paso }} de 2</p>
+                    <h4>Empieza describiendo tu articulo</h4>
+                </div>
+                <div class="title-img">
+
+                </div>
+            </div>
+            <div class="form1 target col-xs-11 col-md-8">
+                <h4>Escoge un titulo para tu publicacion</h4>
+                <form [formGroup]="articuloForm" class="vehicleForm">
+                    <input type="text" class="form-control" placeholder="ejemplo: Producto para Renault "
+                        formControlName="name">
+                    <h5 class="mt-4 mb-4">Escoge una descripción para tu producto</h5>
+                    <textarea class="form-control" formControlName="descripcion" rows="3"></textarea>
+                </form>
+                <button type="button" class="btn btn-danger" [disabled]="!vehicleForm.valid"
+                    (click)="onContinue('titulo')" *ngIf="progreso=== 0">Continuar</button>
+            </div>
+            <div class="form2 target col-xs-11 col-md-8" *ngIf="progreso > 0">
+                <p>Elige el producto que quieres vender</p>
+                <div class="category">
+                    <h3>¿A qué categoría pertenece tu producto?</h3>
+                    <div class="bread">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"> <a class="link" (click)="back('categoria')">{{ category
+                                        }}</a></li>
+                                <li class="breadcrumb-item" *ngIf="marca != null"><a class="link"
+                                        (click)="back('marca')">{{ marca }}</a></li>
+                                <li class="breadcrumb-item" *ngIf="modelo != null"><a class="link"
+                                        (click)="back('modelo')">{{ modelo }}</a></li>
+                                <li class="breadcrumb-item" *ngIf="year != null"><a class="link"
+                                        (click)="back('year')">{{ year }}</a></li>
+                                <li class="breadcrumb-item" *ngIf="version != null"><a class="link"
+                                        (click)="back('version')">{{ version }}</a></li>
+                            </ol>
+                        </nav>
+                    </div>
+                    <div class="list-group" *ngIf="progreso === 1">
+                        <button type="button" class="list-group-item list-group-item-action"
+                            (click)="onCategory(category)" *ngFor="let category of categories">{{ category
+                            }}</button>
+                    </div>
+                </div>
+            </div>
+            <div class="target col-xs-11 col-md-8 m-auto" *ngIf="progreso === 2">
+                <h3>Cual es el valor de tu producto</h3>
+                <div>
+                    <div class="form-floating">
+                        <form [formGroup]="valorform">
+                            <input type="number" class="form-control" id="valor" placeholder="Precio de tu producto"
+                                formControlName="valor">
+                            <label for="marca">Valor</label>
+                        </form>
+                    </div>
+                    <button type="button" class="btn btn-outline-danger botones" [disabled]="!valorform.valid"
+                        (click)="onContinue('valor')">Continuar</button>
+                </div>
+            </div>
+            <div class="uploadimg target col-xs-11 col-md-8 " *ngIf="progreso > 2 ">
+                <h4>Selecciona la foto principal de tu producto</h4>
+                <input type="file" (change)="uploadImg($event)" accept="image/*">
+                <progress max="100" [value]="uploadProgress | async"></progress>
+
+                <div class="row mt-3 mb-3">
+                    <h4>Sube mas fotos de tu producto</h4>
+                    <div class="col-md-4 mt-2 mb-2">
+                        <div class="card">
+                            <div class="card-header">
+                                <span>Fotos</span>
+                            </div>
+                            <div class="card-body">
+                                <div appNgDominicodeFiles [files]="files" (mouseOver)="isOverDrop = $event"
+                                    [ngClass]="{ 'file-over': isOverDrop }" class="drop-zone">
+                                    <h4>Suelta aquí tus fotos</h4>
+                                    <img src="assets/marketplace/img/cloud.png" alt="drop-images" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-8 mt-2 mb-2">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4>Fotos para cargar</h4>
+                            </div>
+
+                            <div class="card-body">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Nombre</th>
+                                            <th>Tamaño</th>
+                                            <th>Progreso</th>
+                                            <th>URL</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let file of files">
+                                            <td>{{ file.name }}</td>
+                                            <td>{{ file.file.size / 1024 / 1024 | number: ".2.2" }}MB</td>
+                                            <td *ngIf="file.uploadPercent | async as uploadPercent">
+                                                <div class="progress">
+                                                    <div class="progress-bar" role="progessbar"
+                                                        [ngStyle]="{ width: uploadPercent + '%' }">
+                                                        {{ uploadPercent | number: "1.0-0" }} %
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td *ngIf="file.downloadURL | async as downloadURL">
+                                                <a [href]="downloadURL" target="_blank">Download URL</a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div class="container-buttons">
+                                    <button (click)="files = []" class="btn btn-danger m-3">Limpiar</button>
+                                    <button (click)="onUpload()" [disabled]="files.length === 0"
+                                        class="btn btn-primary m-3">
+                                        Cargar
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br><br>
+            <div class="row">
+                <button class="btn btn-danger m-auto" *ngIf="formPrincipal.valid && progreso > 2" [disabled]="!cargo"
+                    (click)="onguardar()">Guardar</button>
+            </div>
+            <br><br>
+        </div>
+    </div>
+    <app-footer-p></app-footer-p>
+</div>

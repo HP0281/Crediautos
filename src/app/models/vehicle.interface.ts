@@ -40,6 +40,8 @@ export interface Vehicle{
  barraantivuelco?: boolean;
  ctrestabilidad?: boolean;
  blindado?: boolean;
+ eds?: boolean;
+ llantasn?:boolean;
  aireacondicionado?: boolean;
  regalturavolante?: boolean;
  retrovisorelectrico?: boolean;
@@ -56,9 +58,11 @@ export interface Vehicle{
  cierrevidriosauto?: boolean;
  bluetooth?: boolean;
  dvd?: boolean;
+ vidrioseg?:boolean;
  repmp3?: boolean;
  entradausb?: boolean;
  cubiertaplaton?: boolean;
+ plana?: boolean;
  estribos?: boolean;
  exploradoras?: boolean;
  rineslujo?: boolean;
@@ -77,4 +81,7 @@ export interface Vehicle{
  descripcion: string;
  puertas:string;
  motor:string;
+ seguro?:boolean;
+ tecno?: boolean;
+ version?:string;
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { VehiclesService } from 'src/app/services/vehicles.service';
 
 @Component({
   selector: 'app-featurednew',
@@ -7,23 +8,39 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FeaturednewComponent implements OnInit {
 
-  constructor() { }
+  vehicles:any[];
+  constructor(private vehicleService: VehiclesService) {
+    this.getVehicles();
+   }
 
   ngOnInit(): void {
-    const fila = document.querySelector('.contenedorN-carrousel');
-    const ancho = document.querySelector('.contenedorN-carrousel').clientWidth;
-const publicaciones = document.querySelector('.publicacionN');
-const flechaizquierda = document.querySelector('.flecha-izquierdaN');
-const flechaderecha = document.querySelector('.flecha-derechaN');
-console.log(ancho);
-flechaizquierda.addEventListener('click', () => {
-  fila.scrollLeft -= ancho;
-  console.log('clickizuiqerdaN');
-});
+    this.scrollSlide();
+  }
+  scrollSlide(){
+    const filan = document.querySelector('.contenedor-carrousel-n');
+    const anchon = document.querySelector('.contenedor-carrousel-n').clientWidth;
+    const publicaciones = document.querySelector('.publicacion-n');
+    const flechaizquierdan = document.querySelector('.flecha-izquierda-n');
+    const flechaderechan = document.querySelector('.flecha-derecha-n');
+    console.log(anchon);
+    flechaizquierdan.addEventListener('click', () => {
+    filan.scrollLeft -= anchon;
+    console.log('clickizuiqerda');
+    });
 
-flechaderecha.addEventListener('click', () => {
-  fila.scrollLeft += ancho;
-});
+    flechaderechan.addEventListener('click', () => {
+    filan.scrollLeft += anchon;
+    });
     
+  }
+
+  getVehicles(){
+    this.vehicleService.getVehicleByKilometraje(0,0, true) .subscribe((resp:any)=>{
+      this.vehicles = resp;
+      console.log("0km",this.vehicles)
+    })
+  }
+  count(){
+    localStorage.setItem('count', JSON.stringify(0));
   }
 }

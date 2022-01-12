@@ -1,8 +1,4 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+
 .titulo{
     font-size: 32px;
     text-align: center;
@@ -10,12 +6,20 @@
 .description{
     padding: 0;
     text-align: center;
-    background-color: snow;
+    background-color: transparent;
+    color: rgba(255, 255, 255, 0.795);
     opacity: 0.8;
+}
+img{
+    height: 194.25px !important;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
 }
 .description h3{
     font-size: 22px;
     margin: 0;
+    color: #000;
 }
 /* contenedor titulo y controles */
 .contenedor-titulo-controles{
@@ -24,7 +28,7 @@
     align-items: end;
 }
 .contenedor-titulo-controles h3{
-    color: black;
+    
     font-size: 30px;
 }
 .contenedor-titulo-controles .indicadores button{
@@ -39,95 +43,100 @@
     background-color: brown;
 }
 /* contenedor principal y flechas */
-.publicaciones-recomendadasN{
+.publicaciones-recomendadas{
     margin-bottom: 20px;
     width: 80%;
     margin-left: auto;
     margin-right: auto;
 }
-.publicaciones-recomendadasN .contenedorN-principal{
+.publicaciones-recomendadas .contenedor-principal{
     display: flex;
     align-items: center;
     position: relative;
-    height: 250px;
+    height: 275px;
 }
-.publicaciones-recomendadasN .contenedorN-principal .flecha-izquierdaN,
-.publicaciones-recomendadasN .contenedorN-principal .flecha-derechaN{
+.publicaciones-recomendadas .contenedor-principal .flecha-izquierda-n,
+.publicaciones-recomendadas .contenedor-principal .flecha-derecha-n{
     position: absolute;
     border: none;
-    background: rgba(0, 0, 0, 0.3);
+    background: transparent;
     font-size: 40px;
     height: 50%;
     top: calc(50% - 25%);
     line-height: 40px;
     width: 50px;
-    color: seashell;
+    color: #000;
     cursor: pointer;
     z-index: 500;
     transition: .2s ease all;
 }
-.publicaciones-recomendadasN .contenedorN-principal .flecha-izquierdaN:hover,
-.publicaciones-recomendadasN .contenedorN-principal .flecha-derechaN:hover{
-    background-color: #fff;
+.publicaciones-recomendadas .contenedor-principal .flecha-izquierda-n:hover,
+.publicaciones-recomendadas .contenedor-principal .flecha-derecha-n:hover{
+    background-color: rgba(0, 0, 0, 0.4);
+    color: #fff;
     opacity: 0.9;
 }
-.publicaciones-recomendadasN .contenedorN-principal .flecha-izquierdaN{
+.publicaciones-recomendadas .contenedor-principal .flecha-izquierda-n{
     left: 0;
 }
-.publicaciones-recomendadasN .contenedorN-principal .flecha-derechaN{
+.publicaciones-recomendadas .contenedor-principal .flecha-derecha-n{
     right: 0;
 }
 /* carousel */
-.publicaciones-recomendadasN .contenedorN-carrousel{
+.publicaciones-recomendadas .contenedor-carrousel-n{
     width: 100%;
     height: 100%;
     padding: 20px 0px;
     overflow: hidden;
     scroll-behavior: smooth;
 }
-.publicaciones-recomendadasN .contenedorN-carrousel .carrouselN{
+.publicaciones-recomendadas .contenedor-carrousel-n .carrousel{
     display: flex;
     flex-wrap: nowrap;
     height: 100%;
 }
-.publicaciones-recomendadasN .contenedorN-carrousel .carrouselN .publicacionN{
-    width: 18%;
+.publicaciones-recomendadas .contenedor-carrousel-n .carrousel .publicacion-n{
     min-width: 18%;
-    transition: .3s ease all;
+    width: 18%;
+    transition: .4s ease all;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
     margin-left: 2%;  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: fit-content;
 }
-.publicaciones-recomendadasN .contenedorN-carrousel .carrouselN .publicacionN:first-child{
+.publicaciones-recomendadas .contenedor-carrousel-n .carrousel .publicacion-n:first-child{
 
     margin-left: 1%;  
 }
-.publicaciones-recomendadasN .contenedorN-carrousel .carrouselN .publicacionN:hover{
+.publicaciones-recomendadas .contenedor-carrousel-n .carrousel .publicacion-n:hover{
     transform: scale(1.1);
     transform-origin: center;
 }
-.publicaciones-recomendadasN .contenedorN-carrousel .carrouselN .publicacionN img{
+.publicaciones-recomendadas .contenedor-carrousel-n .carrousel .publicacion-n img{
     width: 100%;
     height: 160px;
     vertical-align: top;
 }
-.publicaciones-recomendadasN .contenedorN-carrousel .carrouselN .publicacionN .description{
+.publicaciones-recomendadas .contenedor-carrousel-n .carrousel .publicacion-n .description{
     height: 50px;
     font-size: 12px;
 }
-/*media quary *//*media quary */
+/*media quary */
 @media screen and (max-width: 1150px){
     
     
-    .publicaciones-recomendadasN .contenedorN-carrousel .carrouselN .publicacionN{
+    .publicaciones-recomendadas .contenedor-carrousel-n .carrousel .publicacion-n{
         min-width: 25%;
         width: 25%;
         margin-left: 1%;
     }
-    .publicaciones-recomendadasN .contenedorN-carrousel .carrouselN .publicacionN:first-child{
+    .publicaciones-recomendadas .contenedor-carrousel-n .carrousel .publicacion-n:first-child{
 
         margin-left: 0;  
     }
-    .publicaciones-recomendadas .contenedor-carrousel .carrousel{
+    .publicaciones-recomendadas .contenedor-carrousel-n .carrousel{
     }
     .publicaciones-recomendadas .indicadores{
         display: none;
@@ -136,16 +145,16 @@
 @media screen and (max-width: 920px){
     
     
-    .publicaciones-recomendadasN .contenedorN-carrousel .carrouselN .publicacionN{
+    .publicaciones-recomendadas .contenedor-carrousel-n .carrousel .publicacion-n{
         min-width: 33%;
         width: 33%;
         margin-left: 1%;
     }
-    .publicaciones-recomendadasN .contenedorN-carrousel .carrouselN .publicacionN:first-child{
+    .publicaciones-recomendadas .contenedor-carrousel-n .carrousel .publicacion-n:first-child{
 
         margin-left: 0;  
     }
-    .publicaciones-recomendadas .contenedor-carrousel .carrousel{
+    .publicaciones-recomendadas .contenedor-carrousel-n .carrousel{
     }
     .publicaciones-recomendadas .indicadores{
         display: none;
@@ -154,16 +163,16 @@
 @media screen and (max-width: 700px){
     
     
-    .publicaciones-recomendadasN .contenedorN-carrousel .carrouselN .publicacionN{
+    .publicaciones-recomendadas .contenedor-carrousel-n .carrousel .publicacion-n{
         min-width: 50%;
         width: 50%;
         margin-left: 1%;
     }
-    .publicaciones-recomendadasN .contenedorN-carrousel .carrouselN .publicacionN:first-child{
+    .publicaciones-recomendadas .contenedor-carrousel-n .carrousel .publicacion-n:first-child{
 
         margin-left: 0;  
     }
-    .publicaciones-recomendadas .contenedor-carrousel .carrousel{
+    .publicaciones-recomendadas .contenedor-carrousel-n .carrousel{
     }
     .publicaciones-recomendadas .indicadores{
         display: none;
@@ -172,16 +181,16 @@
 @media screen and (max-width: 600px){
     
     
-    .publicaciones-recomendadasN .contenedorN-carrousel .carrouselN .publicacionN{
+    .publicaciones-recomendadas .contenedor-carrousel-n .carrousel .publicacion-n{
         min-width: 100%;
         width: 100%;
         margin-left: 0;
     }
-    .publicaciones-recomendadasN .contenedorN-carrousel .carrouselN .publicacionN:first-child{
+    .publicaciones-recomendadas .contenedor-carrousel-n .carrousel .publicacion-n:first-child{
 
         margin-left: 0;  
     }
-    .publicaciones-recomendadas .contenedor-carrousel .carrousel{
+    .publicaciones-recomendadas .contenedor-carrousel-n .carrousel{
     }
     .publicaciones-recomendadas .indicadores{
         display: none;

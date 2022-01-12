@@ -6,12 +6,21 @@
 .description{
     padding: 0;
     text-align: center;
-    background-color: snow;
+    background-color: transparent;
+    color: rgba(255, 255, 255, 0.795);
     opacity: 0.8;
+    
+}
+img{
+    height: 194.25px !important;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
 }
 .description h3{
     font-size: 22px;
     margin: 0;
+    color: #000;
 }
 /* contenedor titulo y controles */
 .contenedor-titulo-controles{
@@ -45,27 +54,28 @@
     display: flex;
     align-items: center;
     position: relative;
-    height: 250px;
+    height: 275px;
 }
 .publicaciones-recomendadas .contenedor-principal .flecha-izquierda,
 .publicaciones-recomendadas .contenedor-principal .flecha-derecha{
     position: absolute;
     border: none;
-    background: rgba(0, 0, 0, 0.3);
+    background: transparent;
     font-size: 40px;
     height: 50%;
     top: calc(50% - 25%);
     line-height: 40px;
     width: 50px;
-    color: seashell;
+    color: #000;
     cursor: pointer;
     z-index: 500;
     transition: .2s ease all;
 }
 .publicaciones-recomendadas .contenedor-principal .flecha-izquierda:hover,
 .publicaciones-recomendadas .contenedor-principal .flecha-derecha:hover{
-    background-color: #fff;
+    background-color: rgba(0, 0, 0, 0.4);
     opacity: 0.9;
+    color: #fff;
 }
 .publicaciones-recomendadas .contenedor-principal .flecha-izquierda{
     left: 0;
@@ -92,6 +102,10 @@
     transition: .4s ease all;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
     margin-left: 2%;  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: fit-content;
 }
 .publicaciones-recomendadas .contenedor-carrousel .carrousel .publicacion:first-child{
 

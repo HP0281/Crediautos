@@ -1,76 +1,101 @@
-<div class="fondo ">
-    <div class=" container-fluid">
-        <div class="row ">
-            <div class="col-8 head borde m-auto">
-                <h3>Carros, Motos y otros</h3>
-                <h1>Tu vehículo está aquí</h1>
-                <div>
-                    <h5>Tu credito facil y en minutos</h5>
-                </div>
-            </div>
+<div class="fondo formulario ">
+
+    <div class=" container-fluid ">
+        <div class="background opac blur" style="background-image:url('assets/img/PREUBA PROMOCIONES CREDIAUTOS .CO (1200 x 150 px).png')">
         </div>
-            <div class="row">
-                <div class="col-12">
-                    <div class="container align-self-center col-md-8 formulario">
-                        <form [formGroup]="buscarf">
-                            <div class="mb-3 row">
-                                <div class="form-group col-md-4">
-                                    <select class="form-select form-control" name="vehiculo" id="vehiculo"
-                                        aria-label=".form-select-lg vehiculo" >
-                                        <option *ngFor="let opt of categorias" value="opt.id">{{ opt.name }}</option>
-                                    </select>
-                                </div>
-                                <div class="form-group col-md-4">
-                                    <select class="form-select form-control" (click)="filtroModelo()" formControlName="marca" name="marca" id="marca"
-                                        aria-label=".form-select-lg marca">
-                                        <option value="all" selected>Todas las marcas</option>
-                                    <option *ngFor="let marca of marcas"  value="{{marca.name}}">{{ marca.name }}</option>
+            <div class="col-12">
+                <div class="container align-self-center col-md-8 ">
+                    <form [formGroup]="buscarf">
+                        <div class="mb-3 row">
+                            <div [ngClass]="['form-group ', colum]">
+                                <select class="form-select form-control" (change)="filtarMarca($event)"
+                                    formControlName="categoria" name="vehiculo" id="vehiculo"
+                                    aria-label=".form-select-lg vehiculo">
+                                    <option *ngFor="let opt of categorias" value="{{opt.name}}">{{ opt.name }}</option>
                                 </select>
-                                </div>
-                                <div class="form-group col-md-4">
-                                    <select class="form-select form-control"  formControlName="modelo"
-                                        aria-label=".form-select-lg marca" disabled="{{ismodelo}}">
+                            </div>
+                            <div class="form-group col-md-4" *ngIf="showContent">
+                                <select class="form-select form-control" data-live-search="true"
+                                    (change)="filtroModelo()" formControlName="marca" name="marca" id="marca"
+                                    aria-label=".form-select-lg marca">
+                                    <option value="all" data-tokens="frosting" selected>Todas las marcas</option>
+                                    <option *ngFor="let marca of marcas" data-tokens="frosting" value="{{marca.name}}">
+                                        {{ marca.name }}</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-md-4" *ngIf="showContent">
+                                <select class="form-select form-control" data-live-search="true"
+                                    formControlName="modelo" aria-label=".form-select-lg modelo" disabled="{{ismodelo}}">
                                     <option value="all" selected>Todos los modelos</option>
-                                    <option *ngFor="let modelo of modelos" value="{{modelo.name}}">{{ modelo.name }}</option>
+                                    <option *ngFor="let modelo of modelos" value="{{modelo.name}}">{{ modelo.name }}
+                                    </option>
                                 </select>
+                            </div>
+                            <div class="form-group col-md-4" *ngIf="articulo">
+                                <select class="form-select form-control" formControlName="articulo"
+                                    aria-label=".form-select-lg articulo">
+                                    <option value="all" selected>Todos los Articulos</option>
+                                    <option value="Camiones" selected>Camiones</option>
+                                    <option value="Carros y Camionetas" selected>Carros y Camionetas</option>
+                                    <option value="Motos" selected>Motos</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="container-fluid filter border-filtro">
+                            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
+                                <div class="col selectValueFrom">
+                                    <div class="input-group mb-3">
+                                        <select class="form-select form-control" data-live-search="true"
+                                            (change)="hasta()" formControlName="preciodesde" name="preciodesde" id="preciodesde"
+                                            aria-label=".form-select-lg preciodesde">
+                                            <option value="0" data-tokens="frosting" selected>Precio Desde
+                                            </option>
+                                            <option value="0" data-tokens="frosting">Sin Precio
+                                            </option>
+                                            <option *ngFor="let precio of precioDesde" data-tokens="frosting"
+                                                value="{{precio}}">$ {{ precio | number:''}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col selectValueFrom">
+                                    <div class="input-group mb-3">
+                                        <select class="form-select form-control" 
+                                            formControlName="preciohasta" name="preciohasta" id="preciohasta"
+                                            aria-label=".form-select-lg preciohasta">
+                                            <option value="0" selected>Precio Hasta
+                                            </option>
+                                            <option value="0">Sin Limite
+                                            </option>
+                                            <option *ngFor="let precio of precioFilter" 
+                                                value="{{precio}}">$ {{ precio | number:''}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col selectModelFrom">
+                                    <input type="number" class="form-control " placeholder="Año Desde" min="1900"
+                                        max="3000" name="modelFrom" id="modelFrom"
+                                        aria-label=".form-select-lg modelFrom">
+
+                                </div>
+                                <div class="selectModelTo col">
+                                    <input type="number" class="form-control" placeholder="Año Hasta" name="modelTo"
+                                        id="modelTo" aria-label=".form-select-lg modelTo">
+
                                 </div>
                             </div>
-                            <div class="container-fluid filter border-filtro">
-                                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
-                                    <div class="col selectValueFrom">
-                                        <div class="input-group mb-3">
-                                            <input type="number" class="form-control " placeholder="Precio Desde" min = "0" max="" aria-label=".form-select-lg modelFrom">
-                                            
-                                          </div>
-                                    </div>
-                                    <div class="col selectValueFrom">
-                                        <div class="input-group mb-3">
-                                            <input type="number" class="form-control " placeholder="Precio Hasta" aria-label=".form-select-lg modelFrom">
-                                            
-                                          </div>
-                                    </div>
-                                    <div class="col selectModelFrom">
-                                        <input type="number" class="form-control " placeholder="Año Desde" min="1900" max="3000" name="modelFrom" id="modelFrom" aria-label=".form-select-lg modelFrom">
-                                            
-                                    </div>
-                                    <div class="selectModelTo col">
-                                        <input type="number" class="form-control" placeholder="Año Hasta" name="modelTo" id="modelTo" aria-label=".form-select-lg modelTo">
-                                            
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
+                        </div>
+                    </form>
+                </div>
+                <div class="justify-content-md-center">
+                    <div class="col-12 buscar">
+                        <button type="submit" class="btn btn-primary-black" (click)="buscar()">Buscar</button>
                     </div>
-    
                 </div>
             </div>
         
-        <div class="row justify-content-md-center">
-            <div class="col-12 buscar">
-                <button type="submit" class="btn btn-primary-black" (click)="buscar()">Buscar</button>
-            </div>
-        </div>
+
+        
     </div>
-    
+
 
 </div>

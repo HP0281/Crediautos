@@ -2,6 +2,9 @@
     background-color: rgba(183, 183, 164,0.1);
     height: 100%;
 }
+.ico{
+    font-size: 50px;
+}
 .promotion{
     margin-top: 30px;
     margin-bottom: 30px;
@@ -38,9 +41,14 @@
 .buscar{
     align-items: center;
     margin: auto;
+    color: #fff;
     min-width: 120px;
-    max-width: 150px;
     margin-top: 20px;
     margin-bottom: 20px;
     font-size: 13px;
+
+    text-decoration: none;
+    cursor: pointer;
+    text-align: center;
+    
 }
