@@ -46,13 +46,9 @@ export class UserService {
     );
   }
   getEmailById(id:string){
-    return this.afs.collection(('users'), ref => ref.where('id', "==", id)).valueChanges().pipe(
-      map(actions => actions.map(a => a as User))
-    );
+    return this.afs.collection(('users'), ref => ref.where('id', "==", id)).valueChanges();
   }
   getUserbyEmail(email:string){
-    return this.afs.collection(('users'), ref => ref.where('email', '==', email)).valueChanges().pipe(
-      map(actions => actions.map(a => a as User))
-    );
+    return this.afs.collection(('users'), ref => ref.where('email', '==', email)).valueChanges();
   }
 }

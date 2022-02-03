@@ -1270,7 +1270,9 @@
                                 <span>Fotos</span>
                             </div>
                             <div class="card-body">
-                                <div appNgDominicodeFiles [files]="files" (mouseOver)="isOverDrop = $event"
+                                <input type="file" (change)="uploadImgs($event)" accept="image/*" multiple>
+                                <hr><hr>
+                                <div  appNgDominicodeFiles [files]="files" (mouseOver)="isOverDrop = $event"
                                     [ngClass]="{ 'file-over': isOverDrop }" class="drop-zone">
                                     <h4>Suelta aquí tus fotos</h4>
                                     <img src="assets/marketplace/img/cloud.png" alt="drop-images" />

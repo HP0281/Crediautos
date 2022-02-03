@@ -41,9 +41,12 @@ export class ResumenComponent implements OnInit {
       this.finalizadas = resp.length;
     })
   }
-  getcliente(id){
+  getCliente(id: string){
+    let cliente
     this.clienteService.getEmailById(id).subscribe(resp => {
-      return resp[0].name;
+      cliente = resp[0];
     })
+    console.log(cliente);
+    return cliente;
   }
 }

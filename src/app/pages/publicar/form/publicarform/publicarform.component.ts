@@ -529,6 +529,11 @@ export class PublicarformComponent implements OnInit {
     ).subscribe();
     this.onContinue('img');
   }
+  uploadImgs(event){
+    this.files = event.target.files;
+    console.log(this.files
+      )
+  }
   back(opt: string){
     switch (opt) {
       case 'marca':
