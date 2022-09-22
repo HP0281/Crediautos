@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { PagoEpaycoComponent } from './pages/epayco/pago-epayco/pago-epayco.component';
 import { ResumenComponent } from './pages/perfil/perfil/resumen/resumen.component';
 import { ArticuloInfoComponent } from './pages/product-info/articulo-info/articulo-info.component';
 import { ProductInfoComponent } from './pages/product-info/product-info.component';
@@ -35,6 +36,7 @@ const routes: Routes = [
   { path: 'modeloform', loadChildren: () => import('./components/forms/modelos-form/modelos-form.module').then(m => m.ModelosFormModule)},
   { path: 'versionform', loadChildren: () => import('./components/forms/version-form/version-form.module').then(m => m.VersionFormModule)},
   { path: 'userInfo', loadChildren: () => import('./components/user-info/user-info.module').then(m => m.UserInfoModule)},
+  { path: 'pago', component: PagoEpaycoComponent},
   { path: '', pathMatch: 'full', redirectTo: '/inicio'},
   { path: '**', redirectTo: '/trabajando'}];
 

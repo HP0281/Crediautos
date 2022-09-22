@@ -29,15 +29,19 @@ export class UserService {
   });
   }
   onSaveUser(user: User, vechicleId?: string): Promise<void>{
+    console.log("guardar usuario 1", user)
     return new Promise(async (resolve, reject ) => {
       try {
         const id = vechicleId || this.afs.createId();
         const data = {id, ...user };
+        console.log("guardar usuario 2", user)
         const result = await this.usercollection.doc(id).set(data);
         resolve(result);
       } catch (error) {
+        console.log("guardar usuario 3", user)
         reject(error.message);
       }
+      console.log("guardar usuario 4", user)
     });
   }
   private getUsers(): void{
@@ -46,9 +50,13 @@ export class UserService {
     );
   }
   getEmailById(id:string){
-    return this.afs.collection(('users'), ref => ref.where('id', "==", id)).valueChanges();
+    return this.afs.collection(('users'), ref => ref.where('id', "==", id)).valueChanges().pipe(
+      map(actions => actions.map(a => a as User))
+   );
   }
   getUserbyEmail(email:string){
-    return this.afs.collection(('users'), ref => ref.where('email', '==', email)).valueChanges();
+    return this.afs.collection(('users'), ref => ref.where('email', '==', email)).valueChanges().pipe(
+      map(actions => actions.map(a => a as User))
+   );
   }
 }

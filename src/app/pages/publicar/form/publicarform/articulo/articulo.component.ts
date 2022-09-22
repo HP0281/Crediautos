@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { NavigationExtras, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { CategoriesService } from 'src/app/services/categories/categories.service';
@@ -58,7 +58,12 @@ export class ArticuloComponent implements OnInit {
   isImageSaved: boolean;
   cardImageBase64: string = "";
 
-  
+  navigatiionExtras : NavigationExtras = {
+    state:{
+      value:null,
+      isVehiculo: false
+    }
+  }
 
   
 
@@ -150,6 +155,7 @@ export class ArticuloComponent implements OnInit {
       desc: new FormControl(''),
       valor : new FormControl(''),
       status: new FormControl(false),
+      state: new FormControl('creado'),
       promocion: new FormControl(false)
     })
   }
@@ -165,11 +171,8 @@ export class ArticuloComponent implements OnInit {
       }
   }
   async onguardar() {
-    console.log("entra a onguardar")
     if (this.files.length>0 && this.cargoI) {
-      console.log("entra a onguardar 1")
       if (this.formPrincipal.valid) {
-        console.log("entra a onguardar 2")
         const articulo = this.formPrincipal.value;
         const articuloid = this.articulo?.id || null;
         await this.articuloService.onSaveArticulo(articulo, articuloid);
@@ -186,8 +189,9 @@ export class ArticuloComponent implements OnInit {
             })
             
           }
-          this.redirecto();  
-        //this.articuloInfoService.onSaveArticulo(articulo, articuloid );
+          this.redirecto(); 
+          this.navigatiionExtras.state.value = articulo;
+          this.router.navigate(['/userInfo'], this.navigatiionExtras);
         alert('registro creado correctamente');
         
       }
@@ -269,7 +273,7 @@ export class ArticuloComponent implements OnInit {
       this.categories = [
         "Carros y Camionetas",
         "Motos",
-        "amiones"
+        "Camiones"
       ]
   }
   
@@ -279,7 +283,6 @@ export class ArticuloComponent implements OnInit {
     })
   }
   uploadImg(event){
-    
     const file = event.target.files[0];
     const randomId = Math.random().toString(36).substring(2);
     const filepath = `images/${randomId}`;
@@ -299,6 +302,16 @@ export class ArticuloComponent implements OnInit {
     ).subscribe();
     this.onContinue('img');
   }
+  uploadImgs(event){
+    const file = event.target.files;
+    for (let index = 0; index < file.length; index++) {
+      const randomId = Math.random().toString(36).substring(2);
+      const filepath = `images/${randomId}`;
+      let newfile: FileItem = new FileItem(file[index]);
+      this.files.push(newfile);
+    }
+    
+  }
   back(opt: string){
     switch (opt) {
       case 'marca':
@@ -311,4 +324,6 @@ export class ArticuloComponent implements OnInit {
         break;
     }
   }
+
+
 }

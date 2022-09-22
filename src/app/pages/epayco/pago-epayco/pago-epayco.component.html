@@ -1,0 +1,33 @@
+
+<app-header></app-header>
+<div class="ps-checkout ps-section--shopping">
+    
+    <div class="container">
+
+        <div class="ps-section__header">
+            <div class="col-12 row" >
+                <div class="e-btn cart-qtt btn-gradient tamano col-6">
+                    <a (click)="pagoTarjeta()" class="btn-add-cart color-btn">
+                        <h2 class="h2color">Tarjeta de credito</h2>
+                    </a>
+                </div>
+                <div class="e-btn cart-qtt btn-gradient tamano col-6">
+                    <a (click)="pagoPSE()" class="btn-add-cart color-btn row">
+                        <h2 class="h2color">PSE</h2>
+                    </a>
+                </div>
+                <!--div class="e-btn cart-qtt btn-gradient tamano col-4">
+                    <a (click)="pagoDaviplata()" class="btn-add-cart color-btn">
+                        <h2 class="h2color">DaviPlata</h2>
+                    </a>
+                </div-->
+            </div>
+
+        </div>
+    </div>
+        <app-tarjeta *ngIf="this.tipoPago == 'tarjeta'"></app-tarjeta>
+        <app-pse *ngIf="this.tipoPago == 'PSE'"></app-pse>
+
+    
+</div>
+<app-footer-p></app-footer-p>

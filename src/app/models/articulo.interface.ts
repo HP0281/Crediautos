@@ -8,4 +8,5 @@ export interface Articulo{
     status: boolean;
     promocion: boolean;
     categoria: string;
+    state: string;
 }

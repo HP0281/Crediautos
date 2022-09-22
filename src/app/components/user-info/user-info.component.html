@@ -36,6 +36,30 @@
                     </mat-label>
                     <input matInput placeholder="Numero de identificacion" formControlName="identificacion">
                 </mat-form-field>
+                
+                <!--h4>Sube el anverso del documento de identidad</h4>
+                <input type="file" (change)="uploadImg($event, true)" class="inputfile"  accept="image/*">
+                
+                <progress class="col-12" max="100" [value]="uploadProgress | async"></progress>
+                <mat-card>
+                    <div class="col-12">
+                        <img class="imgDoc"  [src]="this.userForm.get('urlAnverso').value" alt="" srcset="">
+                        <h5><span>Verifica que los datos del documento de identidad sean legibles</span></h5>
+                    </div>
+                    
+                </mat-card>
+                <hr>
+                <h4>Sube el reverso del documento de identidad</h4>
+                <input type="file" (change)="uploadImg($event, false)" class="inputfile" accept="image/*">
+                <progress class="col-12" max="100" [value]="uploadProgress1 | async"></progress>
+                <mat-card>
+                    <div class="col-12">
+                        <img class="imgDoc"  [src]="this.userForm.get('urlReverso').value" alt="" srcset="">
+                        <h5><span>Verifica que los datos del documento de identidad sean legibles</span></h5>
+                    </div>
+                    
+                </mat-card-->
+                <br>
                 <mat-card>
                     <mat-card-title>
                         Direccion
@@ -58,6 +82,7 @@
                 </mat-form-field>
             </div>
         </form>
+        <div id="recaptcha1"></div>
         <button mat-button (click)="guardar()">Guardar y publicar</button>
     </mat-card>
 </div>

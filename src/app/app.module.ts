@@ -27,6 +27,15 @@ import { ArticuloInfoComponent } from './pages/product-info/articulo-info/articu
 import { BannerComponent } from './components/publications/banner/banner.component';
 
 import { SlickCarouselModule } from 'ngx-slick-carousel'
+import { LoginEpaycoService } from './services/epayco/login/login-epayco.service';
+import { HttpClientModule } from '@angular/common/http';
+import { PagoEpaycoComponent } from './pages/epayco/pago-epayco/pago-epayco.component';
+import { TransctionService } from './services/epayco/transaction/transction.service';
+import { TarjetaComponent } from './pages/epayco/pago-epayco/components/tarjeta/tarjeta.component';
+import { PseComponent } from './pages/epayco/pago-epayco/components/pse/pse.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MaterialModule } from './shared/material/material.module';
 
 @NgModule({
   declarations: [
@@ -38,7 +47,10 @@ import { SlickCarouselModule } from 'ngx-slick-carousel'
     HeaderResultComponent, 
     BodyResultComponent, 
     PoliticasComponent, 
-    ArticuloInfoComponent
+    ArticuloInfoComponent, 
+    PagoEpaycoComponent,
+    TarjetaComponent,
+    PseComponent
   ],
   imports: [
     BrowserModule,
@@ -53,10 +65,16 @@ import { SlickCarouselModule } from 'ngx-slick-carousel'
     HeaderModule,
     FooterModule,
     ReactiveFormsModule,
+    HttpClientModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MaterialModule
   ],
   providers: [AngularFirestore,
   { provide: LocationStrategy, useClass: HashLocationStrategy },
-  { provide: BUCKET, useValue: 'gs://crediautos.appspot.com'}
+  { provide: BUCKET, useValue: 'gs://crediautos.appspot.com'},
+  LoginEpaycoService,
+  TransctionService
 ],
   bootstrap: [AppComponent]
 })

@@ -64,7 +64,8 @@ export class PublicarformComponent implements OnInit {
 
   navigatiionExtras : NavigationExtras = {
     state:{
-      value:null
+      value:null,
+      isVehiculo: true
     }
   }
 
@@ -375,13 +376,10 @@ export class PublicarformComponent implements OnInit {
         await this.vehicleService.onSaveVehicle(vehicle, vehicleid);
         let id = JSON.parse(localStorage.getItem('idVehicle'));
           for (let index = 0; index < this.files.length; index++) {
-            let url;
-            console.log("id vehicle", id);
             await this.fileChangeEvent(this.files[index].fileActual);
             this.files[index].downloadURL.subscribe( async Url => {
               let img : Image = {idvehicle: id, urlimg: Url}
             const imageid = img?.id || null;
-            console.log("antes del s", img , imageid, url);
             await this.storageSvc.onSaveImage(img, imageid);
             })
             
@@ -530,9 +528,14 @@ export class PublicarformComponent implements OnInit {
     this.onContinue('img');
   }
   uploadImgs(event){
-    this.files = event.target.files;
-    console.log(this.files
-      )
+    const file = event.target.files;
+    for (let index = 0; index < file.length; index++) {
+      const randomId = Math.random().toString(36).substring(2);
+      const filepath = `images/${randomId}`;
+      let newfile: FileItem = new FileItem(file[index]);
+      this.files.push(newfile);
+    }
+    
   }
   back(opt: string){
     switch (opt) {

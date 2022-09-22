@@ -24,7 +24,7 @@ export class FormComponent implements OnInit {
 
   registroForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private userservice: UserService, public win: WindowService,
+  constructor(private fb: FormBuilder, private userservice: UserService, private win: WindowService,
     private authservice: AuthService) {
     this.initform();
    }
@@ -34,7 +34,9 @@ export class FormComponent implements OnInit {
     firebase.auth().languageCode = 'es';
     this.windowsReferencia.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha', {
       'size': 'normal',
-      'callback': this.disableSignUpBtn = true,
+      'callback': (resp) => {
+        this.disableSignUpBtn = resp
+      },
       'expired-callback': function() {
         this.disableSignUpBtn = false;
         console.log("no entara en el callback");

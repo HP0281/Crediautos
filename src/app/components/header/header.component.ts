@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { AuthService } from 'src/app/services/auth/auth.service';
+import { UserService } from 'src/app/services/user/user.service';
 
 @Component({
   selector: 'app-header',
@@ -13,6 +14,7 @@ export class HeaderComponent implements OnInit {
   @Input() option;
   isloggin = false;
   user: any;
+  userInfo: any;
   contacto:boolean=false;
   publica:boolean=false;
   ayuda:boolean=false;
@@ -22,6 +24,7 @@ export class HeaderComponent implements OnInit {
   perfil:boolean=false;
   constructor(private router: Router,
     private auth: AuthService,
+    private userinfo: UserService,
     private serviceModal: NgbModal) {
       this.validateLog();
       
@@ -47,7 +50,10 @@ export class HeaderComponent implements OnInit {
       this.user = respo;
       if (this.user) {
         this.isloggin = true;
-        localStorage.setItem('nombre', JSON.stringify(this.user.displayName));
+        this.userInfo = this.userinfo.getEmailById(this.user.uid);
+        console.log(this.userInfo.id);
+
+        localStorage.setItem('nombre', JSON.stringify(this.user.displayName != null ? this.user.displayName : this.userInfo.name));
         localStorage.setItem('isloggin', JSON.stringify(true));
       }
     });

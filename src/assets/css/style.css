@@ -8453,8 +8453,7 @@ span.star:before {
   height: 100%;
   text-align: center; }
   .quickview-wrapper.open {
-    z-index: 10000;
-    background: rgba(0, 0, 0, 0.8); }
+    z-index: 10000; }
   .quickview-wrapper .quick-modal {
     max-width: 920px;
     width: 90%;

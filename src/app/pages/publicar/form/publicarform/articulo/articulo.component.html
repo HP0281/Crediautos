@@ -65,7 +65,7 @@
             </div>
             <div class="uploadimg target col-xs-11 col-md-8 " *ngIf="progreso > 2 ">
                 <h4>Selecciona la foto principal de tu producto</h4>
-                <input type="file" (change)="uploadImg($event)" accept="image/*">
+                <input type="file" (change)="uploadImg($event)" class="inputfile" accept="image/*">
                 <progress max="100" [value]="uploadProgress | async"></progress>
 
                 <div class="row mt-3 mb-3">
@@ -78,9 +78,20 @@
                             <div class="card-body">
                                 <div appNgDominicodeFiles [files]="files" (mouseOver)="isOverDrop = $event"
                                     [ngClass]="{ 'file-over': isOverDrop }" class="drop-zone">
-                                    <h4>Suelta aquí tus fotos</h4>
-                                    <img src="assets/marketplace/img/cloud.png" alt="drop-images" />
+                                    <center>
+                                        <h4>Suelta aquí tus fotos</h4>
+                                        <img src="assets/marketplace/img/cloud.png" alt="drop-images" />
+                                    </center>
                                 </div>
+                                <div >
+
+                                </div>
+                                <center>
+                                    <input type="file" id="file" class="input-file-input"(change)="uploadImgs($event)" multiple />
+                                <label for="file" class="input-file__btn">
+                                    Subir Fotos
+                                </label>
+                                </center>
                             </div>
                         </div>
                     </div>

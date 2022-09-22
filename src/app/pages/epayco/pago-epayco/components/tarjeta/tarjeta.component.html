@@ -1,0 +1,114 @@
+<hr>
+<div *ngIf="preload" class="row">
+    <div class="col-12 center-horizontal">
+        <img src="assets/loading-13.gif" height="120px" alt="">
+    </div>
+</div>
+<div class="container" *ngIf="spinner2">
+    <div class="p-grid">
+        <div class="p-col-12 p-md-12 p-text-center">
+            <h3>Verificando transaccion</h3>
+            <h5>Intento #</h5>
+        </div>
+        <div class="p-col-12 p-md-12 p-text-center">
+            <h4>No cierre la ventana hasta que se confirme la transaccion.</h4>
+        </div>
+    </div>
+</div>
+<div class="container" *ngIf="!preload && !spinner2"
+    style="padding-top: 30px !important; background: #f3f3f4; height: 100% ; max-width: 100%;">
+    <div class="container" style="display: flex; justify-content: center;">
+        <div class="col-xs-12 col-md-6 mx-auto">
+            <div class="p-shadow-5 "style="background-color: white; ">
+                
+                <div  class="full-width card-form-pay-method" [formGroup]="card">
+                    <div class="row without-margin justify-content-center">
+                        <div class="col-12 p-text-center">
+                            <label class="p-button-label">FORMULARIO TARJETA CREDITO</label>
+                        </div>
+                        <div class="col-12 col-md-8 p-text-center">
+                            <label class="full-width without-margin p-button-label" style="font-size: 14px;">Número de
+                                tarjeta</label>
+                                <br>
+                            <mat-form-field class="col-12" style="margin-top: -15px;">
+                                <input matInput class="form-control  p-text-center" formControlName="number" maxlength="16" type="number"
+                                    >
+                                <mat-hint>Introduce el número sin guiones</mat-hint>
+                                <mat-error *ngIf="this.card.get('number').invalid">Debe tener 16 digitos</mat-error>
+                            </mat-form-field>
+                        </div>
+                        <div class="col-6 col-md-4 col-lg-4 p-text-center">
+                            <label class="full-width without-margin p-button-label" style="font-size: 14px;">CVC</label>
+                            <mat-form-field class="col-12" style="margin-top: -15px;">
+                                <input matInput class="form-control  p-text-center p-text-center" [type]="hideCVC ? 'password' : 'text'" formControlName="cvc" maxlength="3"
+                                    >
+                                <button mat-icon-button matSuffix  [attr.aria-label]="'ocultar'"
+                                    [attr.aria-pressed]="hideCVC">
+                                    <mat-icon class="p-button-label"></mat-icon>
+                                </button>
+                                <mat-error *ngIf="this.card.get('cvc').invalid">Debe tener 3 digitos</mat-error>
+                            </mat-form-field>
+                        </div>
+                        <div class="col-6 col-md-4 p-text-center">
+                            <label class="full-width without-margin p-button-label" style="font-size: 14px;">Mes</label>
+                            <mat-form-field class="col-12" style="margin-top: -15px;">
+                                <input matInput class="form-control  p-text-center" type="number" formControlName="exp_month" maxlength="2" max="12"
+                                   >
+                                <mat-error *ngIf="this.card.get('exp_month').invalid">{{getErrorCardMonth()}}
+                                </mat-error>
+                            </mat-form-field>
+                        </div>
+                        <div class="col-6 col-md-4 p-text-center">
+                            <label class="full-width without-margin p-button-label" style="font-size: 14px;">Año</label>
+                            <mat-form-field class="col-12" style="margin-top: -15px;">
+                                <input matInput class="form-control  p-text-center" formControlName="exp_year" maxlength="4"
+                                    >
+                                <mat-error *ngIf="this.card.get('exp_year').invalid">{{getErrorCardYear()}}
+                                </mat-error>
+                            </mat-form-field>
+                        </div>
+                        <div class="col-6 col-md-4 p-text-center">
+                            <label class="full-width without-margin p-button-label" style="font-size: 14px;">Cuotas</label>
+                            <mat-form-field class="col-12 " style="margin-top: -15px;">
+                                <input matInput class="form-control  p-text-center" formControlName="installments" maxlength="2"
+                                    >
+                                <mat-error *ngIf="this.card.get('installments').invalid">
+                                </mat-error>
+                            </mat-form-field>
+                        </div>
+                        <div class="col-12">
+                            <label class="full-width without-margin p-button-label p-text-center" style="font-size: 14px;">Titular
+                                de la tarjeta</label>
+                                <br>
+                            <mat-form-field class="col-12" style="margin-top: -15px;">
+                                <input class="form-control rounde p-text-center" matInput formControlName="card_holder" maxlength="150">
+                                <mat-error *ngIf="this.card.get('card_holder').invalid">
+                                </mat-error>
+                            </mat-form-field>
+                        </div>
+                        <div class="col-12">
+                            <label class="full-width without-margin p-button-label p-text-center" style="font-size: 14px;">Email del titular</label>
+                                <br>
+                            <mat-form-field class="col-12" style="margin-top: -15px;">
+                                <input class="form-control rounde p-text-center" matInput formControlName="customer_email" maxlength="150">
+                                <mat-error *ngIf="this.card.get('customer_email').invalid">
+                                </mat-error>
+                            </mat-form-field>
+                        </div>
+                        <div class="col-12 p-text-center">
+                            <h4 class="p-button-label" style="text-align: center; align-items: center;">Valor a
+                                pagar: $ {{productActual.valor}}</h4>
+                        </div>
+                        <div class="col-12 p-text-center" style="margin-top: 15px; text-align: center; align-items: center;">
+                            <button type="button" (click)="pagar()" class="btn btn-danger"
+                                style="text-align: center; align-items: center;" 
+                                >Pagar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+   
+</div>
+

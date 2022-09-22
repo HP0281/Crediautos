@@ -1,0 +1,75 @@
+
+
+.p-shadow-5{
+    background-color: white;
+    border-radius: 10px;
+}
+.card-payment-method {
+    padding: 10px;
+    border-radius: 30px;
+    margin-bottom: 15px;
+    background-color: white;
+    color: red;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+.form-control{
+    border: 1px solid red;
+}
+
+.card-payment-method:hover {
+    background-color: red;
+    color: white;
+    padding: 10px;
+    border-radius: 30px;
+    border: 1px solid red;
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    
+}
+.mat-select-value-text{
+    color: #6eb1d2;
+}
+.card-form-pay-method{
+    border-radius: 30px;
+    padding: 25px;
+}
+
+.label-form-pay-methods {
+    color: #828282;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.label-comission {
+    color: #828282;
+}
+
+.label-totalvalue{
+    color: #6eb1d2;
+}
+
+.btn-back-to-contracts {
+    background-color: white;
+    border: 1px solid red;
+    color: red;
+    margin-bottom: 15px;
+    padding: 7px 13px;
+    border-radius: 30px;
+}
+
+.btn-back-to-contracts:hover {
+    border: 1px solid red;
+    background-color: red;
+    color: white;
+    margin-bottom: 15px;
+    padding: 7px 13px;
+    border-radius: 30px;
+}

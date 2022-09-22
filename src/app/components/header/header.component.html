@@ -33,7 +33,7 @@
                   class="fa fa-user"></i>Crear cuenta</a></li>
             <li *ngIf="isloggin && perfil" class="dropdown">
               <a class="nav-link dropdown-toggle p-0" id="navbarDarkDropdownMenuLink" role="button"
-                data-bs-toggle="dropdown" aria-expanded="false"><i class="fa fa-user"></i>hola, {{ user?.displayName
+                data-bs-toggle="dropdown" aria-expanded="false"><i class="fa fa-user"></i>hola, {{ user?.displayName != null ? user?.displayName : this.userInfo.name
                 }}</a>
               <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
                 <li><a class="dropdown-item" [routerLink]="['/perfil']">Cuenta</a></li>
